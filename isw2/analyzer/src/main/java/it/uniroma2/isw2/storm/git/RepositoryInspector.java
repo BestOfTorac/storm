@@ -11,15 +11,19 @@ import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.revwalk.RevWalk;
 import org.eclipse.jgit.storage.file.FileRepositoryBuilder;
+import org.eclipse.jgit.treewalk.TreeWalk;
+import org.eclipse.jgit.treewalk.filter.PathSuffixFilter;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.Instant;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 public final class RepositoryInspector implements AutoCloseable {
 
@@ -115,15 +119,18 @@ public final class RepositoryInspector implements AutoCloseable {
                     continue;
                 }
 
-                RevCommit commit = revWalk.parseCommit(commitId);
+                RevCommit commit =
+                    revWalk.parseCommit(commitId);
 
-                String tagName = Repository.shortenRefName(
-                    tagReference.getName()
-                );
+                String tagName =
+                    Repository.shortenRefName(
+                        tagReference.getName()
+                    );
 
-                Instant commitDate = Instant.ofEpochSecond(
-                    commit.getCommitTime()
-                );
+                Instant commitDate =
+                    Instant.ofEpochSecond(
+                        commit.getCommitTime()
+                    );
 
                 tags.add(
                     new GitTagInfo(
@@ -136,12 +143,70 @@ public final class RepositoryInspector implements AutoCloseable {
         }
 
         tags.sort(
-            java.util.Comparator
+            Comparator
                 .comparing(GitTagInfo::commitDate)
                 .thenComparing(GitTagInfo::name)
         );
 
         return List.copyOf(tags);
+    }
+
+    public List<String> readJavaFilePathsAtCommit(
+            String commitId)
+            throws IOException {
+
+        Objects.requireNonNull(
+            commitId,
+            "Commit ID cannot be null."
+        );
+
+        String normalizedCommitId = commitId.trim();
+
+        if (normalizedCommitId.isBlank()) {
+            throw new IOException(
+                "Commit ID cannot be blank."
+            );
+        }
+
+        ObjectId commitObjectId =
+            repository.resolve(normalizedCommitId);
+
+        if (commitObjectId == null) {
+            throw new IOException(
+                "Unable to resolve commit: "
+                    + normalizedCommitId
+            );
+        }
+
+        List<String> javaFilePaths =
+            new ArrayList<>();
+
+        try (
+            RevWalk revWalk =
+                new RevWalk(repository);
+
+            TreeWalk treeWalk =
+                new TreeWalk(repository)
+        ) {
+            RevCommit commit =
+                revWalk.parseCommit(commitObjectId);
+
+            treeWalk.addTree(commit.getTree());
+            treeWalk.setRecursive(true);
+            treeWalk.setFilter(
+                PathSuffixFilter.create(".java")
+            );
+
+            while (treeWalk.next()) {
+                javaFilePaths.add(
+                    treeWalk.getPathString()
+                );
+            }
+        }
+
+        javaFilePaths.sort(String::compareTo);
+
+        return List.copyOf(javaFilePaths);
     }
 
     @Override
