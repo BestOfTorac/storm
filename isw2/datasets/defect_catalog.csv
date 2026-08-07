@@ -1,0 +1,1194 @@
+IssueId,IssueKey,IssueType,Status,Resolution,CreatedAt,ResolvedAt,AffectedVersions,FixVersions,Summary
+12684634,STORM-75,Bug,Closed,Fixed,2013-12-14T06:23:43Z,2015-10-09T01:21:44Z,,,Dead lock between ShellBolt and ShellProcess
+12684647,STORM-86,Bug,Resolved,Fixed,2013-12-14T08:04:50Z,2014-08-08T18:15:47Z,,0.9.2-incubating,KafkaSpout in storm 0.9.0_rc2 does not work
+12684648,STORM-87,Bug,Resolved,Fixed,2013-12-14T08:05:59Z,2014-08-07T16:33:46Z,,0.9.3,ShellBolt shoud fail fast on subprocess error
+12684722,STORM-113,Bug,Resolved,Fixed,2013-12-14T16:07:21Z,2014-05-02T19:14:46Z,,0.9.2-incubating,TridentUtils.thriftDeserialize() is used unsafely when running in local mode.
+12684756,STORM-130,Bug,Resolved,Fixed,2013-12-15T05:08:12Z,2015-02-23T16:50:42Z,0.9.2-incubating | 0.9.3 | 0.9.4,0.10.0 | 0.9.5,[Storm 0.8.2]: java.io.FileNotFoundException: File '../stormconf.ser' does not exist
+12684760,STORM-134,Bug,Closed,Fixed,2013-12-15T05:23:21Z,2015-10-09T01:21:22Z,,,FileNotFoundException during supervisor cleanup due to non-existant file
+12684765,STORM-139,Bug,Resolved,Fixed,2013-12-15T06:04:26Z,2015-07-22T23:48:31Z,,0.10.0,hashCode does not work for byte[]
+12684769,STORM-143,Bug,Resolved,Fixed,2013-12-15T06:13:16Z,2016-04-28T00:58:21Z,,0.10.0,Launching a process throws away standard out; can hang
+12684773,STORM-146,Bug,Resolved,Fixed,2013-12-15T06:20:08Z,2014-03-12T16:33:37Z,,0.9.2-incubating,Unit test regression when storm is compiled with 3.4.5 zookeeper
+12684776,STORM-149,Bug,Closed,Fixed,2013-12-15T06:28:07Z,2015-10-09T01:15:34Z,,,"""storm jar"" doesn't work on Windows"
+12684782,STORM-155,Bug,Resolved,Fixed,2013-12-15T06:52:13Z,2014-07-25T21:37:58Z,,0.9.3,Storm rebalancing code causes multiple topologies assigned to a single port
+12684783,STORM-156,Bug,Closed,Fixed,2013-12-15T06:55:24Z,2015-10-09T01:20:34Z,,,Compiling Storm 0.9.0 results in java.lang.ClassNotFoundException: backtype.storm.LocalDRPC
+12685887,STORM-181,Bug,Resolved,Fixed,2013-12-20T20:50:02Z,2014-01-08T00:46:47Z,,,Wrong config types submitted with topologies can bring nimbus down
+12686087,STORM-183,Bug,Resolved,Fixed,2013-12-23T01:40:47Z,2014-06-25T14:04:11Z,,0.9.3,Supervisor/worker shutdown hook should be called in distributed mode.
+12686253,STORM-186,Bug,Resolved,Fixed,2013-12-24T04:25:27Z,2014-03-12T16:37:23Z,,0.9.2-incubating,Milliseconds level tick tuple is broken
+12686422,STORM-187,Bug,Resolved,Fixed,2013-12-26T15:08:53Z,2014-03-05T19:33:26Z,,0.9.2-incubating,"From ZMQ to Netty ""java.lang.IllegalArgumentException: timeout value is negative"""
+12686928,STORM-188,Bug,Resolved,Fixed,2014-01-02T05:45:37Z,2015-04-03T20:45:45Z,,0.10.0,Allow user to specify full configuration path when running storm command
+12688421,STORM-194,Bug,Resolved,Fixed,2014-01-12T01:00:11Z,2014-04-22T16:39:44Z,,0.9.2-incubating,Workers don't launch properly when the topology name has a space in it
+12688927,STORM-195,Bug,Closed,Fixed,2014-01-15T03:16:11Z,2015-10-09T01:19:49Z,,,dependency-reduced-pom.xml should be in .gitignore
+12689012,STORM-196,Bug,Resolved,Fixed,2014-01-15T14:49:39Z,2014-04-11T14:35:57Z,,0.9.2-incubating,"When JVM_OPTS are set, storm jar fails to detect storm.jar from environment"
+12691276,STORM-198,Bug,Resolved,Fixed,2014-01-26T17:18:52Z,2014-02-05T03:08:45Z,,,Cannot build storm from latest source
+12691594,STORM-203,Bug,Resolved,Fixed,2014-01-28T10:05:18Z,2016-11-03T17:45:40Z,,2.0.0,Add /usr/lib64 in default java library path
+12693383,STORM-214,Bug,Resolved,Fixed,2014-02-05T15:57:49Z,2015-03-22T22:13:32Z,,,Windows: storm.cmd does not properly handle multiple -e arguments
+12694196,STORM-237,Bug,Resolved,Fixed,2014-02-10T01:54:33Z,2014-02-10T14:00:49Z,,,Classpath issue with storm.cmd on Windows
+12694274,STORM-238,Bug,Resolved,Fixed,2014-02-10T14:02:49Z,2014-04-25T18:58:47Z,,0.9.2-incubating,LICENSE and NOTICE files are duplicated in storm-core jar
+12694365,STORM-239,Bug,Resolved,Fixed,2014-02-10T21:56:46Z,2014-07-31T00:37:16Z,,0.9.3,Supervisor fails in working directories whose paths have spaces in them
+12695448,STORM-242,Bug,Resolved,Fixed,2014-02-17T06:21:34Z,2015-03-09T00:18:40Z,,,Rotated metrics.log.* should use ${storm.home} in cluster.xml
+12697162,STORM-244,Bug,Resolved,Fixed,2014-02-25T18:17:34Z,2014-06-06T16:47:52Z,,0.9.2-incubating,DRPC timeout can return null instead of throwing an exception
+12697406,STORM-248,Bug,Resolved,Fixed,2014-02-26T17:05:01Z,2015-01-16T22:34:32Z,,0.10.0,cluster.xml location is hardcoded for workers.
+12699082,STORM-254,Bug,Resolved,Fixed,2014-03-06T06:42:56Z,2014-07-21T16:24Z,0.9.2-incubating,0.9.3,one Spout/Bolt can register metric twice with same name
+12702632,STORM-259,Bug,Resolved,Fixed,2014-03-20T13:36:44Z,2014-03-20T21:40:22Z,,0.9.2-incubating,Netty Client IllegalArgumentException reconnecting after 30 retries
+12702961,STORM-260,Bug,Resolved,Fixed,2014-03-21T20:21:24Z,2014-06-18T17:43:39Z,0.9.2-incubating,0.9.2-incubating,Race condition in backtype.storm.utils.Time
+12703210,STORM-264,Bug,Resolved,Fixed,2014-03-24T14:58:02Z,2014-05-19T21:32:53Z,,0.9.2-incubating,Remove deprecated topology.optimize config?
+12703775,STORM-267,Bug,Resolved,Fixed,2014-03-26T18:16:16Z,2014-05-20T17:15:31Z,,0.9.2-incubating,storm.yaml references invalid package for LoggingMetricsConsumer
+12704141,STORM-269,Bug,Resolved,Fixed,2014-03-27T23:51:36Z,2014-05-21T21:31:28Z,0.9.2-incubating,0.9.2-incubating,Any readable file exposed via UI log viewer
+12706496,STORM-273,Bug,Resolved,Fixed,2014-04-03T20:30:09Z,2014-04-08T16:11Z,,0.9.2-incubating,"Error while running storm topologies on Windows using ""storm jar"""
+12706501,STORM-274,Bug,Resolved,Fixed,2014-04-03T20:43:48Z,2014-08-25T17:59:04Z,0.9.2-incubating,0.9.3,Add support for command remoteconfvalue in storm.cmd
+12706505,STORM-275,Bug,Resolved,Fixed,2014-04-03T21:12:01Z,2014-04-11T15:48:20Z,0.9.2-incubating,0.9.2-incubating,"Topologies, Spouts and Bolts with special characters in name cannot be viewed in ui"
+12706783,STORM-277,Bug,Resolved,Fixed,2014-04-05T10:17:28Z,2014-08-08T18:19:58Z,,0.9.2-incubating,Kafka-Spout does not support parallelism(unpredictable behaviour)
+12707070,STORM-279,Bug,Resolved,Fixed,2014-04-07T23:59:05Z,2014-08-08T19:50:31Z,,0.9.3,cluster.xml doesn't take in STORM_LOG_DIR values
+12707485,STORM-280,Bug,Resolved,Fixed,2014-04-09T16:26:37Z,2014-05-14T15:26:50Z,,0.9.2-incubating,storm unit tests are failing on windows
+12707809,STORM-281,Bug,Resolved,Fixed,2014-04-10T21:47:19Z,2014-04-25T18:24:36Z,,0.9.2-incubating,Leaking fd's when reading config files
+12707841,STORM-282,Bug,Resolved,Fixed,2014-04-11T00:26:24Z,2014-09-10T19:36:09Z,,,git doesn't treat symlinks properly on windows for storm.rb & storm.py
+12708786,STORM-285,Bug,Resolved,Fixed,2014-04-16T15:07:54Z,2014-04-18T18:02:38Z,,0.9.2-incubating,Fix storm-core shade plugin config
+12709403,STORM-286,Bug,Resolved,Fixed,2014-04-19T06:09:24Z,2014-04-25T18:22:31Z,,0.9.2-incubating,Use URLEncoder#encode with the encoding specified.
+12709408,STORM-287,Bug,Resolved,Fixed,2014-04-19T13:19:24Z,2014-04-24T19:03:32Z,,0.9.2-incubating,Fix the position of documentation strings
+12709666,STORM-289,Bug,Resolved,Fixed,2014-04-22T02:09:28Z,2014-04-24T18:59:44Z,0.9.2-incubating,0.9.2-incubating,Trident DRPC memory leak
+12709797,STORM-290,Bug,Resolved,Fixed,2014-04-22T16:11:08Z,2014-04-24T19:04:06Z,0.9.2-incubating,0.9.2-incubating,Exclude log4j and slf4j-log4j from curator dependency.
+12709823,STORM-292,Bug,Resolved,Fixed,2014-04-22T17:43:56Z,2015-09-08T20:47:04Z,0.9.2-incubating,0.10.0,emit blocks the publishing bolt if disrupter queue is full
+12710116,STORM-294,Bug,Resolved,Fixed,2014-04-23T19:09:32Z,2014-04-25T15:41:38Z,0.9.2-incubating,0.9.2-incubating,Commas not escaped in command line
+12710381,STORM-295,Bug,Resolved,Fixed,2014-04-24T18:01:17Z,2014-05-19T22:06:46Z,,0.9.2-incubating,Add storm configuration to define JAVA_HOME
+12710483,STORM-296,Bug,Resolved,Fixed,2014-04-25T02:59:07Z,2014-05-06T15:54:45Z,0.9.2-incubating,0.9.2-incubating,Storm kafka unit tests are failing on windows
+12710489,STORM-297,Bug,Resolved,Fixed,2014-04-25T03:54:23Z,2014-06-09T13:49:56Z,,0.9.2-incubating,Storm Performance cannot be scaled up by adding more CPU cores
+12710606,STORM-298,Bug,Resolved,Fixed,2014-04-25T18:06:28Z,2014-05-14T15:10:53Z,,0.9.2-incubating,Logback file does not include full path for metrics appender fileNamePattern
+12710998,STORM-303,Bug,Resolved,Fixed,2014-04-28T19:32:47Z,2014-05-20T18:59:29Z,0.9.2-incubating,0.9.2-incubating,Forward port of storm-kafka work
+12712285,STORM-307,Bug,Resolved,Fixed,2014-05-05T10:31:54Z,2014-11-04T13:10:56Z,0.9.1-incubating,0.9.3-rc2,"After host crash, supervisor is unable to restart itself"
+12712915,STORM-313,Bug,Resolved,Fixed,2014-05-07T18:45:16Z,2014-06-06T16:15:44Z,,0.9.2-incubating,remove log-level-page from logviewer
+12714211,STORM-319,Bug,Closed,Fixed,2014-05-14T16:23:22Z,2015-10-09T01:19:25Z,,,"mvn build storm failed for that ""../../multilang/rb/storm.rb"" have syntax error."
+12714766,STORM-322,Bug,Resolved,Fixed,2014-05-16T13:40:51Z,2015-01-16T19:59:33Z,0.9.2-incubating,0.10.0,Windows Scripts do not handle spaces in JAVA_HOME path
+12715102,STORM-326,Bug,Resolved,Fixed,2014-05-19T06:53:54Z,2014-05-29T19:14:35Z,0.9.2-incubating | 0.9.1-incubating | 0.9.0.1,0.9.2-incubating,task metric send repeatedly
+12715487,STORM-328,Bug,Resolved,Fixed,2014-05-20T14:14:05Z,2014-07-15T14:22:08Z,0.9.2-incubating | 0.9.1-incubating | 0.9.0.1,0.9.3,"Config.java and Utils.get{Int,Long} are not in sync for floating point"
+12715742,STORM-330,Bug,Resolved,Fixed,2014-05-21T12:57:11Z,2014-08-29T19:59:24Z,0.9.1-incubating,0.9.3,storm.messaging.netty.max_retries option in config file not being used if > 30
+12717633,STORM-335,Bug,Resolved,Fixed,2014-05-30T19:48:49Z,2014-06-09T20:39:11Z,,0.9.2-incubating,Test for cleaning up timed-out DRPC Requests
+12718510,STORM-338,Bug,Resolved,Fixed,2014-06-04T23:19:18Z,2014-06-12T20:29:35Z,0.9.2-incubating,0.9.2-incubating,Move towards idiomatic Clojure style
+12718573,STORM-341,Bug,Resolved,Fixed,2014-06-05T09:00:14Z,2014-08-29T17:42:26Z,0.9.2-incubating,0.9.3,assignment reassignment
+12720112,STORM-342,Bug,Resolved,Fixed,2014-06-09T13:59:56Z,2014-06-12T21:04:19Z,,0.9.2-incubating,Contention in Disruptor Queue which may cause message loss or out of order
+12720132,STORM-343,Bug,Resolved,Fixed,2014-06-09T15:47:32Z,2014-06-09T19:52:54Z,,0.10.0,Add missing missing acls on znodes under errors
+12720420,STORM-344,Bug,Resolved,Fixed,2014-06-10T19:18:06Z,2014-06-12T17:55:11Z,,0.10.0,(Security) nimbus renew-credentials not calling ICredentialsRenewer.renew
+12720423,STORM-346,Bug,Resolved,Fixed,2014-06-10T19:28:54Z,2014-08-07T15:13:53Z,,0.10.0,(Security) Oozie style delegation tokens for HDFS
+12720426,STORM-347,Bug,Resolved,Fixed,2014-06-10T19:32:10Z,2014-07-28T22:20:26Z,,0.10.0,(Security) authentication should allow for groups not just users
+12720427,STORM-348,Bug,Resolved,Fixed,2014-06-10T19:35:46Z,2014-07-30T16:17:58Z,,0.10.0,(Security) Netty SASL Authentication
+12720428,STORM-349,Bug,Resolved,Fixed,2014-06-10T19:39:39Z,2014-08-18T19:23:18Z,,0.10.0,(Security) ui actions should have nimbus like authroization
+12721040,STORM-351,Bug,Resolved,Fixed,2014-06-13T06:03:31Z,2014-07-10T13:09Z,0.9.3,0.9.3,multilang python process fall into endless loop
+12721157,STORM-352,Bug,Resolved,Fixed,2014-06-13T17:58:59Z,2014-06-13T19:48:35Z,0.9.2-incubating,0.9.2-incubating,[storm-kafka] PartitionManager does not save offsets to ZooKeeper
+12721668,STORM-355,Bug,Resolved,Fixed,2014-06-17T12:34:47Z,2014-06-24T20:26:58Z,0.9.2-incubating,0.9.3,Duplicated netty dependency in lib classpath
+12721693,STORM-356,Bug,Resolved,Fixed,2014-06-17T14:17:24Z,2014-08-29T15:39:56Z,0.9.2-incubating,0.9.3,Duplicated servlet-api dependency in lib classpath
+12721724,STORM-357,Bug,Resolved,Fixed,2014-06-17T15:56:37Z,2014-06-17T18:38:41Z,,0.10.0,[security] Supervisors can fail to clean up worker files properly
+12721728,STORM-358,Bug,Resolved,Fixed,2014-06-17T16:09:30Z,2014-06-17T17:59:53Z,,0.10.0,Multitenant scheduler fails to free a slot in bad-state
+12723149,STORM-366,Bug,Resolved,Fixed,2014-06-23T16:14:38Z,2014-07-31T00:04:56Z,,0.9.3,Highlight most recent errors in UI using red span
+12723322,STORM-369,Bug,Resolved,Fixed,2014-06-24T09:47:43Z,2014-07-31T00:15:03Z,0.9.2-incubating | 0.9.3,0.9.3,Storm ui topology summary the page displays an worng
+12723441,STORM-370,Bug,Resolved,Fixed,2014-06-24T19:09:43Z,2014-06-30T19:41:47Z,0.9.2-incubating,0.9.3,Component page UI details are blank
+12723652,STORM-372,Bug,Resolved,Fixed,2014-06-25T15:01:28Z,2014-06-30T20:33:31Z,0.9.2-incubating,0.9.3,Typo in storm_env.ini
+12724711,STORM-381,Bug,Resolved,Fixed,2014-07-01T12:23:26Z,2014-07-15T22:03:15Z,0.9.2-incubating,0.9.3,Replace broken jquery.tablesorter.min.js to latest (2.17.3)
+12724931,STORM-384,Bug,Resolved,Fixed,2014-07-02T10:28:20Z,2014-09-18T14:18:55Z,0.9.2-incubating,0.9.2-incubating,Storm UI showing incorrect number of workers and executors
+12725385,STORM-388,Bug,Resolved,Fixed,2014-07-03T22:13:40Z,2015-03-09T00:14:01Z,0.9.2-incubating,,make supervisor more resilient to missing .ser files
+12725877,STORM-390,Bug,Resolved,Fixed,2014-07-07T23:11:24Z,2015-01-29T20:49:35Z,0.9.2-incubating,0.9.3,/lib contains two conflicting versions of netty
+12725956,STORM-394,Bug,Closed,Fixed,2014-07-08T07:32:23Z,2016-06-20T03:38:01Z,0.9.1-incubating,0.9.3,"Messages has expired, OFFSET_OUT_OF_RANGE, new offset startOffsetTime, no new messages, again and again"
+12726198,STORM-395,Bug,Resolved,Fixed,2014-07-08T22:09:25Z,2014-07-09T17:46:31Z,,0.10.0,"Using SaslTransportPlugin, fails to submit topology for jar file large than 3K"
+12726305,STORM-396,Bug,Resolved,Fixed,2014-07-09T12:20:58Z,2014-08-07T20:58:16Z,0.9.1-incubating,0.9.3,NullPointerException in ShellSpout when multilang message is illegal
+12726379,STORM-398,Bug,Resolved,Fixed,2014-07-09T17:48:24Z,2014-09-23T15:43:34Z,,0.10.0,upmerge error in security drpc.clj
+12726447,STORM-399,Bug,Resolved,Fixed,2014-07-09T21:32:55Z,2014-07-24T22:03:44Z,0.9.2-incubating,0.9.3,Kafka Spout defaulting to latest offset when current offset is older then 100k
+12727019,STORM-401,Bug,Resolved,Fixed,2014-07-14T04:17:23Z,2014-08-26T21:40:18Z,,0.9.3,supervisor-test sometimes crashes due to InterruptedIOException
+12727079,STORM-402,Bug,Resolved,Fixed,2014-07-14T12:48:10Z,2014-07-21T16:48:11Z,0.9.2-incubating | 0.9.3,0.9.3,FileNotFoundException when using storm with apache tika
+12727562,STORM-403,Bug,Resolved,Fixed,2014-07-16T04:27:29Z,2014-07-21T16:36:11Z,,0.9.3,heartbeats-to-nimbus in supervisor-test failed due to unintentional worker launch
+12727920,STORM-406,Bug,Resolved,Fixed,2014-07-17T13:20:38Z,2014-07-29T12:23:51Z,0.9.2-incubating | 0.9.1-incubating | 0.9.0.1,0.9.3,Trident topologies getting stuck when using Netty transport (reproducible)
+12727931,STORM-408,Bug,Resolved,Fixed,2014-07-17T14:13:46Z,2016-09-13T20:18:28Z,0.9.0.1,0.9.2-incubating,Cross-Site Scripting security vulnerability
+12728705,STORM-415,Bug,Resolved,Fixed,2014-07-21T21:46:53Z,2014-07-25T21:26:39Z,,0.9.3,validate-launched-once in supervisor-test can not handle multiple topologies
+12729014,STORM-417,Bug,Resolved,Fixed,2014-07-22T22:58:46Z,2014-08-07T20:43:21Z,,0.9.3,Storm UI lost table sort style when tablesorter was updated
+12729182,STORM-419,Bug,Resolved,Fixed,2014-07-23T15:00:42Z,2014-07-25T21:58:26Z,,0.9.3,cluster_test fails on JDK8 on Mac
+12729566,STORM-420,Bug,Resolved,Fixed,2014-07-24T21:25:16Z,2014-07-24T21:44:12Z,0.9.2-incubating,0.9.3,Missing quotes in storm-starter python code
+12729576,STORM-422,Bug,Resolved,Fixed,2014-07-24T21:41:03Z,2014-11-04T07:36:14Z,0.9.1-incubating,0.9.3-rc2,storm.cmd limits the number of arguments that can be passed to 'storm jar' on Windows
+12729695,STORM-424,Bug,Resolved,Fixed,2014-07-25T10:13:05Z,2014-08-29T17:12:04Z,0.9.2-incubating,0.9.3,Issue on KafkaOffsetMetric(external/storm-kafka/src/jvm/storm/kafka/KafkaUtils.java)
+12730620,STORM-427,Bug,Resolved,Fixed,2014-07-29T21:46:25Z,2014-09-23T18:42:12Z,0.10.0,0.10.0,(Security) AutoTGT with HBase can expose JVM kerberos issue
+12731984,STORM-437,Bug,Resolved,Fixed,2014-08-05T10:26:14Z,2014-08-25T16:23:48Z,0.9.2-incubating,0.9.3,multilang JsonSerializer does not enforce inputstream UTF-8 encoding
+12732130,STORM-439,Bug,Resolved,Fixed,2014-08-05T20:45:59Z,2014-10-07T19:28:10Z,0.9.2-incubating,0.9.3,UI unable to view topologies with percent encoded values in id
+12732490,STORM-442,Bug,Resolved,Fixed,2014-08-07T07:50:24Z,2015-01-06T21:29:47Z,0.9.3,0.10.0 | 0.9.7,multilang ShellBolt/ShellSpout die() can be hang when Exception happened
+12732499,STORM-443,Bug,Resolved,Fixed,2014-08-07T08:39:07Z,2014-08-19T17:42:37Z,0.9.3,0.9.3,multilang log's loglevel protocol  can cause hang
+12732789,STORM-445,Bug,Resolved,Fixed,2014-08-08T09:08:44Z,2014-10-21T19:41:33Z,,0.9.3,there are two netty jar under 0.9.2 distribution (netty.2.2.2 and netty3.6.3) which causes exception for cassandra driver
+12732894,STORM-447,Bug,Resolved,Fixed,2014-08-08T18:33:09Z,2014-08-29T15:39:12Z,,0.9.3,shade/relocate packages of dependencies that are common causes of dependency conflicts
+12733319,STORM-449,Bug,Resolved,Fixed,2014-08-11T18:46:18Z,2014-08-25T15:20:01Z,,0.9.3,ShellBolt can cause periodic test failures
+12733542,STORM-451,Bug,Resolved,Fixed,2014-08-12T17:44:39Z,2014-08-16T20:26:59Z,0.9.3,0.9.3,Latest storm does not build due to a pom.xml error in storm-hdfs pom.xml
+12733897,STORM-454,Bug,Resolved,Fixed,2014-08-13T22:25:11Z,2014-08-29T16:05:16Z,0.9.2-incubating,0.9.3,Storm Rest UI shows window in milliseconds but should be seconds
+12734230,STORM-456,Bug,Resolved,Fixed,2014-08-14T19:28:59Z,2015-06-01T19:17:04Z,0.9.1-incubating,0.10.0,Storm UI: cannot navigate to topology page when name contains spaces
+12734270,STORM-458,Bug,Resolved,Fixed,2014-08-14T22:02:30Z,2014-08-19T15:54:36Z,0.9.2-incubating,0.9.3,sample spout uses incorrect name when connecting bolt
+12734666,STORM-460,Bug,Resolved,Fixed,2014-08-17T21:49:28Z,2014-09-05T15:43:25Z,0.10.0,0.10.0,CSRF vulnerability in storm UI
+12735134,STORM-461,Bug,Resolved,Fixed,2014-08-19T19:00:44Z,2014-08-29T17:26:52Z,,0.9.3,"exit-process! does not always exit the process, but throws an exception instead"
+12735436,STORM-464,Bug,Resolved,Fixed,2014-08-20T15:55:17Z,2014-08-25T15:29:20Z,0.9.3,0.9.3,Simulated time advanced after test cluster exits causes intermitent test failures
+12736290,STORM-468,Bug,Resolved,Fixed,2014-08-23T22:17:42Z,2016-01-11T20:34:55Z,0.9.2-incubating,1.0.0,java.io.NotSerializableException should be explained
+12736602,STORM-472,Bug,Resolved,Fixed,2014-08-25T19:26:08Z,2014-08-25T20:57:39Z,0.9.3,0.9.3,Non-completeable tests should receive an error message showing which spout is incomplete
+12736929,STORM-475,Bug,Resolved,Fixed,2014-08-26T21:10:40Z,2014-09-04T13:34:48Z,0.9.2-incubating,0.9.3,Storm UI pages do not use UTF-8
+12736965,STORM-476,Bug,Resolved,Fixed,2014-08-26T23:32:26Z,2014-08-29T17:13Z,0.9.2-incubating | 0.9.1-incubating | 0.9.0.1 | 0.9.3,0.9.3,Null message payloads in kafka will result in an NPE and a failing spout
+12737122,STORM-477,Bug,Resolved,Fixed,2014-08-27T14:49:32Z,2015-06-26T16:52:09Z,0.9.2-incubating,1.0.0,Incorrectly set JAVA_HOME is not detected
+12737462,STORM-479,Bug,Resolved,Fixed,2014-08-28T14:41:15Z,2014-09-05T16:29:20Z,0.10.0,0.10.0,(Security) Multi-tenant scheduler needs extra check for used slots
+12737569,STORM-480,Bug,Resolved,Fixed,2014-08-28T21:22:43Z,2014-09-23T18:58:30Z,,0.10.0,maven-dependency-plugin throws exception because of MNG-5354
+12737898,STORM-482,Bug,Resolved,Fixed,2014-08-29T19:48:37Z,2014-10-07T21:27:08Z,,0.10.0,(Security) DefaultHttpCredentialsPlugin does not handle no credential properly
+12738817,STORM-485,Bug,Resolved,Fixed,2014-09-03T15:04:43Z,2014-09-23T21:23Z,,0.10.0,Workers should not access shared log files
+12739159,STORM-486,Bug,Resolved,Fixed,2014-09-04T16:12:08Z,2014-09-23T21:35:40Z,,0.10.0,Call ring.adapter.jetty/run-jetty adds a second handler to server
+12739444,STORM-488,Bug,Resolved,Fixed,2014-09-05T09:46:41Z,2014-10-07T20:45:44Z,0.9.3,0.9.3,storm CLI tool reports zero exit code on error scenario
+12739548,STORM-489,Bug,Resolved,Fixed,2014-09-05T18:12:33Z,2014-09-24T19:54:47Z,,0.10.0,remove uiActionsEnabled from js and templates
+12739982,STORM-490,Bug,Resolved,Fixed,2014-09-08T21:23:56Z,2014-10-07T20:28:48Z,0.9.3,0.9.3,Build Broken Under Windows
+12739991,STORM-492,Bug,Closed,Fixed,2014-09-08T21:56:58Z,2015-10-09T01:18:52Z,,0.9.3-rc2,Test timeout should be configurable
+12740399,STORM-493,Bug,Resolved,Fixed,2014-09-10T13:22:08Z,2014-09-24T21:00:30Z,0.9.2-incubating | 0.9.3,0.9.3,Workers don't inherit storm.conf.file/storm.options properties of the supervisor
+12741188,STORM-496,Bug,Resolved,Fixed,2014-09-12T22:20:32Z,2015-03-12T17:56:40Z,,0.10.0,task.clj missing debug for logging spout and bolt emit values
+12741262,STORM-497,Bug,Resolved,Fixed,2014-09-13T14:13:12Z,2014-11-04T05:22:31Z,0.9.3,0.9.3-rc2,"b.s.m.netty.Server.getMessageQueueId is not thread safe, and can return null"
+12742196,STORM-499,Bug,Resolved,Fixed,2014-09-17T16:26:54Z,2014-10-21T19:30:58Z,0.9.3,0.9.3,Document and clean up shaded dependncy resolution with maven
+12742486,STORM-500,Bug,Resolved,Fixed,2014-09-18T15:49:56Z,2014-09-22T21:57:04Z,0.9.2-incubating,0.9.3,Add Spinner when UI is loading stats from nimbus
+12742735,STORM-501,Bug,Resolved,Fixed,2014-09-19T14:42:57Z,2014-09-23T18:49:50Z,0.9.2-incubating,0.9.3,Missing StormSubmitter API
+12743273,STORM-502,Bug,Resolved,Fixed,2014-09-22T18:15:40Z,2014-10-07T22:04:22Z,,0.10.0,storm native worker-launcher tests fail
+12743367,STORM-503,Bug,Resolved,Fixed,2014-09-22T22:40:30Z,2015-07-16T23:42:25Z,0.9.2-incubating | 0.9.1-incubating | 0.9.3,0.9.6,Short disruptor queue wait time leads to high CPU usage when idle
+12743369,STORM-504,Bug,Resolved,Fixed,2014-09-22T22:55:27Z,2014-10-01T22:44:34Z,,0.9.3,Class Used by `repl` Command Deprecated
+12743540,STORM-505,Bug,Resolved,Fixed,2014-09-23T15:39Z,2014-12-23T18:01:17Z,0.10.0,0.10.0,Debug Log Message in logviewer causes exception.
+12743709,STORM-506,Bug,Resolved,Fixed,2014-09-24T05:49:37Z,2014-10-07T20:34:51Z,0.9.2-incubating,0.9.3,"UI Counts acks & fails from bolts in ""Topology Stats"""
+12743823,STORM-507,Bug,Resolved,Fixed,2014-09-24T17:46:37Z,2014-10-01T22:58:34Z,0.9.3,0.9.3,After STORM-500 visualization update causes spinner to appear
+12744031,STORM-509,Bug,Resolved,Fixed,2014-09-25T13:45:53Z,2014-10-27T20:18:15Z,0.10.0,0.10.0,(Security) Make groups checking specific for SimpleACLAuthorizer.
+12744480,STORM-511,Bug,Resolved,Fixed,2014-09-27T14:19Z,2014-10-27T20:48:43Z,0.9.3,0.9.3 | 0.9.3-rc2,Storm-Kafka spout keeps sending fetch requests with invalid offset
+12745202,STORM-512,Bug,Resolved,Fixed,2014-10-01T08:50:33Z,2015-04-03T14:40:29Z,,0.10.0,KafkaBolt doesn't handle ticks properly
+12745343,STORM-513,Bug,Resolved,Fixed,2014-10-01T20:10:06Z,2014-11-14T21:54:03Z,0.9.2-incubating,0.9.3-rc2,ShellBolt keeps sending heartbeats even when child process is hung
+12747061,STORM-525,Bug,Resolved,Fixed,2014-10-09T16:45:32Z,2015-01-27T17:56:25Z,0.9.2-incubating,0.10.0,UI Component Page Executor Uptimes are not sorted correctly
+12747469,STORM-527,Bug,Resolved,Fixed,2014-10-11T02:50:30Z,2015-02-02T20:14:02Z,0.9.3,0.10.0,"update worker.clj -- delete ""missing-tasks"" checking"
+12747506,STORM-529,Bug,Resolved,Fixed,2014-10-11T13:00:56Z,2014-11-04T12:53:07Z,0.9.2-incubating,0.9.3-rc2,Python BasicBolt does not behave as the Java BasicBolt
+12747971,STORM-531,Bug,Resolved,Fixed,2014-10-14T10:05:03Z,2015-03-09T00:12:06Z,0.9.3,0.9.3,"NoOutputException error when a topology is submitted: ""java.lang.RuntimeException: backtype.storm.multilang.NoOutputException: Pipe to subprocess seems to be broken! No output read. Serializer Exception:"""
+12749239,STORM-537,Bug,Resolved,Fixed,2014-10-20T12:53:47Z,2014-11-12T13:16:56Z,0.9.3,0.9.3-rc2,A worker reconnects infinitely to another dead worker
+12749379,STORM-538,Bug,Resolved,Fixed,2014-10-20T23:00:12Z,2014-10-27T20:44:35Z,0.9.3,0.9.3 | 0.9.3-rc2,Guava com.google.thirdparty.publicsuffix is not shaded
+12749679,STORM-539,Bug,Resolved,Fixed,2014-10-22T01:55:37Z,2015-03-11T20:57:55Z,,0.10.0,Storm hive bolt and trident state
+12750437,STORM-541,Bug,Resolved,Fixed,2014-10-24T19:35:21Z,2015-03-17T15:42:29Z,0.10.0 | 0.9.3-rc2,0.10.0,Build produces maven warnings
+12751688,STORM-543,Bug,Closed,Fixed,2014-10-30T14:20:26Z,2015-10-09T01:17:27Z,0.9.2-incubating,0.9.3,Storm failing all input messages (although successfully processed) post restarting worker on the same supervisor slot
+12752759,STORM-546,Bug,Closed,Fixed,2014-11-04T16:33:42Z,2015-10-09T01:17:03Z,0.9.3-rc2,0.9.3,Local hostname configuration ignored by executor
+12752994,STORM-548,Bug,Closed,Fixed,2014-11-05T08:43:33Z,2015-10-09T01:16:40Z,0.9.3-rc2,0.10.0,"Receive Thread Shutdown hook should connect to local hostname but not ""localhost"""
+12753455,STORM-549,Bug,Resolved,Fixed,2014-11-06T18:20:31Z,2014-11-14T22:13:50Z,0.9.2-incubating | 0.9.1-incubating,0.9.3-rc2,"""topology.enable.message.timeouts"" does nothing"
+12755020,STORM-554,Bug,Resolved,Fixed,2014-11-13T09:12:23Z,2015-03-05T15:54:54Z,0.9.3-rc2,0.10.0,"the ""get-task-object"" function in task.clj,the type of first param ""topology"" should be ^StormTopology not ^TopologyContext"
+12755205,STORM-555,Bug,Resolved,Fixed,2014-11-13T23:47:59Z,2014-11-17T20:13:25Z,,0.9.3,Storm Json response encoding should be UTF-8
+12755742,STORM-558,Bug,Resolved,Fixed,2014-11-17T07:12:20Z,2014-11-17T20:50:56Z,,0.9.3,supervisor's assignment-versions memory cache for ZK is always empty
+12756592,STORM-563,Bug,Resolved,Fixed,2014-11-20T00:46:14Z,2015-04-19T21:10:10Z,,0.10.0,Kafka Spout doesn't pick up from the beginning of the queue unless forceFromStart specified
+12756704,STORM-565,Bug,Resolved,Fixed,2014-11-20T14:23:49Z,2014-11-28T22:48:34Z,0.10.0,0.10.0,Setting topology.groups to nil could break SimpleACLAuthorizer
+12756728,STORM-566,Bug,Resolved,Fixed,2014-11-20T16:07:44Z,2015-10-26T16:29:09Z,,1.0.0,Unexpected trident spout metadata serialization
+12757842,STORM-574,Bug,Resolved,Fixed,2014-11-25T23:36:14Z,2014-11-30T02:08:25Z,0.9.2-incubating,0.10.0,Typo in storm-kafka README
+12758332,STORM-577,Bug,Resolved,Fixed,2014-11-28T09:48:52Z,2014-12-23T17:03:17Z,0.10.0 | 0.9.3-rc2,0.10.0,long time launch worker will block supervisor heartbeat
+12758476,STORM-578,Bug,Resolved,Fixed,2014-11-30T04:40:28Z,2015-01-09T21:31:11Z,,0.10.0,Calls to submit-mocked-assignment in supervisor-test use invalid executor-id format
+12759172,STORM-582,Bug,Resolved,Fixed,2014-12-03T13:41:42Z,2015-06-22T04:58:57Z,0.9.2-incubating,,Nimbus Halt with FileNotFoundException: '../nimbus/../stormconf.ser' dose not exists
+12759305,STORM-583,Bug,Resolved,Fixed,2014-12-03T22:53:27Z,2015-04-24T20:56:13Z,0.9.3,0.10.0,Add spout and bolt implementation for Azure Eventhubs
+12759686,STORM-584,Bug,Resolved,Fixed,2014-12-05T14:54:20Z,2016-03-22T19:28:50Z,0.9.6,1.0.0 | 0.10.1 | 2.0.0,LoggingMetricsConsumer metrics.log file is shared by multiple topologies.
+12759718,STORM-585,Bug,Resolved,Fixed,2014-12-05T16:34:07Z,2015-01-17T15:58:25Z,0.9.2-incubating | 0.9.3 | 0.10.0 | 0.9.3-rc2,0.10.0,Performance issue in none grouping
+12759909,STORM-586,Bug,Resolved,Fixed,2014-12-05T22:47:44Z,2017-12-28T04:54:53Z,0.9.3,0.10.0,Trident kafka spout fails instead of updating offset when kafka offset is out of range.
+12762202,STORM-596,Bug,Resolved,Fixed,2014-12-17T05:29:23Z,2015-05-22T19:55:27Z,0.10.0 | 0.9.3-rc2,0.10.0,"""topology.receiver.buffer.size""  has no effect"
+12763575,STORM-603,Bug,Resolved,Fixed,2014-12-23T23:04:22Z,2015-05-04T19:20:23Z,,0.10.0,storm-kafka: Log errors when missing required configuration fields
+12763797,STORM-608,Bug,Resolved,Fixed,2014-12-26T05:57:27Z,2015-02-03T19:33:58Z,0.9.3,0.10.0,Storm UI CSRF escape characters not work correctly
+12763966,STORM-610,Bug,Resolved,Fixed,2014-12-29T05:15:41Z,2015-01-06T20:55:30Z,,0.10.0,worker-launcher doesn't check return value of fts_close while setting up a directory
+12763970,STORM-611,Bug,Resolved,Fixed,2014-12-29T05:42:21Z,2015-01-06T20:44:16Z,,0.10.0,"worker-launcher.c contains extra ""break""s"
+12763972,STORM-612,Bug,Resolved,Fixed,2014-12-29T06:03:03Z,2015-01-06T17:04:54Z,,0.10.0,configure.ac sets the google groups account as a contact address
+12763997,STORM-613,Bug,Resolved,Fixed,2014-12-29T08:51:53Z,2015-01-06T16:33:48Z,0.10.0,0.10.0,Fix wrong getOffset return value
+12766018,STORM-620,Bug,Resolved,Fixed,2015-01-09T13:26:40Z,2015-01-14T17:27:34Z,0.9.3-rc2,0.10.0,Duplicate maven plugin declaration
+12767466,STORM-625,Bug,Resolved,Fixed,2015-01-14T16:31:58Z,2015-06-01T19:38:43Z,,0.10.0,Netty context never forgets about a Client.
+12767573,STORM-627,Bug,Resolved,Fixed,2015-01-14T22:48:47Z,2015-01-16T22:53:06Z,0.9.3,0.10.0,Storm-hbase configuration error
+12768461,STORM-630,Bug,Resolved,Fixed,2015-01-19T15:22:34Z,2015-01-23T20:21:12Z,,0.10.0,Support for Clojure 1.6.0
+12768713,STORM-633,Bug,Resolved,Fixed,2015-01-20T17:04:56Z,2015-02-23T17:55:41Z,0.9.3,0.10.0,Nimbus - HTTP Error 413 full HEAD if using kerberos authentication
+12769174,STORM-635,Bug,Resolved,Fixed,2015-01-22T01:43:58Z,2015-02-03T17:11:20Z,,0.10.0,logviewer returns 404 if storm_home/logs is a symlinked dir
+12769357,STORM-636,Bug,Resolved,Fixed,2015-01-22T16:37:42Z,2015-02-03T18:54:51Z,0.10.0,0.10.0,UI/Monitor is slow for topologies with a large number of components
+12771399,STORM-640,Bug,Resolved,Fixed,2015-01-30T18:49:53Z,2015-02-23T17:55:15Z,,0.10.0,Storm UI vulnerable to poodle attack
+12771400,STORM-641,Bug,Resolved,Fixed,2015-01-30T18:51:19Z,2015-02-23T18:13:44Z,,0.10.0,Add total number of topologies to api/v1/cluster/summary.
+12771585,STORM-643,Bug,Resolved,Fixed,2015-02-01T09:20:59Z,2015-07-20T15:37:05Z,0.9.2-incubating | 0.9.3 | 0.10.0 | 0.9.4 | 0.9.5,0.9.6,KafkaUtils repeatedly fetches messages whose offset is out of range
+12771853,STORM-648,Bug,Resolved,Fixed,2015-02-02T22:10:28Z,2015-02-23T17:56Z,,0.10.0,storm examples BasicDRPCTopology fails without running
+12771856,STORM-649,Bug,Resolved,Fixed,2015-02-02T22:15:44Z,2015-02-23T22:13:57Z,,0.10.0,Storm HDFS test topologies should write to /tmp dir
+12771859,STORM-651,Bug,Resolved,Fixed,2015-02-02T22:25:54Z,2015-02-23T17:56:58Z,,0.10.0,improvements to storm.cmd
+12773165,STORM-659,Bug,Resolved,Fixed,2015-02-06T23:46:23Z,2015-03-08T23:56:23Z,0.9.3,0.10.0,Logviewer used with grep param returns all matches on one line
+12774630,STORM-670,Bug,Resolved,Fixed,2015-02-12T17:09:50Z,2015-03-11T21:36:21Z,0.10.0,0.10.0,[storm-kafka] Restore Java 1.6 compatibility
+12775787,STORM-675,Bug,Resolved,Fixed,2015-02-18T01:04:47Z,2015-03-08T20:45:36Z,,0.10.0,Allow users to have storm-env.sh under config dir to set custom JAVA_HOME and other env variables
+12776510,STORM-682,Bug,Resolved,Fixed,2015-02-20T18:56:24Z,2015-03-18T15:07:03Z,,0.10.0 | 0.9.4,Supervisor local worker state corrupted and failing to start.
+12776542,STORM-683,Bug,Resolved,Fixed,2015-02-20T21:10:31Z,2015-02-23T17:04:55Z,,0.10.0,Configs set to false do not always evaluate to false.
+12776863,STORM-684,Bug,Resolved,Fixed,2015-02-23T16:14:45Z,2015-02-23T16:54:03Z,,0.10.0,In RichSpoutBatchExecutor: underlying spout is not closed when emitter is closed
+12776877,STORM-685,Bug,Resolved,Fixed,2015-02-23T17:00:50Z,2015-02-23T17:12:42Z,0.9.3,0.10.0,wrong output in log when committed offset is too far behind latest offset
+12777026,STORM-687,Bug,Resolved,Fixed,2015-02-24T02:21:24Z,2015-02-25T21:50:56Z,,0.10.0,Storm UI does not display up to date information despite refreshes in IE.
+12777304,STORM-688,Bug,Resolved,Fixed,2015-02-24T21:27:29Z,2015-02-25T21:13:43Z,,0.10.0,storm-jdbc fails to compile under java 8
+12777717,STORM-690,Bug,Resolved,Fixed,2015-02-26T00:21:51Z,2015-03-11T20:45:42Z,0.10.0,0.10.0,[storm-redis] Broken Jedis Connection should be returned as broken
+12778030,STORM-693,Bug,Closed,Fixed,2015-02-26T21:48:39Z,2015-03-18T15:01:41Z,0.9.3,0.10.0 | 0.9.4,KafkaBolt exception handling improvement
+12778169,STORM-694,Bug,Resolved,Fixed,2015-02-27T09:42:31Z,2015-06-01T20:01:46Z,0.10.0,0.10.0,Compiling storm 0.10.0 results in java.lang.ClassNotFoundException: backtype.storm.daemon.common.SupervisorInfo
+12778236,STORM-695,Bug,Resolved,Fixed,2015-02-27T16:11:09Z,2016-01-05T21:22:22Z,0.9.3,1.0.0,"storm CLI tool reports zero exit code on error scenario, take 2"
+12781362,STORM-703,Bug,Resolved,Fixed,2015-03-11T23:53:43Z,2015-03-24T14:42:42Z,0.10.0,0.10.0,RedisMapState with hash key can cause network overload
+12782381,STORM-708,Bug,Resolved,Fixed,2015-03-16T22:20:39Z,2015-06-01T20:23:56Z,,0.10.0,CORS support for Storm UI
+12782956,STORM-711,Bug,Resolved,Fixed,2015-03-18T17:41:25Z,2015-06-01T20:24:39Z,0.9.3,0.10.0,All connectors should use collector.reportError and tuple anchoring.
+12783304,STORM-713,Bug,Resolved,Fixed,2015-03-19T17:22:56Z,2015-06-01T20:27Z,0.9.3 | 0.10.0,0.10.0,Storm Kafka Metrics Don't Include Topic
+12784802,STORM-715,Bug,Resolved,Fixed,2015-03-23T11:49:42Z,2015-05-28T20:33:06Z,,0.10.0,Link to AssignableMetric.java is missing in Metrics.md
+12785378,STORM-723,Bug,Resolved,Fixed,2015-03-25T00:58:47Z,2015-03-26T14:40:39Z,0.10.0,0.10.0,[storm-redis] RedisStateSetUpdater writes state into String but calls Set operation
+12786015,STORM-727,Bug,Resolved,Fixed,2015-03-26T21:13:09Z,2015-03-30T14:53:05Z,,0.10.0,Storm tests should succeed even if a storm process is running locally.
+12786018,STORM-728,Bug,Resolved,Fixed,2015-03-26T21:23:45Z,2015-05-28T20:22:52Z,0.9.5,0.9.6,"UI: Component Page ""Spout stats"" table has Emitted and Transferred in each other's column"
+12786023,STORM-729,Bug,Resolved,Fixed,2015-03-26T22:01:24Z,2015-05-28T20:26:30Z,0.10.0,0.10.0,UI: Component Page Executors header is missing the selected window
+12786027,STORM-730,Bug,Resolved,Fixed,2015-03-26T22:11:49Z,2015-04-23T19:15:15Z,0.10.0,0.10.0,UI: Component Page has extra } for executor ids of Bolts
+12786813,STORM-737,Bug,Resolved,Fixed,2015-03-30T18:59:28Z,2015-07-27T23:00:23Z,0.9.2-incubating,0.10.0,Workers may try to send to closed connections
+12787097,STORM-740,Bug,Resolved,Fixed,2015-03-31T17:36:13Z,2015-04-03T20:57:28Z,0.10.0 | 0.9.4,0.10.0,Simple Transport Client cannot configure thrift buffer size
+12787168,STORM-742,Bug,Resolved,Fixed,2015-03-31T21:47:09Z,2015-08-14T13:46:26Z,0.9.3 | 0.10.0 | 0.9.4 | 1.0.0,0.10.0,Very busy ShellBolt subprocess with ACK mode cannot respond heartbeat just in time
+12787649,STORM-745,Bug,Closed,Fixed,2015-04-02T11:02:53Z,2015-10-09T01:16:16Z,0.9.3-rc2 | 0.9.4,0.10.0 | 0.9.5,Second Commandline Parameter passed to the main class is skipped when run in windows
+12787692,STORM-747,Bug,Resolved,Fixed,2015-04-02T14:14:45Z,2015-04-23T16:37:12Z,,0.10.0,assignment-version-callback/info-with-version-callback are not fired when assignments change
+12788007,STORM-750,Bug,Resolved,Fixed,2015-04-03T14:48:28Z,2015-04-06T17:25:51Z,,0.10.0,Set Serialization Id for Config
+12788139,STORM-751,Bug,Closed,Fixed,2015-04-03T23:36:30Z,2015-08-03T02:46:58Z,0.10.0,0.10.0 | 1.0.0,Move javadoc aggregate to site phase.
+12818691,STORM-757,Bug,Resolved,Fixed,2015-04-06T20:40:26Z,2015-04-13T21:12:52Z,,0.10.0,Simulated time can leak out on errors
+12819028,STORM-760,Bug,Resolved,Fixed,2015-04-07T18:53:01Z,2015-06-04T19:04:10Z,,0.10.0,use JSON for conf serialization
+12819118,STORM-762,Bug,Resolved,Fixed,2015-04-07T23:17:28Z,2015-04-13T21:52:48Z,0.10.0,0.10.0,uptime for worker heartbeats is lost when converted to thrift
+12819248,STORM-763,Bug,Resolved,Fixed,2015-04-08T09:38:50Z,2015-07-14T19:18:26Z,0.9.4,0.9.6,"nimbus reassigned worker A to another machine, but other worker's netty client can't connect to the new worker A"
+12819860,STORM-766,Bug,Resolved,Fixed,2015-04-09T22:21:35Z,2015-04-22T18:58:42Z,0.10.0,0.10.0,Supervisor summary should include the version.
+12821235,STORM-772,Bug,Resolved,Fixed,2015-04-15T17:24:27Z,2015-04-20T13:55:20Z,,0.10.0,Tasts fail periodically with InterruptedException or InterruptedIOException
+12821268,STORM-773,Bug,Resolved,Fixed,2015-04-15T19:18:56Z,2015-04-20T13:55:30Z,,0.10.0,backtype.storm.transactional-test fails periodically with timeout
+12821471,STORM-786,Bug,Resolved,Fixed,2015-04-16T09:32:09Z,2015-04-20T21:50:59Z,0.10.0,0.10.0,KafkaBolt should ack tick tuples
+12821574,STORM-787,Bug,Resolved,Fixed,2015-04-16T16:19:02Z,2015-04-22T20:35:28Z,,0.10.0,test-ns should announce test failures with 'BUILD FAILURE'
+12821653,STORM-788,Bug,Resolved,Fixed,2015-04-16T20:00:38Z,2015-04-20T16:23Z,0.9.2-incubating,0.10.0,UI > Component Page > Input shows execute latency where it should show process latency
+12821761,STORM-790,Bug,Resolved,Fixed,2015-04-17T04:40:50Z,2015-06-01T20:57:38Z,0.9.2-incubating | 0.9.3 | 0.10.0 | 0.9.4 | 1.0.0,0.10.0 | 0.9.5,"Log ""task id is null"" instead of let worker died (NPE in consumeBatchToCursor)"
+12821953,STORM-791,Bug,Resolved,Fixed,2015-04-17T18:32:47Z,2015-04-20T17:20:16Z,,0.10.0,Storm UI displays maps in the config incorrectly
+12822765,STORM-793,Bug,Resolved,Fixed,2015-04-21T19:31:03Z,2015-07-16T17:55:27Z,0.10.0,0.10.0,Logviewer 500 response when metadata has not yet been written (with auth enabled)
+12822915,STORM-794,Bug,Resolved,Fixed,2015-04-22T06:17:44Z,2015-11-12T15:50:56Z,0.9.3,1.0.0,Trident Topology with some situation seems not handle deactivate during graceful shutdown
+12823557,STORM-796,Bug,Resolved,Fixed,2015-04-23T20:52:12Z,2015-06-11T03:15:16Z,0.9.4,0.9.5,"The ""error"" command isn't supported on ShellSpout"
+12823569,STORM-797,Bug,Resolved,Fixed,2015-04-23T21:32:06Z,2015-04-28T16:29:30Z,,0.10.0,Disruptor Queue message order issue
+12823902,STORM-800,Bug,Resolved,Fixed,2015-04-24T21:36:57Z,2015-04-26T17:35Z,,,Event Hubs code breaks on cases sensitive FS
+12826556,STORM-807,Bug,Resolved,Fixed,2015-05-01T14:31:30Z,2015-05-07T19:53:12Z,0.10.0,0.10.0,storm script does not handle whitespace.
+12827053,STORM-808,Bug,Resolved,Fixed,2015-05-04T21:06:04Z,2015-05-22T19:44:19Z,,0.10.0,Cannot submit a conf on the command line that is null
+12827071,STORM-809,Bug,Resolved,Fixed,2015-05-04T21:49:18Z,2015-06-22T04:39:09Z,,1.0.0,topology.message.timeout.secs should not allow for null or <= 0 values
+12827814,STORM-811,Bug,Resolved,Fixed,2015-05-06T21:16:48Z,2015-05-22T19:11:35Z,,0.10.0,Hive test fail after first run
+12828820,STORM-813,Bug,Resolved,Fixed,2015-05-11T14:03:09Z,2015-06-09T19:52:33Z,1.0.0,0.10.0,Storm-starter cannot run multilang topology with exec:java with new multilang packages
+12829362,STORM-816,Bug,Resolved,Fixed,2015-05-12T21:52:12Z,2015-05-22T19:36:05Z,,0.10.0,maven-gpg-plugin does not work with gpg 2.1
+12829668,STORM-818,Bug,Resolved,Fixed,2015-05-13T19:40:37Z,2015-06-03T17:37:06Z,0.9.3,0.10.0,storm-eventhubs configuration improvement and refactoring
+12831090,STORM-827,Bug,Resolved,Fixed,2015-05-19T17:29:21Z,2015-05-22T19:22:31Z,,0.10.0,storm-hdfs requires you to ship a keytab to access secure HDFS
+12831136,STORM-829,Bug,Resolved,Fixed,2015-05-19T19:00:50Z,2016-09-09T17:27:02Z,,,Hadoop dependency confusion
+12832758,STORM-837,Bug,Resolved,Fixed,2015-05-26T16:00:31Z,2015-08-14T18:01:59Z,,1.0.0,HdfsState ignores commits
+12833459,STORM-839,Bug,Resolved,Fixed,2015-05-28T15:24:02Z,2015-07-14T19:19:06Z,0.9.4,0.9.6,Deadlock hazard in backtype.storm.messaging.netty.Client
+12834376,STORM-842,Bug,Resolved,Fixed,2015-06-01T21:13:55Z,2015-06-03T17:37:46Z,0.10.0,0.10.0,Drop Support for Java 1.6
+12835554,STORM-849,Bug,Resolved,Fixed,2015-06-04T22:20:20Z,2015-06-05T15:35:32Z,,0.10.0,storm-redis is missing from storm binary distribution
+12835561,STORM-850,Bug,Resolved,Fixed,2015-06-04T23:01:52Z,2015-06-05T17:29:33Z,,0.10.0,Change storm-core's unit test console log level to WARN when running with Travis CI
+12835751,STORM-852,Bug,Closed,Fixed,2015-06-05T15:02Z,2015-06-09T19:51:34Z,0.9.3 | 0.10.0 | 0.9.4 | 0.9.5,0.10.0,Direct use of org.apache.log4j logger
+12835896,STORM-853,Bug,Resolved,Fixed,2015-06-06T04:04:53Z,2015-06-09T19:50:58Z,,0.10.0,Uploading topology via REST API can't handle multiple main class arguments properly
+12836289,STORM-856,Bug,Resolved,Fixed,2015-06-08T21:31:20Z,2015-06-10T01:22:03Z,0.10.0,0.10.0,"If nimbus goes down with a delayed kill topo cmd, it never comes up"
+12836581,STORM-857,Bug,Resolved,Fixed,2015-06-09T16:16:13Z,2015-07-16T20:55:19Z,,0.10.0,"Supervisor process fails to write log metadata to YAML file when ""supervisor.run.worker.as.user"" is enabled"
+12836786,STORM-860,Bug,Resolved,Fixed,2015-06-10T10:09:51Z,2015-06-15T14:27:58Z,,0.10.0,"UI: while topology is transitioned to killed, ""Activate"" button is enabled but not functioning"
+12837821,STORM-867,Bug,Resolved,Fixed,2015-06-15T12:19:25Z,2015-06-22T03:48:38Z,0.10.0,0.10.0,fix bug with mk-ssl-connector
+12838668,STORM-873,Bug,Resolved,Fixed,2015-06-18T03:52:23Z,2015-06-27T16:33:52Z,,0.10.0,"Flux does not handle ""diamond"" topologies"
+12838684,STORM-874,Bug,Resolved,Fixed,2015-06-18T05:39:22Z,2015-11-30T21:00:03Z,0.9.2-incubating | 0.10.0,1.0.0,Netty Threads do not handle Errors properly
+12842015,STORM-922,Bug,Resolved,Fixed,2015-07-01T14:59:01Z,2015-10-02T20:23:40Z,1.0.0,0.10.0 | 1.0.0,Storm-Core Dependencies Renamed in Shade JAR
+12844248,STORM-933,Bug,Resolved,Fixed,2015-07-10T18:25:27Z,2015-08-02T23:02:31Z,0.9.5,0.9.6,NullPointerException during KafkaSpout deactivation
+12845760,STORM-944,Bug,Resolved,Fixed,2015-07-17T00:59:56Z,2015-08-11T22:14:53Z,,0.10.0,storm-hive pom.xml has a dependency conflict with calcite
+12845773,STORM-945,Bug,Resolved,Fixed,2015-07-17T03:17:40Z,2015-07-30T14:51:33Z,0.10.0,0.10.0,"<DefaultRolloverStrategy> element is not a policy,and should not be putted in the <Policies> element."
+12845869,STORM-948,Bug,Resolved,Fixed,2015-07-17T12:24:41Z,2016-03-21T12:34:17Z,0.9.5,,"""topology.max.spout.pending"" submitted with the component configuration is ignored"
+12846011,STORM-951,Bug,Resolved,Fixed,2015-07-17T22:46:38Z,2015-09-08T04:07:08Z,,1.0.0,Storm Hive connector leaking connections
+12849651,STORM-965,Bug,Resolved,Fixed,2015-07-28T15:32:54Z,2015-09-10T19:39:14Z,,1.0.0,excessive logging in storm when non-kerberos client tries to connect.
+12850241,STORM-967,Bug,Resolved,Fixed,2015-07-30T13:52:17Z,2015-10-02T20:23:15Z,,0.10.0 | 1.0.0,Unable to package storm-kafka & storm-hdfs connectors in a topology
+12852918,STORM-973,Bug,Resolved,Fixed,2015-08-07T09:02:04Z,2016-06-29T04:06:13Z,0.9.4,,Netty-Client Connection Failed
+12853931,STORM-976,Bug,Resolved,Fixed,2015-08-10T18:53:55Z,2015-08-18T15:51:12Z,0.10.0,1.0.0,Config storm.logback.conf.dir is specific to previous logging framework
+12853944,STORM-977,Bug,Resolved,Fixed,2015-08-10T19:31:23Z,2015-08-13T17:19:58Z,0.10.0,0.10.0 | 1.0.0,Incorrect signal (-9) when as-user is true
+12855755,STORM-988,Bug,Resolved,Fixed,2015-08-13T02:37:40Z,2015-08-14T15:00:43Z,,1.0.0,supervisor.slots.ports should not allow duplicate element values
+12856033,STORM-992,Bug,Resolved,Fixed,2015-08-14T02:33:53Z,2015-08-25T00:27:13Z,,0.10.0,A bug in the timer.clj might cause unexpected delay to schedule new event
+12856288,STORM-994,Bug,Resolved,Fixed,2015-08-14T20:59:32Z,2015-09-01T22:05:25Z,0.9.3 | 0.10.0 | 0.9.4 | 1.0.0 | 0.9.5,0.10.0,Connection leak between nimbus and supervisors
+12856754,STORM-996,Bug,Resolved,Fixed,2015-08-17T21:44:35Z,2015-09-05T01:59:58Z,0.10.0 | 0.9.6,0.9.6,netty-unit-tests/test-batch demonstrates out-of-order delivery
+12857770,STORM-1001,Bug,Resolved,Fixed,2015-08-21T07:19:07Z,2015-09-01T21:25:58Z,0.10.0,0.10.0,Undefined STORM_EXT_CLASSPATH adds '::' to classpath of workers
+12858557,STORM-1005,Bug,Resolved,Fixed,2015-08-25T09:03:53Z,2015-09-19T00:03:42Z,0.9.4,0.10.0,Supervisor do not get running workers after restart.
+12859474,STORM-1011,Bug,Resolved,Fixed,2015-08-26T23:33:57Z,2015-09-17T10:00:36Z,,1.0.0,HBaseBolt default mapper should handle null values
+12859475,STORM-1012,Bug,Resolved,Fixed,2015-08-26T23:36:34Z,2015-10-02T20:22:43Z,,0.10.0 | 1.0.0,Shade Jackson dependency
+12860294,STORM-1017,Bug,Resolved,Fixed,2015-08-28T15:24:21Z,2015-10-21T23:11:51Z,,1.0.0,"If ignoreZkOffsets set true,KafkaSpout will reset zk offset when recover from failure."
+12861034,STORM-1024,Bug,Resolved,Fixed,2015-09-01T14:45:24Z,2015-09-05T14:38:21Z,,0.10.0,log4j changes leaving ${sys:storm.log.dir} under STORM_HOME dir
+12861382,STORM-1026,Bug,Resolved,Fixed,2015-09-02T19:34:48Z,2015-09-21T15:19:58Z,0.10.0 | 1.0.0 | 0.9.6,0.10.0,Adding external classpath elements does not work
+12861767,STORM-1027,Bug,Resolved,Fixed,2015-09-04T07:24:08Z,2015-09-16T22:35:12Z,0.10.0 | 0.9.5,0.10.0 | 0.9.6,Topology may hang because metric-tick function is a blocking call from spout
+12861922,STORM-1030,Bug,Resolved,Fixed,2015-09-04T19:22:38Z,2016-03-29T08:03:11Z,,1.0.0,Hive Connector Fixes
+12863185,STORM-1042,Bug,Resolved,Fixed,2015-09-10T20:11:52Z,2015-10-02T20:24:08Z,0.10.0,0.10.0 | 1.0.0,clj-time.local compilation error
+12863459,STORM-1044,Bug,Closed,Fixed,2015-09-11T16:40:25Z,2015-10-09T01:07Z,,0.10.0,Setting dop to zero does not raise an error
+12873159,STORM-1050,Bug,Resolved,Fixed,2015-09-17T01:41:32Z,2015-09-19T01:47:50Z,0.10.0 | 1.0.0 | 0.9.5,0.10.0,Topologies with same name run on one cluster
+12875430,STORM-1051,Bug,Resolved,Fixed,2015-09-17T17:50:09Z,2015-09-20T22:07:35Z,0.10.0 | 1.0.0 | 0.9.6,0.9.6,Netty Client.java's flushMessages produces a NullPointerException
+12888781,STORM-1054,Bug,Resolved,Fixed,2015-09-19T16:39:22Z,2015-09-21T21:24:21Z,,1.0.0,Excessive logging ShellBasedGroupsMapping if the user doesn't have any groups.
+12895636,STORM-1063,Bug,Resolved,Fixed,2015-09-23T00:03:45Z,2015-09-30T19:51:33Z,1.0.0,1.0.0,Workers cannot find log4j configuration files since default value of storm.log4j2.conf.dir is relative
+12896395,STORM-1069,Bug,Resolved,Fixed,2015-09-25T13:51:58Z,2015-09-29T14:20:02Z,,1.0.0,Usage of  System.currentTimeMillis() in KafkaSpout can create delays
+12901157,STORM-1073,Bug,Resolved,Fixed,2015-09-28T21:42:26Z,2015-10-28T13:28:01Z,,1.0.0,SequenceFileBolt can end up in an unrecoverable state
+12901688,STORM-1078,Bug,Resolved,Fixed,2015-09-30T20:38:01Z,2015-10-03T13:40:47Z,1.0.0,1.0.0,RateTracker.java is not thread safe
+12902443,STORM-1087,Bug,Resolved,Fixed,2015-10-05T16:07:08Z,2015-10-09T19:21:14Z,,1.0.0,Auto Backpressure can be stuck off for a worker
+12902771,STORM-1090,Bug,Resolved,Fixed,2015-10-06T18:32:02Z,2015-10-09T07:10:07Z,1.0.0,1.0.0,Nimbus HA should support `storm.local.hostname`
+12903024,STORM-1094,Bug,Resolved,Fixed,2015-10-07T15:17:36Z,2015-10-09T07:05:36Z,0.10.0 | 1.0.0 | 0.9.6,0.10.0,kafka offset does not advance when deserializer yields no object
+12903111,STORM-1096,Bug,Resolved,Fixed,2015-10-07T20:01:15Z,2015-10-09T14:23:42Z,0.10.0,0.10.0,"UI tries to impersonate wrong user when getting topology conf for authorization, impersonation is allowed by default"
+12903551,STORM-1099,Bug,Resolved,Fixed,2015-10-08T22:56:45Z,2015-10-10T14:11:24Z,,0.10.0,worker childopts cannot accept arraylist of strings
+12903863,STORM-1103,Bug,Resolved,Fixed,2015-10-09T18:41:08Z,2015-10-20T23:13:34Z,1.0.0,1.0.0,Utils#getConfigFileInputStream can print INFO level logs each time it is called
+12903925,STORM-1104,Bug,Resolved,Fixed,2015-10-09T23:45:22Z,2015-10-12T17:56:21Z,1.0.0,1.0.0,Nimbus HA fails to find newly downloaded code files
+12904229,STORM-1106,Bug,Resolved,Fixed,2015-10-12T16:24:19Z,2015-10-15T14:48:26Z,0.10.0,0.10.0 | 1.0.0,Netty Client Connection Attempts should not be limited
+12904962,STORM-1110,Bug,Resolved,Fixed,2015-10-14T18:36:07Z,2015-10-20T13:24:11Z,,1.0.0,System Components Page is not available
+12904984,STORM-1111,Bug,Resolved,Fixed,2015-10-14T20:05:11Z,2015-10-24T01:31:45Z,,1.0.0,Fix Validation for lots of different configs
+12905229,STORM-1114,Bug,Resolved,Fixed,2015-10-15T15:41:36Z,2017-04-13T20:16:51Z,,2.0.0 | 0.10.3 | 1.0.4 | 1.1.1 | 1.2.0,Racing condition in trident zookeeper zk-node create/delete
+12905334,STORM-1115,Bug,Resolved,Fixed,2015-10-15T21:15:50Z,2015-10-21T19:38:28Z,1.0.0,1.0.0,Stale leader-lock key effectively bans all nodes from becoming leaders
+12905559,STORM-1117,Bug,Resolved,Fixed,2015-10-16T15:24:59Z,2015-10-20T20:34:58Z,,1.0.0,Show Visualization broken : Missing visualization-init route in UI
+12906538,STORM-1120,Bug,Resolved,Fixed,2015-10-21T13:30:17Z,2015-11-25T20:05:20Z,1.0.0,1.0.0,main-routes in backtype.storm.ui.core uses wrong keyword - schema
+12906807,STORM-1121,Bug,Resolved,Fixed,2015-10-21T17:32:54Z,2015-10-24T01:08:36Z,,1.0.0,Improve Nimbus Topology submission time
+12908262,STORM-1134,Bug,Resolved,Fixed,2015-10-27T15:40:09Z,2015-11-06T20:57:54Z,0.10.0,1.0.0,Windows: Fix log4j config.
+12908951,STORM-1142,Bug,Resolved,Fixed,2015-10-29T16:37:11Z,2015-10-29T16:46:14Z,1.0.0,1.0.0,Some config validators for positive ints need to allow 0
+12909027,STORM-1147,Bug,Resolved,Fixed,2015-10-29T20:46:52Z,2016-02-17T23:34:34Z,0.10.0,1.0.0,Storm JDBCBolt should add validation to ensure either insertQuery or table name is specified and not both.
+12909029,STORM-1148,Bug,Resolved,Fixed,2015-10-29T20:52:17Z,2015-11-05T21:26:59Z,0.9.3 | 0.10.0 | 0.9.4 | 0.9.5 | 0.9.6,1.0.0,Storm.py - References to storm.incubator.apache.org
+12909157,STORM-1150,Bug,Resolved,Fixed,2015-10-30T09:52:11Z,2016-01-11T19:05:21Z,0.10.0,1.0.0,The authorization  mode of Logviewer is not working well when I add other groups for log
+12910015,STORM-1160,Bug,Resolved,Fixed,2015-11-03T15:10:14Z,2016-01-11T15:19:04Z,,1.0.0,add hadoop-auth dependency back to storm-core
+12910018,STORM-1161,Bug,Resolved,Fixed,2015-11-03T15:12:53Z,2015-11-06T15:45:59Z,,1.0.0,Several source files lack an Apache License
+12910109,STORM-1163,Bug,Resolved,Fixed,2015-11-03T19:44:50Z,2015-11-05T21:12:39Z,,1.0.0,supervisor try-cleanup-worker should use rmr on the worker-root dir
+12910403,STORM-1168,Bug,Resolved,Fixed,2015-11-04T17:04:24Z,2015-11-05T20:43:56Z,1.0.0,1.0.0,worker-launcher logs noisy messages when visiting files
+12910410,STORM-1170,Bug,Resolved,Fixed,2015-11-04T17:21:06Z,2015-11-05T20:55:19Z,,1.0.0,Consistent Unit Test failure in Travis in backtype.storm.utils.DisruptorQueueTest
+12910752,STORM-1177,Bug,Closed,Fixed,2015-11-05T15:21:34Z,2015-11-09T03:21:27Z,1.0.0,1.0.0,Build fails because DISCLAIMER file is missing
+12910822,STORM-1179,Bug,Resolved,Fixed,2015-11-05T19:47:43Z,2015-12-18T19:52:13Z,1.0.0,1.0.0,Create Maven Profiles for Integration Tests
+12910850,STORM-1180,Bug,Resolved,Fixed,2015-11-05T21:38:52Z,2015-11-06T19:26:35Z,0.10.0,1.0.0 | 0.10.1,FLUX logo wasn't appearing quite right
+12910950,STORM-1185,Bug,Resolved,Fixed,2015-11-06T04:56:20Z,2015-11-10T13:12Z,1.0.0,1.0.0,Update storm.yaml with HA configuration
+12911350,STORM-1189,Bug,Resolved,Fixed,2015-11-08T06:02:37Z,2015-11-10T15:05:30Z,0.10.0,1.0.0,client.getClusterInfo() fails with Required field 'nimbus_uptime_secs' is unset!
+12911409,STORM-1190,Bug,Resolved,Fixed,2015-11-09T03:18:26Z,2015-11-13T16:26:35Z,1.0.0,1.0.0,System load spikes in recent snapshot
+12911578,STORM-1191,Bug,Resolved,Fixed,2015-11-09T16:44:26Z,2015-11-12T17:16:44Z,,1.0.0,Random test failures on backtype.storm.transactional-test
+12912714,STORM-1203,Bug,Resolved,Fixed,2015-11-13T03:56:26Z,2015-11-24T19:54:45Z,,1.0.0,worker metadata file creation doesn't use storm.log.dir config
+12912932,STORM-1204,Bug,Resolved,Fixed,2015-11-13T18:51:03Z,2015-11-18T20:52:22Z,,1.0.0,Logviewer should graceful report page-not-found instead of 500 for bad topo-id etc
+12913415,STORM-1208,Bug,Resolved,Fixed,2015-11-16T19:48:44Z,2015-11-18T19:50:55Z,1.0.0,1.0.0,UI: NPE seen when aggregating bolt streams stats
+12913720,STORM-1213,Bug,Resolved,Fixed,2015-11-17T14:50:38Z,2015-11-23T22:05:41Z,1.0.0,1.0.0,Remove sigar binaries from source tree
+12914229,STORM-1217,Bug,Resolved,Fixed,2015-11-18T19:58:42Z,2015-11-24T22:51:30Z,,1.0.0,making small fixes in RAS
+12914265,STORM-1218,Bug,Resolved,Fixed,2015-11-18T21:38:52Z,2016-01-04T18:00:27Z,,1.0.0,Use Markdown Syntax for JavaDoc
+12914552,STORM-1219,Bug,Resolved,Fixed,2015-11-19T17:12:47Z,2016-01-11T19:09Z,,1.0.0,Fix HDFS and Hive bolt flush/acking
+12914613,STORM-1220,Bug,Closed,Fixed,2015-11-19T21:00:36Z,2015-11-26T21:25:43Z,,1.0.0,Avoid double copying in the Kafka spout
+12914641,STORM-1221,Bug,Closed,Fixed,2015-11-19T22:23:46Z,2015-11-21T02:10:50Z,,1.0.0,Create a common interface for all Trident spout
+12915051,STORM-1223,Bug,Resolved,Fixed,2015-11-21T02:22:28Z,2015-12-02T16:31:40Z,,,test-nimbus-check-authorization-params consistently crashes (not fails) on Windows
+12915684,STORM-1344,Bug,Resolved,Fixed,2015-11-24T05:29:30Z,2016-09-02T00:57:35Z,1.0.0,2.0.0 | 1.1.0 | 1.0.3,"storm-jdbc build error ""object name already exists: USER_DETAILS in statement"""
+12915895,STORM-1348,Bug,Resolved,Fixed,2015-11-24T19:13:42Z,2016-01-11T20:32:08Z,,1.0.0,Refactor API to remove Insert/Update builder in Cassandra connector
+12915903,STORM-1349,Bug,Resolved,Fixed,2015-11-24T19:28:23Z,2015-11-24T19:43:05Z,,1.0.0,[Flux] Allow constructorArgs to take Maps as arguments
+12917241,STORM-1359,Bug,Resolved,Fixed,2015-12-01T12:59:48Z,2015-12-11T04:58:31Z,,1.0.0,Change kryo links from google code to github
+12917597,STORM-1361,Bug,Resolved,Fixed,2015-12-02T14:59:45Z,2015-12-02T16:01:55Z,,1.0.0,Apache License missing from two Cassandra files
+12917906,STORM-1363,Bug,Resolved,Fixed,2015-12-03T07:32:48Z,2017-02-22T07:41:49Z,0.10.1 | 1.x,2.0.0 | 1.1.0,TridentKafkaState should handle null values from TridentTupleToKafkaMapper.getMessageFromTuple()
+12918996,STORM-1370,Bug,Resolved,Fixed,2015-12-04T14:56:27Z,2015-12-10T17:16:06Z,,1.0.0,Bug fixes for MultitenantScheduler
+12919454,STORM-1375,Bug,Resolved,Fixed,2015-12-05T15:22:05Z,2015-12-07T13:56:29Z,1.0.0,1.0.0,Blobstore broke Pacemaker
+12919587,STORM-1376,Bug,Resolved,Fixed,2015-12-07T06:37:08Z,2015-12-17T21:36:20Z,1.0.0,1.0.0,ZK Becoming deadlocked with zookeeper_state_factory
+12919776,STORM-1377,Bug,Resolved,Fixed,2015-12-07T17:19:12Z,2015-12-17T17:12:49Z,0.10.0 | 1.0.0,1.0.0,nimbus_auth_test: very short timeouts causing spurious failures
+12919846,STORM-1378,Bug,Resolved,Fixed,2015-12-07T21:10:28Z,2015-12-10T17:31:24Z,,1.0.0,Windows File Handling Issues with Blobstore
+12920616,STORM-1385,Bug,Resolved,Fixed,2015-12-10T00:56:31Z,2015-12-11T05:00:19Z,,1.0.0,Divide by zero exception in stats.clj
+12920979,STORM-1388,Bug,Resolved,Fixed,2015-12-11T06:30:23Z,2015-12-17T22:07:18Z,,1.0.0,Fix url and email links in README file
+12922498,STORM-1395,Bug,Resolved,Fixed,2015-12-16T20:58:19Z,2015-12-17T21:39:34Z,1.0.0,1.0.0,Move JUnit dependency to top-level pom
+12922535,STORM-1396,Bug,Resolved,Fixed,2015-12-16T22:33:41Z,2016-01-06T21:08:38Z,,1.0.0,Blobstore supervisor backward compatibility for beginFileDownload Missing. Adding it
+12922538,STORM-1397,Bug,Resolved,Fixed,2015-12-16T22:38:30Z,2016-01-04T21:36:42Z,,1.0.0,Merge conflict from Pacemaker merge
+12922724,STORM-1398,Bug,Resolved,Fixed,2015-12-17T14:37:59Z,2015-12-21T17:50:46Z,1.0.0,1.0.0,TopologyDetails.getTopology was accidently removed.
+12922758,STORM-1399,Bug,Resolved,Fixed,2015-12-17T15:53:01Z,2015-12-21T19:31:38Z,1.0.0,1.0.0,Blobstore tests should write data to `target` so it gets removed when running `mvn clean`
+12922793,STORM-1400,Bug,Resolved,Fixed,2015-12-17T18:33:33Z,2015-12-18T19:04:46Z,0.10.0,1.0.0,Netty Context removeClient() called after term() causes NullPointerException.
+12923073,STORM-1402,Bug,Resolved,Fixed,2015-12-18T17:27:08Z,2015-12-21T23:16:19Z,1.0.0,1.0.0,Test missing for topology history during merge
+12923118,STORM-1405,Bug,Resolved,Fixed,2015-12-18T19:56:11Z,2016-01-21T07:18:43Z,,1.0.0,Add Maven 'all-tests' Profile to Travis Script
+12923562,STORM-1407,Bug,Resolved,Fixed,2015-12-21T21:15:24Z,2015-12-28T16:19:30Z,1.0.0,1.0.0,Incorrect authorize check for daemon log links in UI
+12923799,STORM-1408,Bug,Resolved,Fixed,2015-12-22T17:28:01Z,2016-01-11T17:19:02Z,,1.0.0,storm-hdfs tests are not cleaned up maven clean:clean does not delete build directory
+12923814,STORM-1409,Bug,Resolved,Fixed,2015-12-22T19:54:25Z,2015-12-28T14:39:38Z,,1.0.0,StormClientErrorHandler is not used
+12923946,STORM-1411,Bug,Resolved,Fixed,2015-12-23T08:38:29Z,2015-12-25T05:27:44Z,,1.0.0,some fixes for storm-windowing
+12923951,STORM-1412,Bug,Resolved,Fixed,2015-12-23T09:02:11Z,2016-01-04T22:09:06Z,,1.0.0,Null check should be done in the first place
+12923959,STORM-1413,Bug,Resolved,Fixed,2015-12-23T09:29:50Z,2016-01-05T15:11:05Z,,1.0.0,remove unused variables for some tests
+12924009,STORM-1417,Bug,Resolved,Fixed,2015-12-23T14:07:31Z,2016-01-05T18:33:42Z,,1.0.0,CoordType breaks equlas/hashCode contract
+12924262,STORM-1418,Bug,Resolved,Fixed,2015-12-25T08:03:45Z,2016-01-11T18:56:03Z,,1.0.0,improve debug logs for some external modules
+12924283,STORM-1419,Bug,Resolved,Fixed,2015-12-25T10:11:07Z,2016-01-13T17:23:39Z,,1.0.0,Solr bolt should handle tick tuples
+12924522,STORM-1422,Bug,Resolved,Fixed,2015-12-28T15:56:51Z,2016-01-05T18:08:32Z,,1.0.0,broken example in storm-starter tutorial
+12924534,STORM-1423,Bug,Resolved,Fixed,2015-12-28T17:23:27Z,2016-01-11T15:40:41Z,0.10.1,1.0.0,storm UI in a secure env shows error even when credentials are present
+12924591,STORM-1424,Bug,Resolved,Fixed,2015-12-29T01:30:04Z,2016-01-05T15:53:33Z,1.0.0,1.0.0,Removed unused topology-path variable in config.clj/read-supervisor-storm-conf
+12924598,STORM-1425,Bug,Resolved,Fixed,2015-12-29T02:22:19Z,2016-01-11T17:07:32Z,,1.0.0,"Tick tuples must be acked like ""normal"" tuples"
+12924630,STORM-1426,Bug,Resolved,Fixed,2015-12-29T07:07:18Z,2016-01-05T19:43:10Z,1.0.0,1.0.0,keep backtype.storm.tuple.AddressedTuple and delete duplicated  backtype.storm.messaging.AddressedTuple
+12924837,STORM-1427,Bug,Resolved,Fixed,2015-12-30T09:26:07Z,2016-01-05T15:35:24Z,1.0.0,1.0.0,add TupleUtils/listHashCode method and delete tuple.clj
+12927324,STORM-1432,Bug,Resolved,Fixed,2016-01-05T18:20:46Z,2016-01-11T17:03:13Z,,1.0.0,Spurious failure in storm-kafka test
+12928124,STORM-1445,Bug,Resolved,Fixed,2016-01-06T20:45:18Z,2016-01-14T00:02:04Z,,1.0.0,storm-cassandra uses cassandra-unit which license is LGPL v3
+12928283,STORM-1449,Bug,Resolved,Fixed,2016-01-07T09:54:30Z,2016-01-11T16:51:29Z,,1.0.0,Fix Kafka spout to maintain backward compatibility to pass byte[] instead of ByteBuffer
+12928519,STORM-1452,Bug,Resolved,Fixed,2016-01-08T00:37:51Z,2016-01-20T22:17:30Z,1.0.0,1.0.0,"Worker ""profiler"" actions broken by default"
+12928585,STORM-1453,Bug,Resolved,Fixed,2016-01-08T08:56:50Z,2016-01-13T17:28:47Z,1.0.0,1.0.0,nimbus.clj/wait-for-desired-code-replication print wrong log message
+12928639,STORM-1455,Bug,Resolved,Fixed,2016-01-08T13:21:15Z,2016-02-05T05:55:48Z,1.0.0,1.0.0,kafka spout should not reset to the beginning of partition when offsetoutofrange exception occurs
+12928708,STORM-1457,Bug,Resolved,Fixed,2016-01-08T19:02:37Z,2016-01-11T15:51:40Z,,1.0.0,Avoid Unnecessary caching of tuples by executor
+12928741,STORM-1458,Bug,Resolved,Fixed,2016-01-08T21:24:24Z,2016-01-11T16:43:55Z,,1.0.0,Add check to see if nimbus is already running.
+12928882,STORM-1461,Bug,Resolved,Fixed,2016-01-09T17:50:18Z,2016-07-09T18:45:24Z,,1.0.0,Storm.py - Create Tests to Validate CLI Options
+12929380,STORM-1463,Bug,Resolved,Fixed,2016-01-12T04:57:06Z,2016-01-22T22:55:20Z,,1.0.0,log4j dir uri should always have file schema
+12929542,STORM-1466,Bug,Resolved,Fixed,2016-01-12T17:20:02Z,2016-01-15T17:09:38Z,,1.0.0,Move the org.apache.thrift7 namespace to something correct/sensible
+12929555,STORM-1467,Bug,Resolved,Fixed,2016-01-12T17:57:29Z,2016-01-15T16:50:51Z,,1.0.0,"Switch apache-rat plugin off by default, but enable for Travis-CI"
+12929648,STORM-1468,Bug,Resolved,Fixed,2016-01-13T01:31:06Z,2016-01-20T21:52:13Z,,1.0.0,Merge changes from {master}/docs to {asf-site} and remove {master}/docs
+12929883,STORM-1470,Bug,Resolved,Fixed,2016-01-13T17:24:27Z,2016-01-15T17:01:40Z,1.0.0 | 2.0.0,1.0.0,"org.apache.hadoop:hadoop-auth not shaded, breaks spnego authentication"
+12929983,STORM-1472,Bug,Resolved,Fixed,2016-01-13T22:43:21Z,2016-01-20T17:16:24Z,1.0.0,1.0.0,Change long to readble date/time format for error log link
+12931349,STORM-1476,Bug,Resolved,Fixed,2016-01-15T05:36:37Z,2016-02-10T06:59:31Z,1.0.0,1.0.0 | 2.0.0,Filter -c options from args and add them as part of storm.options
+12931636,STORM-1478,Bug,Resolved,Fixed,2016-01-16T05:40:27Z,2016-01-19T11:14:51Z,,1.0.0,make bolt's getComponentConfiguration method cleaner/simpler
+12931652,STORM-1481,Bug,Resolved,Fixed,2016-01-16T11:36:22Z,2016-01-20T20:14:18Z,,1.0.0 | 0.10.1 | 2.0.0,avoid Math.abs(Integer) get a negative value
+12931657,STORM-1482,Bug,Resolved,Fixed,2016-01-16T13:01:53Z,2016-01-20T22:32:28Z,,0.10.1,add missing 'break' for RedisStoreBolt
+12931741,STORM-1484,Bug,Resolved,Fixed,2016-01-17T09:39:53Z,2016-01-20T17:29:15Z,,1.0.0,ignore subproject .classpath & .project file
+12932524,STORM-1485,Bug,Resolved,Fixed,2016-01-19T20:58:31Z,2016-01-22T22:41:01Z,,1.0.0,DRPC Connectivity Issues
+12932732,STORM-1486,Bug,Resolved,Fixed,2016-01-20T15:23:54Z,2016-01-22T22:12:11Z,,1.0.0,Fix Storm-kafka documentation to reflect changes from STORM-1220
+12932821,STORM-1488,Bug,Resolved,Fixed,2016-01-20T19:43:12Z,2016-02-26T02:35:17Z,1.0.0 | 2.0.0,1.0.0,UI Topology Page component last error timestamp is from 1970
+12933455,STORM-1492,Bug,Resolved,Fixed,2016-01-22T20:07:14Z,2018-09-21T17:36:48Z,1.0.0,2.0.0,"With nimbus.seeds set to default, a nimbus for localhost may appear ""Offline"""
+12933458,STORM-1493,Bug,Resolved,Fixed,2016-01-22T20:09:47Z,2016-02-25T22:53:43Z,,1.0.0,Update Documentation for {{nimbus.seeds}}
+12933475,STORM-1495,Bug,Resolved,Fixed,2016-01-22T21:07:33Z,2016-01-25T23:28:47Z,1.0.0,1.0.0,Topology visualization is broken
+12933479,STORM-1496,Bug,Resolved,Fixed,2016-01-22T21:22:34Z,2016-01-25T23:15:41Z,1.0.0,1.0.0,Nimbus periodically throws blobstore-related exception: No matching method found: readBlob for class java.lang.String
+12933586,STORM-1499,Bug,Resolved,Fixed,2016-01-23T10:53:41Z,2016-01-24T23:29:50Z,,1.0.0,fix wrong package name for storm trident
+12934170,STORM-1503,Bug,Resolved,Fixed,2016-01-26T17:49:24Z,2016-01-27T21:06:15Z,0.10.0 | 0.10.1,1.0.0,PacemakerClient Reconnection issue
+12934317,STORM-1504,Bug,Resolved,Fixed,2016-01-27T02:41:32Z,2016-02-03T22:15:37Z,,1.0.0,AvroGenericRecordBolt will not work in a topology with multiple workers
+12935255,STORM-1510,Bug,Resolved,Fixed,2016-01-29T20:59:50Z,2016-01-30T20:32:29Z,,1.0.0,Nimbus log-link broken
+12935806,STORM-1515,Bug,Resolved,Fixed,2016-02-02T00:47:17Z,2019-09-04T17:23:41Z,0.10.0 | 0.9.4,2.1.0,LocalState corruption after hard reboot on Windows
+12935922,STORM-1516,Bug,Resolved,Fixed,2016-02-02T10:21:59Z,2016-02-22T16:28:56Z,2.0.0,2.0.0,Topology workers are not getting killed when a topology is killed.
+12935934,STORM-1517,Bug,Resolved,Fixed,2016-02-02T11:05:04Z,2016-02-05T13:01:46Z,,1.0.0,Add peek api in trident stream
+12936112,STORM-1518,Bug,Resolved,Fixed,2016-02-02T21:02:06Z,2016-02-03T22:15:49Z,,1.0.0,Backport STORM-1504 to 1.0 branch
+12936163,STORM-1519,Bug,Resolved,Fixed,2016-02-02T22:48:57Z,2016-02-11T19:44:17Z,,1.0.0,Storm syslog logging not confirming to RFC5426 3.1
+12936229,STORM-1520,Bug,Resolved,Fixed,2016-02-03T02:48:58Z,2016-02-09T02:43:54Z,1.0.0,1.0.0,"Nimbus Clojure/Zookeeper issue (""stateChanged"" method not found)"
+12936346,STORM-1521,Bug,Resolved,Fixed,2016-02-03T14:27:38Z,2016-02-10T20:03:34Z,0.10.0 | 0.9.5,2.0.0,When using Kerberos login from keytab with multiple bolts/executors ticket is not renewed
+12936374,STORM-1522,Bug,Resolved,Fixed,2016-02-03T15:39:54Z,2016-02-19T20:25:03Z,,1.0.0 | 2.0.0,REST API throws invalid worker log links.
+12936883,STORM-1526,Bug,Resolved,Fixed,2016-02-04T22:09:54Z,2016-02-09T02:10:29Z,,1.0.0,Improve Storm core performance
+12937001,STORM-1527,Bug,Resolved,Fixed,2016-02-05T09:56:41Z,2016-02-05T13:06:36Z,,1.0.0,Trident api doc for peek
+12937146,STORM-1528,Bug,Resolved,Fixed,2016-02-05T20:36:04Z,2016-03-04T17:00:26Z,,2.0.0,Fix CsvPreparableReporter log directory
+12937452,STORM-1530,Bug,Resolved,Fixed,2016-02-08T09:25:27Z,2016-02-29T22:04:12Z,,1.0.0 | 2.0.0,Add API doc for minBy/min/max/maxBy operations on stream
+12937565,STORM-1531,Bug,Resolved,Fixed,2016-02-08T17:08:32Z,2016-02-09T02:20:11Z,,1.0.0,Junit and mockito dependencies need to have correct scope defined in storm-elasticsearch pom.xml
+12937847,STORM-1532,Bug,Resolved,Fixed,2016-02-09T12:19:17Z,2016-02-19T20:12:17Z,,1.0.0 | 2.0.0,Fix readCommandLineOpts to parse JSON correctly
+12937860,STORM-1533,Bug,Resolved,Fixed,2016-02-09T13:23:05Z,2016-02-11T15:35:37Z,0.10.0,1.0.0,topologies with metric consumers fail in config validation phase
+12937879,STORM-1534,Bug,Resolved,Fixed,2016-02-09T14:53:14Z,2016-02-11T15:35:59Z,1.0.0,1.0.0,Incompatible jackson dependencies are being packed in storm package
+12937906,STORM-1535,Bug,Resolved,Fixed,2016-02-09T16:03:51Z,2016-04-25T19:49:13Z,0.10.0 | 0.9.5,0.10.1 | 2.0.0 | 1.0.1,Storm-HDFS - When using keytab Kerberos ticket is not renewed with multiple bolts/executors
+12938632,STORM-1538,Bug,Resolved,Fixed,2016-02-11T22:02:45Z,2016-02-12T17:27:41Z,,2.0.0,Exception being thrown after Utils conversion to java
+12938639,STORM-1540,Bug,Resolved,Fixed,2016-02-11T22:55:05Z,2016-02-25T23:36:18Z,1.0.0,1.0.0,Topology Debug/Sampling Breaks Trident Topologies
+12938668,STORM-1541,Bug,Resolved,Fixed,2016-02-12T00:33:58Z,2016-02-19T20:04:01Z,1.0.0 | 2.0.0,1.0.0 | 2.0.0,Change scope of 'hadoop-minicluster' to test
+12938771,STORM-1542,Bug,Resolved,Fixed,2016-02-12T11:07:56Z,2016-02-26T01:01:22Z,1.0.0,1.0.0,Taking jstack for a worker in UI results in endless empty jstack dumps
+12938851,STORM-1543,Bug,Resolved,Fixed,2016-02-12T16:47:38Z,2016-03-04T17:50:45Z,0.10.0 | 1.0.0 | 0.10.1 | 2.0.0,1.0.0 | 2.0.0,DRPCSpout should always try to reconnect disconnected DRPCInvocationsClient
+12938883,STORM-1544,Bug,Resolved,Fixed,2016-02-12T19:20Z,2016-04-21T18:47:49Z,1.0.0,2.0.0 | 1.0.1,Document Debug/Sampling of Topologies
+12938910,STORM-1545,Bug,Resolved,Fixed,2016-02-12T20:19:12Z,2016-02-26T07:21:26Z,1.0.0,2.0.0,Topology Debug Event Log in Wrong Location
+12939295,STORM-1552,Bug,Resolved,Fixed,2016-02-15T15:08:16Z,2016-02-26T01:36:22Z,1.0.0 | 2.0.0,1.0.0,Fix topology event sampling log directory
+12939712,STORM-1556,Bug,Resolved,Fixed,2016-02-17T06:11:20Z,2016-03-22T20:54:01Z,1.0.0 | 2.0.0,1.0.0 | 2.0.0,nimbus.clj/wait-for-desired-code-replication wrong reset for current-replication-count-jar in local mode
+12940076,STORM-1558,Bug,Resolved,Fixed,2016-02-18T06:33:59Z,2016-02-23T08:45:16Z,2.0.0,2.0.0,Utils in java breaks component page due to illegal type cast
+12940324,STORM-1561,Bug,Resolved,Fixed,2016-02-18T23:22:47Z,2016-03-04T17:10:25Z,1.0.0 | 2.0.0,1.0.0 | 2.0.0,Supervisor should relaunch worker if assignments have changed
+12940459,STORM-1564,Bug,Resolved,Fixed,2016-02-19T10:31:32Z,2016-02-24T17:58:26Z,,2.0.0,fix wrong package-info in org.apache.storm.utils.staticmocking
+12940964,STORM-1566,Bug,Resolved,Fixed,2016-02-22T05:49:08Z,2016-02-23T08:46:41Z,2.0.0,2.0.0,Worker exits with error o.a.s.d.worker [ERROR] Error on initialization of server mk-worker java.lang.ClassCastException: java.lang.String cannot be cast to java.io.File
+12940993,STORM-1567,Bug,Resolved,Fixed,2016-02-22T09:33:39Z,2016-09-23T01:03:45Z,2.0.0,2.0.0 | 1.1.0 | 1.0.3,in defaults.yaml  'topology.disable.loadaware' should be 'topology.disable.loadaware.messaging'
+12941423,STORM-1572,Bug,Resolved,Fixed,2016-02-23T15:16:49Z,2016-02-24T16:44:53Z,,2.0.0,throw NPE when parsing the command line arguments by CLI
+12944389,STORM-1575,Bug,Resolved,Fixed,2016-02-25T06:08:04Z,2016-06-09T20:45:59Z,1.0.0 | 2.0.0,2.0.0 | 1.0.2 | 1.1.0,TwitterSampleSpout throws NPE on close
+12944543,STORM-1576,Bug,Resolved,Fixed,2016-02-25T16:25:48Z,2016-02-29T19:05:46Z,1.0.0 | 2.0.0,1.0.0,TopologyBuilder fails with ConcurrentModification in addCheckPointInputs for stateful topologies
+12944665,STORM-1578,Bug,Resolved,Fixed,2016-02-25T21:10:31Z,2016-02-25T22:05:14Z,2.0.0,2.0.0,"ClassCastException from Integer to Long for ""port"" in cluster.clj translation"
+12944752,STORM-1579,Bug,Resolved,Fixed,2016-02-26T02:49:33Z,2016-03-02T17:28:15Z,2.0.0,2.0.0,Got NoSuchFileException when running tests in storm-core
+12944837,STORM-1581,Bug,Resolved,Fixed,2016-02-26T09:30:18Z,2016-04-01T03:19:08Z,1.0.0,1.0.0,Repair github links in the storm documentation
+12945520,STORM-1587,Bug,Resolved,Fixed,2016-02-29T16:54:28Z,2016-03-01T18:55:27Z,,1.0.0,ThroughputVsLatency printMetrics Throws NullPointerException
+12945647,STORM-1588,Bug,Resolved,Fixed,2016-02-29T22:41Z,2016-03-07T19:56:58Z,1.0.0,1.0.0 | 2.0.0,component page gets divide by 0 if no event loggers configured
+12945873,STORM-1592,Bug,Resolved,Fixed,2016-03-01T17:00:26Z,2016-03-02T18:33:36Z,2.0.0,2.0.0,clojure code calling into Utils.exitProcess throws ClassCastException
+12946065,STORM-1594,Bug,Resolved,Fixed,2016-03-02T06:47:12Z,2016-07-31T14:41:45Z,,2.0.0 | 1.1.0 | 1.0.3,org.apache.storm.tuple.Fields can throw NPE if given invalid field in selector
+12946327,STORM-1596,Bug,Resolved,Fixed,2016-03-02T23:42:56Z,2016-03-03T20:27:15Z,0.10.0 | 1.0.0 | 0.10.1 | 2.0.0,1.0.0 | 0.10.1 | 2.0.0,Multiple Subject sharing Kerberos TGT - causes services to fail
+12946632,STORM-1601,Bug,Resolved,Fixed,2016-03-03T18:31:19Z,2016-03-04T15:48:09Z,1.0.0 | 2.0.0,1.0.0,Cluster-state must check if znode exists before getting children for storm backpressure
+12946834,STORM-1602,Bug,Resolved,Fixed,2016-03-04T00:23:15Z,2016-03-20T02:09:08Z,1.0.0,1.0.0,Blobstore UTs are failing on Windows
+12946846,STORM-1603,Bug,Resolved,Fixed,2016-03-04T01:04:50Z,2016-03-09T04:04:22Z,0.10.0,0.10.1,Storm UT fails on supervisor test in Windows (0.10.x)
+12947382,STORM-1604,Bug,Resolved,Fixed,2016-03-05T00:08:50Z,2016-03-22T20:08:49Z,1.0.0,1.0.0,Delayed transition should handle NotALeaderException
+12947496,STORM-1606,Bug,Resolved,Fixed,2016-03-06T08:28:32Z,2016-03-07T19:11:05Z,,1.0.0,Travis CI can't print the infomation of the testcase which  is on failure
+12947616,STORM-1608,Bug,Resolved,Fixed,2016-03-07T05:59:35Z,2016-03-14T19:33:16Z,1.0.0 | 2.0.0,1.0.0 | 2.0.0,Fix stateful topology acking behavior
+12947783,STORM-1609,Bug,Resolved,Fixed,2016-03-07T20:20:28Z,2016-03-28T20:37:29Z,,1.0.0 | 2.0.0 | 0.10.2 | 1.1.0,Netty Client is not best effort delivery on failed Connection
+12948410,STORM-1614,Bug,Resolved,Fixed,2016-03-09T14:35:19Z,2016-03-22T20:21:31Z,,1.0.0 | 2.0.0,Clean backpressure zk node in do-cleanup
+12948455,STORM-1615,Bug,Resolved,Fixed,2016-03-09T17:15:06Z,2016-03-17T19:28:09Z,,1.0.0 | 2.0.0,Update state checkpointing doc with bolt's acking contract
+12948570,STORM-1616,Bug,Closed,Fixed,2016-03-09T22:05:45Z,2016-03-17T22:21:35Z,,1.0.0,Add RAS API for Trident
+12949079,STORM-1620,Bug,Resolved,Fixed,2016-03-11T13:12:34Z,2016-04-30T21:38:41Z,,1.0.0,Update Curator to fix CURATOR-209
+12949874,STORM-1622,Bug,Resolved,Fixed,2016-03-14T13:12:45Z,2016-03-23T20:17Z,,1.0.0,Topology jars referring to shaded classes of older version of storm jar cannot be run in Storm 1.0.0
+12949875,STORM-1623,Bug,Resolved,Fixed,2016-03-14T13:26:33Z,2016-03-17T03:30:44Z,,2.0.0,nimbus.clj's minor bug
+12949898,STORM-1625,Bug,Resolved,Fixed,2016-03-14T14:22:23Z,2016-03-24T20:39:07Z,,1.0.0 | 2.0.0,Move storm-sql dependencies out of lib folder
+12950510,STORM-1629,Bug,Closed,Fixed,2016-03-15T13:50:07Z,2016-03-20T02:03:01Z,1.0.0 | 2.0.0,1.0.0,Files/move doesn't work properly with non-empty directory in Windows
+12950566,STORM-1631,Bug,Resolved,Fixed,2016-03-15T15:52:05Z,2016-03-22T19:46:10Z,,2.0.0,storm CGroup bugs 1) when launching workers as the user that submitted the topology 2) when initial cleanup of cgroup fails
+12950732,STORM-1632,Bug,Resolved,Fixed,2016-03-16T04:14:13Z,2016-04-01T16:48:29Z,,1.0.0,Disable event logging by default
+12951083,STORM-1636,Bug,Resolved,Fixed,2016-03-17T04:32:45Z,2016-03-22T19:11:49Z,1.0.0 | 2.0.0,1.0.0 | 2.0.0,Supervisor shutdown with worker id pass in being nil
+12951210,STORM-1637,Bug,Resolved,Fixed,2016-03-17T13:45:11Z,2016-03-17T19:37:17Z,,1.0.0,MongoDB pom.xml fails on JDK8 Travis
+12951936,STORM-1641,Bug,Resolved,Fixed,2016-03-21T05:13:28Z,2016-03-22T18:42:23Z,,1.0.0,Inconsistency when creating backpressure znode subtree
+12951958,STORM-1642,Bug,Resolved,Fixed,2016-03-21T07:34:06Z,2017-06-12T00:49:38Z,0.10.0,2.0.0,NullPointerException when deserialize
+12952388,STORM-1645,Bug,Resolved,Fixed,2016-03-22T10:33:26Z,2016-04-26T16:46:37Z,0.10.0,0.10.1,nimbus.thrift.port command line argument leads to java.lang.ClassCastException: java.lang.Long cannot be cast to java.lang.Integer
+12952450,STORM-1646,Bug,Resolved,Fixed,2016-03-22T14:15:19Z,2016-08-31T22:43:15Z,,2.0.0 | 1.1.0 | 1.0.3,Intermittent test failures in storm-kafka unit tests
+12953074,STORM-1654,Bug,Resolved,Fixed,2016-03-24T02:30:04Z,2016-03-25T05:11:01Z,1.0.0 | 2.0.0,1.0.0,HBaseBolt creates tick tuples with no interval when we don't set flushIntervalSecs
+12953121,STORM-1655,Bug,Resolved,Fixed,2016-03-24T07:45Z,2016-03-25T09:10:15Z,1.0.0 | 2.0.0,1.0.0,Flux doesn't set return code to non-zero when there's any exception while deploying topology to remote cluster
+12953814,STORM-1658,Bug,Resolved,Fixed,2016-03-27T04:43:13Z,2016-04-12T17:53:52Z,,2.0.0 | 1.0.1,documents improvements and links fixes
+12954208,STORM-1663,Bug,Resolved,Fixed,2016-03-29T06:07:27Z,2016-03-31T18:22:10Z,2.0.0,2.0.0,Clicking on an active topology from storm ui home page and then refreshing the page throws exception
+12954710,STORM-1665,Bug,Resolved,Fixed,2016-03-30T18:38:31Z,2016-03-31T18:22:27Z,,2.0.0,Worker cannot instantiate kryo
+12954724,STORM-1666,Bug,Resolved,Fixed,2016-03-30T19:04:28Z,2016-03-31T18:22:48Z,2.0.0,2.0.0,Kill from the UI fails silently.
+12954752,STORM-1667,Bug,Resolved,Fixed,2016-03-30T20:31:27Z,2016-04-01T15:14:10Z,1.0.0,1.0.0,Log the IO Exception when deleting worker pid dir
+12954801,STORM-1668,Bug,Resolved,Fixed,2016-03-30T23:20:29Z,2016-04-01T03:16:46Z,1.0.0 | 2.0.0,1.0.0,Flux silently fails while setting a non-existent property.
+12954844,STORM-1669,Bug,Resolved,Fixed,2016-03-31T03:03:31Z,2016-04-01T05:37:59Z,1.0.0 | 2.0.0,1.0.0 | 2.0.0,Fix SolrUpdateBolt flush bug
+12955036,STORM-1670,Bug,Resolved,Fixed,2016-03-31T17:38:09Z,2016-04-04T21:04:17Z,1.0.0 | 2.0.0,1.0.0 | 2.0.0,LocalState#get(String) can throw FileNotFoundException which results in not removing worker heartbeats and supervisor is kind of stuck and goes down after some time.
+12955066,STORM-1672,Bug,Resolved,Fixed,2016-03-31T19:24:18Z,2016-05-16T06:32:34Z,2.0.0,2.0.0,Stats not get class cast exception
+12955175,STORM-1673,Bug,Resolved,Fixed,2016-04-01T03:12:19Z,2016-04-01T17:03:27Z,1.0.0 | 2.0.0,1.0.0 | 2.0.0,log4j2/worker.xml refers old package of LoggerMetricsConsumer
+12955178,STORM-1674,Bug,Resolved,Fixed,2016-04-01T03:35:08Z,2016-05-20T20:04:27Z,0.9.3 | 0.10.1 | 1.0.1,2.0.0 | 1.0.2 | 1.1.0,Idle KafkaSpout consumes more bandwidth than needed
+12955271,STORM-1676,Bug,Resolved,Fixed,2016-04-01T11:30:56Z,2016-05-16T06:51:08Z,2.0.0,2.0.0,NullPointerException while serializing ClusterWorkerHearbeat
+12955479,STORM-1677,Bug,Resolved,Fixed,2016-04-02T05:59:27Z,2016-04-04T20:25:16Z,1.0.0 | 2.0.0,1.0.0 | 2.0.0,"Test resource files (.log) are excluded from source distribution, which makes logviewer-test failing"
+12955791,STORM-1681,Bug,Resolved,Fixed,2016-04-04T15:19:18Z,2016-04-19T17:01:49Z,1.0.0 | 2.0.0,2.0.0 | 1.0.1,Bug in scheduling cyclic topologies when scheduling with RAS
+12955855,STORM-1683,Bug,Resolved,Fixed,2016-04-04T18:18:30Z,2016-04-20T07:47:45Z,1.0.0 | 2.0.0,1.0.1,UI Topology Visualization should not check sys streams by default
+12956308,STORM-1687,Bug,Resolved,Fixed,2016-04-05T22:13:01Z,2016-04-11T20:36:56Z,1.0.0 | 2.0.0,2.0.0 | 1.0.1,Divide by zero exception in stats
+12956863,STORM-1693,Bug,Resolved,Fixed,2016-04-07T13:33:36Z,2016-04-19T16:56:41Z,1.0.0,1.0.1,Negative counts in the UI for __metrics stream
+12956914,STORM-1694,Bug,Resolved,Fixed,2016-04-07T16:07:30Z,2017-01-05T04:14:03Z,,2.0.0 | 1.1.0,Kafka Spout Trident Implementation Using New Kafka Consumer API
+12957005,STORM-1696,Bug,Resolved,Fixed,2016-04-07T20:45:10Z,2016-04-19T16:55:04Z,1.0.0 | 2.0.0,2.0.0 | 1.0.1,Backpressure flag not sync if zookeeper connection errors
+12957608,STORM-1704,Bug,Resolved,Fixed,2016-04-11T04:55:13Z,2016-04-20T08:28:53Z,1.0.0 | 2.0.0,1.0.1,"When logviewer_search.html opens daemon file, next search always show no result"
+12958181,STORM-1706,Bug,Resolved,Fixed,2016-04-12T17:59:23Z,2016-04-19T16:53:07Z,1.0.0,1.0.1,Add storm-env.ini and RELEASE to storm-dist assembly
+12959102,STORM-1713,Bug,Resolved,Fixed,2016-04-15T08:28:11Z,2016-05-16T07:40:22Z,,2.0.0 | 1.0.2 | 1.1.0,Don't use proprietary NotImplementedException in storm-kafka
+12959140,STORM-1714,Bug,Resolved,Fixed,2016-04-15T11:28:13Z,2016-04-20T08:24:49Z,1.0.0 | 2.0.0,1.0.1,StatefulBolts ends up as normal bolts while using TopologyBuilder.setBolt without parallelism
+12961740,STORM-1725,Bug,Resolved,Fixed,2016-04-22T17:03:56Z,2016-04-22T17:32:44Z,1.0.0,1.0.1,Kafka Spout New Consumer API - KafkaSpoutRetryExponentialBackoff method should use HashMap instead of TreeMap not to throw Exception
+12962047,STORM-1728,Bug,Resolved,Fixed,2016-04-23T19:20:13Z,2016-05-24T19:47:59Z,1.0.0,2.0.0 | 1.0.2 | 1.1.0,TransactionalTridentKafkaSpout error
+12962469,STORM-1729,Bug,Resolved,Fixed,2016-04-26T03:51:53Z,2016-04-27T18:33:39Z,1.0.0,1.0.1,Get rid of reflections while recording stats
+12962544,STORM-1730,Bug,Resolved,Fixed,2016-04-26T10:20:30Z,2016-07-19T14:37:28Z,1.0.0,2.0.0 | 1.1.0 | 1.0.3,LocalCluster#shutdown() does not terminate all storm threads/thread pools.
+12962547,STORM-1731,Bug,Resolved,Fixed,2016-04-26T10:29:01Z,2016-04-27T18:31:54Z,1.0.0,0.10.1 | 1.0.1,Avoid looking up debug / backpressure enable flags within critical path
+12962712,STORM-1733,Bug,Resolved,Fixed,2016-04-26T19:16:18Z,2016-04-29T15:56:54Z,0.9.3 | 0.10.0 | 0.9.4 | 0.9.5 | 0.9.6,2.0.0 | 1.0.1 | 0.10.2,Logs from bin/storm are lost because stdout and stderr are not flushed
+12962961,STORM-1735,Bug,Resolved,Fixed,2016-04-27T10:00:53Z,2016-05-16T10:15:47Z,1.0.0 | 2.0.0,2.0.0 | 1.0.2 | 1.1.0,Nimbus logs that replication was not reached when min-replication-count was reached exactly
+12963335,STORM-1736,Bug,Resolved,Fixed,2016-04-27T22:26:13Z,2017-02-27T19:51:12Z,,,Change KafkaTestBroker.buildKafkaConfig to new KafkaConfig api.
+12963358,STORM-1737,Bug,Resolved,Fixed,2016-04-28T00:13:51Z,2016-07-15T16:52:32Z,,2.0.0 | 1.1.0,storm-kafka-client has compilation errors with Apache Kafka 0.10
+12963545,STORM-1741,Bug,Resolved,Fixed,2016-04-28T16:38:16Z,2016-04-29T20:08:47Z,1.0.1,1.0.1,storm-env.sh unconditionally sets JAVA_HOME
+12963958,STORM-1749,Bug,Resolved,Fixed,2016-04-29T20:11:04Z,2016-06-01T06:27:03Z,,2.0.0 | 1.0.2 | 1.1.0,Fix storm-starter links in the github code
+12964100,STORM-1750,Bug,Resolved,Fixed,2016-04-30T21:15:27Z,2016-05-16T08:47:58Z,0.10.0 | 1.0.0 | 2.0.0,2.0.0 | 0.10.2 | 1.0.2 | 1.1.0,Report-error-and-die may not kill the worker
+12964146,STORM-1754,Bug,Resolved,Fixed,2016-05-01T12:30:11Z,2016-05-16T08:50:11Z,,0.10.2,Correct java version in 0.10.x storm-starter
+12964284,STORM-1756,Bug,Resolved,Fixed,2016-05-02T12:50:36Z,2016-05-16T09:04:17Z,,2.0.0 | 1.0.1 | 1.1.0,Storm-kafka tests leak resources due to retained references to KafkaServer
+12964835,STORM-1761,Bug,Resolved,Fixed,2016-05-03T23:18:44Z,2016-05-16T09:14:43Z,2.0.0 | 1.0.1,2.0.0 | 1.0.2 | 1.1.0,Storm-Solr Example Throws ArrayIndexOutOfBoundsException in Remote Cluster Mode
+12965010,STORM-1764,Bug,Resolved,Fixed,2016-05-04T16:00:22Z,2016-05-16T09:28:35Z,,2.0.0 | 1.0.2 | 1.1.0,Pacemaker is throwing some stack traces
+12966156,STORM-1771,Bug,Resolved,Fixed,2016-05-09T15:29:04Z,2016-06-09T20:06:12Z,,2.0.0 | 1.0.2 | 1.1.0,HiveState should flushAndClose before closing old or idle Hive connections
+12966402,STORM-1772,Bug,Resolved,Fixed,2016-05-09T21:43:54Z,2017-03-08T22:55:54Z,,2.0.0 | 1.1.0,Create topologies for measuring performance
+12966596,STORM-1773,Bug,Resolved,Fixed,2016-05-10T03:36:47Z,2016-05-17T06:44:25Z,1.0.0 | 2.0.0 | 1.0.1,2.0.0 | 1.0.2 | 1.1.0,Utils.javaDeserialize() doesn't work with primitive types
+12969477,STORM-1832,Bug,Resolved,Fixed,2016-05-13T06:47:57Z,2016-07-04T11:51:36Z,1.0.0 | 2.0.0 | 1.0.1,2.0.0 | 1.1.0,Consistently slow metrics consumer triggers backpressure which will be never back to normal
+12969683,STORM-1834,Bug,Resolved,Fixed,2016-05-13T22:45:13Z,2016-07-08T09:44:26Z,1.0.1 | 0.10.2,2.0.0 | 0.10.2 | 1.0.2 | 1.1.0,Documentation How to Generate Certificates For Local Testing SSL Setup
+12969845,STORM-1837,Bug,Resolved,Fixed,2016-05-15T17:11:49Z,2016-09-19T20:44:15Z,1.0.0 | 2.0.0 | 1.0.1,2.0.0 | 1.1.0,"Running local clusters without simulating time breaks Testing.completeTopology, and may cause message loss"
+12970106,STORM-1841,Bug,Resolved,Fixed,2016-05-16T18:49:13Z,2016-06-13T06:54:58Z,2.0.0 | 1.0.1,2.0.0 | 1.1.0 | 1.0.3,Address a few minor issues in windowing and doc
+12970220,STORM-1842,Bug,Resolved,Fixed,2016-05-17T01:03:16Z,2016-05-20T18:15:09Z,1.0.0 | 1.0.1,2.0.0 | 1.0.2 | 1.1.0,Forward references in storm.thrift cause tooling issues
+12970310,STORM-1844,Bug,Resolved,Fixed,2016-05-17T09:28:53Z,2016-07-08T09:12:33Z,2.0.0,2.0.0 | 1.0.2 | 1.1.0,Some tests are flaky due to low timeout
+12970718,STORM-1848,Bug,Resolved,Fixed,2016-05-18T11:11:39Z,2016-05-24T20:39:11Z,2.0.0 | 1.0.1,2.0.0 | 1.0.2 | 1.1.0,NotSerializableException when using storm-kafka spout with event logging
+12970917,STORM-1849,Bug,Resolved,Fixed,2016-05-18T20:44:05Z,2016-09-13T07:07:52Z,1.0.0,2.0.0 | 1.1.0 | 1.0.3,HDFSFileTopology should take 3rd argument as topology name
+12971183,STORM-1851,Bug,Resolved,Fixed,2016-05-19T15:30:24Z,2016-05-24T20:50:21Z,1.0.1,2.0.0 | 1.0.2 | 1.1.0,Nimbus impersonation authorizer in defaults.yaml causes issues in secure mode
+12971524,STORM-1853,Bug,Resolved,Fixed,2016-05-20T13:18:42Z,2016-06-01T07:05:23Z,1.0.0,2.0.0 | 1.0.2 | 1.1.0,Deserialization issues in Utils.javaDeserialize()
+12971985,STORM-1859,Bug,Resolved,Fixed,2016-05-23T08:24:22Z,2016-05-25T16:00:01Z,,2.0.0 | 1.0.2 | 1.1.0,Late tuples are not acked in windowed mode
+12972157,STORM-1861,Bug,Resolved,Fixed,2016-05-23T19:18:29Z,2016-06-01T08:31:34Z,1.0.0,2.0.0 | 1.0.2 | 1.1.0,Storm submit command returns exit code of 0 even when it fails
+12972502,STORM-1862,Bug,Resolved,Fixed,2016-05-24T20:17:49Z,2016-05-24T20:24:23Z,1.0.0 | 1.0.1,2.0.0 | 1.0.2 | 1.1.0,Flux ShellSpout and ShellBolt can't emit to named streams
+12972607,STORM-1864,Bug,Resolved,Fixed,2016-05-25T05:11:47Z,2016-06-08T15:47:01Z,,2.0.0 | 1.0.2 | 1.1.0,StormSubmitter should show proper error messages for submitter hook invocation.
+12974021,STORM-1872,Bug,Resolved,Fixed,2016-05-30T16:11:42Z,2016-09-23T01:15:12Z,1.0.0 | 1.0.1 | 0.10.2,2.0.0 | 1.1.0,Storm Redis connection release
+12975129,STORM-1878,Bug,Resolved,Fixed,2016-06-02T11:16:26Z,2016-06-07T06:40:53Z,1.0.1,2.0.0 | 1.0.2 | 1.1.0,Flux does not handle stateful bolts
+12975130,STORM-1879,Bug,Resolved,Fixed,2016-06-02T11:20:02Z,2016-08-17T21:55:12Z,1.0.1,2.0.0 | 1.0.2 | 1.1.0,Supervisor may not shut down workers cleanly
+12975445,STORM-1881,Bug,Resolved,Fixed,2016-06-03T11:10:06Z,2016-08-30T09:07:34Z,1.0.1,2.0.0 | 1.1.0,storm-redis is missing dependant libraries in distribution
+12975789,STORM-1882,Bug,Resolved,Fixed,2016-06-05T06:37:07Z,2016-06-09T19:42:54Z,1.0.0 | 1.0.1,2.0.0 | 1.0.2 | 1.1.0,Expose TextFileReader public
+12976093,STORM-1884,Bug,Resolved,Fixed,2016-06-06T14:35:22Z,2016-06-09T20:57:04Z,,2.0.0 | 1.0.2 | 1.1.0,In RedisKeyValueState.prepareCommit keys in pendingPrepare should have priority over pendingCommit
+12976584,STORM-1887,Bug,Resolved,Fixed,2016-06-07T19:19:49Z,2016-06-08T15:28:53Z,1.0.1,2.0.0 | 1.0.2 | 1.1.0,Help message for the set_log_level command does not have the topology name parameter
+12979506,STORM-1906,Bug,Resolved,Fixed,2016-06-15T19:35:05Z,2016-06-16T18:04:02Z,2.0.0 | 1.0.1,2.0.0 | 1.1.0 | 1.0.3,Window count/length of zero should be disallowed
+12979656,STORM-1907,Bug,Resolved,Fixed,2016-06-16T03:42:57Z,2016-06-24T08:58:06Z,1.1.0,2.0.0 | 1.1.0,PartitionedTridentSpoutExecutor has incompatible types that cause ClassCastException
+12979982,STORM-1909,Bug,Resolved,Fixed,2016-06-16T20:34:44Z,2016-07-18T13:49:39Z,1.0.2,1.0.2,Fix errors in HDFS Spout documentation
+12980035,STORM-1911,Bug,Resolved,Fixed,2016-06-17T00:09:10Z,2016-06-22T14:49:47Z,2.0.0 | 1.1.0,2.0.0 | 1.1.0,Inconsistency of timestamp between IMetricsConsumer and IClusterMetricsConsumer
+12980589,STORM-1915,Bug,Resolved,Fixed,2016-06-18T19:37:56Z,2016-08-17T21:57:31Z,1.0.1,2.0.0 | 1.0.2 | 1.1.0,Supervisor keeps restarting forever
+12981770,STORM-1920,Bug,Resolved,Fixed,2016-06-22T05:44:30Z,2016-06-22T13:44:16Z,2.0.0,2.0.0,version of parent pom for storm-kafka-monitor is set 1.0.2-SNAPSHOT in master branch
+12982082,STORM-1924,Bug,Resolved,Fixed,2016-06-22T20:19:38Z,2016-06-28T02:18:40Z,1.0.0,2.0.0 | 1.0.2 | 1.1.0,Add a config file parameter to HDFS test topologies
+12982227,STORM-1925,Bug,Resolved,Fixed,2016-06-23T06:52:37Z,2016-06-24T08:46:09Z,2.0.0 | 1.1.0,2.0.0 | 1.1.0,Nimbus fails to start in secure mode
+12982357,STORM-1928,Bug,Resolved,Fixed,2016-06-23T14:49:08Z,2016-07-14T09:49:26Z,,2.0.0 | 0.10.2 | 1.0.2 | 1.1.0 | 0.9.7,ShellSpout should check heartbeat while ShellSpout is waiting for subprocess to sync
+12984736,STORM-1934,Bug,Resolved,Fixed,2016-06-29T02:49:07Z,2016-07-10T20:08:23Z,1.0.0 | 2.0.0 | 1.0.1,2.0.0 | 1.0.2 | 1.1.0,Race condition between sync-supervisor and sync-processes raises several strange issues
+12985703,STORM-1937,Bug,Resolved,Fixed,2016-06-30T09:46:19Z,2016-07-03T06:49:42Z,1.0.0 | 1.0.1,2.0.0 | 1.0.2 | 1.1.0,trident topologies WindowTridentProcessor cause NullPointerException when using windowing
+12985866,STORM-1939,Bug,Resolved,Fixed,2016-06-30T20:03:30Z,2016-07-14T13:15:49Z,1.0.1,2.0.0 | 1.0.2 | 1.1.0,Frequent InterruptedException raised by ShellBoltMessageQueue.poll
+12986202,STORM-1941,Bug,Resolved,Fixed,2016-07-01T14:24:49Z,2016-07-05T08:40:35Z,1.0.0 | 1.0.1,2.0.0 | 1.0.2 | 1.1.0,Nimbus discovery can fail when zookeeper reconnect happens.
+12986297,STORM-1942,Bug,Resolved,Fixed,2016-07-01T19:37:54Z,2016-07-10T20:51:55Z,2.0.0,2.0.0 | 1.1.0,Extra closing div tag in topology.html
+12987140,STORM-1945,Bug,Resolved,Fixed,2016-07-06T13:25:22Z,2016-07-08T06:59:21Z,2.0.0 | 1.1.0,2.0.0 | 1.1.0,Internal Server Error shown on topology page for topology using KafkaSpout
+12987183,STORM-1946,Bug,Resolved,Fixed,2016-07-06T15:05:21Z,2016-07-08T07:24:52Z,,2.0.0 | 1.0.2 | 1.1.0,ShellBolt.java - On busy system BoltHeartbeatTimerTask fires before setHeartbeat() is executed
+12987895,STORM-1954,Bug,Resolved,Fixed,2016-07-08T19:08:12Z,2016-07-11T22:03:17Z,,2.0.0,Large Trident topologies can cause memory issues due to DefaultResourceDeclarer object reading config
+12987950,STORM-1956,Bug,Resolved,Fixed,2016-07-08T22:31:15Z,2016-07-10T20:08:32Z,1.0.0 | 1.0.1,2.0.0 | 1.0.2 | 1.1.0,Disable Backpressure by default
+12988306,STORM-1959,Bug,Resolved,Fixed,2016-07-11T14:55:36Z,2016-07-14T14:36:48Z,2.0.0 | 1.1.0,2.0.0 | 1.1.0,KafkaPartitionOffsetLag.java does not have license
+12988393,STORM-1962,Bug,Resolved,Fixed,2016-07-11T19:04:10Z,2016-07-21T18:53:44Z,2.0.0,2.0.0 | 1.0.2 | 1.1.0,python storm integration does not run on python 3
+12988714,STORM-1964,Bug,Resolved,Fixed,2016-07-12T13:36:09Z,2016-07-21T17:29:45Z,1.0.1,2.0.0 | 1.0.2 | 1.1.0,Unexpected behavior when using count window together with timestamp extraction
+12989347,STORM-1968,Bug,Resolved,Fixed,2016-07-14T04:56:58Z,2016-07-15T16:03:27Z,,1.0.2 | 1.1.0,Storm logviewer does not work for nimbus.log in secure cluster
+12990162,STORM-1976,Bug,Resolved,Fixed,2016-07-17T07:03:11Z,2016-07-19T23:32:30Z,1.0.0 | 1.0.1,2.0.0 | 1.0.2 | 1.1.0,Storm Nimbus H/A has issue on cleaning corrupted topologies
+12990169,STORM-1977,Bug,Resolved,Fixed,2016-07-17T09:07:06Z,2016-07-19T23:31:55Z,1.0.0 | 1.0.1,2.0.0 | 1.0.2 | 1.1.0,Leader Nimbus crashes with getClusterInfo when it doesn't have one or more replicated topology codes
+12990991,STORM-1985,Bug,Closed,Fixed,2016-07-20T04:08:19Z,2016-10-25T18:34:44Z,,2.0.0,Provide a tool for showing and killing corrupted topology
+12991000,STORM-1987,Bug,Resolved,Fixed,2016-07-20T05:04:35Z,2016-09-13T07:06:57Z,,2.0.0 | 1.1.0 | 1.0.3,Fix TridentKafkaWordCount arg handling
+12991077,STORM-1988,Bug,Resolved,Fixed,2016-07-20T10:07:35Z,2016-07-21T05:19:58Z,2.0.0 | 1.1.0,2.0.0 | 1.1.0,Kafka Offset not showing due to bad classpath
+12991469,STORM-1995,Bug,Resolved,Fixed,2016-07-21T14:02:29Z,2016-07-31T14:17:52Z,0.10.0 | 1.0.0 | 2.0.0,2.0.0 | 1.1.0 | 1.0.3,downloadChunk in nimbus.clj should close the input stream
+12991502,STORM-1997,Bug,Resolved,Fixed,2016-07-21T15:33:01Z,2017-07-12T06:25:31Z,1.0.0,,Support Kafka Bolt in Storm Kafka Client
+12991706,STORM-1999,Bug,Resolved,Fixed,2016-07-22T05:00:58Z,2016-08-12T03:31:20Z,1.0.0 | 1.1.0,1.0.0 | 2.0.0 | 1.0.1 | 1.0.2,Update docs with OutputCollector's threadsafety
+12991722,STORM-2000,Bug,Resolved,Fixed,2016-07-22T06:53:52Z,2016-07-25T17:50:09Z,1.1.0,2.0.0 | 1.1.0,Add opentsdb libs to external dir in installation.
+12994548,STORM-2017,Bug,Resolved,Fixed,2016-08-03T10:46:45Z,2016-09-28T15:28:32Z,1.0.1 | 1.0.3,2.0.0 | 1.1.0 | 1.0.3,ShellBolt stops reporting task ids
+12994925,STORM-2020,Bug,Resolved,Fixed,2016-08-04T15:30:10Z,2016-08-05T18:58:46Z,2.0.0,2.0.0,Stop using sun internal classes
+12994944,STORM-2021,Bug,Resolved,Fixed,2016-08-04T16:00:36Z,2016-08-05T18:57:42Z,2.0.0 | 1.1.0,2.0.0 | 1.1.0,storm-kinesis missing licenses
+12994949,STORM-2022,Bug,Resolved,Fixed,2016-08-04T16:13:40Z,2016-08-05T18:58:14Z,2.0.0,2.0.0,FieldsTest.selectingUnknownFieldThrowsTest is failing
+12995116,STORM-2023,Bug,Resolved,Fixed,2016-08-05T06:24:04Z,2016-08-12T04:09:08Z,1.0.0,2.0.0 | 1.1.0,Add calcite-core to dependency of storm-sql-runtime
+12995572,STORM-2026,Bug,Resolved,Fixed,2016-08-08T08:25:25Z,2016-08-10T11:47:15Z,2.0.0,2.0.0,"Inconsistency between (SpoutExecutor, BoltExecutor) and (spout-transfer-fn, bolt-transfer-fn)"
+12996014,STORM-2028,Bug,Resolved,Fixed,2016-08-09T17:30:02Z,2017-08-09T04:45:28Z,2.0.0,2.0.0,Exceptions in JDBCClient are hidden by subsequent SQL-Exception in close()
+12996311,STORM-2032,Bug,Resolved,Fixed,2016-08-10T15:22:12Z,2016-08-12T01:42:20Z,2.0.0,2.0.0 | 1.1.0 | 1.0.3,"""not fast enough"" metrics WARN message in netty client can be misinterpreted"
+12996666,STORM-2036,Bug,Closed,Fixed,2016-08-11T16:19:59Z,2016-08-11T16:43:54Z,,1.0.0 | 2.0.0,Fix minor bug in RAS Tests
+12996827,STORM-2037,Bug,Resolved,Fixed,2016-08-12T03:36:10Z,2016-08-14T14:02:23Z,2.0.0 | 1.x,2.0.0 | 1.1.0,debug operation should be whitelisted in SimpleAclAuthorizer
+12997632,STORM-2040,Bug,Resolved,Fixed,2016-08-16T16:09:32Z,2016-10-01T04:18Z,1.0.2 | 1.1.0,2.0.0 | 1.1.0 | 1.0.3,Config.TOPOLOGY_TESTING_ALWAYS_TRY_SERIALIZE=true causes j.l.UnsupportedOperationException: nth not supported on this type: AddressedTuple
+12997842,STORM-2042,Bug,Resolved,Fixed,2016-08-17T08:31:31Z,2016-08-19T05:48:41Z,,2.0.0 | 1.1.0 | 1.0.3 | 0.10.3,Nimbus client connections not closed properly causing connection leaks
+12998182,STORM-2045,Bug,Resolved,Fixed,2016-08-18T12:29:16Z,2016-08-22T12:06:51Z,2.0.0,2.0.0,NPE in SpoutExecutor in 2.0 branch
+12998298,STORM-2047,Bug,Resolved,Fixed,2016-08-18T20:10:16Z,2016-08-23T01:14:35Z,,2.0.0 | 1.1.0 | 1.0.3,In secure setup the log page can't be viewed
+12999374,STORM-2052,Bug,Resolved,Fixed,2016-08-23T21:35:54Z,2016-11-22T23:54:15Z,1.1.0 | 1.0.3 | 1.x,2.0.0 | 1.1.0 | 1.0.3,Kafka Spout New Client API - Log Improvements and Parameter Tuning for Better Performance
+12999493,STORM-2054,Bug,Resolved,Fixed,2016-08-24T04:33Z,2016-09-06T03:39:02Z,1.1.0,2.0.0 | 1.1.0,DependencyResolver should be aware of relative path and absolute path
+13000119,STORM-2056,Bug,Resolved,Fixed,2016-08-25T18:23:19Z,2016-08-31T22:49:06Z,,2.0.0 | 1.1.0 | 1.0.3,Bugs in logviewer
+13000404,STORM-2059,Bug,Resolved,Fixed,2016-08-26T14:39:51Z,2016-09-06T03:40:07Z,,2.0.0 | 1.1.0,storm-submit-tools is getting rat failures.
+13000961,STORM-2064,Bug,Resolved,Fixed,2016-08-29T12:58:50Z,2016-08-31T08:06:51Z,,2.0.0 | 1.1.0 | 1.0.3,"Add storm name and function, access result and function to log-thrift-access"
+13001046,STORM-2066,Bug,Resolved,Fixed,2016-08-29T17:13:52Z,2016-10-01T04:34:19Z,,2.0.0 | 1.1.0,Fix scheduler status when in isolation and running with less slots than requested
+13001151,STORM-2067,Bug,Resolved,Fixed,2016-08-29T23:55:02Z,2016-09-13T04:49:26Z,2.0.0,2.0.0,"""array element type mismatch"" from compute-executors in nimbus.clj"
+13001506,STORM-2070,Bug,Resolved,Fixed,2016-08-30T23:20:38Z,2016-09-01T06:40:23Z,2.0.0 | 1.0.2,2.0.0 | 1.1.0 | 1.0.3,Sigar native binary download link went 404
+13001508,STORM-2071,Bug,Resolved,Fixed,2016-08-30T23:26:56Z,2017-08-30T05:50:19Z,2.0.0 | 1.0.1,2.0.0 | 1.1.0 | 1.0.3,nimbus-test test-leadership failing with Exception
+13001665,STORM-2074,Bug,Resolved,Fixed,2016-08-31T14:09:33Z,2016-09-06T05:06:18Z,,2.0.0 | 1.1.0,NPE bug in storm-kafka-monitor
+13001927,STORM-2076,Bug,Resolved,Fixed,2016-09-01T07:54:05Z,2016-11-03T21:19:44Z,1.0.2,1.0.3,Supervisor sync-processes and sync-supervisor race when downloading new topology code.
+13002160,STORM-2079,Bug,Resolved,Fixed,2016-09-01T19:54:21Z,2016-09-06T05:28:36Z,,2.0.0 | 1.1.0 | 1.0.3,Unneccessary readStormConfig operation
+13004109,STORM-2087,Bug,Resolved,Fixed,2016-09-11T02:45:03Z,2016-12-20T07:47Z,2.0.0 | 1.0.2,2.0.0 | 1.1.0,Storm-kafka-client: Failed tuples are not always replayed
+13004185,STORM-2088,Bug,Resolved,Fixed,2016-09-12T01:16:03Z,2016-09-23T01:30:33Z,2.0.0,2.0.0 | 1.1.0 | 1.0.3,"Typos in documentation ""Guaranteeing Message Processing"""
+13004643,STORM-2093,Bug,Resolved,Fixed,2016-09-13T15:58:53Z,2017-07-10T01:06:32Z,,2.0.0,Cannot download OOM heap dumps on MT storm systems through UI
+13004935,STORM-2095,Bug,Resolved,Fixed,2016-09-14T16:00:30Z,2017-01-03T14:18:39Z,1.0.0 | 1.0.1 | 1.0.2 | 1.1.0 | 1.0.3,2.0.0 | 1.1.0 | 1.0.3,Nimbus dies and never recovers due to java.nio.file.DirectoryNotEmptyException
+13005349,STORM-2098,Bug,Resolved,Fixed,2016-09-16T07:10:55Z,2016-09-19T09:42:19Z,,2.0.0 | 1.1.0,DruidBeamBolt:  Pass DruidConfig.Builder as constructor argument
+13005864,STORM-2100,Bug,Resolved,Fixed,2016-09-19T09:51:27Z,2016-09-21T03:50:55Z,1.x,2.0.0 | 1.1.0,Few tests are getting failed in external/sql module with JDK 7
+13005932,STORM-2101,Bug,Resolved,Fixed,2016-09-19T14:49:15Z,2016-12-18T13:49:51Z,,2.0.0 | 1.1.0,NPE in compute-executors in nimbus
+13006203,STORM-2104,Bug,Resolved,Fixed,2016-09-20T14:46:49Z,2016-12-29T00:34:49Z,2.0.0 | 1.1.0,2.0.0 | 1.1.0 | 1.0.4,New Kafka spout crashes if partitions are reassigned while tuples are in-flight
+13006515,STORM-2109,Bug,Resolved,Fixed,2016-09-21T14:38:31Z,2016-09-25T12:27:46Z,2.0.0,2.0.0 | 1.1.0,Under supervisor V2 SUPERVISOR_MEMORY_CAPACITY_MB and SUPERVISOR_CPU_CAPACITY must be Doubles
+13006550,STORM-2110,Bug,Resolved,Fixed,2016-09-21T15:55:13Z,2016-09-23T01:45:19Z,2.0.0,2.0.0 | 1.1.0,in supervisor v2 filter out empty command line args
+13006702,STORM-2115,Bug,Resolved,Fixed,2016-09-22T00:20:26Z,2016-10-17T04:41:09Z,,2.0.0 | 1.1.0,[Storm SQL] 'IN' with subquery making implicit aggregate calls which is having 'null' as name
+13006822,STORM-2117,Bug,Resolved,Fixed,2016-09-22T11:44:45Z,2016-10-27T16:08:34Z,,2.0.0 | 1.1.0,Supervisor V2 with local mode extracts resources directory to topology root directory instead of temporary directory
+13006831,STORM-2118,Bug,Resolved,Fixed,2016-09-22T12:30:29Z,2016-09-25T12:22:36Z,2.0.0 | 1.x,2.0.0 | 1.1.0,A few fixes for storm-sql standalone mode
+13006919,STORM-2119,Bug,Resolved,Fixed,2016-09-22T18:36:03Z,2016-09-25T12:17:23Z,2.0.0 | 1.x,2.0.0 | 1.1.0 | 1.0.3,bug in log message printing to stdout
+13006973,STORM-2120,Bug,Resolved,Fixed,2016-09-22T21:28:22Z,2016-09-23T01:52:08Z,1.0.0 | 2.0.0 | 1.0.1 | 1.0.2,2.0.0 | 1.1.0 | 1.0.3,Emit to outputStreamId configured in SpoutConfig for KafkaSpout
+13008013,STORM-2126,Bug,Resolved,Fixed,2016-09-27T18:20:40Z,2016-09-29T15:30:54Z,,2.0.0 | 1.1.0,Fix NPE due to race condition in nimbus.clj when attempting to get resources from SupervisorDetail
+13008067,STORM-2128,Bug,Resolved,Fixed,2016-09-27T21:45:45Z,2016-10-16T04:34:29Z,2.0.0,2.0.0 | 1.1.0,SimpleSqlTridentConsumer missing license headder
+13009346,STORM-2131,Bug,Resolved,Fixed,2016-10-03T20:44:43Z,2016-10-11T22:19:16Z,,2.0.0 | 1.1.0,"Add blob command to worker-launcher, make stormdist directory not writeable by topo owner"
+13010898,STORM-2142,Bug,Resolved,Fixed,2016-10-10T04:42:01Z,2016-10-18T04:27:01Z,2.0.0,2.0.0,ReportErrorAndDie runs suicide function only when InterruptedException or InterruptedIOException is thrown
+13010961,STORM-2144,Bug,Resolved,Fixed,2016-10-10T09:25:20Z,2016-10-11T10:16:46Z,2.0.0 | 1.x,2.0.0 | 1.1.0,Fix Storm-sql group-by behavior in standalone mode
+13013844,STORM-2158,Bug,Resolved,Fixed,2016-10-20T12:56:58Z,2016-10-25T21:28:14Z,2.0.0 | 1.0.3 | 0.10.3,2.0.0 | 1.1.0 | 1.0.3 | 0.10.3,OutOfMemoryError in Nimbus' SimpleTransportPlugin
+13014314,STORM-2171,Bug,Resolved,Fixed,2016-10-21T17:39:11Z,2018-05-04T18:43:46Z,2.0.0,2.0.0,blob recovery on a single host results in deadlock
+13015188,STORM-2174,Bug,Resolved,Fixed,2016-10-25T18:37:20Z,2016-11-30T18:13:55Z,,,Initial Scaffolding for a Beam Pipeline Runner
+13015820,STORM-2175,Bug,Resolved,Fixed,2016-10-27T14:10:39Z,2016-11-03T00:22:34Z,2.0.0 | 1.1.0,2.0.0 | 1.1.0 | 1.0.3,Supervisor V2 can possibly shut down workers twice in local mode
+13016253,STORM-2176,Bug,Resolved,Fixed,2016-10-28T19:59:51Z,2017-01-20T01:24:48Z,1.0.0 | 1.0.1 | 1.0.2,2.0.0 | 1.1.0 | 1.0.3,Workers do not shutdown cleanly and worker hooks don't run when a topology is killed
+13017335,STORM-2184,Bug,Resolved,Fixed,2016-11-02T17:32:18Z,2016-11-07T14:19:52Z,,2.0.0 | 1.1.0 | 1.0.3,New Kafka spout will fail to commit offsets on shutdown if there are offsets to commit
+13017391,STORM-2185,Bug,Resolved,Fixed,2016-11-02T20:48:36Z,2016-11-07T14:08:11Z,,2.0.0 | 1.1.0 | 1.0.3,Storm Supervisor doesn't delete directories properly sometimes
+13018733,STORM-2189,Bug,Resolved,Fixed,2016-11-07T03:01:23Z,2016-11-09T00:39:04Z,,2.0.0 | 1.1.0 | 1.0.3,RAS_Node::freeCPU outputs incorrect info
+13019018,STORM-2190,Bug,Resolved,Fixed,2016-11-07T22:20:30Z,2016-12-20T08:57:54Z,0.10.0 | 1.0.0 | 2.0.0,2.0.0 | 1.1.0,Topology submission blocked behind scheduling
+13019271,STORM-2193,Bug,Resolved,Fixed,2016-11-08T17:02:28Z,2016-12-18T13:47:13Z,2.0.0,2.0.0,Storm UI/Logviewer passing in params in wrong order to FilterConfiguration
+13019621,STORM-2194,Bug,Resolved,Fixed,2016-11-09T19:32:46Z,2017-03-08T21:55:56Z,2.0.0 | 1.0.2,2.0.0 | 1.0.4 | 1.1.1 | 1.2.0,ReportErrorAndDie doesn't always die
+13019640,STORM-2195,Bug,Closed,Fixed,2016-11-09T20:21:59Z,2016-11-21T18:56:13Z,,2.0.0,Clean up some of worker-launcher code
+13019719,STORM-2196,Bug,Resolved,Fixed,2016-11-10T02:02:24Z,2016-11-14T02:27:06Z,,2.0.0 | 1.1.0 | 1.0.3,A typo in RAS_Node::consumeCPU
+13019731,STORM-2197,Bug,Resolved,Fixed,2016-11-10T03:57:30Z,2016-11-11T10:16:51Z,2.0.0 | 1.x,2.0.0 | 1.1.0 | 1.0.3,NimbusClient connectins leak due to leakage in ThriftClient.
+13020025,STORM-2198,Bug,Resolved,Fixed,2016-11-11T06:18:11Z,2016-11-16T14:28:40Z,1.0.0 | 0.9.6 | 1.0.1 | 1.0.2,2.0.0 | 1.1.0 | 1.0.3,perform RotationAction when stopping HdfsBolt
+13021359,STORM-2205,Bug,Resolved,Fixed,2016-11-17T06:21:46Z,2016-11-20T12:08:59Z,2.0.0 | 1.0.3 | 1.x,2.0.0 | 1.1.0 | 1.0.3,Racecondition in getting nimbus summaries while ZK connections are reconnected.
+13021945,STORM-2208,Bug,Resolved,Fixed,2016-11-19T16:53:42Z,2016-11-24T15:38:06Z,1.0.2 | 1.1.0 | 1.x,2.0.0 | 1.1.0 | 1.0.3,HDFS State Throws FileNotFoundException in Azure Data Lake Store file system (adl://)
+13022254,STORM-2210,Bug,Resolved,Fixed,2016-11-21T17:45:04Z,2016-11-23T19:41:43Z,1.0.2,2.0.0 | 1.1.0 | 1.0.3,ShuffleGrouping does not produce even distribution
+13022433,STORM-2213,Bug,Resolved,Fixed,2016-11-22T08:52:05Z,2016-11-24T15:21Z,,2.0.0 | 1.1.0 | 1.0.3,ShellSpout has race condition when ShellSpout is being inactive longer than heartbeat timeout
+13023827,STORM-2222,Bug,Resolved,Fixed,2016-11-28T19:08:59Z,2016-12-22T20:42:02Z,1.x,1.1.0 | 1.0.3,Repeated NPEs thrown in nimbus if rebalance fails
+13024311,STORM-2226,Bug,Resolved,Fixed,2016-11-30T04:53:21Z,2016-12-02T08:32:10Z,2.0.0 | 1.x,2.0.0 | 1.1.0,New kafka spout offset lag tool does not work for secured kafka setup
+13024535,STORM-2228,Bug,Resolved,Fixed,2016-11-30T18:43:14Z,2017-02-01T23:01:21Z,1.0.0 | 2.0.0 | 1.0.1 | 1.0.2 | 1.1.0 | 1.0.3,2.0.0 | 1.1.0,KafkaSpout does not replay properly when a topic maps to multiple streams
+13025078,STORM-2231,Bug,Resolved,Fixed,2016-12-02T12:51:45Z,2017-08-26T12:34:55Z,1.0.1 | 1.1.0,2.0.0 | 1.2.0 | 1.1.2 | 1.0.5,NULL in DisruptorQueue while multi-threaded ack
+13025333,STORM-2234,Bug,Resolved,Fixed,2016-12-03T16:26:01Z,2016-12-06T23:24:07Z,1.x | 0.10.3,2.0.0 | 1.1.0 | 1.0.3,heartBeatExecutorService in shellSpout don't work well with deactivate
+13027122,STORM-2239,Bug,Resolved,Fixed,2016-12-09T22:26:35Z,2016-12-20T07:58:10Z,2.0.0 | 1.1.0,2.0.0 | 1.1.0,New Kafka spout does not properly handle interrupts
+13027331,STORM-2240,Bug,Resolved,Fixed,2016-12-12T03:34Z,2017-07-17T07:52:50Z,2.0.0,2.0.0 | 1.1.0,STORM PMML Bolt - Add Support to Load Models from Blob Store
+13028350,STORM-2245,Bug,Resolved,Fixed,2016-12-15T10:02:12Z,2016-12-18T11:00:53Z,2.0.0,2.0.0,integration-test constant compilation failure
+13028576,STORM-2246,Bug,Resolved,Fixed,2016-12-16T04:36:18Z,2016-12-18T11:44:11Z,,2.0.0 | 1.1.0 | 1.0.3,Logviewer download link has urlencoding on part of the URL
+13028958,STORM-2251,Bug,Resolved,Fixed,2016-12-18T10:46:51Z,2016-12-22T15:07:45Z,,2.0.0 | 1.1.0 | 1.0.3,Integration test refers specific version of Storm which should be project version
+13030540,STORM-2256,Bug,Resolved,Fixed,2016-12-26T07:11:50Z,2016-12-27T08:47:58Z,,1.1.0,storm-pmml  breaks on java 1.7
+13030562,STORM-2257,Bug,Resolved,Fixed,2016-12-26T11:02:37Z,2016-12-28T22:56:50Z,,2.0.0 | 1.1.0,Add built in support for sum function with different types in storm-sql standalone mode
+13030794,STORM-2264,Bug,Resolved,Fixed,2016-12-27T23:08:23Z,2017-01-09T00:48:06Z,2.0.0 | 1.1.0 | 1.0.3,2.0.0 | 1.1.0 | 1.0.3,OpaqueTridentKafkaSpout failing after STORM-2216
+13031024,STORM-2266,Bug,Resolved,Fixed,2016-12-29T07:14:01Z,2017-02-22T15:08:20Z,,2.0.0 | 1.1.0,NimbusClient is not closed properly from some of the usages.
+13031573,STORM-2267,Bug,Resolved,Fixed,2017-01-03T03:51Z,2017-01-04T09:31:48Z,2.0.0 | 1.1.0,2.0.0 | 1.1.0,[storm-submit-tools] Use user's local maven repo. directory to local repo.
+13031662,STORM-2268,Bug,Resolved,Fixed,2017-01-03T13:54:44Z,2017-01-12T14:41:48Z,,2.0.0 | 1.1.0 | 1.0.3,Fix integration test for Travis CI build
+13031838,STORM-2270,Bug,Resolved,Fixed,2017-01-04T03:08:34Z,2017-02-08T20:53:52Z,1.0.0 | 0.9.6,1.1.0,Kafka spout should consume from latest when zk committed offset bigger than latest offset
+13031937,STORM-2271,Bug,Resolved,Fixed,2017-01-04T11:43:40Z,2017-01-09T01:43:52Z,,2.0.0,ClosedByInterruptException should be handled in few cases and removing a confusing debug statement
+13032076,STORM-2272,Bug,Resolved,Fixed,2017-01-04T20:36:05Z,2017-01-06T16:59:20Z,2.0.0,2.0.0,LocalCluster can leak simulated time
+13032098,STORM-2274,Bug,Resolved,Fixed,2017-01-04T21:54:29Z,2017-01-09T02:51:01Z,1.x,2.0.0 | 1.1.0,Support named output streams in Hdfs Spout
+13032114,STORM-2275,Bug,Resolved,Fixed,2017-01-04T23:21:06Z,2017-01-06T09:14:33Z,2.0.0,2.0.0,Nimbus crashed during state transition of topology
+13032153,STORM-2276,Bug,Resolved,Fixed,2017-01-05T03:49:55Z,2017-01-06T08:57:48Z,2.0.0 | 1.1.0 | 1.0.3,2.0.0 | 1.1.0 | 1.0.3,Remove twitter4j usages due to license issue (JSON.org is catalog X)
+13032389,STORM-2279,Bug,Resolved,Fixed,2017-01-05T20:59:11Z,2017-01-10T00:56:39Z,2.0.0,2.0.0,Unable to open bolt page of storm ui
+13033513,STORM-2281,Bug,Resolved,Fixed,2017-01-10T20:50:05Z,2017-02-08T02:15:03Z,1.0.0,2.0.0 | 1.1.0,Running Multiple Kafka Spouts (Trident) Throws Illegal State Exception
+13033611,STORM-2283,Bug,Resolved,Fixed,2017-01-11T06:43:38Z,2017-01-12T14:18:11Z,2.0.0 | 1.1.0,2.0.0 | 1.1.0 | 1.0.3,Fix DefaultStateHandler kryo multithreading issues
+13035086,STORM-2293,Bug,Resolved,Fixed,2017-01-16T03:36:18Z,2017-01-18T09:41:39Z,2.0.0 | 1.0.2 | 1.1.0,2.0.0 | 1.1.0 | 1.0.3,hostname should only refer node's 'storm.local.hostname'
+13035222,STORM-2295,Bug,Resolved,Fixed,2017-01-16T13:56:32Z,2017-01-19T07:19:35Z,1.x,2.0.0 | 1.1.0,KafkaSpoutStreamsNamedTopics changing the sequence of fields name while emitting data
+13036097,STORM-2303,Bug,Resolved,Fixed,2017-01-19T05:06:14Z,2017-01-23T06:20:38Z,2.0.0 | 1.1.0,2.0.0 | 1.1.0,[storm-opentsdb] Fix list invariant issue for JDK 7
+13036141,STORM-2305,Bug,Resolved,Fixed,2017-01-19T09:09:17Z,2017-01-23T22:59:36Z,2.0.0,2.0.0,STORM-2279 calculates task index different from grouper code
+13036987,STORM-2315,Bug,Resolved,Fixed,2017-01-23T09:28:37Z,2017-04-14T07:14:21Z,1.x,2.0.0 | 1.1.1 | 1.2.0,New kafka spout can't commit offset when ack is disabled.
+13037246,STORM-2320,Bug,Resolved,Fixed,2017-01-24T02:24:58Z,2017-02-02T06:44:12Z,2.0.0,2.0.0 | 1.1.0,DRPC client printer class reusable for local and remote DRPC
+13037262,STORM-2321,Bug,Resolved,Fixed,2017-01-24T04:18:07Z,2017-02-03T00:21:56Z,1.0.0 | 2.0.0 | 1.0.1 | 1.0.2 | 1.1.0,2.0.0 | 1.1.0 | 1.0.3,Nimbus did not come up after restart
+13037567,STORM-2323,Bug,Resolved,Fixed,2017-01-25T03:58:25Z,2017-02-01T05:08:52Z,,2.0.0 | 1.1.0,Precondition for Leader Nimbus should check all topology blobs
+13037573,STORM-2324,Bug,Resolved,Fixed,2017-01-25T04:15:30Z,2017-02-03T02:25:11Z,,2.0.0 | 1.1.0 | 1.0.3,Topology should not fail if topology jar is missing resources directory
+13037607,STORM-2325,Bug,Resolved,Fixed,2017-01-25T08:00:55Z,2017-01-30T13:43:56Z,,2.0.0 | 1.1.0 | 1.0.3,Logviewer doesn't consider 'storm.local.hostname'
+13038370,STORM-2330,Bug,Resolved,Fixed,2017-01-27T06:38:54Z,2017-01-30T14:02Z,,2.0.0 | 1.1.0,Fix storm sql code generation for UDAF with non standard sql types
+13038638,STORM-2331,Bug,Resolved,Fixed,2017-01-28T11:06:53Z,2017-02-02T06:48:37Z,,2.0.0 | 1.1.0,Anchoring emit in JavaScript only works with exactly one anchor
+13039301,STORM-2334,Bug,Resolved,Fixed,2017-01-31T21:21:14Z,2017-02-24T18:05:23Z,2.0.0 | 1.x,2.0.0 | 1.1.0,Bolt for Joining streams
+13039401,STORM-2335,Bug,Resolved,Fixed,2017-02-01T07:09:23Z,2017-02-02T14:54:26Z,,2.0.0 | 1.1.0 | 1.0.3,Topology visualization breaks when ':transferred' in executor stats doesn't have any informations
+13039402,STORM-2336,Bug,Resolved,Fixed,2017-02-01T07:31:19Z,2017-02-02T15:38:18Z,,2.0.0 | 1.1.0 | 1.0.3,LocalCluster doesn't terminate properly after cluster shutdown (needs Ctrl+C to terminate)
+13039904,STORM-2337,Bug,Resolved,Fixed,2017-02-02T18:38:30Z,2017-02-04T02:30:29Z,1.0.0 | 1.0.1 | 1.0.2,1.1.0 | 1.0.3,Broken documentation generation for storm-metrics-profiling-internal-actions.md and windows-users-guide.md
+13040064,STORM-2338,Bug,Resolved,Fixed,2017-02-03T08:09:27Z,2017-02-07T02:29:23Z,2.0.0 | 1.x | 0.10.3,2.0.0 | 1.1.0 | 1.0.3,Subprocess exception handling is broken in storm.py on Windows environment
+13040284,STORM-2343,Bug,Resolved,Fixed,2017-02-03T23:52:38Z,2017-05-21T09:55:29Z,2.0.0 | 1.1.0,2.0.0 | 1.1.1 | 1.2.0,New Kafka spout can stop emitting tuples if more than maxUncommittedOffsets tuples fail at once
+13040477,STORM-2345,Bug,Resolved,Fixed,2017-02-05T16:58:55Z,2017-03-09T05:25:11Z,2.0.0 | 1.0.3 | 1.x,2.0.0 | 1.1.0 | 1.0.4,Type mismatch in ReadClusterState's ProfileAction processing Map
+13040519,STORM-2346,Bug,Resolved,Fixed,2017-02-06T02:07:26Z,2017-03-08T12:59:27Z,,2.0.0,Files with unapproved licenses: download-rc-directory.sh verify-release-file.sh
+13040860,STORM-2350,Bug,Resolved,Fixed,2017-02-07T05:09:03Z,2017-02-08T21:32:59Z,1.0.0 | 2.0.0,2.0.0 | 1.1.0 | 1.0.4,Storm-HDFS's listFilesByModificationTime is broken
+13041550,STORM-2352,Bug,Resolved,Fixed,2017-02-09T00:54Z,2017-08-26T20:53:17Z,1.0.0 | 1.1.0,,New Kafka spout retries for ever even with retries of 5
+13042739,STORM-2357,Bug,Resolved,Fixed,2017-02-14T00:00:11Z,2017-10-02T16:10:35Z,,2.0.0 | 1.2.0,add At-Most-Once guarantee in KafkaSpout
+13042858,STORM-2360,Bug,Resolved,Fixed,2017-02-14T08:11:06Z,2017-02-24T18:35:22Z,1.0.3,1.0.4,Storm-Hive: Thrift version mismatch with storm-core
+13042980,STORM-2361,Bug,Resolved,Fixed,2017-02-14T15:36:22Z,2017-03-09T17:01:53Z,1.1.0,2.0.0 | 1.1.0 | 1.0.4,"Kafka spout - after topic leader change, it stops committing offsets to ZK"
+13044946,STORM-2371,Bug,Resolved,Fixed,2017-02-21T20:10:43Z,2017-05-04T00:35:11Z,,2.0.0,Replace existing AMQP eventhub client with the lastest one from Microsoft eventhubs
+13044981,STORM-2372,Bug,Resolved,Fixed,2017-02-21T22:00:28Z,2017-02-24T18:17:01Z,2.0.0 | 1.x,2.0.0 | 1.1.0 | 1.0.4,Pacemaker client doesn't clean up heartbeats properly.
+13045297,STORM-2374,Bug,Resolved,Fixed,2017-02-22T16:52:45Z,2017-02-24T18:25:55Z,2.0.0 | 1.1.0,2.0.0 | 1.1.0,Storm Kafka Client Func Interface Must be Serializable
+13046715,STORM-2385,Bug,Resolved,Fixed,2017-02-27T18:52:07Z,2017-03-06T12:41:15Z,1.0.4,1.0.4,pacemaker_state_factory.clj does not compile on branch-1.0.x
+13046845,STORM-2386,Bug,Resolved,Fixed,2017-02-28T02:59:12Z,2017-03-04T02:23:42Z,2.0.0 | 1.1.0 | 1.0.3,2.0.0 | 1.1.0 | 1.0.4,Fail-back Blob deletion also fails in BlobSynchronizer.syncBlobs
+13046892,STORM-2387,Bug,Resolved,Fixed,2017-02-28T08:19:39Z,2017-03-09T06:05:58Z,,2.0.0 | 1.1.0 | 1.0.4,Handle tick tuples properly for Bolts in external modules
+13046904,STORM-2388,Bug,Resolved,Fixed,2017-02-28T09:08:29Z,2017-03-22T09:19:08Z,1.1.0,1.1.0,JoinBolt breaks compilation against JDK 7
+13047378,STORM-2389,Bug,Resolved,Fixed,2017-03-01T17:01:50Z,2017-03-04T02:32:07Z,1.1.0,2.0.0 | 1.1.0 | 1.0.4,Event Logger bolt is instantiated even if topology.eventlogger.executors=0
+13047381,STORM-2391,Bug,Resolved,Fixed,2017-03-01T17:06:21Z,2017-03-04T02:59:13Z,1.1.0,2.0.0 | 1.1.0,HdfsSpoutTopology example needs to be moved into storm-hdfs-examples from storm-starter
+13048208,STORM-2395,Bug,Resolved,Fixed,2017-03-03T23:05:25Z,2017-03-06T12:48:38Z,1.0.3,1.1.0 | 1.0.4,storm.cmd supervisor calls the wrong class name
+13048296,STORM-2396,Bug,Resolved,Fixed,2017-03-04T14:19:54Z,2017-03-09T04:56:51Z,,2.0.0 | 1.1.0 | 1.0.4,Utils.sleep method doesn't set interrupted flag after catching InterruptedException
+13049151,STORM-2400,Bug,Resolved,Fixed,2017-03-08T04:32:34Z,2017-03-09T05:23:57Z,,2.0.0 | 1.1.0,Intermittent failure in nimbus because of errors from LeaderLatch#getLeader()
+13049649,STORM-2403,Bug,Resolved,Fixed,2017-03-09T16:12:26Z,2017-03-13T08:15:26Z,2.0.0 | 1.1.0 | 1.0.4,2.0.0 | 1.1.0 | 1.0.4,Fix KafkaBolt test failure: tick tuple should not be acked
+13050174,STORM-2407,Bug,Resolved,Fixed,2017-03-10T23:40:50Z,2017-03-20T22:22:45Z,2.0.0 | 1.x,2.0.0 | 1.1.0,KafkaTridentSpoutOpaque Doesn't Poll Data From All Topic-Partitions When Parallelism Hint Not a Multiple Total Topic-Partitions
+13050210,STORM-2408,Bug,Resolved,Fixed,2017-03-11T01:52:42Z,2017-03-13T08:42:13Z,,2.0.0 | 1.1.0,build failed if storm.kafka.client.version = 0.10.2.0
+13055804,STORM-2409,Bug,Resolved,Fixed,2017-03-14T02:26:48Z,2017-03-22T03:27:23Z,2.0.0 | 1.x,2.0.0 | 1.1.0,Storm-Kafka-Client KafkaSpout Support for Failed and Null Tuples
+13055825,STORM-2411,Bug,Resolved,Fixed,2017-03-14T05:37:10Z,2017-03-20T10:30:41Z,,2.0.0,Event Logger count in defaults.yaml needs to be 0
+13055847,STORM-2412,Bug,Resolved,Fixed,2017-03-14T07:13:14Z,2017-03-22T08:11:43Z,,2.0.0 | 1.1.0,Nimbus isLeader check while waiting for max replication
+13056093,STORM-2413,Bug,Resolved,Fixed,2017-03-14T21:11:35Z,2017-05-21T11:45:08Z,,2.0.0 | 1.1.1 | 1.2.0,New Kafka spout is ignoring retry limit
+13056145,STORM-2414,Bug,Resolved,Fixed,2017-03-15T01:35:31Z,2017-03-20T08:54:54Z,2.0.0 | 1.1.0 | 1.0.4,2.0.0 | 1.1.0 | 1.0.4,Skip checking meta's ACL when subject has write privileges for any blobs
+13056730,STORM-2420,Bug,Resolved,Fixed,2017-03-16T17:12:11Z,2017-03-16T17:30:25Z,,1.1.0,1.x branch does not compile
+13057086,STORM-2422,Bug,Resolved,Fixed,2017-03-17T17:58:05Z,2017-03-20T09:37:41Z,,2.0.0,Serialized Trident topology size does not grow linerarly
+13057216,STORM-2423,Bug,Resolved,Fixed,2017-03-18T02:44:26Z,2017-03-21T05:15:23Z,2.0.0 | 1.x,2.0.0 | 1.1.0,Join Bolt : Use explicit instead of default window anchoring of emitted tuples
+13057463,STORM-2425,Bug,Resolved,Fixed,2017-03-20T09:04:45Z,2017-03-22T03:26:36Z,2.0.0 | 1.x,2.0.0 | 1.1.0,Storm Hive Bolt not closing open transactions
+13057485,STORM-2426,Bug,Resolved,Fixed,2017-03-20T10:44:20Z,2017-10-12T19:48:50Z,1.0.2,2.0.0 | 1.2.0 | 1.1.2,First tuples fail after worker is respawn
+13057789,STORM-2427,Bug,Resolved,Fixed,2017-03-21T05:44:15Z,2017-03-22T06:06:03Z,2.0.0,2.0.0,Event logger enable/disable UI is not working as expected in master branch
+13058031,STORM-2429,Bug,Resolved,Fixed,2017-03-21T23:06:35Z,2017-04-05T00:40:44Z,1.0.3,2.0.0 | 1.0.4 | 1.1.1 | 1.2.0,non-string values in supervisor.scheduler.meta cause crash
+13058154,STORM-2431,Bug,Resolved,Fixed,2017-03-22T09:11:49Z,2017-04-05T02:00:42Z,,2.0.0 | 1.0.4 | 1.1.1 | 1.2.0,the default blobstore.dir is storm.local.dir/blobs which is different from distcache-blobstore.md
+13058629,STORM-2432,Bug,Resolved,Fixed,2017-03-23T15:16:35Z,2017-03-26T17:16:30Z,1.x,2.0.0 | 1.1.1 | 1.2.0,Storm-Kafka-Client Trident Spout Seeks Incorrect Offset With UNCOMMITTED_LATEST Strategy
+13059506,STORM-2435,Bug,Resolved,Fixed,2017-03-27T19:43Z,2017-04-13T02:14:31Z,,2.0.0 | 1.1.1 | 1.2.0,Logging in storm.js inconsistent to console.log and does not support log levels
+13060425,STORM-2440,Bug,Resolved,Fixed,2017-03-30T16:22:57Z,2017-04-04T13:35:49Z,0.10.1 | 1.0.1 | 1.0.2 | 1.1.0,1.0.4 | 1.1.1 | 1.2.0,Kafka outage can lead to lockup of topology
+13060600,STORM-2443,Bug,Resolved,Fixed,2017-03-31T08:09:04Z,2017-08-31T08:45:21Z,2.0.0,2.0.0,Nimbus throws error when changing log level on UI topology page
+13060609,STORM-2445,Bug,Resolved,Fixed,2017-03-31T08:45:44Z,2017-09-07T22:01:43Z,2.0.0,2.0.0,Topology log search refers supervisor ID as host of worker which contains UUID
+13060852,STORM-2449,Bug,Resolved,Fixed,2017-04-01T03:54:53Z,2017-06-20T12:10:12Z,2.0.0 | 1.1.0,2.0.0 | 1.1.1 | 1.2.0,"Iterator of Redis State may return same key multiple time, with different values"
+13060908,STORM-2450,Bug,Resolved,Fixed,2017-04-01T15:22:06Z,2017-04-03T17:59:17Z,2.0.0 | 1.1.0 | 1.0.3,2.0.0 | 1.0.4 | 1.1.1 | 1.2.0,supervisor v2 broke ShellBolt/Spout in local mode from storm jar
+13060968,STORM-2451,Bug,Resolved,Fixed,2017-04-02T13:01:28Z,2017-04-04T13:14:56Z,1.1.0,2.0.0 | 1.1.0 | 1.0.6,windows storm.cmd does not set log4j2 config file correctly by default
+13061668,STORM-2454,Bug,Resolved,Fixed,2017-04-05T09:01:34Z,2017-04-07T05:54:42Z,,2.0.0,"the default returned value of this method which named ""isConsumerAutoCommitMode"" in KafkaSpoutConfig.java should be false"
+13061980,STORM-2457,Bug,Resolved,Fixed,2017-04-06T05:19:12Z,2017-04-07T05:51:22Z,,2.0.0,update and modify storm/hbase/README.md and storm-hbase.md
+13063160,STORM-2463,Bug,Resolved,Fixed,2017-04-11T10:47:09Z,2017-04-12T15:05:20Z,,2.0.0,fix DRPCTest.testDequeueAfterTimeout test failure
+13063218,STORM-2467,Bug,Resolved,Fixed,2017-04-11T15:01:24Z,2017-04-14T06:03:33Z,1.1.0,2.0.0 | 1.1.1 | 1.2.0,Encoding issues in Kafka consumer
+13063389,STORM-2469,Bug,Resolved,Fixed,2017-04-12T06:06:47Z,2017-04-13T05:56:56Z,,2.0.0,fix integration-test dependencies issue
+13063747,STORM-2474,Bug,Resolved,Fixed,2017-04-13T09:50:49Z,2017-04-14T06:09:30Z,,2.0.0,fix external README format
+13063974,STORM-2475,Bug,Resolved,Fixed,2017-04-14T00:31:48Z,2017-04-15T20:30:38Z,1.0.0 | 2.0.0,2.0.0,NimbusInfo does not handle IPv6 addresses
+13063982,STORM-2476,Bug,Resolved,Fixed,2017-04-14T02:16:01Z,2017-04-14T09:05:04Z,,2.0.0,the path for 4 kinds of built-in schedulers in Storm-Scheduler.md is wrong
+13064278,STORM-2478,Bug,Resolved,Fixed,2017-04-16T15:58:38Z,2017-07-07T04:54:47Z,,2.0.0 | 1.1.1 | 1.2.0,BlobStoreTest.testDeleteAfterFailedCreate fails on Windows
+13064296,STORM-2479,Bug,Resolved,Fixed,2017-04-16T20:54:02Z,2017-05-08T08:13:17Z,,2.0.0,"DRPC tests should not use Utils.getAvailablePort, since that function is inherently unsafe"
+13064354,STORM-2480,Bug,Resolved,Fixed,2017-04-17T07:40:58Z,2017-04-19T01:52:28Z,,2.0.0,"""principle"" should be modified to ""principal"""
+13064650,STORM-2483,Bug,Closed,Fixed,2017-04-18T09:48:49Z,2020-03-19T14:07:21Z,2.0.0 | 1.0.3 | 1.2.3 | 2.1.0,1.2.4 | 2.2.0 | 2.1.1,wrong parameters order
+13065725,STORM-2486,Bug,Resolved,Fixed,2017-04-21T00:48:51Z,2017-04-28T02:23:30Z,,2.0.0 | 0.10.3 | 1.0.4 | 1.1.1 | 1.2.0,bin/storm launcher script can be broken if CDPATH is exported from environment
+13066221,STORM-2488,Bug,Resolved,Fixed,2017-04-24T02:02:33Z,2017-07-03T15:44:46Z,2.0.0,2.0.0 | 1.1.1 | 1.2.0,The UI user Must be HTTP
+13066226,STORM-2489,Bug,Resolved,Fixed,2017-04-24T03:19:48Z,2017-05-30T10:20:43Z,1.0.2,2.0.0 | 1.1.1 | 1.2.0,Overlap and data loss on WindowedBolt based on Duration
+13067371,STORM-2494,Bug,Resolved,Fixed,2017-04-27T13:44:28Z,2017-09-13T19:09:02Z,1.1.0,1.2.0,KafkaSpout does not handle CommitFailedException
+13067627,STORM-2496,Bug,Resolved,Fixed,2017-04-28T08:17:47Z,2017-05-17T06:21:45Z,2.0.0 | 1.1.0,2.0.0 | 1.1.1 | 1.2.0,Dependency artifacts should be uploaded to blobstore with READ permission for all
+13068674,STORM-2498,Bug,Resolved,Fixed,2017-05-03T07:50:07Z,2017-05-08T07:52:50Z,1.x,1.0.4 | 1.1.1 | 1.2.0,Download Full File link broken in 1.x branch
+13069073,STORM-2500,Bug,Resolved,Fixed,2017-05-04T09:20:43Z,2017-08-19T03:18:56Z,1.1.0,1.2.0 | 1.1.2,waitUntilReady in PacemakerClient cannot be invoked
+13069257,STORM-2503,Bug,Resolved,Fixed,2017-05-04T19:42:15Z,2017-06-02T15:38:35Z,,2.0.0 | 1.1.1 | 1.2.0,lgtm.com alerts: bugs in equality and comparison operations
+13069876,STORM-2505,Bug,Resolved,Fixed,2017-05-08T05:10:06Z,2017-06-01T04:15:39Z,1.x,2.0.0 | 1.1.1 | 1.2.0,Kafka Spout doesn't support voids in the topic (topic compaction not supported)
+13071734,STORM-2511,Bug,Resolved,Fixed,2017-05-13T04:37:25Z,2017-05-15T18:17:25Z,2.0.0 | 1.x,2.0.0 | 1.0.4 | 1.1.1 | 1.2.0,Submitting a topology with name containing unicode getting failed.
+13072552,STORM-2516,Bug,Resolved,Fixed,2017-05-16T19:05:05Z,2017-05-30T10:27:08Z,2.0.0,2.0.0 | 1.1.1 | 1.2.0,WindowedBoltExecutorTest.testExecuteWithLateTupleStream is flaky
+13072607,STORM-2517,Bug,Resolved,Fixed,2017-05-16T21:40:12Z,2017-08-28T22:13:23Z,1.1.0,2.0.0 | 1.2.0,storm-hdfs writers can't be subclassed
+13072701,STORM-2518,Bug,Resolved,Fixed,2017-05-17T06:26:37Z,2017-05-20T08:04:22Z,2.0.0 | 1.1.1,2.0.0 | 1.1.1 | 1.2.0,NPE during uploading dependency artifacts with secured cluster
+13072824,STORM-2520,Bug,Resolved,Fixed,2017-05-17T14:45:07Z,2017-05-18T08:13:34Z,2.0.0 | 1.2.0,2.0.0 | 1.2.0,AutoHDFS should prefer cluster-wise hdfs kerberos principal to global hdfs kerberos principal
+13073099,STORM-2521,Bug,Resolved,Fixed,2017-05-18T11:47:11Z,2017-08-30T03:16:27Z,2.0.0 | 1.2.0,2.0.0 | 1.2.0,"""storm sql"" fails since '--jars' can't handle wildcard"
+13073240,STORM-2522,Bug,Resolved,Fixed,2017-05-18T21:00:08Z,2017-08-30T03:06:39Z,2.0.0,2.0.0,examples in package do not build with checkstyle issues
+13073649,STORM-2525,Bug,Resolved,Fixed,2017-05-20T17:25:06Z,2017-06-09T19:10:23Z,2.0.0,2.0.0 | 1.2.0 | 1.1.2,Fix flaky integration tests
+13073887,STORM-2526,Bug,Resolved,Fixed,2017-05-22T14:42:30Z,2017-05-23T15:38:13Z,,2.0.0,I broke the UI (and changed generated code)
+13074771,STORM-2532,Bug,Resolved,Fixed,2017-05-25T07:47:22Z,2017-06-02T17:17:14Z,2.0.0,2.0.0,Get rid of most uses of Utils.getAvailablePort
+13074913,STORM-2533,Bug,Resolved,Fixed,2017-05-25T17:35:57Z,2017-09-08T13:55:57Z,2.0.0,2.0.0,"Visualization API returns ""spout"" for system components"
+13074916,STORM-2534,Bug,Resolved,Fixed,2017-05-25T17:41:46Z,2017-09-19T23:04:06Z,2.0.0,2.0.0,"Visualization API missing stats/instances for ""system"" components"
+13074965,STORM-2535,Bug,Resolved,Fixed,2017-05-25T20:25:46Z,2017-06-02T16:34:40Z,,2.0.0 | 1.2.0 | 1.1.2,test-reset-timeout is flaky. Replace with a more reliable test.
+13075552,STORM-2536,Bug,Resolved,Fixed,2017-05-29T09:38:30Z,2017-05-31T00:06:15Z,2.0.0 | 1.2.0,2.0.0 | 1.2.0,storm-autocreds adds jersey 1.x to worker classpath
+13077203,STORM-2541,Bug,Resolved,Fixed,2017-06-05T09:58:51Z,2017-07-18T21:25:44Z,2.0.0 | 1.1.0 | 1.1.1,2.0.0 | 1.2.0 | 1.1.2,Manual partition assignment doesn't work
+13077986,STORM-2544,Bug,Resolved,Fixed,2017-06-07T13:00:45Z,2017-07-18T09:13:51Z,1.1.0,2.0.0 | 1.1.1 | 1.2.0,Bugs in the Kafka Spout retry logic when using manual commit
+13078239,STORM-2546,Bug,Resolved,Fixed,2017-06-08T07:48:28Z,2017-11-16T06:12:05Z,2.0.0 | 1.1.0,2.0.0 | 1.2.0,Kafka spout can stall / get stuck due to edge case with failing tuples
+13078879,STORM-2549,Bug,Resolved,Fixed,2017-06-10T17:37:08Z,2017-11-11T17:54:43Z,2.0.0 | 1.1.0,2.0.0 | 1.2.0,"The fix for STORM-2343 is incomplete, and the spout can still get stuck on failed tuples"
+13079739,STORM-2552,Bug,Resolved,Fixed,2017-06-14T12:04:40Z,2017-06-21T23:13:35Z,,2.0.0 | 1.1.1 | 1.2.0,KafkaSpoutMessageId should be serializable
+13079940,STORM-2555,Bug,Resolved,Fixed,2017-06-15T00:55:31Z,2017-06-24T04:34:18Z,,2.0.0 | 1.2.0,storm-autocreds for HBase doesn't handle impersonation
+13080561,STORM-2557,Bug,Resolved,Fixed,2017-06-17T03:40:51Z,2017-06-20T12:24:09Z,,2.0.0 | 1.1.1 | 1.2.0,A bug in DisruptorQueue causing severe underestimation of queue arrival rates
+13080596,STORM-2558,Bug,Resolved,Fixed,2017-06-17T16:39:09Z,2017-06-30T08:06:02Z,,2.0.0,The Windows command line storm.cmd script is outdated and doesn't work
+13080691,STORM-2559,Bug,Resolved,Fixed,2017-06-19T02:41:05Z,2017-06-29T04:44:52Z,,2.0.0,There are three configurations in defaults.yaml  haven't been used in storm.
+13081203,STORM-2562,Bug,Resolved,Fixed,2017-06-20T18:57:30Z,2017-06-22T01:46:09Z,,2.0.0 | 1.1.1 | 1.2.0,Use stronger key size for blow fish key generator and get rid of stack trace
+13081313,STORM-2563,Bug,Resolved,Fixed,2017-06-21T04:28:47Z,2017-06-22T06:46:11Z,,2.0.0 | 1.1.1 | 1.2.0,Remove the workaround to handle missing UGI.loginUserFromSubject
+13081317,STORM-2564,Bug,Resolved,Fixed,2017-06-21T05:23:31Z,2017-06-29T07:03:56Z,,2.0.0 | 1.1.1 | 1.2.0,We should provide a template for storm-cluster-auth.yaml
+13082002,STORM-2568,Bug,Resolved,Fixed,2017-06-23T05:14:07Z,2017-06-25T14:32:36Z,1.1.0,1.1.1 | 1.2.0,'api/vi/topology/:id/lag' returns empty json {}
+13082196,STORM-2597,Bug,Resolved,Fixed,2017-06-23T18:41:36Z,2017-06-29T18:26:32Z,,2.0.0 | 1.0.4 | 1.1.1 | 1.2.0,EXT_CLASSPATH strips out directories
+13082315,STORM-2599,Bug,Resolved,Fixed,2017-06-24T14:43:27Z,2017-06-29T05:34:43Z,2.0.0 | 1.2.0,2.0.0 | 1.2.0,"BasicContainer.getWildcardDir tries to resolve the wildcard character with Paths.get, which prevents workers from booting on Windows"
+13082483,STORM-2602,Bug,Resolved,Fixed,2017-06-26T11:48:31Z,2017-07-06T03:36:11Z,,2.0.0 | 1.1.1 | 1.2.0,"""storm.zookeeper.topology.auth.payload"" doesn't work even you set it"
+13083476,STORM-2607,Bug,Resolved,Fixed,2017-06-29T14:29:39Z,2017-10-17T05:28:56Z,2.0.0 | 1.1.1,2.0.0 | 1.2.0 | 1.1.2,[kafka-client] Consumer group every time with lag 1
+13083590,STORM-2608,Bug,Resolved,Fixed,2017-06-29T20:52:47Z,2017-07-10T23:10:31Z,0.10.0 | 1.0.4 | 1.1.1,2.0.0 | 1.1.1 | 1.2.0,Out Of Range Offsets Should Be Removed From Pending Queue
+13084246,STORM-2613,Bug,Resolved,Fixed,2017-07-03T13:19:32Z,2017-08-03T04:30:44Z,,2.0.0,Tuples that aren't sampled shouldn't be considered for execute  latency calculations
+13086013,STORM-2621,Bug,Resolved,Fixed,2017-07-10T17:25:34Z,2017-07-21T17:15:52Z,2.0.0 | 1.1.1 | 1.2.0,2.0.0 | 1.1.1 | 1.2.0,STORM-2557 broke sojourn time estimation
+13086840,STORM-2627,Bug,Resolved,Fixed,2017-07-13T07:54:24Z,2017-07-21T15:34:19Z,,2.0.0 | 1.0.4 | 1.1.1 | 1.2.0,"The annotation of ""storm.zookeeper.topology.auth.scheme"" in Config.java is wrong"
+13087160,STORM-2628,Bug,Resolved,Fixed,2017-07-14T11:12:08Z,2017-09-09T18:56:01Z,,,Minor issues with the site
+13087270,STORM-2629,Bug,Resolved,Fixed,2017-07-14T18:36:08Z,2018-01-09T00:12:54Z,,,Can't build site on Windows due to Nokogiri failing to install
+13087496,STORM-2635,Bug,Resolved,Fixed,2017-07-17T08:02:57Z,2017-09-07T18:42:52Z,2.0.0,2.0.0,Deep log search doesn’t work when there’s no topology in topology history
+13087708,STORM-2638,Bug,Resolved,Fixed,2017-07-17T19:38:15Z,2017-07-20T14:15:12Z,,2.0.0,Add in maximum object size for Pacemaker Thrift objects
+13087819,STORM-2639,Bug,Resolved,Fixed,2017-07-18T03:39:13Z,2017-07-18T09:31:47Z,1.1.0,2.0.0 | 1.1.1 | 1.2.0,Kafka Spout incorrectly computes numCommittedOffsets due to voids in the topic (topic compaction)
+13088388,STORM-2641,Bug,Resolved,Fixed,2017-07-19T13:05:57Z,2017-07-20T21:30:48Z,2.0.0,2.0.0,storm.py and storm.ps1 don't handle errors correctly on Windows
+13088395,STORM-2642,Bug,Resolved,Fixed,2017-07-19T13:24:51Z,2017-07-20T21:24:12Z,2.0.0 | 1.1.0,2.0.0 | 1.2.0 | 1.1.2,Storm-kafka-client spout cannot be serialized when using manual partition assignment
+13088556,STORM-2645,Bug,Resolved,Fixed,2017-07-19T21:02:28Z,2017-07-21T20:41:46Z,1.1.0,2.0.0 | 1.1.0 | 1.2.0,update storm.py to be python3 compatible
+13089108,STORM-2652,Bug,Resolved,Fixed,2017-07-21T17:15:13Z,2017-07-23T19:38Z,2.0.0 | 1.1.0,2.0.0 | 1.1.1 | 1.2.0,Exception thrown in JmsSpout open method
+13089681,STORM-2655,Bug,Resolved,Fixed,2017-07-24T20:14:14Z,2017-07-31T02:42:34Z,,2.0.0,Log user cannot view worker.log on Storm UI on secure cluster
+13090024,STORM-2659,Bug,Resolved,Fixed,2017-07-25T20:00:22Z,2017-07-26T19:49:58Z,1.1.0,1.1.1,"storm.cmd does not set -Ddaemon.name, which prevents Log4j2 from logging"
+13090151,STORM-2660,Bug,Resolved,Fixed,2017-07-26T09:24:08Z,2017-09-04T00:36:54Z,2.0.0 | 1.1.0 | 1.0.4,2.0.0 | 1.2.0 | 1.1.2 | 1.0.5,"The Nimbus storm-local directory is relative to the working directory of the shell executing ""storm nimbus"""
+13091442,STORM-2666,Bug,Resolved,Fixed,2017-08-01T03:32:19Z,2017-10-09T23:16:23Z,1.0.0 | 2.0.0 | 1.1.0 | 1.1.1 | 1.2.0,2.0.0 | 1.2.0 | 1.1.2,Storm-kafka-client spout can sometimes emit messages that were already committed.
+13091938,STORM-2674,Bug,Resolved,Fixed,2017-08-02T16:30:12Z,2017-08-09T12:10:30Z,,2.0.0 | 1.2.0 | 1.1.2 | 1.0.5,NoNodeException when ZooKeeper tries to delete nodes
+13091961,STORM-2675,Bug,Resolved,Fixed,2017-08-02T18:09:27Z,2017-09-13T08:04:05Z,1.1.0,2.0.0 | 1.2.0,KafkaTridentSpoutOpaque not committing offsets to Kafka
+13092048,STORM-2676,Bug,Resolved,Fixed,2017-08-03T01:14:02Z,2017-08-04T19:01:06Z,,2.0.0,Error class name for log in JsonRecordHiveMapper.java.
+13092066,STORM-2677,Bug,Resolved,Fixed,2017-08-03T04:17:46Z,2017-08-05T03:11:36Z,1.x,1.2.0 | 1.1.2 | 1.0.5,consider all sampled tuples which took greater than 0 ms processing time
+13092368,STORM-2678,Bug,Resolved,Fixed,2017-08-04T04:19:13Z,2017-09-07T18:09:57Z,,2.0.0,Improve performance of LoadAwareShuffleGrouping
+13092906,STORM-2682,Bug,Resolved,Fixed,2017-08-07T15:20:27Z,2017-08-19T02:25:16Z,1.0.4 | 1.1.1,2.0.0 | 1.2.0 | 1.1.2 | 1.0.5,Supervisor crashes with NullPointerException
+13093261,STORM-2690,Bug,Resolved,Fixed,2017-08-08T18:01:57Z,2017-12-26T00:50:11Z,2.0.0 | 1.1.0 | 1.0.3 | 1.0.4 | 1.1.1 | 1.1.2 | 1.0.5,2.0.0 | 1.2.0 | 1.1.2 | 1.0.6,resurrect invocation of ISupervisor.assigned() & make Supervisor.launchDaemon() accessible
+13093329,STORM-2691,Bug,Resolved,Fixed,2017-08-08T22:54:22Z,2018-03-01T10:46Z,2.0.0 | 1.1.1,2.0.0,storm-kafka-client Trident spout implements the Trident interface incorrectly
+13094012,STORM-2692,Bug,Resolved,Fixed,2017-08-11T05:13:14Z,2017-08-19T02:30:09Z,1.x,1.2.0,Load only configs specific to the topology in populateCredentials
+13096033,STORM-2695,Bug,Resolved,Fixed,2017-08-18T14:19:23Z,2017-08-20T06:54:03Z,,2.0.0 | 1.2.0 | 1.1.2 | 1.0.5,BlobStore uncompress argument should be Boolean
+13096430,STORM-2700,Bug,Resolved,Fixed,2017-08-21T14:09:50Z,2017-08-23T20:47:55Z,,2.0.0,Blobstore shouldn't check ACL when Blobstore Acl validation disabled
+13096434,STORM-2701,Bug,Resolved,Fixed,2017-08-21T14:23:10Z,2017-08-25T06:03:15Z,,2.0.0,Supervisor crashed if blob has bad permission
+13097028,STORM-2705,Bug,Resolved,Fixed,2017-08-23T13:59:58Z,2017-08-25T05:55:24Z,,2.0.0 | 1.2.0 | 1.1.2 | 1.0.5,DRPCSpout sleeps twice when idle
+13097561,STORM-2706,Bug,Resolved,Fixed,2017-08-25T10:54:30Z,2017-10-25T21:38:14Z,1.1.1,2.0.0 | 1.2.0 | 1.1.2,Nimbus stuck in exception and does not fail fast
+13098877,STORM-2716,Bug,Resolved,Fixed,2017-08-31T14:08:39Z,2017-10-09T01:18:07Z,2.0.0,2.0.0,Storm-webapp tests don't work on Windows
+13100164,STORM-2722,Bug,Resolved,Fixed,2017-09-06T14:44:56Z,2017-09-19T19:40:08Z,2.0.0 | 1.1.1,2.0.0 | 1.2.0,JMSSpout test fails way too often
+13100486,STORM-2724,Bug,Resolved,Fixed,2017-09-07T14:34:50Z,2017-09-08T23:08:21Z,2.0.0 | 1.0.4 | 1.1.1,2.0.0 | 1.2.0 | 1.1.2,ExecutorService in WaterMarkEventGenerator never shutdown
+13100523,STORM-2729,Bug,Resolved,Fixed,2017-09-07T17:14:14Z,2017-09-11T15:02:28Z,,2.0.0,Fix NPE in WorkerState runWorkerStartHooks and runWorkerShutdownHooks methods
+13100825,STORM-2732,Bug,Resolved,Fixed,2017-09-08T14:22:59Z,2017-09-11T15:42:53Z,,2.0.0,Eldest writer is not closed when removed from WritersMap
+13100857,STORM-2733,Bug,Resolved,Fixed,2017-09-08T16:32:12Z,2017-09-14T15:32:57Z,1.0.0 | 2.0.0,2.0.0,Make Load Aware Shuffle much better at really bad situations
+13101053,STORM-2734,Bug,Resolved,Fixed,2017-09-09T17:46:56Z,2017-09-11T14:30:41Z,2.0.0,2.0.0,The master branch cannot release due to crash in Checkstyle
+13101239,STORM-2736,Bug,Resolved,Fixed,2017-09-11T12:09:20Z,2017-09-13T15:33:46Z,1.1.1,2.0.0 | 1.2.0 | 1.1.2,o.a.s.b.BlobStoreUtils [ERROR] Could not update the blob with key
+13101993,STORM-2738,Bug,Resolved,Fixed,2017-09-13T16:15:29Z,2017-09-19T20:43:49Z,,2.0.0,The number of ackers should default to the number of actual running workers on RAS cluster
+13103060,STORM-2742,Bug,Resolved,Fixed,2017-09-18T20:05:14Z,2017-09-19T20:18:30Z,,2.0.0,Logviewer leaking file descriptors
+13103615,STORM-2748,Bug,Resolved,Fixed,2017-09-20T14:22:28Z,2017-09-21T18:00:49Z,2.0.0,2.0.0,TickTupleTest is useless
+13103799,STORM-2750,Bug,Resolved,Fixed,2017-09-21T02:44:20Z,2017-09-22T14:46:18Z,2.0.0,2.0.0 | 1.1.2,fix double_checked locking
+13103976,STORM-2751,Bug,Resolved,Fixed,2017-09-21T15:08:08Z,2017-09-22T15:31:35Z,,2.0.0 | 1.2.0 | 1.1.2 | 1.0.6,Remove AsyncLoggingContext from Supervisor
+13104574,STORM-2756,Bug,Resolved,Fixed,2017-09-24T13:36:52Z,2017-10-02T06:39:37Z,1.2.0,1.2.0,STORM-2548 on 1.x-branch broke setting key/value deserializers with the now deprecated setKey/setValue methods
+13104807,STORM-2757,Bug,Resolved,Fixed,2017-09-25T15:02:31Z,2017-09-28T07:25:15Z,,2.0.0,Links are broken when logviewer https port is used
+13105179,STORM-2758,Bug,Resolved,Fixed,2017-09-26T17:25:13Z,2017-09-28T07:24:39Z,,2.0.0,logviewer_search page not found
+13105274,STORM-2762,Bug,Resolved,Fixed,2017-09-27T00:34Z,2018-03-06T21:41:46Z,2.0.0,2.0.0,Sort out multiple places of codes of manipulation of collections
+13105765,STORM-2764,Bug,Resolved,Fixed,2017-09-28T14:20:02Z,2017-10-02T06:02:43Z,1.0.0 | 2.0.0,2.0.0 | 1.2.0 | 1.1.2 | 1.0.6,HDFSBlobStore leaks file system objects
+13105872,STORM-2765,Bug,Resolved,Fixed,2017-09-28T21:27:49Z,2017-10-02T14:50:55Z,,2.0.0,Disallow colons in blobstore key name
+13106762,STORM-2769,Bug,Resolved,Fixed,2017-10-03T18:52:09Z,2017-10-04T19:28:25Z,,2.0.0 | 1.2.0 | 1.1.2,Fast-fail if output stream Id is null
+13108102,STORM-2771,Bug,Resolved,Fixed,2017-10-09T21:37:05Z,2017-10-13T16:15:36Z,2.0.0,2.0.0 | 1.2.0 | 1.1.2 | 1.0.6,Some tests are being run twice
+13108181,STORM-2772,Bug,Resolved,Fixed,2017-10-10T02:29:51Z,2017-10-16T14:59:58Z,2.0.0,2.0.0,"In the DRPCSpout class, when the fetch from the DRPC server fails, the log should return to get the DRPC request failed instead of getting the DRPC result failed"
+13109417,STORM-2777,Bug,Resolved,Fixed,2017-10-14T03:34:56Z,2017-10-17T15:59:54Z,,2.0.0,The number of ackers doesn't default to the number of workers
+13109870,STORM-2779,Bug,Resolved,Fixed,2017-10-17T03:28:27Z,2017-10-18T05:02:42Z,2.0.0 | 1.2.0 | 1.1.2,2.0.0 | 1.2.0 | 1.1.2,NPE on shutting down WindowedBoltExecutor
+13111277,STORM-2784,Bug,Resolved,Fixed,2017-10-23T04:22:27Z,2017-10-27T06:30:36Z,2.0.0 | 1.2.0,2.0.0 | 1.2.0,storm-kafka-client KafkaTupleListener method onPartitionsReassigned() should be called after initialization is complete
+13111399,STORM-2786,Bug,Resolved,Fixed,2017-10-23T12:21:59Z,2017-10-25T22:05:49Z,0.9.1-incubating | 0.10.0 | 1.0.0 | 2.0.0,2.0.0 | 1.2.0 | 1.1.2 | 1.0.6,Ackers leak tracking info on failure and lots of other cases.
+13111881,STORM-2787,Bug,Resolved,Fixed,2017-10-25T06:36:22Z,2017-10-30T01:15:30Z,2.0.0 | 1.2.0,2.0.0 | 1.2.0,storm-kafka-client KafkaSpout should set 'initialized' flag independently of processing guarantees
+13113425,STORM-2794,Bug,Resolved,Fixed,2017-10-31T21:00:38Z,2017-11-08T00:22:23Z,,2.0.0,Translate backtype.storm to org.apache for topology.scheduler.strategy if scheduling older version topologies
+13115366,STORM-2795,Bug,Resolved,Fixed,2017-11-01T14:10:47Z,2017-11-03T20:45:12Z,2.0.0,2.0.0,Race in downloading resources can cause failure
+13116421,STORM-2803,Bug,Resolved,Fixed,2017-11-06T15:17:45Z,2017-11-08T20:41:46Z,2.0.0,2.0.0,SlotTest failing on travis frequently
+13117083,STORM-2804,Bug,Resolved,Fixed,2017-11-08T20:08:05Z,2017-11-09T21:04:59Z,,2.0.0,TopoCache is not caching ACLs correctly
+13117686,STORM-2808,Bug,Resolved,Fixed,2017-11-10T22:06:19Z,2017-11-12T22:21:04Z,,2.0.0,Main UI gets some errors.
+13117727,STORM-2809,Bug,Resolved,Fixed,2017-11-11T11:59:26Z,2017-11-14T21:54:24Z,2.0.0,2.0.0,Integration test is failing consistently and topologies sometimes fail to start workers
+13117748,STORM-2810,Bug,Resolved,Fixed,2017-11-11T20:16:34Z,2017-11-14T07:01:47Z,2.0.0 | 1.1.2,2.0.0 | 1.2.0 | 1.1.2,Storm-hdfs tests are leaking resources
+13117775,STORM-2811,Bug,Resolved,Fixed,2017-11-12T08:37:10Z,2017-11-13T23:28:24Z,2.0.0 | 1.1.0,2.0.0 | 1.2.0 | 1.1.2,"Nimbus may throw NPE if the same topology is killed multiple times, and the integration test kills the same topology multiple times"
+13118327,STORM-2814,Bug,Resolved,Fixed,2017-11-14T18:28:23Z,2017-11-15T23:30:57Z,,2.0.0 | 1.2.0 | 1.1.2,Logviewer HTTP server should return 403 instead of 200 if the user is unauthorized
+13118358,STORM-2815,Bug,Resolved,Fixed,2017-11-14T20:51:24Z,2017-11-16T15:36:40Z,,2.0.0 | 1.2.0 | 1.1.2,UI HTTP server should return 403 if the user is unauthorized
+13118637,STORM-2820,Bug,Resolved,Fixed,2017-11-15T20:12:05Z,2017-11-16T23:00:11Z,,2.0.0,validateTopologyWorkerMaxHeapSizeConfigs function never picks up the value set by nimbus
+13119472,STORM-2825,Bug,Resolved,Fixed,2017-11-19T09:20:19Z,2017-11-21T19:07:30Z,1.2.0,1.2.0,"storm-kafka-client configuration fails with a ClassCastException if ""enable.auto.commit"" is present in the consumer config map, and the value is a string"
+13119496,STORM-2826,Bug,Resolved,Fixed,2017-11-19T15:41:50Z,2017-12-16T00:03:19Z,1.2.0,1.2.0,KafkaSpoutConfig.builder doesn't set key/value deserializer properties in storm-kafka-client
+13119787,STORM-2827,Bug,Resolved,Fixed,2017-11-20T22:27:14Z,2017-11-29T17:45:43Z,2.0.0,2.0.0,Logviewer search returns incorrect logviewerUrl
+13120066,STORM-2829,Bug,Resolved,Fixed,2017-11-21T21:40:39Z,2017-11-24T15:40:32Z,2.0.0,2.0.0,Logviewer deepSearch not working
+13121010,STORM-2833,Bug,Resolved,Fixed,2017-11-27T16:50:38Z,2017-11-28T22:57:31Z,1.0.0 | 2.0.0,2.0.0 | 1.2.0 | 1.1.2,Cached Netty Connections can have different keys for the same thing.
+13121410,STORM-2834,Bug,Resolved,Fixed,2017-11-28T19:05:32Z,2017-12-05T07:29:58Z,,2.0.0,getOwnerResourceSummaries not working properly because scheduler is wrapped as BlacklistScheduler
+13121520,STORM-2835,Bug,Resolved,Fixed,2017-11-29T02:14:02Z,2017-12-07T22:49:30Z,2.0.0 | 1.2.0,2.0.0 | 1.2.0,storm-kafka-client KafkaSpout can fail to remove all tuples from waitingToEmit
+13122810,STORM-2843,Bug,Resolved,Fixed,2017-12-05T08:57:28Z,2017-12-26T01:18:16Z,2.0.0 | 1.x,2.0.0 | 1.2.0,Flux: properties file not found when loading resources from classpath
+13123018,STORM-2844,Bug,Resolved,Fixed,2017-12-05T22:23:18Z,2017-12-26T10:51:47Z,2.0.0 | 1.2.0,2.0.0 | 1.2.0,KafkaSpout Throws IllegalStateException After Committing to Kafka When First Poll Strategy Set to EARLIEST
+13123109,STORM-2845,Bug,Resolved,Fixed,2017-12-06T07:13:25Z,2017-12-15T09:56:27Z,2.0.0,2.0.0,Drop standalone mode of Storm SQL
+13123503,STORM-2847,Bug,Resolved,Fixed,2017-12-07T16:51:01Z,2017-12-21T17:29:04Z,2.0.0 | 1.2.0,2.0.0 | 1.2.0,Exception thrown after rebalance IllegalArgumentException
+13123647,STORM-2850,Bug,Resolved,Fixed,2017-12-08T08:23:17Z,2017-12-11T23:10:35Z,2.0.0 | 1.2.0,2.0.0 | 1.2.0,ManualPartitionSubscription assigns new partitions before calling onPartitionsRevoked
+13123997,STORM-2851,Bug,Resolved,Fixed,2017-12-10T14:23:42Z,2017-12-16T08:38:02Z,2.0.0 | 1.2.0,2.0.0 | 1.2.0,org.apache.storm.kafka.spout.KafkaSpout.doSeekRetriableTopicPartitions sometimes throws ConcurrentModificationException
+13124655,STORM-2853,Bug,Resolved,Fixed,2017-12-13T12:17:35Z,2018-02-02T04:21:03Z,1.1.0,2.0.0 | 1.2.0 | 1.1.2 | 1.0.6,Deactivated topologies cause high cpu utilization
+13124996,STORM-2855,Bug,Resolved,Fixed,2017-12-14T16:29:49Z,2017-12-15T09:46:46Z,,2.0.0 | 1.2.0 | 1.1.2,Travis build doesn't work after update of Ubuntu image
+13124998,STORM-2856,Bug,Resolved,Fixed,2017-12-14T16:35:40Z,2018-01-02T21:48:04Z,,2.0.0 | 1.2.0 | 1.1.2 | 1.0.6,Make Storm build work on post 2017Q4 Travis Trusty image
+13125350,STORM-2859,Bug,Resolved,Fixed,2017-12-15T22:31:20Z,2018-01-08T21:21:37Z,2.0.0,2.0.0,NormalizedResources has some bugs in special cases where 0 of a resource is available.
+13126565,STORM-2863,Bug,Resolved,Fixed,2017-12-21T14:33:49Z,2017-12-26T04:25:59Z,2.0.0,2.0.0,Some ras tests fail because of static resource caching
+13127210,STORM-2868,Bug,Resolved,Fixed,2017-12-26T13:07:01Z,2017-12-26T21:01:33Z,1.1.0 | 1.1.1 | 1.1.2,2.0.0 | 1.2.0 | 1.1.2,Address handling activate/deactivate in multilang module files
+13127266,STORM-2869,Bug,Resolved,Fixed,2017-12-26T22:16:32Z,2017-12-29T02:19:33Z,2.0.0 | 1.2.0,2.0.0 | 1.2.0,KafkaSpout discards all pending records when adjusting the consumer position after a commit
+13127296,STORM-2870,Bug,Resolved,Fixed,2017-12-27T02:09:59Z,2017-12-28T04:28:52Z,2.0.0 | 1.2.0 | 1.1.2 | 1.0.6,2.0.0 | 1.2.0 | 1.1.2 | 1.0.6,FileBasedEventLogger leaks non-daemon ExecutorService which prevents process to be finished
+13127702,STORM-2873,Bug,Resolved,Fixed,2017-12-29T18:44:56Z,2018-02-01T14:37:21Z,,1.2.0,Backpressure implentation delete ephemeral too frequently
+13128036,STORM-2876,Bug,Resolved,Fixed,2018-01-02T18:03:14Z,2018-01-05T15:27:13Z,2.0.0,2.0.0 | 1.2.0 | 1.1.2,Some storm-hdfs tests fail with out of memory periodically
+13128167,STORM-2879,Bug,Resolved,Fixed,2018-01-03T07:07:49Z,2018-01-08T00:39:32Z,2.0.0 | 1.x,2.0.0 | 1.2.0 | 1.1.2 | 1.0.6,Supervisor collapse continuously when there is a expired assignment for overdue storm
+13128313,STORM-2881,Bug,Resolved,Fixed,2018-01-03T20:29:35Z,2018-01-05T15:51:35Z,,1.2.0,Storm-druid topologies fail with NoSuchMethodError
+13129308,STORM-2885,Bug,Resolved,Fixed,2018-01-08T18:35:31Z,2018-01-10T18:38:50Z,2.0.0,2.0.0,TickTupleTest can fail because it uses NimbusDaemon
+13129759,STORM-2892,Bug,Resolved,Fixed,2018-01-10T06:08:15Z,2018-01-12T20:01:56Z,2.0.0 | 1.1.1 | 1.2.0 | 1.0.5,2.0.0 | 1.2.0 | 1.1.2 | 1.0.6,Flux test fails to parse valid PATH environment variable
+13129767,STORM-2893,Bug,Resolved,Fixed,2018-01-10T07:11:08Z,2018-01-12T19:45:08Z,2.0.0,2.0.0,maven-assembly-plugin upgrade is breaking distribution build
+13129779,STORM-2894,Bug,Resolved,Fixed,2018-01-10T07:45:24Z,2018-01-15T19:32:56Z,2.0.0 | 1.1.1 | 1.2.0 | 1.0.5,2.0.0 | 1.2.0 | 1.1.2 | 1.0.6,fix some random typos in tests
+13131775,STORM-2900,Bug,Resolved,Fixed,2018-01-18T03:40:16Z,2018-01-18T21:32:45Z,2.0.0 | 1.x,2.0.0 | 1.2.0,Subject is not populated and NPE is thrown while populating credentials in nimbus.
+13132234,STORM-2903,Bug,Resolved,Fixed,2018-01-19T17:10:01Z,2018-01-21T23:43Z,2.0.0 | 1.x,2.0.0 | 1.2.0,Fix possible NullPointerException in AbstractAutoCreds
+13132922,STORM-2906,Bug,Resolved,Fixed,2018-01-23T04:27:06Z,2018-02-01T14:20:25Z,,2.0.0 | 1.2.0,HDFS and HBase bolt on the same worker fails with GSS no valid credentials exception
+13133198,STORM-2907,Bug,Resolved,Fixed,2018-01-23T22:09:18Z,2018-02-01T15:05:42Z,1.2.0,1.2.0,In a secure cluster with storm-autocreds enabled storm-druid can fail with NoSuchMethodError
+13133432,STORM-2910,Bug,Resolved,Fixed,2018-01-24T17:09:24Z,2018-02-01T20:55:15Z,2.0.0,2.0.0,Tests taking a long time to run
+13133455,STORM-2911,Bug,Resolved,Fixed,2018-01-24T18:27:42Z,2018-02-26T19:35:11Z,2.0.0 | 1.1.1 | 1.2.0 | 1.0.5,2.0.0 | 1.1.3 | 1.0.7 | 1.2.2,SpoutConfig is serializable but does not declare a serialVersionUID field
+13133597,STORM-2912,Bug,Resolved,Fixed,2018-01-25T06:10:17Z,2018-01-26T18:28:11Z,2.0.0 | 1.2.0 | 1.1.2 | 1.0.6,2.0.0 | 1.2.0 | 1.1.2 | 1.0.6,Tick tuple is being shared without resetting start time and incur side-effect to break metrics
+13134157,STORM-2913,Bug,Resolved,Fixed,2018-01-27T00:31:27Z,2018-02-06T04:51:08Z,2.0.0 | 1.2.0,2.0.0 | 1.2.0,"STORM-2844 made autocommit and at-most-once storm-kafka-client spouts log warnings on every emit, because those modes don't commit the right metadata to Kafka"
+13135208,STORM-2918,Bug,Resolved,Fixed,2018-01-31T20:03:46Z,2018-02-02T04:40:11Z,2.0.0 | 1.1.1 | 1.2.0 | 1.0.5,2.0.0 | 1.2.0 | 1.1.2 | 1.0.6,Upgrade Netty version
+13135419,STORM-2927,Bug,Resolved,Fixed,2018-02-01T13:28:33Z,2018-02-02T10:16:17Z,1.1.1,1.1.1,"Storm supervisor displaying message ""kill: sending signal to 23543 failed: No such process"""
+13135816,STORM-2932,Bug,Resolved,Fixed,2018-02-02T17:15:22Z,2018-02-14T03:26:24Z,,2.0.0,topology.localityaware.higher/lower.bound.percent configs are confusing
+13136306,STORM-2934,Bug,Resolved,Fixed,2018-02-05T16:41:49Z,2018-02-07T20:26:49Z,2.0.0,2.0.0,Logviewer ClassNotFoundException validating configs
+13136929,STORM-2940,Bug,Resolved,Fixed,2018-02-07T18:56:59Z,2018-02-10T00:24:31Z,,2.0.0,Set the CAPACITY value of LoadAwareShuffleGrouping dynamically
+13136951,STORM-2941,Bug,Resolved,Fixed,2018-02-07T20:27:26Z,2018-02-08T21:03:48Z,2.0.0,2.0.0,checkstyle failing on master
+13136952,STORM-2942,Bug,Resolved,Fixed,2018-02-07T20:28:51Z,2018-02-07T21:51:07Z,1.1.0 | 1.1.1,1.2.0 | 1.1.2,Remove javadoc and source jars from toollib directory in binary distribution
+13138543,STORM-2949,Bug,Resolved,Fixed,2018-02-14T17:38:15Z,2019-06-01T18:20:12Z,1.1.1 | 1.0.5,,Download Storm release link in 1.0.x and 1.1.1 points to github(source code) rather than the storm.apache.org link.
+13138586,STORM-2950,Bug,Resolved,Fixed,2018-02-14T21:01:27Z,2018-02-18T00:06:28Z,,2.0.0,ArrayIndexOutOfBoundsException in FieldsGrouper.chooseTasks function
+13139102,STORM-2951,Bug,Resolved,Fixed,2018-02-16T17:48:52Z,2018-02-16T19:50:01Z,1.2.0,1.2.1,Storm binaries packages oncrpc jar which is LGPL
+13139186,STORM-2955,Bug,Resolved,Fixed,2018-02-16T23:03:07Z,2018-02-18T21:14:49Z,,,Problems with download page
+13139187,STORM-2956,Bug,Resolved,Fixed,2018-02-16T23:07Z,2019-07-18T20:40:32Z,,,Please delete old releases from mirroring system
+13139249,STORM-2957,Bug,Closed,Fixed,2018-02-17T16:19:38Z,2018-02-20T21:00:52Z,1.0.5,1.0.6,Offsets are not committed when no ackers set (ackers=0) and KafkaSpout stops polling messages once it reaches the max uncommitted offsets
+13139676,STORM-2965,Bug,Resolved,Fixed,2018-02-20T14:33:39Z,2018-02-26T02:39:13Z,2.0.0,2.0.0,Interpret wildcard in classpath correctly when reading config from classpath
+13139749,STORM-2967,Bug,Resolved,Fixed,2018-02-20T19:33:31Z,2018-02-26T17:45:21Z,,2.0.0 | 1.2.2,Upgrade jackson to latest version 2.9.4
+13139758,STORM-2968,Bug,Resolved,Fixed,2018-02-20T20:14:24Z,2018-03-01T04:42:23Z,,2.0.0 | 1.2.2,Exclude a few unwanted jars from storm-autocreds
+13140020,STORM-2969,Bug,Resolved,Fixed,2018-02-21T21:06:43Z,2018-02-24T11:15:57Z,,2.0.0,remove @isDerivedFrom validation for topology.spout/bolt/backpressure.wait.strategy
+13141014,STORM-2976,Bug,Resolved,Fixed,2018-02-26T19:18:48Z,2018-03-01T05:54:11Z,,2.0.0,Fix Supervisor healthCheck issues
+13141072,STORM-2978,Bug,Resolved,Fixed,2018-02-26T23:12:27Z,2018-03-01T05:22:07Z,2.0.0 | 1.1.2 | 1.2.1,2.0.0 | 1.1.3 | 1.2.2,"The fix for STORM-2706 is broken, and adds a transitive dependency on Zookeeper 3.5.3-beta for projects that depend on e.g. storm-kafka"
+13141208,STORM-2979,Bug,Resolved,Fixed,2018-02-27T12:28:21Z,2018-04-11T12:51:21Z,1.0.6,2.0.0 | 1.1.3 | 1.0.7 | 1.2.2,WorkerHooks EOFException during run_worker_shutdown_hooks
+13141226,STORM-2980,Bug,Resolved,Fixed,2018-02-27T14:04:30Z,2018-03-01T04:49:37Z,2.0.0,2.0.0,The storm-starter documentation incorrectly states that the examples can be run in a local cluster via a command line flag.
+13141237,STORM-2981,Bug,Resolved,Fixed,2018-02-27T14:31:14Z,2018-03-01T04:46:20Z,2.0.0 | 1.1.2 | 1.2.1,2.0.0 | 1.1.3 | 1.2.2,Upgrade Curator to lastest patch version
+13141544,STORM-2983,Bug,Resolved,Fixed,2018-02-28T14:46:47Z,2018-04-05T13:12:07Z,,2.0.0,Some topologies not working properly
+13142190,STORM-2985,Bug,Resolved,Fixed,2018-03-02T20:20:19Z,2018-05-01T21:00:56Z,1.1.2 | 1.0.6 | 1.2.1,1.1.3 | 1.0.7 | 1.2.2,Add jackson-annotations to dependency management
+13142671,STORM-2986,Bug,Resolved,Fixed,2018-03-05T21:41:24Z,2018-03-07T15:06:59Z,,2.0.0,NPE from LogCleaner
+13142977,STORM-2987,Bug,Resolved,Fixed,2018-03-06T21:32:45Z,2018-03-20T19:40:25Z,2.0.0,2.0.0,PaceMakerStateStorage should deal with InterruptedException correctly
+13143241,STORM-2988,Bug,Resolved,Fixed,2018-03-07T14:55:22Z,2018-05-14T04:39:53Z,2.0.0 | 1.2.1,2.0.0 | 1.2.2,"""Error on initialization of server mk-worker"" when using org.apache.storm.metrics2.reporters.JmxStormReporter on worker"
+13143245,STORM-2989,Bug,Resolved,Fixed,2018-03-07T15:00:57Z,2018-03-20T19:57:45Z,2.0.0 | 1.1.2 | 1.2.1,2.0.0 | 1.1.3 | 1.2.2,LogCleaner should preserve current worker.log.metrics
+13144415,STORM-2993,Bug,Resolved,Fixed,2018-03-12T19:04:16Z,2018-03-30T15:10:11Z,,2.0.0 | 1.2.2,Storm HDFS bolt throws ClosedChannelException when Time rotation policy is used
+13144745,STORM-2994,Bug,Resolved,Fixed,2018-03-13T14:31:45Z,2018-04-03T20:53:01Z,2.0.0 | 1.1.2 | 1.0.6 | 1.2.1,2.0.0 | 1.1.3 | 1.0.7 | 1.2.2,KafkaSpout consumes messages but doesn't commit offsets
+13146719,STORM-3002,Bug,Closed,Fixed,2018-03-21T03:05:52Z,2018-03-21T03:17:38Z,2.0.0,,Checkstyle plugin failure
+13147807,STORM-3009,Bug,Resolved,Fixed,2018-03-25T18:09:37Z,2018-03-30T16:08:50Z,2.0.0,2.0.0,Storm-webapp has multiple SLF4j bindings on the classpath
+13148250,STORM-3012,Bug,Resolved,Fixed,2018-03-27T15:30:32Z,2018-03-30T15:42:41Z,,2.0.0,Nimbus will crash if pacemaker is restarted
+13148487,STORM-3013,Bug,Resolved,Fixed,2018-03-28T04:47:28Z,2018-07-09T03:36:15Z,2.0.0 | 1.2.1,2.0.0 | 1.2.3,Deactivated topology restarts if data flows into Kafka
+13149331,STORM-3018,Bug,Resolved,Fixed,2018-04-01T03:09:09Z,2018-04-02T13:31:06Z,2.0.0,2.0.0,Fix integration test DemoTest#testExclamationTopology fail problem
+13149775,STORM-3020,Bug,Resolved,Fixed,2018-04-03T15:42:50Z,2018-04-10T09:09:41Z,2.0.0,2.0.0,Fix race condition is async localizer
+13151060,STORM-3021,Bug,Resolved,Fixed,2018-04-09T14:31:01Z,2018-04-30T03:24:42Z,,2.0.0,RAS doesn't honor Config.TOPOLOGY_WORKERS
+13151379,STORM-3023,Bug,Resolved,Fixed,2018-04-10T13:40:07Z,2018-04-13T17:32:48Z,,2.0.0,"Storm UI not showing correct values for component CPU, Memory and Executors"
+13151940,STORM-3028,Bug,Resolved,Fixed,2018-04-12T11:35:36Z,2018-07-09T21:32:59Z,1.2.1,2.0.0 | 1.2.3,HdfsSpout does not handle empty files in case of ack enabled
+13153779,STORM-3035,Bug,Resolved,Fixed,2018-04-19T17:34:48Z,2018-05-14T02:09:21Z,,2.0.0,JMS Spout ack method causes failure in some cases
+13155444,STORM-3042,Bug,Resolved,Fixed,2018-04-26T15:47:37Z,2018-05-22T10:41:14Z,,2.0.0,topology.acker.cpu.pcore.percent and other settings not honored
+13155477,STORM-3043,Bug,Resolved,Fixed,2018-04-26T17:38:32Z,2018-04-27T20:07:56Z,2.0.0 | 1.1.2 | 1.0.6 | 1.2.1,2.0.0 | 1.1.3 | 1.0.7 | 1.2.2,NullPointerException thrown in SimpleRecordTranslator.apply()
+13155646,STORM-3046,Bug,Resolved,Fixed,2018-04-27T07:32:30Z,2018-07-09T09:01:03Z,1.2.1,2.0.0 | 1.2.3,Getting a NPE leading worker to die when starting a topology.
+13155894,STORM-3047,Bug,Resolved,Fixed,2018-04-28T12:30:31Z,2018-07-09T08:07:32Z,1.1.2 | 1.2.1,1.2.3 | 1.1.4,Ensure Trident emitter refreshPartitions is only called with partitions assigned to the emitter
+13156096,STORM-3048,Bug,Resolved,Fixed,2018-04-30T11:43:51Z,2018-06-03T06:50:02Z,,2.0.0,A Potential NPE
+13156099,STORM-3050,Bug,Closed,Fixed,2018-04-30T11:57:54Z,2021-10-23T03:16:52Z,,,a potential NPE in ConstraintSolverStrategy#checkResourcesCorrect
+13156122,STORM-3052,Bug,Resolved,Fixed,2018-04-30T15:04:14Z,2018-04-30T15:34Z,1.0.0,2.0.0 | 1.1.3 | 1.0.7 | 1.2.2,Let blobs un archive
+13156193,STORM-3053,Bug,Resolved,Fixed,2018-04-30T19:41:14Z,2018-06-01T15:19:02Z,2.0.0,2.0.0,blobstores deleted before topologies can be submitted
+13156499,STORM-3055,Bug,Resolved,Fixed,2018-05-02T03:28:45Z,2018-05-31T19:10:44Z,2.0.0 | 1.1.1,2.0.0 | 1.1.3 | 1.2.3,never refresh connection
+13156954,STORM-3056,Bug,Resolved,Fixed,2018-05-03T19:58:18Z,2018-07-10T04:03:44Z,1.1.2 | 1.2.1,2.0.0,Add a test for quickly rebinding to a port
+13157405,STORM-3059,Bug,Resolved,Fixed,2018-05-06T07:46:11Z,2018-05-07T13:10:23Z,2.0.0 | 1.1.3 | 1.0.7 | 1.2.2,2.0.0 | 1.1.3 | 1.0.7 | 1.2.2,KafkaSpout throws NPE when hitting a null tuple if the processing guarantee is not AT_LEAST_ONCE
+13158036,STORM-3063,Bug,Resolved,Fixed,2018-05-08T22:06:43Z,2018-05-10T11:38:05Z,2.0.0,2.0.0,Minor POM issues
+13158271,STORM-3065,Bug,Resolved,Fixed,2018-05-09T19:10:34Z,2018-05-13T19:35:37Z,2.0.0,2.0.0,Very frequent test failures in storm-server
+13158557,STORM-3068,Bug,Resolved,Fixed,2018-05-10T19:56:29Z,2018-05-22T12:38:14Z,1.1.0,2.0.0 | 1.2.3,STORM_JAR_JVM_OPTS are not passed to storm-kafka-monitor  properly
+13158781,STORM-3070,Bug,Resolved,Fixed,2018-05-11T17:49:44Z,2018-05-21T14:04:15Z,2.0.0,2.0.0,"MessageDecoder forgets to rewind buffer position if BackpressureStatus code is received, but the rest of the message is pending"
+13159120,STORM-3072,Bug,Resolved,Fixed,2018-05-14T14:39:02Z,2018-05-15T15:25:21Z,2.0.0,2.0.0,Frequent test failures in storm-sql-core
+13159382,STORM-3073,Bug,Resolved,Fixed,2018-05-15T11:12:21Z,2018-05-21T14:28:31Z,2.0.0,2.0.0,In some cases workers may crash because pendingEmits is full
+13159511,STORM-3075,Bug,Closed,Fixed,2018-05-15T19:58:11Z,2018-05-17T15:41:35Z,2.0.0,2.0.0,NPE starting nimbus
+13160123,STORM-3079,Bug,Resolved,Fixed,2018-05-17T19:29:10Z,2018-05-22T09:20:47Z,2.0.0,2.0.0,improve getMessage support for ThriftExceptions
+13161504,STORM-3082,Bug,Resolved,Fixed,2018-05-23T16:48:08Z,2018-07-09T21:51:16Z,2.0.0 | 1.2.1 | 1.1.3,2.0.0 | 1.2.3 | 1.1.4,NamedTopicFilter can't handle topics that don't exist yet
+13161884,STORM-3084,Bug,Resolved,Fixed,2018-05-24T20:45:32Z,2018-06-01T15:36:27Z,2.0.0,,2.x NPE on Nimbus startup
+13162449,STORM-3087,Bug,Resolved,Fixed,2018-05-28T20:43:19Z,2018-06-03T07:33:06Z,2.0.0 | 1.2.1,2.0.0 | 1.2.3,FluxBuilder.canInvokeWithArgs is too permissive when the method parameter type is a primitive
+13162943,STORM-3090,Bug,Resolved,Fixed,2018-05-30T16:43:29Z,2018-07-09T21:17:39Z,1.1.0 | 1.0.4 | 1.2.2,1.2.3 | 1.1.4,The same offset value is used by the same partition number of different topics.
+13163470,STORM-3091,Bug,Resolved,Fixed,2018-06-01T16:21Z,2018-06-05T16:20:33Z,2.0.0,2.0.0,worker heartbeat directory recreated after killing
+13163499,STORM-3092,Bug,Resolved,Fixed,2018-06-01T18:33:13Z,2018-06-05T17:03:54Z,2.0.0,2.0.0,Metrics Reporter and Shutdown Hook on Supervisor not properly set up at launchDaemon
+13164215,STORM-3095,Bug,Resolved,Fixed,2018-06-05T16:21:19Z,2019-06-01T18:21:06Z,,,Issues with download page
+13164252,STORM-3096,Bug,Resolved,Fixed,2018-06-05T18:39:44Z,2018-06-08T14:50:21Z,,2.0.0,blobstores deleted before topologies can be submitted
+13164543,STORM-3097,Bug,Resolved,Fixed,2018-06-06T20:05:43Z,2018-06-09T11:57:22Z,2.0.0 | 1.1.2 | 1.2.1,2.0.0 | 1.2.3 | 1.1.4,Remove storm-druid in 2.x and deprecate support for it in 1.x
+13164696,STORM-3098,Bug,Resolved,Fixed,2018-06-07T14:02:38Z,2018-06-08T14:02:30Z,2.0.0,2.0.0,Fix bug in filterChangingBlobsFor() in Slot.java
+13165886,STORM-3102,Bug,Resolved,Fixed,2018-06-13T17:00:19Z,2018-06-16T18:06:41Z,2.0.0 | 1.0.6 | 1.1.3 | 1.2.2,2.0.0 | 1.2.3 | 1.1.4,Storm Kafka Client performance issues with Kafka Client v1.0.0
+13165899,STORM-3103,Bug,Resolved,Fixed,2018-06-13T18:23:11Z,2018-06-17T16:03:41Z,2.0.0,2.0.0,nimbus stuck shutting down causing leadership issues on startup
+13166463,STORM-3109,Bug,Resolved,Fixed,2018-06-15T21:16:22Z,2018-06-17T16:19:58Z,2.0.0 | 1.1.0 | 1.0.3 | 1.x | 1.0.4 | 1.1.1 | 1.2.0 | 1.1.2 | 1.0.5 | 1.0.6 | 1.2.1 | 1.1.3 | 1.2.2,2.0.0 | 1.2.3 | 1.1.4,Wrong canonical path set to STORM_LOCAL_DIR in storm kill_workers
+13166491,STORM-3110,Bug,Resolved,Fixed,2018-06-15T23:29:01Z,2018-06-25T00:55:12Z,,2.0.0 | 1.2.3,Supervisor does not kill all worker processes in secure mode in case of user mismatch
+13166993,STORM-3116,Bug,Resolved,Fixed,2018-06-19T18:16:15Z,2018-06-21T03:59:46Z,2.0.0,2.0.0,"storm.home is not set in Clojure tests, nor is it guaranteed to be set when using LocalCluster"
+13167263,STORM-3117,Bug,Resolved,Fixed,2018-06-20T21:37:56Z,2018-06-25T18:56:11Z,2.0.0,2.0.0,Deleting blobs for running topologies hoses Nimbus
+13167405,STORM-3118,Bug,Resolved,Fixed,2018-06-21T13:46:08Z,2018-06-22T18:19:38Z,2.0.0,2.0.0,Netty incompatibilities with Pacemaker
+13167864,STORM-3120,Bug,Resolved,Fixed,2018-06-24T10:39:26Z,2018-06-27T17:36:18Z,2.0.0,2.0.0,"Clean up leftover null checks in Time, ensure idle threads get to run when cluster time is advanced"
+13167865,STORM-3121,Bug,Resolved,Fixed,2018-06-24T10:44:30Z,2018-06-26T08:00:30Z,2.0.0,2.0.0 | 1.2.3,Fix flaky metrics tests in storm-core
+13167933,STORM-3122,Bug,Resolved,Fixed,2018-06-24T21:48:45Z,2018-06-26T07:47:39Z,1.x,1.2.3,"FNFE due to race condition between ""async localizer"" and ""update blob"" timer thread"
+13168235,STORM-3123,Bug,Resolved,Fixed,2018-06-26T03:20:33Z,2018-11-16T00:00:48Z,1.2.2,2.0.0 | 1.2.3,Storm Kafka Monitor does not work with Kafka over two-way SSL
+13168631,STORM-3124,Bug,Resolved,Fixed,2018-06-27T13:28:01Z,2018-06-28T20:31:51Z,2.0.0,2.0.0,Failures talking to Pacemaker
+13168681,STORM-3126,Bug,Resolved,Fixed,2018-06-27T17:43:39Z,2018-07-09T21:14:04Z,2.0.0,2.0.0,Avoid unnecessary force kill when invoking storm kill_workers
+13168691,STORM-3127,Bug,Resolved,Fixed,2018-06-27T17:55:07Z,2018-07-09T21:14:14Z,2.0.0,2.0.0,Avoid potential race condition
+13168703,STORM-3129,Bug,Resolved,Fixed,2018-06-27T19:05:52Z,2018-06-28T20:55:16Z,2.0.0,2.0.0,Worker state machine does not use correct time util to get start time
+13169070,STORM-3132,Bug,Closed,Fixed,2018-06-29T05:50:07Z,2023-12-04T11:15:21Z,,2.6.1,NPE in Values Constructor
+13169250,STORM-3135,Bug,Resolved,Fixed,2018-06-29T20:41:20Z,2018-07-10T22:49:16Z,2.0.0,2.0.0,JCQueueTest is flaky
+13169279,STORM-3136,Bug,Resolved,Fixed,2018-06-29T22:51:31Z,2018-07-10T03:54:43Z,2.0.0,2.0.0,"Fix flaky integration test, and make it more readable"
+13169283,STORM-3137,Bug,Resolved,Fixed,2018-06-29T23:10:10Z,2018-07-10T23:01:22Z,2.0.0,2.0.0,Flaky test in nimbus_test
+13169589,STORM-3141,Bug,Resolved,Fixed,2018-07-02T18:37:45Z,2018-07-12T13:55:03Z,2.0.0,2.0.0,NPE in WorkerState.transferLocalBatch when receiving messages for a task that isn't the first task assigned to the executor
+13170327,STORM-3143,Bug,Resolved,Fixed,2018-07-05T18:43:04Z,2018-07-10T03:51:51Z,2.0.0,2.0.0,Unnecessary inclusion of empty match result in Json
+13171821,STORM-3148,Bug,Resolved,Fixed,2018-07-12T20:04:34Z,2018-07-13T23:04:02Z,2.0.0,2.0.0,StormServerPipelineFactory can deserialize messages incorrectly
+13173546,STORM-3158,Bug,Resolved,Fixed,2018-07-20T20:54:41Z,2018-07-29T13:19:33Z,2.0.0,2.0.0,improve login failure message
+13174186,STORM-3159,Bug,Resolved,Fixed,2018-07-24T19:10:27Z,2018-07-24T19:53:17Z,2.0.0,2.0.0,Fixed potential file resource leak
+13175088,STORM-3161,Bug,Resolved,Fixed,2018-07-27T07:57:45Z,2018-07-29T07:29:24Z,2.0.0 | 1.2.3,2.0.0 | 1.2.3,Local mode should force setting min replication count to 1
+13175210,STORM-3162,Bug,Resolved,Fixed,2018-07-27T15:49:53Z,2018-09-17T20:31:40Z,2.0.0,2.0.0,Race condition at updateHeartbeatCache
+13175373,STORM-3164,Bug,Resolved,Fixed,2018-07-29T01:32:07Z,2018-07-30T21:18:14Z,1.2.2,2.0.0 | 1.0.7 | 1.2.3 | 1.1.4,Multilang storm.py uses traceback.format_exc incorrectly
+13176115,STORM-3166,Bug,Resolved,Fixed,2018-08-01T13:08:57Z,2018-08-03T15:42:07Z,2.0.0,2.0.0,Utils.threadDump does not account for dead threads
+13176154,STORM-3167,Bug,Resolved,Fixed,2018-08-01T14:31:40Z,2018-08-03T15:42:19Z,2.0.0,2.0.0,Flaky test in metrics_test.clj
+13176226,STORM-3168,Bug,Resolved,Fixed,2018-08-01T19:31:42Z,2018-08-03T15:23:14Z,2.0.0,2.0.0,AsyncLocalizer cleanup appears to crash
+13176238,STORM-3169,Bug,Resolved,Fixed,2018-08-01T20:47:29Z,2018-08-03T15:42:46Z,2.0.0,2.0.0,Misleading logviewer.cleanup.age.min
+13176241,STORM-3170,Bug,Resolved,Fixed,2018-08-01T21:06:46Z,2018-08-03T16:13:17Z,2.0.0,2.0.0,DirectoryCleaner may not correctly report correct number of deleted files
+13176665,STORM-3176,Bug,Closed,Fixed,2018-08-03T09:18:43Z,2018-08-03T13:20:28Z,1.1.2,1.2.0,KafkaSpout commit offset occurs CommitFailedException which leads to worker dead
+13177020,STORM-3179,Bug,Resolved,Fixed,2018-08-06T05:30:45Z,2018-08-10T10:31:16Z,2.0.0,2.0.0,No data is available for Nimbus Summary in main UI page even Nimbus is running
+13177023,STORM-3180,Bug,Resolved,Fixed,2018-08-06T05:39:09Z,2018-08-10T10:31:39Z,2.0.0,2.0.0,Total executors in Cluster Summary in main UI page is not exposed even a topology is running
+13177036,STORM-3181,Bug,Resolved,Fixed,2018-08-06T07:00:21Z,2018-08-10T10:33:44Z,2.0.0,2.0.0,Topology stats doesn't show complete latency even for topology which ack is enabled
+13177041,STORM-3182,Bug,Resolved,Fixed,2018-08-06T07:36:11Z,2018-08-10T10:33:58Z,2.0.0,2.0.0,Owner summary page in non-secured cluster shows 500 server error because of NullPointerException
+13177043,STORM-3183,Bug,Resolved,Fixed,2018-08-06T07:47:20Z,2018-08-11T11:57:59Z,2.0.0,2.0.0,"Topology Visualization is broken: shows components at most, but no more information"
+13177280,STORM-3184,Bug,Resolved,Fixed,2018-08-07T01:27:35Z,2018-08-14T14:29:51Z,1.1.1,2.0.0 | 1.2.3,Storm supervisor log showing keystore and truststore password in plaintext
+13178915,STORM-3194,Bug,Resolved,Fixed,2018-08-14T18:04:40Z,2018-08-16T16:56:57Z,2.0.0,2.0.0,Reduce logging level of FIFOSchedulingPriorityStrategy
+13180284,STORM-3200,Bug,Resolved,Fixed,2018-08-21T19:24:42Z,2018-08-23T13:44:40Z,,2.0.0,Improve debugging keytab errors
+13180509,STORM-3201,Bug,Resolved,Fixed,2018-08-22T16:08:25Z,2018-08-23T16:55:55Z,,2.0.0 | 1.2.3 | 1.1.4,kafka spout lag on UI needs some cleanup
+13180754,STORM-3203,Bug,Resolved,Fixed,2018-08-23T15:48:41Z,2018-09-04T21:09:41Z,2.0.0,2.0.0,AsyncLocalizer is not updating permissions for storm.conf storm.ser and storm.jar
+13181648,STORM-3206,Bug,Resolved,Fixed,2018-08-28T16:09:20Z,2018-09-12T21:51Z,,2.0.0,don't validate topoConf against DaemonConfig during submission
+13181657,STORM-3207,Bug,Resolved,Fixed,2018-08-28T16:37:43Z,2018-08-30T16:21:25Z,,2.0.0,Fix KerberosSaslTransportPlugin to use WorkerTokens
+13181956,STORM-3208,Bug,Resolved,Fixed,2018-08-29T17:37:17Z,2018-09-04T20:47:17Z,2.0.0,2.0.0,supervisor NPE trying to kill workers
+13182822,STORM-3210,Bug,Resolved,Fixed,2018-09-04T14:10:01Z,2018-09-06T17:20:32Z,,2.0.0,Fix AuthorizedUser error code
+13183176,STORM-3213,Bug,Resolved,Fixed,2018-09-05T16:16:45Z,2018-09-07T14:48:34Z,,2.0.0,500 Server Error on __acker component page on Storm UI
+13183419,STORM-3215,Bug,Resolved,Fixed,2018-09-06T15:15:52Z,2018-09-07T21:32:25Z,2.0.0,2.0.0,New UI is not impersonating user
+13183733,STORM-3216,Bug,Resolved,Fixed,2018-09-07T21:00:05Z,2018-09-10T17:07:50Z,,2.0.0,RAS aware blacklisting strategy needed
+13184066,STORM-3217,Bug,Resolved,Fixed,2018-09-10T14:21:46Z,2018-09-13T21:05:13Z,2.0.0,2.0.0,Component errors missing in /api/v1/component API call
+13184350,STORM-3218,Bug,Resolved,Fixed,2018-09-11T13:28:27Z,2018-09-13T18:13:35Z,2.0.0,2.0.0,AuthorizedUserFilter should handle authorization exceptions better.
+13184441,STORM-3219,Bug,Resolved,Fixed,2018-09-11T19:04:53Z,2018-09-13T19:28:55Z,2.0.0,2.0.0,Storm UI javascript needs better error reporting
+13184451,STORM-3220,Bug,Resolved,Fixed,2018-09-11T19:45:46Z,2018-09-13T19:06:06Z,,2.0.0,Allow excplicit enabling or disabling of HTTP  daemon endpoints
+13184643,STORM-3221,Bug,Resolved,Fixed,2018-09-12T14:59:58Z,2018-09-13T19:52:24Z,2.0.0,2.0.0,Utilization in clusterSummary is inverted - shows free instead of used
+13184968,STORM-3223,Bug,Resolved,Fixed,2018-09-13T18:02:29Z,2018-09-14T18:33:30Z,2.0.0,2.0.0,RAS can get an NPE if entire rack is blacklisted
+13184991,STORM-3224,Bug,Resolved,Fixed,2018-09-13T19:51:41Z,2018-09-17T21:02:01Z,,2.0.0,Fix FLUX YAML Viewer  icon location/position on UI page
+13185185,STORM-3225,Bug,Resolved,Fixed,2018-09-14T16:23:46Z,2018-09-17T16:26:18Z,2.0.0,2.0.0,AuthorizedUserFilter should not convert the media type to a string
+13185582,STORM-3228,Bug,Resolved,Fixed,2018-09-17T17:19:41Z,2018-09-18T19:57:51Z,2.0.0,2.0.0,Supervisor blobstore ref counting not working properly
+13186070,STORM-3230,Bug,Resolved,Fixed,2018-09-19T14:11:13Z,2018-09-20T17:51:42Z,2.0.0,2.0.0,Small race with worker tokens.
+13187582,STORM-3235,Bug,Resolved,Fixed,2018-09-26T11:39:58Z,2018-09-28T17:44:51Z,,2.0.0,Auto renewal of WorkerTokens broken.
+13187736,STORM-3236,Bug,Resolved,Fixed,2018-09-26T21:27:59Z,2018-09-28T18:08:21Z,2.0.0,2.0.0,DRPC meterShutdownCalls marked after metrics stopped
+13187999,STORM-3237,Bug,Resolved,Fixed,2018-09-27T18:25:22Z,2018-10-01T16:15:21Z,2.0.0,2.0.0,create metric to track mkAssignments exceptions
+13188379,STORM-3238,Bug,Resolved,Fixed,2018-09-30T07:40:19Z,2018-10-04T22:03:05Z,2.0.0,2.0.0,The result of log search for topology doesn't show in UI page
+13188380,STORM-3239,Bug,Resolved,Fixed,2018-09-30T07:52:53Z,2018-10-03T21:58:37Z,2.0.0,2.0.0,Worker profile actions don't work
+13188562,STORM-3240,Bug,Resolved,Fixed,2018-10-01T15:58:36Z,2018-10-03T18:18:54Z,2.0.0,2.0.0,healthchecks fail if scripts return 0 exit code
+13188694,STORM-3241,Bug,Resolved,Fixed,2018-10-01T20:33:41Z,2018-10-03T18:38:34Z,,2.0.0,Event Log link on the UI Component page is broken when topology.eventlogger.executors is 0
+13189272,STORM-3244,Bug,Resolved,Fixed,2018-10-03T19:16:21Z,2018-10-05T21:06:16Z,,2.0.0,Logviewer uses UI filter settings
+13189537,STORM-3245,Bug,Resolved,Fixed,2018-10-04T19:15:36Z,2018-10-05T20:41:47Z,2.0.0,2.0.0,Log viewer cleanup failes if multiple empty worker-artifact dirs
+13189577,STORM-3246,Bug,Resolved,Fixed,2018-10-04T21:20:53Z,2018-10-05T21:09:21Z,,2.0.0,Use UTF-8 charset to ensure log capture non ascii characters from logs
+13189796,STORM-3247,Bug,Resolved,Fixed,2018-10-05T19:20:15Z,2018-10-08T13:42:16Z,2.0.0,2.0.0,remove BLOBSTORE_SUPERUSER
+13190146,STORM-3248,Bug,Resolved,Fixed,2018-10-08T16:49:48Z,2018-10-09T17:52:46Z,,2.0.0,outputStats not returned in getComponent via Storm API
+13190174,STORM-3249,Bug,Resolved,Fixed,2018-10-08T18:24:52Z,2018-10-11T15:03:01Z,2.0.0,2.0.0,Nimbus Shutdown Faster
+13190972,STORM-3251,Bug,Resolved,Fixed,2018-10-11T16:14:11Z,2018-10-12T21:41:41Z,,2.0.0,Using Logviewer Filter settings causes anyone to access logs via log viewer REST API
+13190997,STORM-3252,Bug,Resolved,Fixed,2018-10-11T17:28:47Z,2018-10-12T21:18:37Z,1.2.2,2.0.0,Blobstore sync bug fix
+13191211,STORM-3254,Bug,Resolved,Fixed,2018-10-12T14:27:47Z,2018-10-15T14:22:27Z,,2.0.0,Blob localization time-outs can cause Slot to be stuck and leaked over time
+13191263,STORM-3255,Bug,Resolved,Fixed,2018-10-12T18:09:01Z,2018-10-15T13:55:23Z,,2.0.0,Run with dev-zookeeper on travis-ci
+13192596,STORM-3262,Bug,Resolved,Fixed,2018-10-18T16:14:02Z,2018-10-22T16:30:48Z,,2.0.0,Nimbus REST API reports leader before it gains leadership
+13192979,STORM-3264,Bug,Closed,Fixed,2018-10-19T21:59:05Z,2018-11-06T16:58:08Z,,,"""local variable 'ret' referenced before assignment"" in storm.py"
+13192982,STORM-3265,Bug,Closed,Fixed,2018-10-19T22:19:52Z,2018-11-02T15:55:39Z,,2.0.0,flight.bash fall back to use java utils directly if $JAVA_HOME not set and it's not in $BINPATH
+13193272,STORM-3269,Bug,Resolved,Fixed,2018-10-22T14:20:24Z,2018-10-23T17:30:45Z,2.0.0,2.0.0,storm-client and storm-server indirectly depend on storm-core
+13193378,STORM-3272,Bug,Resolved,Fixed,2018-10-22T21:58:55Z,2018-12-05T16:50:58Z,,,supervisor can fail to delete topology stormdist folder
+13193574,STORM-3273,Bug,Resolved,Fixed,2018-10-23T13:35:41Z,2018-10-24T15:14:43Z,2.0.0,2.0.0,Don't pass storm.local.hostname to topology conf
+13193985,STORM-3275,Bug,Resolved,Fixed,2018-10-24T21:53:21Z,2018-11-02T20:46:19Z,,2.0.0,Fix Storm Profiler Start UI Helper method
+13194461,STORM-3276,Bug,Resolved,Fixed,2018-10-26T16:46:40Z,2018-12-21T18:50:53Z,2.0.0,2.0.0,Can't run Flux with Storm 2.0.0
+13194468,STORM-3277,Bug,Resolved,Fixed,2018-10-26T17:12:45Z,2018-10-27T15:13:27Z,1.2.2,,Flux ues in storm-kafka-client not work?
+13194522,STORM-3278,Bug,Closed,Fixed,2018-10-26T21:29:15Z,2018-11-01T14:04:24Z,,2.0.0,Permissions issue on logviewer download for heap dump
+13196136,STORM-3279,Bug,Resolved,Fixed,2018-11-04T21:02:40Z,2018-12-14T15:57:34Z,2.0.0,2.0.0,Kafka trident spout could loose its position with EARLIEST or LATEST FirstPollOffsetStrategy
+13196691,STORM-3282,Bug,Resolved,Fixed,2018-11-06T21:57:59Z,2019-03-16T03:26:14Z,,2.0.0,Fix ServerUtils Estimating Worker Count for RAS Topologies
+13197197,STORM-3284,Bug,Resolved,Fixed,2018-11-08T18:03:11Z,2018-11-13T17:12:25Z,,2.0.0,Add cgroup inheritance to cgroup manager
+13198959,STORM-3288,Bug,Resolved,Fixed,2018-11-16T16:15:12Z,2018-11-24T14:02:49Z,2.0.0,2.0.0,Extracting jar dirs with resources in them are corrupted
+13202380,STORM-3295,Bug,Resolved,Fixed,2018-12-04T22:11:38Z,2018-12-18T17:13:26Z,2.0.0,2.0.0,Blacklist scheduling doesn't handle multiple supervisors on a host properly
+13202593,STORM-3297,Bug,Resolved,Fixed,2018-12-05T17:18:11Z,2018-12-11T19:29:23Z,2.0.0,2.0.0,NimbusMetricProcessor.processWorkerMetrics() can cause supervisor restart
+13203218,STORM-3300,Bug,Resolved,Fixed,2018-12-08T15:36:07Z,2018-12-18T09:35:16Z,2.0.0,2.0.0,Potential NPE in Acker when using reset timeout
+13203232,STORM-3301,Bug,Resolved,Fixed,2018-12-08T21:05:03Z,2018-12-11T18:41:46Z,2.0.0 | 1.2.2,2.0.0 | 1.2.3,The KafkaSpout can in some cases still replay tuples that were already committed
+13203520,STORM-3302,Bug,Resolved,Fixed,2018-12-10T19:53:39Z,2018-12-18T15:29:40Z,,2.0.0,Several HDFS sockets might leak
+13203810,STORM-3303,Bug,Resolved,Fixed,2018-12-11T20:00:13Z,2018-12-18T16:05:27Z,,2.0.0,update some logging priorities
+13207506,STORM-3307,Bug,Resolved,Fixed,2019-01-03T16:30:16Z,2019-01-04T22:40:47Z,2.0.0,,0 timestamp in component errors in Storm UI
+13207774,STORM-3309,Bug,Resolved,Fixed,2019-01-04T22:59:56Z,2019-01-30T11:42:11Z,2.0.0,2.0.0,TickTupleTest is still flaky
+13207912,STORM-3310,Bug,Resolved,Fixed,2019-01-06T22:20:39Z,2019-01-30T11:42:03Z,2.0.0,2.0.0,JCQueueTest is flaky
+13210233,STORM-3317,Bug,Resolved,Fixed,2019-01-17T20:00:21Z,2019-01-29T23:38:51Z,2.0.0,2.0.0,upload credentials fails when using different java.security.auth.login.config file
+13210759,STORM-3319,Bug,Resolved,Fixed,2019-01-21T12:43:31Z,2019-03-15T18:44:28Z,2.0.0,2.0.0,Slot can fail assertions in some cases
+13210761,STORM-3320,Bug,Resolved,Fixed,2019-01-21T12:53:10Z,2019-02-26T19:54:34Z,2.0.0,2.0.0,Executors should start when all worker connections are ready
+13210763,STORM-3321,Bug,Resolved,Fixed,2019-01-21T13:05:16Z,2019-03-07T06:13:43Z,2.0.0,2.0.0,Tests are flaky due to long timeouts in Nimbus and supervisor when using LocalCluster
+13213143,STORM-3327,Bug,Resolved,Fixed,2019-01-31T18:22:05Z,2019-02-16T11:53:44Z,2.0.0,2.0.0,Storm-webapp uses default charset for URL encoding in a bunch of places
+13214020,STORM-3333,Bug,Resolved,Fixed,2019-02-05T21:39Z,2019-02-08T09:25:07Z,2.0.0,2.0.0,storm-kafka-monitor - NoClassDefFoundError: org/apache/kafka/shaded/clients/consumer/KafkaConsumer
+13217155,STORM-3343,Bug,Resolved,Fixed,2019-02-21T10:08Z,2019-02-26T19:54:23Z,2.0.0,2.0.0,JCQueueTest can still be flaky
+13218572,STORM-3348,Bug,Resolved,Fixed,2019-02-28T08:57:07Z,2019-03-05T10:27:17Z,2.0.0 | 1.x | 1.2.2,2.0.0 | 1.2.4,Incorrect message when group id is not provided as kafka spout config on storm ui
+13220116,STORM-3352,Bug,Resolved,Fixed,2019-03-07T07:46:58Z,2019-03-16T03:24:57Z,2.0.0,2.0.0,Use Netty BOM to lock all Netty artifacts to same version
+13220124,STORM-3354,Bug,Resolved,Fixed,2019-03-07T08:27:23Z,2019-03-29T03:43:59Z,2.0.0,2.0.0,LeaderElector is not shut down properly
+13221093,STORM-3356,Bug,Resolved,Fixed,2019-03-12T11:31:34Z,2019-03-16T03:57:21Z,2.0.0,2.0.0,Storm-hive should not pull in a compile-scope sfl4j binding
+13223887,STORM-3362,Bug,Resolved,Fixed,2019-03-25T22:57:04Z,2019-03-29T03:54:26Z,,2.0.0,EventHubSpout uses a blocking receiver in nextTuple()
+13226063,STORM-3371,Bug,Resolved,Fixed,2019-04-04T07:56:28Z,2019-05-05T09:39:42Z,2.0.0,2.1.0,Metrics v2 is inaccessible in Trident StateFactory.
+13226064,STORM-3372,Bug,Resolved,Fixed,2019-04-04T07:58:53Z,2019-07-29T21:57:38Z,2.0.0,2.1.0,HDFS bolt can throw NPE on shutdown if not using a TimedRotationPolicy
+13227611,STORM-3375,Bug,Resolved,Fixed,2019-04-12T04:33:24Z,2019-04-16T07:08:40Z,,2.0.0,Date.getTime() can be changed to System.currentTimeMillis()
+13227771,STORM-3376,Bug,Resolved,Fixed,2019-04-12T18:24:48Z,2019-05-05T14:14:10Z,2.0.0,2.1.0,Storm drops messages in the interval between server bind and callback registration
+13227772,STORM-3377,Bug,Resolved,Fixed,2019-04-12T18:32:40Z,2019-04-19T14:37:57Z,2.0.0,2.0.0,Scheduling may not fully utilize cluster with STORM_WORKER_MIN_CPU_PCORE_PERCENT set
+13227858,STORM-3379,Bug,Resolved,Fixed,2019-04-13T08:58:36Z,2019-05-05T14:14:27Z,2.0.0,2.1.0,Intermittent NPE during worker boot in local mode
+13228572,STORM-3381,Bug,Resolved,Fixed,2019-04-17T10:49:48Z,2019-04-18T12:58:19Z,2.0.0 | 1.2.3 | 1.1.4,2.0.0 | 1.2.3 | 1.1.4,Upgrading to Zookeeper 3.4.14 added an LGPL dependency
+13230104,STORM-3384,Bug,Resolved,Fixed,2019-04-25T14:18:17Z,2019-04-26T14:33:55Z,1.0.6 | 1.1.3 | 1.2.2,1.2.3 | 1.1.4,storm set-log-level command throws wrong exception when the topology is not running
+13231086,STORM-3385,Bug,Resolved,Fixed,2019-05-01T14:27:30Z,2019-05-17T10:10:52Z,,2.1.0,ClientSupervisorUtils.processLauncherAndWait might have two threads reading the process' inputStream concurrently
+13231657,STORM-3390,Bug,Resolved,Fixed,2019-05-05T12:41:36Z,2019-05-08T16:01:09Z,2.0.0,2.1.0,Lock python test dependencies so we don't get accidentally upgraded
+13236797,STORM-3398,Bug,Resolved,Fixed,2019-05-31T10:03:36Z,2019-06-01T03:30:11Z,1.1.0 | 1.2.2,,Closing socket for xxx because of error (kafka.network.Processor) kafka.network.InvalidRequestException
+13237068,STORM-3400,Bug,Resolved,Fixed,2019-06-01T19:18:34Z,2020-03-14T15:47:28Z,,,Download page must link to keys and provide verification instructions
+13237411,STORM-3404,Bug,Closed,Fixed,2019-06-04T06:49:58Z,2023-10-23T18:15:21Z,1.2.2,2.6.0,storm v1.2.2 KafkaOffsetLagUtil cant pull the offset correctly
+13238560,STORM-3408,Bug,Resolved,Fixed,2019-06-10T16:00:40Z,2019-06-25T17:41:17Z,2.0.0,2.1.0,Rocks version shipped with Storm2 doesn't work on Windows 10
+13241290,STORM-3422,Bug,Resolved,Fixed,2019-06-24T15:43:11Z,2019-07-08T18:01:53Z,2.0.0 | 1.2.2,2.1.0,TupleCaptureBolt is not thread-safe
+13242283,STORM-3436,Bug,Closed,Fixed,2019-06-29T09:45:02Z,2019-08-10T22:20:18Z,2.0.0,2.1.0,"TupleInfo.id is not set, making debugging more difficult than it should be"
+13244037,STORM-3466,Bug,Closed,Fixed,2019-07-10T07:48:20Z,2019-08-10T22:16:06Z,2.0.0,2.1.0,storm-kafka-monitor not found jar
+13245853,STORM-3467,Bug,Resolved,Fixed,2019-07-18T18:37:03Z,2019-07-19T16:47:54Z,,,Version 1.2.3 missing from download page
+13245874,STORM-3468,Bug,Closed,Fixed,2019-07-18T20:49:34Z,2023-11-23T12:00:25Z,,,https://github.com/apache/storm/blob/asf-site/README.md incorrect pointer
+13245930,STORM-3469,Bug,Resolved,Fixed,2019-07-19T06:46:23Z,2019-07-19T17:12:06Z,,,A broken link in Storm 2.0.0 release page
+13246051,STORM-3470,Bug,Closed,Fixed,2019-07-19T17:35:17Z,2019-08-10T22:15:12Z,2.0.0,2.1.0,Possible Null Dereference in SimpleSaslServer authentication function
+13249181,STORM-3481,Bug,Closed,Fixed,2019-08-06T17:38:57Z,2019-08-10T22:12:06Z,2.0.0,2.1.0,IllegalArgumentException in ConstraintSolverStrategy
+13251049,STORM-3485,Bug,Closed,Fixed,2019-08-15T15:58:15Z,2019-08-16T15:43:54Z,2.1.0,2.1.0,VersionInfoMojo fails to run when the sources are built outside the Git repo
+13251310,STORM-3488,Bug,Closed,Fixed,2019-08-16T18:26:32Z,2019-09-05T18:09:04Z,,2.1.0,Scheduling can cause RAS_Node resources to become negative
+13251621,STORM-3491,Bug,Closed,Fixed,2019-08-19T15:21:17Z,2019-08-20T15:48:25Z,2.1.0,2.1.0,BoltReaderRunnable shouldn't throw IllegalArgumentException for sync command
+13252822,STORM-3498,Bug,Closed,Fixed,2019-08-24T14:44:40Z,2019-08-24T15:59:20Z,,2.2.0,Fix missing cases of invoking bash directly without /bin/env
+13253332,STORM-3500,Bug,Resolved,Fixed,2019-08-27T20:28:09Z,2019-08-30T16:51:30Z,2.1.0,2.1.0,Spelling issue in storm.blobstore.dependency.jar.upload.chuck.size.bytes
+13253503,STORM-3501,Bug,Resolved,Fixed,2019-08-28T13:34:35Z,2019-08-31T17:21:41Z,2.0.0 | 2.1.0,2.1.0,Local Cluster worker restarts
+13254060,STORM-3504,Bug,Closed,Fixed,2019-08-31T13:25:18Z,2019-09-12T15:23:20Z,2.0.0,2.2.0,AsyncLocalizerTest is stubbing file system operations
+13257666,STORM-3510,Bug,Closed,Fixed,2019-09-19T13:05:33Z,2019-10-01T14:39:21Z,2.2.0,2.2.0,WorkerState.transferLocalBatch backpressure resend logic fix
+13258863,STORM-3511,Bug,Closed,Fixed,2019-09-25T16:43:09Z,2020-01-03T15:59:06Z,2.0.0 | 2.1.0,2.2.0 | 2.1.1,Nimbus logs got flood with TTransportException Error messages (because of thrift 0.12.0)
+13258869,STORM-3512,Bug,Closed,Fixed,2019-09-25T17:36:59Z,2020-01-24T11:39:49Z,2.0.0,2.2.0,Nimbus failing on startup with `GLIBC_2.12' not found
+13259981,STORM-3515,Bug,Resolved,Fixed,2019-10-01T19:18:27Z,2019-10-11T18:52:34Z,2.0.0,2.1.0,Storm CLI config options are passed directly to underlying JAVA cli
+13260171,STORM-3516,Bug,Closed,Fixed,2019-10-02T18:46:35Z,2019-10-09T20:39:53Z,,2.1.0,Delayed Kill or Rebalance Topology not processed on Nimbus restart
+13260970,STORM-3519,Bug,Closed,Fixed,2019-10-07T21:29:07Z,2019-10-15T22:58:08Z,2.0.0,2.2.0,Change ConstraintSolverStrategy::backtrackSearch to avoid StackOverflowException
+13261632,STORM-3520,Bug,Resolved,Fixed,2019-10-10T18:57:55Z,2019-10-11T18:52:20Z,2.0.0,2.1.0,Storm CLI drpc-client incorrectly validating function args
+13261634,STORM-3521,Bug,Closed,Fixed,2019-10-10T19:14:13Z,2019-10-23T16:16:52Z,2.0.0,2.1.0,Storm CLI jar command doesn't handle topology arguments correctly
+13262166,STORM-3523,Bug,Closed,Fixed,2019-10-14T14:36:34Z,2019-10-31T18:05Z,2.0.0,2.2.0,supervisor restarts when releasing slot with missing file
+13262383,STORM-3524,Bug,Closed,Fixed,2019-10-15T14:53:29Z,2019-10-17T19:12:31Z,2.0.0,2.1.0,worker fails to launch due to missing parent directory for localized resource
+13263875,STORM-3527,Bug,Closed,Fixed,2019-10-22T20:01:10Z,2019-10-25T13:39:32Z,,2.2.0,Container.getWorkerUser() should check if the user name is empty
+13268723,STORM-3540,Bug,Closed,Fixed,2019-11-15T20:14:19Z,2020-04-27T21:37:57Z,2.1.0,2.2.0,Pacemaker race condition can cause continual reconnection
+13271749,STORM-3549,Bug,Closed,Fixed,2019-12-02T17:22:50Z,2020-01-08T15:26:35Z,2.1.0,2.2.0,use of topology specific jaas conf doesn't work with kafka
+13272857,STORM-3551,Bug,Closed,Fixed,2019-12-06T21:47:33Z,2019-12-17T19:55:50Z,2.1.0,2.2.0,Fix LocalAssignment Equivalency in Slot for Generice Resource Aware Scheduler
+13273428,STORM-3552,Bug,Closed,Fixed,2019-12-09T16:33:42Z,2020-01-03T06:24:10Z,2.0.0 | 2.1.0,2.2.0 | 2.1.1,Storm CLI set_log_level no longer updates the log level
+13273640,STORM-3553,Bug,Resolved,Fixed,2019-12-10T15:29:52Z,2020-07-10T21:16:05Z,2.0.0 | 1.2.3 | 2.1.0 | 2.2.0,2.3.0 | 2.2.1,Upgrade JQuery to 3.5.1
+13276531,STORM-3559,Bug,Closed,Fixed,2019-12-27T02:44:32Z,2020-01-03T16:07:20Z,2.0.1,,storm2.0.0 can not support python2.6.6
+13277315,STORM-3563,Bug,Closed,Fixed,2020-01-03T06:40:47Z,2020-01-03T15:56:12Z,2.1.0 | 2.2.0,,Travis fails because of missing maven package from the mirror
+13279976,STORM-3567,Bug,Closed,Fixed,2020-01-16T20:31:57Z,2020-01-24T22:37:49Z,2.1.0,2.2.0 | 2.1.1,Topology UI page is showing total resources for each component if not scheduled
+13280226,STORM-3568,Bug,Closed,Fixed,2020-01-17T21:20:03Z,2020-01-23T20:21:14Z,,2.2.0 | 2.1.1,"Topology UI page ""Change Log Level"" should not allow empty logger name"
+13282704,STORM-3572,Bug,Closed,Fixed,2020-01-31T21:36:40Z,2020-02-03T20:49:31Z,,2.2.0,Topology visualization can fail if executor is not up
+13283979,STORM-3577,Bug,Closed,Fixed,2020-02-07T17:19:37Z,2020-02-12T14:55:40Z,2.0.0 | 2.1.0,2.2.0 | 2.1.1,upload-credentials Breaks Topology in secure cluster
+13284418,STORM-3580,Bug,Closed,Fixed,2020-02-10T21:55:01Z,2020-02-12T22:54:07Z,2.0.0 | 2.1.0,2.2.0 | 2.1.1,Config overrides supplied using -c in storm.py not passed to all commands
+13286036,STORM-3583,Bug,Closed,Fixed,2020-02-18T17:05:33Z,2020-04-23T18:58:48Z,,2.2.0,Handle exceptions when AsyncLocalizer tries to get local resources
+13291124,STORM-3598,Bug,Closed,Fixed,2020-03-11T16:26:48Z,2020-03-13T14:26:24Z,2.0.0 | 2.1.0,2.2.0 | 2.1.1,Storm UI visualization throws NullPointerException
+13291364,STORM-3602,Bug,Closed,Fixed,2020-03-12T16:02:19Z,2020-03-19T14:00Z,2.0.0 | 2.1.0,2.2.0 | 2.1.1,loadaware shuffle can overload local worker
+13291798,STORM-3603,Bug,Closed,Fixed,2020-03-15T11:03:05Z,2020-03-16T04:35:56Z,,,Broken links on download page
+13293893,STORM-3606,Bug,Closed,Fixed,2020-03-25T17:57:23Z,2020-04-08T21:19:53Z,2.0.0 | 1.2.3 | 2.1.0,2.2.0 | 2.1.1,AutoTGT shouldn't invoke TGT renewal thread (from UserGroupInformation.loginUserFromSubject)
+13294317,STORM-3609,Bug,Closed,Fixed,2020-03-26T22:24:38Z,2020-03-30T15:05:42Z,2.0.0 | 2.1.0,2.2.0 | 2.1.1,ClassCastException when credentials are updated for ICredentialsListener spout/bolt instances
+13295027,STORM-3613,Bug,Closed,Fixed,2020-03-30T15:45:05Z,2020-04-01T20:22:02Z,2.0.0 | 2.1.0,2.2.0 | 2.1.1,storm.py should include lib-worker instead of lib directory in the classpath while submitting a topology
+13297399,STORM-3620,Bug,Closed,Fixed,2020-04-09T14:27:30Z,2020-06-05T18:30:51Z,2.0.0 | 2.1.0,2.2.0,Data corruption can happen when components are multi-threaded because of non thread-safe serializer
+13298579,STORM-3622,Bug,Closed,Fixed,2020-04-15T14:06:14Z,2020-04-16T13:39:50Z,2.2.0,2.2.0,Race Condition in CachedThreadStatesGaugeSet registered at SystemBolt
+13298582,STORM-3623,Bug,Closed,Fixed,2020-04-15T14:12:51Z,2020-04-28T18:47:54Z,2.0.0 | 2.1.0,2.2.0,v2 metrics tick reports all worker metrics within each executor
+13298663,STORM-3624,Bug,Resolved,Fixed,2020-04-15T21:43:11Z,2020-06-15T15:08:34Z,2.0.0 | 2.1.0 | 2.2.0,2.3.0,Race condition on ArtifactoryConfigLoader.load
+13299164,STORM-3626,Bug,Closed,Fixed,2020-04-17T16:00:44Z,2020-04-21T18:43:23Z,2.0.0 | 2.1.0,2.2.0 | 2.1.1,"storm-kafka-migration should pull in storm-client as ""provided"" dependency"
+13301932,STORM-3629,Bug,Closed,Fixed,2020-04-29T22:44:35Z,2020-05-01T14:08:37Z,2.0.0 | 2.1.0,2.2.0 | 2.1.1,Logviewer should always allow admins to access logs
+13302344,STORM-3631,Bug,Closed,Fixed,2020-05-01T19:44:09Z,2020-05-04T20:01:12Z,2.0.0 | 2.1.0,2.2.0,Wrong format of logs.users/groups in topology conf can cause supervisor/logviewer to terminate
+13310223,STORM-3649,Bug,Resolved,Fixed,2020-06-08T20:46:21Z,2020-06-09T20:27:14Z,2.0.0 | 2.1.0 | 2.2.0,2.3.0,Logic error regarding storm.supervisor.medium.memory.grace.period.ms
+13311033,STORM-3652,Bug,Resolved,Fixed,2020-06-12T02:33:06Z,2020-08-20T01:08:31Z,2.0.0 | 2.1.0 | 2.2.0,2.3.0,Last error not displayed  in Topology summary storm ui
+13313034,STORM-3655,Bug,Resolved,Fixed,2020-06-23T12:05:03Z,2020-07-01T13:55:15Z,2.0.0 | 2.1.0 | 2.2.0,2.3.0,Worker should commit suicide On Change in its assignment.
+13313322,STORM-3658,Bug,Resolved,Fixed,2020-06-24T20:03:41Z,2020-07-02T14:07:38Z,2.0.0 | 2.1.0 | 2.2.0,2.3.0,Problematic worker stays alive because of a deadlock and race condition caused by ShutdownHooks
+13313698,STORM-3663,Bug,Resolved,Fixed,2020-06-26T22:51:12Z,2020-07-07T21:02:58Z,2.2.0,2.3.0 | 2.2.1,Topology with Mockito 1.x fails to run unit tests
+13314776,STORM-3666,Bug,Resolved,Fixed,2020-07-02T20:10:40Z,2020-09-17T13:55:06Z,2.0.0 | 2.1.0 | 2.2.0,2.3.0,Validate component name in rebalance command and fix --executor option
+13317466,STORM-3677,Bug,Resolved,Fixed,2020-07-17T18:03:09Z,2020-07-21T16:38:34Z,2.0.0 | 2.1.0 | 2.2.0,2.3.0,Fix Worker Suicide Function if assignment is null
+13318546,STORM-3679,Bug,Resolved,Fixed,2020-07-21T19:10:35Z,2020-07-28T14:03:37Z,2.0.0 | 2.1.0 | 2.2.0,2.3.0,misuse of nodeId as hostname in LoadAwareShuffleGrouping
+13320940,STORM-3684,Bug,Resolved,Fixed,2020-08-04T19:29:14Z,2020-08-07T18:04:54Z,2.0.0 | 2.1.0 | 2.2.0,2.3.0,"receive-queue V2 metrics shouldn't have ""_system"" as componentId if it is from a system task"
+13324382,STORM-3690,Bug,Resolved,Fixed,2020-08-25T05:27:10Z,2020-08-26T14:55:27Z,2.3.0,2.3.0,UI has NullPointerException when the scheduler is not ResourceAwareScheduler
+13325359,STORM-3693,Bug,Resolved,Fixed,2020-08-31T16:12:15Z,2025-01-13T09:33:50Z,2.1.0,2.8.0,TimeOut ticks should be addressed to Executor instead of being addressed to a task or broadcasted.
+13325988,STORM-3695,Bug,Resolved,Fixed,2020-09-03T21:26:40Z,2020-09-08T14:00:29Z,,2.3.0,Add Timer rates to datapoints for V2 metrics tick
+13326547,STORM-3696,Bug,Resolved,Fixed,2020-09-08T19:11:07Z,2020-09-09T19:58:43Z,,2.3.0,ClientSupervisorUtils.processLauncherAndWait ignores InterruptedException
+13327727,STORM-3699,Bug,Resolved,Fixed,2020-09-15T20:32:58Z,2020-09-18T15:01:58Z,2.0.0 | 2.1.0 | 2.2.0,2.3.0,fix flight.bash to support flight recording on openJDK8u262 or newer
+13327883,STORM-3701,Bug,Resolved,Fixed,2020-09-16T15:43:44Z,2020-09-21T18:39:38Z,2.0.0 | 2.1.0 | 2.2.0,2.3.0,Race Condition between cleanup thread and download tasks
+13330435,STORM-3704,Bug,Resolved,Fixed,2020-10-01T19:27:45Z,2021-03-17T18:43:45Z,2.2.0,2.3.0 | 2.2.1,"Cosmetic: columns shifted in ""Topology summary"" table"
+13338196,STORM-3712,Bug,Resolved,Fixed,2020-10-31T07:16:24Z,2020-11-02T15:54:37Z,,2.3.0,Check-Updated-License-Files CI job has been broken
+13339542,STORM-3713,Bug,Closed,Fixed,2020-11-09T14:47:40Z,2024-01-26T07:49:28Z,,2.6.1,Possible race condition between zookeeper sync-up and killing topology
+13344270,STORM-3720,Bug,Resolved,Fixed,2020-12-04T17:38:35Z,2020-12-10T15:16:43Z,,2.3.0,BlobStoreFile getModTime() never updates after first call
+13345984,STORM-3723,Bug,Resolved,Fixed,2020-12-14T22:01:24Z,2020-12-17T02:43:16Z,,2.3.0,ServerUtils.isAnyPosixProcessPidDirAlive might return wrong result
+13346651,STORM-3725,Bug,Resolved,Fixed,2020-12-17T19:15:50Z,2020-12-22T15:26:16Z,2.0.0 | 2.1.0 | 2.2.0,2.3.0,DRPC spout will crash when any one of DRPC server is down
+13347193,STORM-3727,Bug,Resolved,Fixed,2020-12-21T20:09:53Z,2021-01-05T17:34:53Z,2.2.0,2.3.0,SUPERVISOR_SLOTS_PORTS could be list of Longs
+13347256,STORM-3728,Bug,Resolved,Fixed,2020-12-22T05:08:26Z,2020-12-23T15:09:27Z,2.0.0 | 2.1.0 | 2.2.0,2.3.0,Workers are not able to connect to Pacemaker if pacemaker.auth.method is KERBEROS
+13347521,STORM-3729,Bug,Resolved,Fixed,2020-12-23T08:16:14Z,2021-01-05T15:32:02Z,2.0.0 | 2.1.0 | 2.2.0,2.3.0,Assigning memory greater and equal than 2048m will make assgin memory for slot values to 1m
+13347737,STORM-3731,Bug,Resolved,Fixed,2020-12-24T10:28:36Z,2021-01-05T15:33:35Z,,2.3.0,Remove unused nashorn import in storm-loadgen:OutputStream.java
+13349244,STORM-3733,Bug,Resolved,Fixed,2021-01-05T17:15:35Z,2021-01-12T16:03:40Z,,2.3.0,AsyncLocalizer stuck looking for missing topology
+13352101,STORM-3735,Bug,Resolved,Fixed,2021-01-13T20:43:51Z,2021-01-19T15:48:39Z,2.0.0 | 2.1.0 | 2.2.0,2.3.0,Kyro serialization fails on some metric tuples when topology.fall.back.on.java.serialization is false
+13355496,STORM-3740,Bug,Resolved,Fixed,2021-01-29T17:54:42Z,2021-02-05T16:13:41Z,,2.3.0,Asynchronous background blob download can cause orphaned blob references
+13356682,STORM-3741,Bug,Resolved,Fixed,2021-02-04T07:23:01Z,2021-02-17T18:33:16Z,,2.3.0,Maven Surefire plugin corrupts output and creates an excessive log file
+13361966,STORM-3748,Bug,Resolved,Fixed,2021-03-02T22:35:06Z,2021-03-05T16:17:04Z,,2.3.0,prevent concurrent modification when fetching v2 metrics
+13368889,STORM-3763,Bug,Resolved,Fixed,2021-03-31T14:01:59Z,2021-04-01T16:24:13Z,2.0.0 | 2.1.0 | 2.2.0,2.3.0 | 2.2.1,Backpressure message ignored by the receiver caused the topology to not progress
+13374493,STORM-3765,Bug,Resolved,Fixed,2021-04-22T19:35:24Z,2021-05-03T18:17:44Z,2.0.0 | 2.1.0 | 2.2.0,2.3.0,NPE in DRPCSimpleACLAuthorizer.readAclFromConfig when drpc.authorizer.acl has no values
+13375382,STORM-3767,Bug,Resolved,Fixed,2021-04-27T16:19:21Z,2021-09-23T17:56:02Z,2.0.0 | 2.1.0 | 2.2.0,2.1.1 | 2.3.0 | 2.2.1,NPE on getComponentPendingProfileActions
+13375904,STORM-3769,Bug,Resolved,Fixed,2021-04-29T19:38:20Z,2021-05-03T18:27:40Z,,2.3.0,Failed adding references to blobs: FileNotFoundException
+13381979,STORM-3775,Bug,Resolved,Fixed,2021-06-03T18:33:28Z,2021-06-21T14:43:14Z,,2.3.0,topology.blobstore.map can cause supervisor restarts
+13391917,STORM-3785,Bug,Resolved,Fixed,2021-07-26T15:53:55Z,2021-09-22T19:48:56Z,2.2.0,2.3.0 | 2.2.1,Rate metrics are wrongly divided by 1000000
+13421734,STORM-3816,Bug,Closed,Fixed,2022-01-10T14:35:53Z,2022-04-21T07:17:37Z,2.3.0,,Unrecognized VM option 'PrintGCDateStamps'
+13423663,STORM-3819,Bug,Resolved,Fixed,2022-01-20T07:20:51Z,2022-02-24T17:17:21Z,,,Travis CI fails due to missing python3.6 packages
+13427305,STORM-3822,Bug,Resolved,Fixed,2022-02-08T23:04:10Z,2022-04-08T06:00:42Z,2.3.1,2.5.0,Colon in streamId breaks topology visualization
+13429409,STORM-3823,Bug,Closed,Fixed,2022-02-18T23:51:45Z,2023-08-28T06:42:28Z,2.3.0,2.5.0,Release Prep fails in storm-client/test/py/test_storm_cli.py
+13436520,STORM-3838,Bug,Resolved,Fixed,2022-03-29T19:49:45Z,2022-04-08T05:48:16Z,,2.5.0,prevent topology from overriding STORM_WORKERS_ARTIFACTS_DIR
+13443366,STORM-3862,Bug,Resolved,Fixed,2022-05-05T11:48:15Z,2022-05-16T16:10:06Z,2.4.0,2.5.0,HdfsBlobStoreImpl should check permission after mkdirs
+13471273,STORM-3875,Bug,Resolved,Fixed,2022-07-12T18:44:19Z,2022-07-18T16:38:50Z,,2.5.0,ThroughputVsLatency does not run on JDK11 due to specified TOPOLOGY_WORKER_GC_CHILDOPTS
+13472120,STORM-3876,Bug,Closed,Fixed,2022-07-18T16:53:19Z,2023-06-01T21:05:16Z,,,Cannot Compile from Master
+13535398,STORM-3917,Bug,Resolved,Fixed,2023-05-08T16:58:47Z,2023-05-12T12:58:38Z,2.4.0,2.5.0,Hardcoded worker heapsize in ThroughputVsLatency
+13540436,STORM-3923,Bug,Closed,Fixed,2023-06-16T17:20:39Z,2023-06-19T14:17:42Z,2.4.0,2.5.0,Cassandra module fails tests probably OOM
+13540642,STORM-3924,Bug,Closed,Fixed,2023-06-19T15:15:08Z,2023-08-25T10:18:21Z,,2.6.0,Support for declaring WorkerHook in Flux topology definitions
+13545662,STORM-3940,Bug,Closed,Fixed,2023-08-01T08:56:31Z,2023-08-02T09:34:04Z,2.4.0,2.5.0,Missing dependency prevents Storm from being built
+13546497,STORM-3944,Bug,Resolved,Fixed,2023-08-08T08:15:32Z,2023-08-08T14:06:49Z,2.5.0,2.6.0,ConcurrentModificationException  in MultiCountMetric
+13547440,STORM-3954,Bug,Closed,Fixed,2023-08-15T19:59:58Z,2023-08-24T14:45:29Z,2.6.0,2.6.0,Remove Logback pulled in by Zookeeper
+13547705,STORM-3956,Bug,Closed,Fixed,2023-08-17T10:19:56Z,2023-08-25T07:26:57Z,2.3.0,2.6.0,Fix cli monitor component's argument type
+13551915,STORM-3984,Bug,Resolved,Fixed,2023-09-25T15:22:31Z,2023-09-26T05:47:32Z,2.5.0,2.6.0,Nimbus failover causes unnecessary reassign if 600s are passed after starting Nimbus
+13556546,STORM-3994,Bug,Closed,Fixed,2023-11-02T15:12:04Z,2023-11-09T14:03:27Z,2.5.0,2.6.0,LocalCluster init fails on Windows because of missing librocksdbjni-win64.dll
+13563742,STORM-4017,Bug,Closed,Fixed,2024-01-05T20:45:31Z,2024-01-16T07:14:38Z,2.3.0 | 2.4.0 | 2.5.0 | 2.6.0,2.6.1,isAnyWindowsProcessAlive does not work with multiple pids
+13564065,STORM-4018,Bug,Closed,Fixed,2024-01-09T14:27:27Z,2024-01-16T08:23:24Z,2.6.0,2.6.1,Wrong order of the params in Storm API resource
+13565833,STORM-4023,Bug,Closed,Fixed,2024-01-23T16:34:24Z,2024-01-25T10:22:45Z,2.6.0,2.6.1,Background periodic Kerberos re-login should use same JAAS configuration as initial login
+13565987,STORM-4024,Bug,Closed,Fixed,2024-01-24T14:59:19Z,2024-01-25T10:22:11Z,2.0.0,2.6.1,Bolt Input Stats are blank if topology.acker.executors is null or 0
+13566091,STORM-4025,Bug,Closed,Fixed,2024-01-25T08:33:37Z,2024-01-25T11:21:50Z,2.6.0,2.6.1,ClassCastException when changing log level in Storm UI
+13570236,STORM-4037,Bug,Resolved,Fixed,2024-02-28T21:49Z,2024-05-23T11:27:59Z,,2.6.2,confluent maven resolver may not be necessary any more
+13574813,STORM-4051,Bug,Closed,Fixed,2024-04-05T17:44:40Z,2024-04-05T17:45:30Z,,2.6.3,Scheduler needs to include acker memory for topology resources
+13574815,STORM-4052,Bug,Closed,Fixed,2024-04-05T18:15:33Z,2024-04-07T18:17:49Z,2.6.1 | 2.6.2,2.6.3,Simplify/Remove double delete/lookup in heartbeat cleanup code
+13577796,STORM-4055,Bug,Closed,Fixed,2024-04-30T21:45:10Z,2024-11-18T18:41:53Z,2.6.1,2.7.0,ConcurrentModificationException on KafkaConsumer when running topology with Metrics Reporters
+13581983,STORM-4057,Bug,Closed,Fixed,2024-06-07T18:36:26Z,2024-07-02T09:16:16Z,2.6.1,2.6.3,Fix Worker Termination in K8S with Security Context
+13583383,STORM-4060,Bug,Closed,Fixed,2024-06-20T20:10:51Z,2024-06-25T10:06:23Z,1.1.3 | 1.2.4 | 2.6.2,2.6.3,Netty client will wait up to 10 minutes to send messages to unreachable worker on close()
+13588425,STORM-4069,Bug,Closed,Fixed,2024-08-09T17:49:32Z,2024-08-31T21:48:41Z,2.6.0 | 2.6.1 | 2.6.2,2.7.0,java.lang.ClassCastException for Trident-based Topology
+13589801,STORM-4077,Bug,Closed,Fixed,2024-08-22T17:45:33Z,2024-11-18T18:41:12Z,2.6.1,2.7.0,Worker being reassigned when Nimbus leadership changes
+13594686,STORM-4085,Bug,Closed,Fixed,2024-10-08T17:34:48Z,2024-11-18T18:40:36Z,,2.7.0,Supervisor Threads being Killed
+13598115,STORM-4104,Bug,Closed,Fixed,2024-11-07T19:59:32Z,2024-11-11T08:14:03Z,2.0.0,2.7.1,Pacemaker server stability issues - e.g. shuts down when topology killed
+13598286,STORM-4106,Bug,Closed,Fixed,2024-11-09T21:00:34Z,2024-11-11T20:25:26Z,2.5.0,2.7.1,Storm.ps1 does not show stdout\stderr output when launched from Powershell ISE
+13604500,STORM-4148,Bug,Closed,Fixed,2025-01-10T11:22:54Z,2025-01-10T14:21:59Z,2.7.0,2.8.0,Storm UI throwing error on Component page
+13604505,STORM-4149,Bug,Closed,Fixed,2025-01-10T12:22:14Z,2025-01-10T12:22:18Z,2.7.0,2.8.0,Decode ComponentId to avoid UI throwing errors
+13604706,STORM-4154,Bug,Resolved,Fixed,2025-01-13T12:06:14Z,2025-01-14T17:06:27Z,2.7.0,2.8.0,Nimbus down following topology deployment
