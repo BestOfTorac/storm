@@ -1,6 +1,6 @@
 package it.uniroma2.isw2.storm;
 
-import it.uniroma2.isw2.storm.git.GitHistoryMetricsReader;
+import it.uniroma2.isw2.storm.git.NativeHistoricalMetricsReader;
 import it.uniroma2.isw2.storm.git.RepositoryInspector;
 import it.uniroma2.isw2.storm.inventory.JavaSourceClassifier;
 import it.uniroma2.isw2.storm.metrics.HistoricalMetricsCsvWriter;
@@ -14,10 +14,7 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 public final class HistoricalMetricsGenerator {
 
@@ -34,6 +31,7 @@ public final class HistoricalMetricsGenerator {
     }
 
     private static int run(String[] args) {
+
         if (args.length != 1) {
             System.err.println(
                 "Usage: HistoricalMetricsGenerator "
@@ -77,25 +75,26 @@ public final class HistoricalMetricsGenerator {
             List<HistoricalMetricEntry> output =
                 new ArrayList<>();
 
+            NativeHistoricalMetricsReader
+                metricsReader =
+                    new NativeHistoricalMetricsReader(
+                        repositoryPath
+                    );
+
             try (
                 RepositoryInspector inspector =
                     RepositoryInspector.open(
                         repositoryPath
-                    );
-
-                GitHistoryMetricsReader historyReader =
-                    GitHistoryMetricsReader.open(
-                        repositoryPath
                     )
             ) {
-                int currentRelease = 0;
+                int releasePosition = 0;
 
                 for (ReleaseCatalogEntry release
                         : releases) {
 
-                    currentRelease++;
+                    releasePosition++;
 
-                    Set<String> productionPaths =
+                    List<String> productionPaths =
                         inspector
                             .readJavaFilePathsAtCommit(
                                 release.gitCommitId()
@@ -108,66 +107,58 @@ public final class HistoricalMetricsGenerator {
                                         == SourceCategory
                                             .PRODUCTION
                             )
-                            .collect(
-                                java.util.stream.Collectors
-                                    .toCollection(
-                                        LinkedHashSet::new
-                                    )
-                            );
+                            .sorted()
+                            .toList();
 
-                    GitHistoryMetricsReader
-                        .HistoryAnalysisResult result =
-                            historyReader.compute(
+                    int classPosition = 0;
+
+                    for (String filePath
+                            : productionPaths) {
+
+                        classPosition++;
+
+                        HistoricalMetrics metrics =
+                            metricsReader.compute(
                                 release.gitCommitId(),
                                 release.releaseDate(),
-                                productionPaths
+                                filePath
                             );
 
-                    for (
-                        Map.Entry<
-                            String,
-                            HistoricalMetrics
-                        > metric :
-                            result.metrics()
-                                .entrySet()
-                    ) {
                         output.add(
                             new HistoricalMetricEntry(
                                 release.index(),
                                 release.version(),
                                 release.gitCommitId(),
-                                metric.getKey(),
-                                metric.getValue()
+                                filePath,
+                                metrics
                             )
                         );
+
+                        if (
+                            classPosition % 100 == 0
+                                || classPosition
+                                    == productionPaths.size()
+                        ) {
+                            System.out.printf(
+                                "[%02d/%02d] %-18s "
+                                    + "classes=%d/%d, "
+                                    + "cached-commits=%d, "
+                                    + "merge-recovered=%d, "
+                                    + "merge-duplicates-skipped=%d%n",
+                                releasePosition,
+                                releases.size(),
+                                release.version(),
+                                classPosition,
+                                productionPaths.size(),
+                                metricsReader
+                                    .cachedChangeSetCount(),
+                                metricsReader
+                                    .recoveredMergeIntroductionCount(),
+                                metricsReader
+                                    .skippedDuplicateMergeIntroductionCount()
+                            );
+                        }
                     }
-
-                    long zeroRevisionClasses =
-                        result.metrics()
-                            .values()
-                            .stream()
-                            .filter(
-                                metric ->
-                                    metric.revisions()
-                                        == 0
-                            )
-                            .count();
-
-                    System.out.printf(
-                            "[%02d/%02d] %-18s "
-                                    + "classes=%d, commits=%d, "
-                                    + "merges-skipped=%d, "
-                                    + "recovered-introductions=%d, "
-                                    + "zero-revision=%d%n",
-                            currentRelease,
-                            releases.size(),
-                            release.version(),
-                            productionPaths.size(),
-                            result.commitsVisited(),
-                            result.mergeCommitsSkipped(),
-                            result.recoveredIntroductions(),
-                            zeroRevisionClasses
-                    );
                 }
             }
 
@@ -200,7 +191,19 @@ public final class HistoricalMetricsGenerator {
 
             return 0;
 
+        } catch (InterruptedException exception) {
+
+            Thread.currentThread()
+                .interrupt();
+
+            System.err.println(
+                "Historical metric generation interrupted."
+            );
+
+            return 1;
+
         } catch (IOException exception) {
+
             System.err.printf(
                 "Historical metric generation failed: %s%n",
                 exception.getMessage()
