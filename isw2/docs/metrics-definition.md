@@ -366,10 +366,134 @@ Se tutte le revisioni hanno `LOC_TOUCHED = 0`, viene utilizzato
 
 ## NFIX
 
-`NFIX` non viene calcolata durante l'estrazione puramente storica.
+`NFIX` rappresenta il numero di defect fix che hanno interessato una
+classe.
 
-La metrica verrà aggiunta successivamente dopo l'identificazione dei
-ticket relativi a defect fixing e dei relativi fix commit.
+Nel materiale del corso `Nfix` è definita come `number of defect fixes`
+ed è contrassegnata con `*`. Nel progetto viene quindi calcolata
+cumulativamente dalla release 0 fino alla release considerata, in modo
+coerente con le altre metriche storiche cumulative.
+
+L'identificazione dei defect Jira e dei relativi fix commit è descritta
+in `defect-fix-identification.md`.
+
+Il calcolo parte dal catalogo finale:
+
+```text
+isw2/datasets/fix_commit_catalog.csv
+```
+
+Per ogni coppia release-classe viene ricostruita la storia Git della
+classe fino al commit corrispondente alla release.
+
+### Fix non-merge
+
+Per i fix selezionati con strategia `NON_MERGE` viene utilizzata una
+storia Git rename-aware che esclude i merge:
+
+```text
+git -c diff.renameLimit=0 log RELEASE \
+    --follow \
+    --no-merges \
+    --format=%H \
+    -- FILE
+```
+
+Gli hash ottenuti vengono confrontati con i fix commit `NON_MERGE`
+presenti nel catalogo.
+
+### Fix rappresentati da merge
+
+Alcuni defect non possiedono un commit non-merge affidabile e sono stati
+selezionati tramite la strategia `FIRST_PARENT_MERGE`.
+
+Per questi casi viene utilizzata la first-parent history della classe:
+
+```text
+git -c diff.renameLimit=0 log RELEASE \
+    --follow \
+    --first-parent \
+    --format=%H \
+    -- FILE
+```
+
+Questa scelta è necessaria perché questi merge rappresentano
+l'integrazione del fix nella linea ufficiale della release.
+
+Un controllo sui 85 fix commit selezionati come
+`FIRST_PARENT_MERGE`, corrispondenti a 1103 associazioni
+commit-file, ha mostrato:
+
+- `--full-history`: 1103 casi non riconosciuti su 1103;
+- `--first-parent`: 0 casi non riconosciuti su 1103.
+
+Per questa categoria di fix viene quindi utilizzata esplicitamente la
+first-parent history.
+
+### Conteggio dei defect
+
+`NFIX` conta defect Jira distinti, non commit distinti.
+
+Se più commit appartenenti allo stesso ticket `STORM-xxxx` modificano
+la stessa classe, il ticket contribuisce una sola unità a `NFIX` per
+quella classe.
+
+Ad esempio:
+
+```text
+STORM-100 -> commit A -> Foo.java
+STORM-100 -> commit B -> Foo.java
+STORM-100 -> commit C -> Bar.java
+```
+
+produce:
+
+```text
+Foo.java -> +1 NFIX
+Bar.java -> +1 NFIX
+```
+
+Questa è l'operazionalizzazione adottata per la definizione del corso
+`number of defect fixes`: il defect viene contato una volta per classe,
+indipendentemente dal numero di commit necessari per implementarne il
+fix.
+
+### Output
+
+`NFIX` viene mantenuta inizialmente in un dataset separato:
+
+```text
+isw2/datasets/nfix_metrics.csv
+```
+
+con schema:
+
+```text
+ReleaseIndex,Version,CommitId,FilePath,NFIX
+```
+
+La separazione permette di mantenere invariato il dataset delle metriche
+storiche già validato.
+
+Il dataset `nfix_metrics.csv` contiene:
+
+- 14611 osservazioni class-release;
+- 3336 osservazioni con `NFIX > 0`;
+- valore massimo di `NFIX` pari a 19;
+- 0 valori negativi;
+- 0 duplicati `(ReleaseIndex, FilePath)`;
+- 0 chiavi presenti solamente in `nfix_metrics.csv`;
+- 0 chiavi presenti solamente in `historical_metrics.csv`.
+
+Le 14611 chiavi coincidono quindi esattamente con quelle di
+`historical_metrics.csv`.
+
+Il calcolo ha richiesto:
+
+- 14611 letture della storia `NON_MERGE`;
+- 13784 letture della first-parent history;
+- 16 delle 18 release con almeno un fix `FIRST_PARENT_MERGE`
+  raggiungibile.
 
 ---
 
