@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ruleset
+    name="ISW2 Storm Maintainability Smells"
+    xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://pmd.sourceforge.net/ruleset/2.0.0
+        https://pmd.github.io/ruleset_2_0_0.xsd">
+
+    <description>
+        Fixed PMD ruleset used to compute NSMELLS for the
+        ISW2 Apache Storm dataset.
+
+        NSMELLS is the number of PMD violations produced
+        for a Java production class in a release snapshot.
+
+        The ruleset focuses on design and maintainability
+        smells and is kept fixed across every analyzed release.
+    </description>
+
+    <rule ref="category/java/design.xml/AvoidDeeplyNestedIfStmts" />
+
+    <rule ref="category/java/design.xml/CognitiveComplexity" />
+
+    <rule ref="category/java/design.xml/CyclomaticComplexity" />
+
+    <rule ref="category/java/design.xml/DataClass" />
+
+    <rule ref="category/java/design.xml/ExcessiveParameterList" />
+
+    <rule ref="category/java/design.xml/GodClass" />
+
+    <rule ref="category/java/design.xml/NcssCount" />
+
+    <rule ref="category/java/design.xml/NPathComplexity" />
+
+    <rule ref="category/java/design.xml/TooManyFields" />
+
+    <rule ref="category/java/design.xml/TooManyMethods" />
+
+</ruleset>
