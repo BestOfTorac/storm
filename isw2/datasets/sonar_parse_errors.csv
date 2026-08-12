@@ -1,0 +1,8 @@
+﻿"ReleaseIndex","Version","CommitId","FilePath","NSMELLS"
+"9","1.0.0","dba655a47aaad74f26b9bb9a75fa52c0eedd8b1e","storm-core/src/jvm/org/apache/storm/blobstore/LocalFsBlobStore.java","0"
+"11","1.0.1","b5c16f919ad4099e6fb25f1095c9af8b64ac9f91","storm-core/src/jvm/org/apache/storm/blobstore/LocalFsBlobStore.java","0"
+"12","1.0.2","54f319fd56c33437364c550a800ac9e6fe058b95","storm-core/src/jvm/org/apache/storm/blobstore/LocalFsBlobStore.java","0"
+"15","1.0.3","eac433b0beb3798c4723deb39b3c4fad446378f4","storm-core/src/jvm/org/apache/storm/blobstore/LocalFsBlobStore.java","0"
+"16","1.1.0","e40d213de7067f7d3aa4d4992b81890d8ed6ff31","storm-core/src/jvm/org/apache/storm/blobstore/LocalFsBlobStore.java","0"
+"17","1.0.4","a5e1c154b5b2ae74fd78bf10d4c130afb1ad4513","storm-core/src/jvm/org/apache/storm/blobstore/LocalFsBlobStore.java","0"
+"18","1.1.1","41bfea87b1a002565333bd18a06d766af1ca3816","storm-core/src/jvm/org/apache/storm/blobstore/LocalFsBlobStore.java","0"
