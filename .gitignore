@@ -62,6 +62,14 @@ hs_err_pid*
 !/storm-server/src/test/resources/evil-path-traversal-resources.jar
 
 m2
+
+# ISW2 Milestone 2 - source code and official results
+!/isw2/analyzer/src/main/java/it/uniroma2/isw2/storm/m2/
+!/isw2/analyzer/src/main/java/it/uniroma2/isw2/storm/m2/**
+!/isw2/results/m2/
+!/isw2/results/m2/**
+/isw2/results/m2/*_smoke.csv
+/isw2/results/m2/*_quick.csv
 install.txt
 install-shade.txt
 

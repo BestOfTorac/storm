@@ -20,6 +20,8 @@
 
         <jgit.version>7.7.1.202607240634-r</jgit.version>
         <slf4j.version>2.0.18</slf4j.version>
+        <weka.version>3.8.7</weka.version>
+        <smote.version>1.0.3</smote.version>
     </properties>
 
     <dependencies>
@@ -40,6 +42,24 @@
             <groupId>org.json</groupId>
             <artifactId>json</artifactId>
             <version>20240303</version>
+        </dependency>
+        <dependency>
+            <groupId>nz.ac.waikato.cms.weka</groupId>
+            <artifactId>weka-stable</artifactId>
+            <version>${weka.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>nz.ac.waikato.cms.weka</groupId>
+            <artifactId>SMOTE</artifactId>
+            <version>${smote.version}</version>
+
+            <exclusions>
+                <exclusion>
+                    <groupId>nz.ac.waikato.cms.weka</groupId>
+                    <artifactId>weka-dev</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
     </dependencies>
 
