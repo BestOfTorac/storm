@@ -78,3 +78,48 @@ Structural inventory:
 Machine-readable selection policy:
 
 `isw2/config/testing-class-selection.properties`
+## Final selected classes
+
+The eligible-class ranking contains 381 classes.
+
+The ranking convention adopted by the project is:
+
+- primary metric: `NSMELLS`;
+- order: descending;
+- deterministic tie-break: fully-qualified class name ascending.
+
+For selector letter `V`:
+
+`22 mod 5 = 2`
+
+therefore case 2 is applied:
+
+`Classes first +2 and last -2`
+
+Using one-based positions, this corresponds to eligible ranks 3 and 379.
+
+### C_0 A
+
+`org.apache.storm.daemon.ui.UIHelpers`
+
+- module: `storm-webapp`
+- TypeLOC: 2389
+- declared methods: 108
+- NSMELLS: 77
+- eligible rank: 3
+
+### C_0 B
+
+`org.apache.storm.security.auth.DefaultHttpCredentialsPlugin`
+
+- module: `storm-server`
+- TypeLOC: 62
+- declared methods: 3
+- NSMELLS: 0
+- eligible rank: 379
+
+The lower-ranked class belongs to a tie containing multiple classes with
+`NSMELLS=0`. The course specification does not define a tie-breaking rule.
+The project therefore uses the previously recorded deterministic
+`FQCN_ASC` tie-break and does not alter the selection after observing the
+result.

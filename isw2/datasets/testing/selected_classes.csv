@@ -1,0 +1,3 @@
+﻿"Selection","EligibleRank","FQCN","FilePath","Module","TypeLOC","DeclaredMethods","NSMELLS"
+"first+2","3","org.apache.storm.daemon.ui.UIHelpers","storm-webapp/src/main/java/org/apache/storm/daemon/ui/UIHelpers.java","storm-webapp","2389","108","77"
+"last-2","379","org.apache.storm.security.auth.DefaultHttpCredentialsPlugin","storm-server/src/main/java/org/apache/storm/security/auth/DefaultHttpCredentialsPlugin.java","storm-server","62","3","0"
