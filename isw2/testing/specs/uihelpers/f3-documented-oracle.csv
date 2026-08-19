@@ -1,0 +1,3 @@
+﻿"CaseId","TbbId","Method","Input","OracleType","FinalOracle","Evidence","C0Used"
+"HDR-01","TBB-016","getJsonResponseHeaders","callback=null; customHeaders=null","DOCUMENTED_PROPERTY","Content-Type represents JSON.","STORM-UI-REST-API.md documents JSON responses.","NO"
+"WRAP-01","TBB-018","wrapJsonInCallback","callback=callback; JSON={value:1}","DOCUMENTED_PROPERTY","The supplied JSON is wrapped inside the named callback function.","STORM-UI-REST-API.md states that clients can pass a callback parameter to wrap JSON in the callback function.","NO"
