@@ -1,0 +1,81 @@
+============================================================
+HELPER: UIHelpers.mkSslConnector
+REQUIRED BY: SSL-07, TS-03
+LINES: 228-267
+============================================================
+  228:     private static ServerConnector mkSslConnector(Server server, Integer port, String ksPath,
+  229:                                                   String ksPassword, String ksType,
+  230:                                                   String keyPassword, String tsPath,
+  231:                                                   String tsPassword, String tsType,
+  232:                                                   Boolean needClientAuth, Boolean wantClientAuth,
+  233:                                                   Integer headerBufferSize, boolean enableSslReload) {
+  234:         SslContextFactory.Server factory = new ReloadableSslContextFactory(enableSslReload);
+  235:         factory.setExcludeCipherSuites("SSL_RSA_WITH_RC4_128_MD5", "SSL_RSA_WITH_RC4_128_SHA");
+  236:         factory.setExcludeProtocols("SSLv3");
+  237:         factory.setRenegotiationAllowed(false);
+  238:         factory.setKeyStorePath(ksPath);
+  239:         factory.setKeyStoreType(ksType);
+  240:         factory.setKeyStorePassword(ksPassword);
+  241:         factory.setKeyManagerPassword(keyPassword);
+  242:
+  243:         if (tsPath != null && tsPassword != null && tsType != null) {
+  244:             factory.setTrustStorePath(tsPath);
+  245:             factory.setTrustStoreType(tsType);
+  246:             factory.setTrustStorePassword(tsPassword);
+  247:         }
+  248:
+  249:         if (needClientAuth != null && needClientAuth) {
+  250:             factory.setNeedClientAuth(true);
+  251:         } else if (wantClientAuth != null && wantClientAuth) {
+  252:             factory.setWantClientAuth(true);
+  253:         }
+  254:
+  255:         HttpConfiguration httpsConfig = new HttpConfiguration();
+  256:         httpsConfig.addCustomizer(new SecureRequestCustomizer());
+  257:         if (null != headerBufferSize) {
+  258:             httpsConfig.setRequestHeaderSize(headerBufferSize);
+  259:         }
+  260:         ServerConnector sslConnector = new ServerConnector(
+  261:                 server,
+  262:                 new SslConnectionFactory(factory, HttpVersion.HTTP_1_1.asString()),
+  263:                 new HttpConnectionFactory(httpsConfig)
+  264:         );
+  265:         sslConnector.setPort(port);
+  266:         return sslConnector;
+  267:     }
+
+============================================================
+HELPER: ObjectReader.getInt
+REQUIRED BY: JETTY-02, JETTY-03
+SOURCE: storm-client/src/jvm/org/apache/storm/utils/ObjectReader.java
+============================================================
+LINES: 72-78
+   72:     public static Integer getInt(Object o) {
+   73:         Integer result = getInt(o, null);
+   74:         if (null == result) {
+   75:             throw new IllegalArgumentException("Don't know how to convert null to int");
+   76:         }
+   77:         return result;
+   78:     }
+
+LINES: 80-99
+   80:     public static Integer getInt(Object o, Integer defaultValue) {
+   81:         if (null == o) {
+   82:             return defaultValue;
+   83:         }
+   84:
+   85:         if (o instanceof Integer
+   86:                 || o instanceof Short
+   87:                 || o instanceof Byte) {
+   88:             return ((Number) o).intValue();
+   89:         } else if (o instanceof Long) {
+   90:             final long l = (Long) o;
+   91:             if (l <= Integer.MAX_VALUE && l >= Integer.MIN_VALUE) {
+   92:                 return (int) l;
+   93:             }
+   94:         } else if (o instanceof String) {
+   95:             return Integer.parseInt((String) o);
+   96:         }
+   97:
+   98:         throw new IllegalArgumentException("Don't know how to convert " + o + " to int");
+   99:     }

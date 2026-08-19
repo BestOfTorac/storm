@@ -1,0 +1,175 @@
+============================================================
+METHOD: jettyCreateServer
+LINES: 399-401
+============================================================
+  399:     public static Server jettyCreateServer(Integer port, String host, Integer httpsPort, Boolean disableHttpBinding) {
+  400:         return jettyCreateServer(port, host, httpsPort, null, disableHttpBinding);
+  401:     }
+
+============================================================
+METHOD: jettyCreateServer
+LINES: 406-426
+============================================================
+  406:     public static Server jettyCreateServer(Integer port, String host,
+  407:                                            Integer httpsPort, Integer headerBufferSize, Boolean disableHttpBinding) {
+  408:         Server server = new Server();
+  409:
+  410:         if (httpsPort == null || httpsPort <= 0 || disableHttpBinding == null || disableHttpBinding == false) {
+  411:             HttpConfiguration httpConfig = new HttpConfiguration();
+  412:             httpConfig.setSendDateHeader(true);
+  413:             if (null != headerBufferSize) {
+  414:                 httpConfig.setRequestHeaderSize(headerBufferSize);
+  415:             }
+  416:             ServerConnector httpConnector = new ServerConnector(
+  417:                     server, new HttpConnectionFactory(httpConfig)
+  418:             );
+  419:             httpConnector.setPort(ObjectReader.getInt(port, 80));
+  420:             httpConnector.setIdleTimeout(200000);
+  421:             httpConnector.setHost(host);
+  422:             server.addConnector(httpConnector);
+  423:         }
+  424:
+  425:         return server;
+  426:     }
+
+============================================================
+METHOD: configSsl
+LINES: 269-276
+============================================================
+  269:     public static void configSsl(Server server, Integer port, String ksPath,
+  270:                                  String ksPassword, String ksType,
+  271:                                  String keyPassword, String tsPath,
+  272:                                  String tsPassword, String tsType,
+  273:                                  Boolean needClientAuth, Boolean wantClientAuth, boolean enableSslReload) {
+  274:         configSsl(server, port, ksPath, ksPassword, ksType, keyPassword,
+  275:                   tsPath, tsPassword, tsType, needClientAuth, wantClientAuth, null, enableSslReload);
+  276:     }
+
+============================================================
+METHOD: configSsl
+LINES: 294-310
+============================================================
+  294:     public static void configSsl(Server server, Integer port, String ksPath,
+  295:                                  String ksPassword, String ksType,
+  296:                                  String keyPassword, String tsPath,
+  297:                                  String tsPassword, String tsType,
+  298:                                  Boolean needClientAuth,
+  299:                                  Boolean wantClientAuth, Integer headerBufferSize,
+  300:                                  boolean enableSslReload) {
+  301:         if (port > 0) {
+  302:             server.addConnector(
+  303:                     mkSslConnector(
+  304:                             server, port, ksPath, ksPassword, ksType, keyPassword,
+  305:                             tsPath, tsPassword, tsType,
+  306:                             needClientAuth, wantClientAuth, headerBufferSize, enableSslReload
+  307:                     )
+  308:             );
+  309:         }
+  310:     }
+
+============================================================
+METHOD: corsFilterHandle
+LINES: 316-326
+============================================================
+  316:     public static FilterHolder corsFilterHandle() {
+  317:         FilterHolder filterHolder = new FilterHolder(new CrossOriginFilter());
+  318:         filterHolder.setInitParameter(CrossOriginFilter.ALLOWED_ORIGINS_PARAM, "*");
+  319:         filterHolder.setInitParameter(CrossOriginFilter.ALLOWED_METHODS_PARAM, "GET, POST, PUT");
+  320:         filterHolder.setInitParameter(
+  321:                 CrossOriginFilter.ALLOWED_HEADERS_PARAM,
+  322:                 "X-Requested-With, X-Requested-By, Access-Control-Allow-Origin,"
+  323:                         + " Content-Type, Content-Length, Accept, Origin");
+  324:         filterHolder.setInitParameter(CrossOriginFilter.ACCESS_CONTROL_ALLOW_ORIGIN_HEADER, "*");
+  325:         return filterHolder;
+  326:     }
+
+============================================================
+METHOD: mkAccessLoggingFilterHandle
+LINES: 332-336
+============================================================
+  332:     public static FilterHolder mkAccessLoggingFilterHandle() {
+  333:
+  334:         return new FilterHolder(new AccessLoggingFilter());
+  335:
+  336:     }
+
+============================================================
+METHOD: configFilters
+LINES: 370-394
+============================================================
+  370:     public static void configFilters(ServletContextHandler context,
+  371:                                      List<FilterConfiguration> filtersConfs) {
+  372:         context.addFilter(corsFilterHandle(), "/*", EnumSet.allOf(DispatcherType.class));
+  373:         for (FilterConfiguration filterConf : filtersConfs) {
+  374:             String filterName = filterConf.getFilterName();
+  375:             String filterClass = filterConf.getFilterClass();
+  376:             Map<String, String> filterParams = filterConf.getFilterParams();
+  377:             if (filterClass != null) {
+  378:                 FilterHolder filterHolder = new FilterHolder();
+  379:                 filterHolder.setClassName(filterClass);
+  380:                 if (filterName != null) {
+  381:                     filterHolder.setName(filterName);
+  382:                 } else {
+  383:                     filterHolder.setName(filterClass);
+  384:                 }
+  385:                 if (filterParams != null) {
+  386:                     filterHolder.setInitParameters(filterParams);
+  387:                 } else {
+  388:                     filterHolder.setInitParameters(new HashMap<>());
+  389:                 }
+  390:                 context.addFilter(filterHolder, "/*", EnumSet.allOf(DispatcherType.class));
+  391:             }
+  392:         }
+  393:         context.addFilter(mkAccessLoggingFilterHandle(), "/*", EnumSet.allOf(DispatcherType.class));
+  394:     }
+
+============================================================
+METHOD: configFilter
+LINES: 338-340
+============================================================
+  338:     public static void configFilter(Server server, Servlet servlet, List<FilterConfiguration> filtersConfs) {
+  339:         configFilter(server, servlet, filtersConfs, null);
+  340:     }
+
+============================================================
+METHOD: configFilter
+LINES: 349-363
+============================================================
+  349:     public static void configFilter(Server server, Servlet servlet,
+  350:                                     List<FilterConfiguration> filtersConfs,
+  351:                                     Map<String, String> params) {
+  352:         if (filtersConfs != null) {
+  353:             ServletHolder servletHolder = new ServletHolder(servlet);
+  354:             servletHolder.setInitOrder(0);
+  355:             if (params != null) {
+  356:                 servletHolder.setInitParameters(params);
+  357:             }
+  358:             ServletContextHandler context = new ServletContextHandler("/");
+  359:             context.addServlet(servletHolder, "/");
+  360:             configFilters(context, filtersConfs);
+  361:             server.setHandler(context);
+  362:         }
+  363:     }
+
+============================================================
+METHOD: stormRunJetty
+LINES: 432-440
+============================================================
+  432:     public static void stormRunJetty(Integer port, String host,
+  433:                                      Integer httpsPort, Integer headerBufferSize,
+  434:                                      IConfigurator configurator) throws Exception {
+  435:         Server s = jettyCreateServer(port, host, httpsPort, headerBufferSize, false);
+  436:         if (configurator != null) {
+  437:             configurator.execute(s);
+  438:         }
+  439:         s.start();
+  440:     }
+
+============================================================
+METHOD: stormRunJetty
+LINES: 442-445
+============================================================
+  442:     public static void stormRunJetty(Integer port, Integer headerBufferSize,
+  443:                                      IConfigurator configurator) throws Exception {
+  444:         stormRunJetty(port, null, null, headerBufferSize, configurator);
+  445:     }

@@ -1,0 +1,384 @@
+============================================================
+org.eclipse.jetty.server.Server
+============================================================
+Compiled from "Server.java"
+public class org.eclipse.jetty.server.Server extends org.eclipse.jetty.server.Handler$Wrapper implements org.eclipse.jetty.util.Attributes {
+  public org.eclipse.jetty.server.Server();
+  public org.eclipse.jetty.server.Server(int);
+  public org.eclipse.jetty.server.Server(java.net.InetSocketAddress);
+  public org.eclipse.jetty.server.Server(org.eclipse.jetty.util.thread.ThreadPool);
+  public org.eclipse.jetty.server.Server(org.eclipse.jetty.util.thread.ThreadPool, org.eclipse.jetty.util.thread.Scheduler, org.eclipse.jetty.io.ByteBufferPool);
+  public java.lang.String getName();
+  public void setName(java.lang.String);
+  public org.eclipse.jetty.server.Handler getDefaultHandler();
+  public void setDefaultHandler(org.eclipse.jetty.server.Handler);
+  public boolean handle(org.eclipse.jetty.server.Request, org.eclipse.jetty.server.Response, org.eclipse.jetty.util.Callback) throws java.lang.Exception;
+  public java.lang.String getServerInfo();
+  public void setServerInfo(java.lang.String);
+  public void setTempDirectory(java.lang.String);
+  public void setTempDirectory(java.io.File);
+  public java.io.File getTempDirectory();
+  public org.eclipse.jetty.server.Context getContext();
+  public org.eclipse.jetty.http.MimeTypes$Mutable getMimeTypes();
+  public org.eclipse.jetty.util.thread.Invocable$InvocationType getInvocationType();
+  public boolean isOpenEarly();
+  public void setOpenEarly(boolean);
+  public boolean isDryRun();
+  public void setDryRun(boolean);
+  public org.eclipse.jetty.server.RequestLog getRequestLog();
+  public org.eclipse.jetty.server.Request$Handler getErrorHandler();
+  public void setRequestLog(org.eclipse.jetty.server.RequestLog);
+  public void setErrorHandler(org.eclipse.jetty.server.Request$Handler);
+  public static java.lang.String getVersion();
+  public void setStopTimeout(long);
+  public long getStopTimeout();
+  public boolean getStopAtShutdown();
+  public void setStopAtShutdown(boolean);
+  public org.eclipse.jetty.server.Connector[] getConnectors();
+  public void addConnector(org.eclipse.jetty.server.Connector);
+  public void removeConnector(org.eclipse.jetty.server.Connector);
+  public void setConnectors(org.eclipse.jetty.server.Connector[]);
+  public void addBeanToAllConnectors(java.lang.Object);
+  public org.eclipse.jetty.util.thread.ThreadPool getThreadPool();
+  public org.eclipse.jetty.util.thread.Scheduler getScheduler();
+  public org.eclipse.jetty.io.ByteBufferPool getByteBufferPool();
+  public boolean isDumpAfterStart();
+  public void setDumpAfterStart(boolean);
+  public boolean isDumpBeforeStop();
+  public void setDumpBeforeStop(boolean);
+  public org.eclipse.jetty.http.HttpField getDateField();
+  public java.time.ZonedDateTime getStartupDateTime();
+  public long getUptimeMillis();
+  public void join() throws java.lang.InterruptedException;
+  public java.lang.Object setAttribute(java.lang.String, java.lang.Object);
+  public java.lang.Object removeAttribute(java.lang.String);
+  public java.lang.Object getAttribute(java.lang.String);
+  public java.util.Set<java.lang.String> getAttributeNameSet();
+  public void clearAttributes();
+  public java.net.URI getURI();
+  public org.eclipse.jetty.server.Server getServer();
+  public org.eclipse.jetty.util.resource.Resource getDefaultStyleSheet();
+  public org.eclipse.jetty.util.resource.Resource getDefaultFavicon();
+  public java.lang.String toString();
+  public void dump(java.lang.Appendable, java.lang.String) throws java.io.IOException;
+  public static void main(java.lang.String...);
+}
+
+============================================================
+org.eclipse.jetty.server.ServerConnector
+============================================================
+Compiled from "ServerConnector.java"
+public class org.eclipse.jetty.server.ServerConnector extends org.eclipse.jetty.server.AbstractNetworkConnector {
+  public org.eclipse.jetty.server.ServerConnector(org.eclipse.jetty.server.Server);
+  public org.eclipse.jetty.server.ServerConnector(org.eclipse.jetty.server.Server, int, int);
+  public org.eclipse.jetty.server.ServerConnector(org.eclipse.jetty.server.Server, int, int, org.eclipse.jetty.server.ConnectionFactory...);
+  public org.eclipse.jetty.server.ServerConnector(org.eclipse.jetty.server.Server, org.eclipse.jetty.server.ConnectionFactory...);
+  public org.eclipse.jetty.server.ServerConnector(org.eclipse.jetty.server.Server, org.eclipse.jetty.util.ssl.SslContextFactory$Server);
+  public org.eclipse.jetty.server.ServerConnector(org.eclipse.jetty.server.Server, int, int, org.eclipse.jetty.util.ssl.SslContextFactory$Server);
+  public org.eclipse.jetty.server.ServerConnector(org.eclipse.jetty.server.Server, org.eclipse.jetty.util.ssl.SslContextFactory$Server, org.eclipse.jetty.server.ConnectionFactory...);
+  public org.eclipse.jetty.server.ServerConnector(org.eclipse.jetty.server.Server, java.util.concurrent.Executor, org.eclipse.jetty.util.thread.Scheduler, org.eclipse.jetty.io.ByteBufferPool, int, int, org.eclipse.jetty.server.ConnectionFactory...);
+  public boolean isOpen();
+  public boolean isInheritChannel();
+  public void setInheritChannel(boolean);
+  public void open(java.nio.channels.ServerSocketChannel) throws java.io.IOException;
+  public void open() throws java.io.IOException;
+  public void close();
+  public void accept(int) throws java.io.IOException;
+  public org.eclipse.jetty.io.SelectorManager getSelectorManager();
+  public java.lang.Object getTransport();
+  public int getLocalPort();
+  public int getAcceptQueueSize();
+  public void setAcceptQueueSize(int);
+  public boolean getReuseAddress();
+  public void setReuseAddress(boolean);
+  public boolean isReusePort();
+  public void setReusePort(boolean);
+  public boolean getAcceptedTcpNoDelay();
+  public void setAcceptedTcpNoDelay(boolean);
+  public int getAcceptedReceiveBufferSize();
+  public void setAcceptedReceiveBufferSize(int);
+  public int getAcceptedSendBufferSize();
+  public void setAcceptedSendBufferSize(int);
+  public void setAccepting(boolean);
+}
+
+============================================================
+org.eclipse.jetty.server.Connector
+============================================================
+Compiled from "Connector.java"
+public interface org.eclipse.jetty.server.Connector extends org.eclipse.jetty.util.component.LifeCycle,org.eclipse.jetty.util.component.Container,org.eclipse.jetty.util.component.Graceful {
+  public abstract org.eclipse.jetty.server.Server getServer();
+  public abstract java.util.concurrent.Executor getExecutor();
+  public abstract org.eclipse.jetty.util.thread.Scheduler getScheduler();
+  public abstract org.eclipse.jetty.io.ByteBufferPool getByteBufferPool();
+  public abstract org.eclipse.jetty.server.ConnectionFactory getConnectionFactory(java.lang.String);
+  public abstract <T> T getConnectionFactory(java.lang.Class<T>);
+  public abstract org.eclipse.jetty.server.ConnectionFactory getDefaultConnectionFactory();
+  public abstract java.util.Collection<org.eclipse.jetty.server.ConnectionFactory> getConnectionFactories();
+  public abstract java.util.List<java.lang.String> getProtocols();
+  public abstract long getIdleTimeout();
+  public abstract java.lang.Object getTransport();
+  public abstract java.util.Collection<org.eclipse.jetty.io.EndPoint> getConnectedEndPoints();
+  public abstract java.lang.String getName();
+}
+
+============================================================
+org.eclipse.jetty.server.HttpConfiguration
+============================================================
+Compiled from "HttpConfiguration.java"
+public class org.eclipse.jetty.server.HttpConfiguration implements org.eclipse.jetty.util.component.Dumpable {
+  public static final java.lang.String SERVER_VERSION;
+  public org.eclipse.jetty.server.HttpConfiguration();
+  public org.eclipse.jetty.server.HttpConfiguration(org.eclipse.jetty.server.HttpConfiguration);
+  public void addCustomizer(org.eclipse.jetty.server.HttpConfiguration$Customizer);
+  public java.util.List<org.eclipse.jetty.server.HttpConfiguration$Customizer> getCustomizers();
+  public <T> T getCustomizer(java.lang.Class<T>);
+  public boolean removeCustomizer(org.eclipse.jetty.server.HttpConfiguration$Customizer);
+  public int getInputBufferSize();
+  public int getOutputBufferSize();
+  public int getOutputAggregationSize();
+  public int getRequestHeaderSize();
+  public int getResponseHeaderSize();
+  public int getMaxResponseHeaderSize();
+  public int getHeaderCacheSize();
+  public boolean isHeaderCacheCaseSensitive();
+  public int getSecurePort();
+  public java.lang.String getSecureScheme();
+  public boolean isPersistentConnectionsEnabled();
+  public long getIdleTimeout();
+  public void setIdleTimeout(long);
+  public void setPersistentConnectionsEnabled(boolean);
+  public void setSendServerVersion(boolean);
+  public boolean getSendServerVersion();
+  public void writePoweredBy(java.lang.Appendable, java.lang.String, java.lang.String) throws java.io.IOException;
+  public void setSendXPoweredBy(boolean);
+  public boolean getSendXPoweredBy();
+  public void setSendDateHeader(boolean);
+  public boolean getSendDateHeader();
+  public void setDelayDispatchUntilContent(boolean);
+  public boolean isDelayDispatchUntilContent();
+  public void setUseInputDirectByteBuffers(boolean);
+  public boolean isUseInputDirectByteBuffers();
+  public void setUseOutputDirectByteBuffers(boolean);
+  public boolean isUseOutputDirectByteBuffers();
+  public void setCustomizers(java.util.List<org.eclipse.jetty.server.HttpConfiguration$Customizer>);
+  public void setInputBufferSize(int);
+  public void setOutputBufferSize(int);
+  public void setOutputAggregationSize(int);
+  public void setRequestHeaderSize(int);
+  public void setResponseHeaderSize(int);
+  public void setMaxResponseHeaderSize(int);
+  public void setHeaderCacheSize(int);
+  public void setHeaderCacheCaseSensitive(boolean);
+  public void setSecurePort(int);
+  public void setSecureScheme(java.lang.String);
+  public void setFormEncodedMethods(java.lang.String...);
+  public void setFormEncodedMethods(java.util.Set<java.lang.String>);
+  public java.util.Set<java.lang.String> getFormEncodedMethods();
+  public void addFormEncodedMethod(java.lang.String);
+  public boolean isFormEncodedMethod(java.lang.String);
+  public int getMaxErrorDispatches();
+  public void setMaxErrorDispatches(int);
+  public int getMinInputBufferSpace();
+  public void setMinInputBufferSpace(int);
+  public long getMinRequestDataRate();
+  public void setMinRequestDataRate(long);
+  public long getMinResponseDataRate();
+  public void setMinResponseDataRate(long);
+  public org.eclipse.jetty.http.HttpCompliance getHttpCompliance();
+  public void setHttpCompliance(org.eclipse.jetty.http.HttpCompliance);
+  public org.eclipse.jetty.http.UriCompliance getUriCompliance();
+  public org.eclipse.jetty.http.UriCompliance getRedirectUriCompliance();
+  public void setUriCompliance(org.eclipse.jetty.http.UriCompliance);
+  public void setRedirectUriCompliance(org.eclipse.jetty.http.UriCompliance);
+  public org.eclipse.jetty.http.CookieCompliance getRequestCookieCompliance();
+  public void setRequestCookieCompliance(org.eclipse.jetty.http.CookieCompliance);
+  public org.eclipse.jetty.http.CookieCompliance getResponseCookieCompliance();
+  public void setResponseCookieCompliance(org.eclipse.jetty.http.CookieCompliance);
+  public org.eclipse.jetty.http.MultiPartCompliance getMultiPartCompliance();
+  public void setMultiPartCompliance(org.eclipse.jetty.http.MultiPartCompliance);
+  public boolean isNotifyForbiddenComplianceViolations();
+  public void setNotifyForbiddenComplianceViolations(boolean);
+  public void addComplianceViolationListener(org.eclipse.jetty.http.ComplianceViolation$Listener);
+  public boolean removeComplianceViolationListener(org.eclipse.jetty.http.ComplianceViolation$Listener);
+  public java.util.List<org.eclipse.jetty.http.ComplianceViolation$Listener> getComplianceViolationListeners();
+  public void setNotifyRemoteAsyncErrors(boolean);
+  public boolean isNotifyRemoteAsyncErrors();
+  public void setRelativeRedirectAllowed(boolean);
+  public boolean isRelativeRedirectAllowed();
+  public void setGenerateRedirectBody(boolean);
+  public boolean isGenerateRedirectBody();
+  public java.net.SocketAddress getLocalAddress();
+  public void setLocalAddress(java.net.SocketAddress);
+  public org.eclipse.jetty.util.HostPort getServerAuthority();
+  public void setServerAuthority(org.eclipse.jetty.util.HostPort);
+  public void setMaxUnconsumedRequestContentReads(int);
+  public int getMaxUnconsumedRequestContentReads();
+  public java.lang.String dump();
+  public void dump(java.lang.Appendable, java.lang.String) throws java.io.IOException;
+  public java.lang.String toString();
+}
+
+============================================================
+org.eclipse.jetty.util.ssl.SslContextFactory$Server
+============================================================
+Compiled from "SslContextFactory.java"
+public class org.eclipse.jetty.util.ssl.SslContextFactory$Server extends org.eclipse.jetty.util.ssl.SslContextFactory implements org.eclipse.jetty.util.ssl.SniX509ExtendedKeyManager$SniSelector {
+  public static final java.lang.String SNI_HOST;
+  public org.eclipse.jetty.util.ssl.SslContextFactory$Server();
+  public boolean getNeedClientAuth();
+  public void setNeedClientAuth(boolean);
+  public boolean getWantClientAuth();
+  public void setWantClientAuth(boolean);
+  public boolean isSniRequired();
+  public void setSniRequired(boolean);
+  public org.eclipse.jetty.util.ssl.SniX509ExtendedKeyManager$SniSelector getSNISelector();
+  public void setSNISelector(org.eclipse.jetty.util.ssl.SniX509ExtendedKeyManager$SniSelector);
+  public java.lang.String sniSelect(java.lang.String, java.security.Principal[], javax.net.ssl.SSLSession, java.lang.String, java.util.Collection<org.eclipse.jetty.util.ssl.X509>);
+}
+
+============================================================
+org.eclipse.jetty.ee10.servlet.FilterHolder
+============================================================
+Compiled from "FilterHolder.java"
+public class org.eclipse.jetty.ee10.servlet.FilterHolder extends org.eclipse.jetty.ee10.servlet.Holder<jakarta.servlet.Filter> {
+  public org.eclipse.jetty.ee10.servlet.FilterHolder();
+  public org.eclipse.jetty.ee10.servlet.FilterHolder(org.eclipse.jetty.ee10.servlet.Source);
+  public org.eclipse.jetty.ee10.servlet.FilterHolder(java.lang.Class<? extends jakarta.servlet.Filter>);
+  public org.eclipse.jetty.ee10.servlet.FilterHolder(jakarta.servlet.Filter);
+  public void doStart() throws java.lang.Exception;
+  public void initialize() throws java.lang.Exception;
+  public void doStop() throws java.lang.Exception;
+  public void destroyInstance(java.lang.Object);
+  public void setFilter(jakarta.servlet.Filter);
+  public jakarta.servlet.Filter getFilter();
+  public void doFilter(jakarta.servlet.ServletRequest, jakarta.servlet.ServletResponse, jakarta.servlet.FilterChain) throws java.io.IOException, jakarta.servlet.ServletException;
+  public void dump(java.lang.Appendable, java.lang.String) throws java.io.IOException;
+  public java.lang.String toString();
+  public jakarta.servlet.FilterRegistration$Dynamic getRegistration();
+}
+
+============================================================
+org.eclipse.jetty.ee10.servlet.ServletContextHandler
+============================================================
+Compiled from "ServletContextHandler.java"
+public class org.eclipse.jetty.ee10.servlet.ServletContextHandler extends org.eclipse.jetty.server.handler.ContextHandler {
+  public static final org.eclipse.jetty.util.component.Environment ENVIRONMENT;
+  public static final org.eclipse.jetty.util.component.Environment __environment;
+  public static final java.lang.Class<?>[] SERVLET_LISTENER_TYPES;
+  public static final int DEFAULT_LISTENER_TYPE_INDEX;
+  public static final int EXTENDED_LISTENER_TYPE_INDEX;
+  public static final java.lang.String MAX_FORM_KEYS_KEY;
+  public static final java.lang.String MAX_FORM_CONTENT_SIZE_KEY;
+  public static final int DEFAULT_MAX_FORM_KEYS;
+  public static final int DEFAULT_MAX_FORM_CONTENT_SIZE;
+  public static final int SESSIONS;
+  public static final int SECURITY;
+  public static final int NO_SESSIONS;
+  public static final int NO_SECURITY;
+  public static org.eclipse.jetty.ee10.servlet.ServletContextHandler getServletContextHandler(jakarta.servlet.ServletContext, java.lang.String);
+  public static org.eclipse.jetty.ee10.servlet.ServletContextHandler getServletContextHandler(jakarta.servlet.ServletContext);
+  public static jakarta.servlet.ServletContext getCurrentServletContext();
+  public static jakarta.servlet.ServletContext getServletContext(org.eclipse.jetty.server.Context);
+  public static org.eclipse.jetty.ee10.servlet.ServletContextHandler getCurrentServletContextHandler();
+  public org.eclipse.jetty.ee10.servlet.ServletContextHandler();
+  public org.eclipse.jetty.ee10.servlet.ServletContextHandler(java.lang.String);
+  public org.eclipse.jetty.ee10.servlet.ServletContextHandler(int);
+  public org.eclipse.jetty.ee10.servlet.ServletContextHandler(java.lang.String, int);
+  public org.eclipse.jetty.ee10.servlet.ServletContextHandler(java.lang.String, boolean, boolean);
+  public org.eclipse.jetty.ee10.servlet.ServletContextHandler(org.eclipse.jetty.ee10.servlet.SessionHandler, org.eclipse.jetty.security.SecurityHandler, org.eclipse.jetty.ee10.servlet.ServletHandler, org.eclipse.jetty.ee10.servlet.ErrorHandler);
+  public org.eclipse.jetty.ee10.servlet.ServletContextHandler(java.lang.String, org.eclipse.jetty.ee10.servlet.SessionHandler, org.eclipse.jetty.security.SecurityHandler, org.eclipse.jetty.ee10.servlet.ServletHandler, org.eclipse.jetty.ee10.servlet.ErrorHandler);
+  public org.eclipse.jetty.ee10.servlet.ServletContextHandler(java.lang.String, org.eclipse.jetty.ee10.servlet.SessionHandler, org.eclipse.jetty.security.SecurityHandler, org.eclipse.jetty.ee10.servlet.ServletHandler, org.eclipse.jetty.ee10.servlet.ErrorHandler, int);
+  public void setTempDirectory(java.io.File);
+  public org.eclipse.jetty.ee10.servlet.ServletContextHandler$ServletContextApi newServletContextApi();
+  public org.eclipse.jetty.util.thread.Invocable$InvocationType getInvocationType();
+  public void dump(java.lang.Appendable, java.lang.String) throws java.io.IOException;
+  public boolean isUsingSecurityManager();
+  public void setUsingSecurityManager(boolean);
+  public java.lang.String getContextPathEncoded();
+  public java.lang.String getRequestContextPath();
+  public java.lang.String getInitParameter(java.lang.String);
+  public java.lang.String setInitParameter(java.lang.String, java.lang.String);
+  public java.util.Enumeration<java.lang.String> getInitParameterNames();
+  public java.util.Map<java.lang.String, java.lang.String> getInitParams();
+  public boolean removeEventListener(java.util.EventListener);
+  public boolean isProgrammaticListener(java.util.EventListener);
+  public boolean isDurableListener(java.util.EventListener);
+  public org.slf4j.Logger getLogger();
+  public void setLogger(org.slf4j.Logger);
+  public void contextInitialized() throws java.lang.Exception;
+  public void contextDestroyed() throws java.lang.Exception;
+  public void setDefaultRequestCharacterEncoding(java.lang.String);
+  public java.lang.String getDefaultRequestCharacterEncoding();
+  public void setDefaultResponseCharacterEncoding(java.lang.String);
+  public java.lang.String getDefaultResponseCharacterEncoding();
+  public void setContextPath(java.lang.String);
+  public void setWelcomeFiles(java.lang.String[]);
+  public java.lang.String[] getWelcomeFiles();
+  public int getMaxFormContentSize();
+  public void setMaxFormContentSize(int);
+  public int getMaxFormKeys();
+  public void setMaxFormKeys(int);
+  public java.lang.Class<?> loadClass(java.lang.String) throws java.lang.ClassNotFoundException;
+  public void addLocaleEncoding(java.lang.String, java.lang.String);
+  public java.lang.String getLocaleEncoding(java.lang.String);
+  public java.lang.String getLocaleEncoding(java.util.Locale);
+  public java.util.Map<java.lang.String, java.lang.String> getLocaleEncodings();
+  public org.eclipse.jetty.util.resource.Resource getResource(java.lang.String) throws java.net.MalformedURLException;
+  public org.eclipse.jetty.util.resource.Resource newResource(java.net.URL) throws java.io.IOException;
+  public org.eclipse.jetty.util.resource.Resource newResource(java.net.URI);
+  public org.eclipse.jetty.util.resource.Resource newResource(java.lang.String);
+  public java.util.Set<java.lang.String> getResourcePaths(java.lang.String);
+  public jakarta.servlet.ServletContext getServletContext();
+  public org.eclipse.jetty.ee10.servlet.ServletContextHandler$ServletScopedContext getContext();
+  public boolean addEventListener(java.util.EventListener);
+  public void setHandler(org.eclipse.jetty.server.Handler);
+  public java.lang.Class<? extends org.eclipse.jetty.security.SecurityHandler> getDefaultSecurityHandlerClass();
+  public void setDefaultSecurityHandlerClass(java.lang.Class<? extends org.eclipse.jetty.security.SecurityHandler>);
+  public org.eclipse.jetty.security.SecurityHandler getSecurityHandler();
+  public org.eclipse.jetty.ee10.servlet.ServletHandler getServletHandler();
+  public org.eclipse.jetty.ee10.servlet.SessionHandler getSessionHandler();
+  public org.eclipse.jetty.ee10.servlet.ServletHolder addServlet(java.lang.String, java.lang.String);
+  public org.eclipse.jetty.ee10.servlet.ServletHolder addServlet(java.lang.Class<? extends jakarta.servlet.Servlet>, java.lang.String);
+  public void addServlet(org.eclipse.jetty.ee10.servlet.ServletHolder, java.lang.String);
+  public org.eclipse.jetty.ee10.servlet.ServletHolder addServlet(jakarta.servlet.http.HttpServlet, java.lang.String);
+  public void addFilter(org.eclipse.jetty.ee10.servlet.FilterHolder, java.lang.String, java.util.EnumSet<jakarta.servlet.DispatcherType>);
+  public org.eclipse.jetty.ee10.servlet.FilterHolder addFilter(java.lang.Class<? extends jakarta.servlet.Filter>, java.lang.String, java.util.EnumSet<jakarta.servlet.DispatcherType>);
+  public org.eclipse.jetty.ee10.servlet.FilterHolder addFilter(java.lang.String, java.lang.String, java.util.EnumSet<jakarta.servlet.DispatcherType>);
+  public org.eclipse.jetty.ee10.servlet.FilterHolder addFilter(jakarta.servlet.Filter, java.lang.String, java.util.EnumSet<jakarta.servlet.DispatcherType>);
+  public org.eclipse.jetty.ee10.servlet.ServletContainerInitializerHolder addServletContainerInitializer(jakarta.servlet.ServletContainerInitializer);
+  public org.eclipse.jetty.ee10.servlet.ServletContainerInitializerHolder addServletContainerInitializer(jakarta.servlet.ServletContainerInitializer, java.lang.Class<?>...);
+  public void addServletContainerInitializer(org.eclipse.jetty.ee10.servlet.ServletContainerInitializerHolder...);
+  public java.util.Set<java.lang.String> setServletSecurity(jakarta.servlet.ServletRegistration$Dynamic, jakarta.servlet.ServletSecurityElement);
+  public void callContextInitialized(jakarta.servlet.ServletContextListener, jakarta.servlet.ServletContextEvent);
+  public void callContextDestroyed(jakarta.servlet.ServletContextListener, jakarta.servlet.ServletContextEvent);
+  public void setSessionHandler(org.eclipse.jetty.ee10.servlet.SessionHandler);
+  public void setSecurityHandler(org.eclipse.jetty.security.SecurityHandler);
+  public void setServletHandler(org.eclipse.jetty.ee10.servlet.ServletHandler);
+  public void insertHandler(org.eclipse.jetty.server.Handler$Singleton);
+  public org.eclipse.jetty.util.DecoratedObjectFactory getObjectFactory();
+  public org.eclipse.jetty.server.handler.ContextHandler$ScopedContext getContext();
+}
+
+============================================================
+org.apache.storm.daemon.ui.FilterConfiguration
+============================================================
+Compiled from "FilterConfiguration.java"
+public class org.apache.storm.daemon.ui.FilterConfiguration {
+  public org.apache.storm.daemon.ui.FilterConfiguration(java.lang.String, java.util.Map<java.lang.String, java.lang.String>);
+  public org.apache.storm.daemon.ui.FilterConfiguration(java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.String>);
+  public java.lang.String getFilterName();
+  public void setFilterName(java.lang.String);
+  public java.lang.String getFilterClass();
+  public void setFilterClass(java.lang.String);
+  public java.util.Map<java.lang.String, java.lang.String> getFilterParams();
+  public void setFilterParams(java.util.Map<java.lang.String, java.lang.String>);
+}
+
+============================================================
+org.apache.storm.daemon.ui.IConfigurator
+============================================================
+Compiled from "IConfigurator.java"
+public interface org.apache.storm.daemon.ui.IConfigurator {
+  public abstract void execute(org.eclipse.jetty.server.Server);
+}

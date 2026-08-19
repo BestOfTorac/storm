@@ -1,0 +1,4 @@
+﻿"FrameId","OracleType","Result","Observation","Classification","DefectCandidate"
+"CORS-01","CHARACTERIZATION_FROM_CODE","FAILURE","FilterHolder.getFilter() returned null before Jetty context initialization","PENDING_HARNESS_LIFECYCLE_VERIFICATION","NO"
+"ACCESS-01","CHARACTERIZATION_FROM_CODE","FAILURE","FilterHolder.getFilter() returned null before Jetty context initialization","PENDING_HARNESS_LIFECYCLE_VERIFICATION","NO"
+"FIL-01","CHARACTERIZATION_FROM_CODE","ERROR","Test dereferenced FilterHolder.getFilter() before Jetty context initialization","PENDING_HARNESS_LIFECYCLE_VERIFICATION","NO"

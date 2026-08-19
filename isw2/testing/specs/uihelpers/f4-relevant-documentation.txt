@@ -1,0 +1,159 @@
+============================================================
+UI default configuration
+Source: conf\defaults.yaml
+Lines: 103-120
+============================================================
+  103: nimbus.worker.heartbeats.recovery.strategy.class: "org.apache.storm.nimbus.TimeOutWorkerHeartbeatsRecoveryStrategy"
+  104: nimbus.topology.blobstore.deletion.delay.ms: 300000
+  105:
+  106: ### ui.* configs are for the master
+  107: ui.host: 0.0.0.0
+  108: ui.port: 8080
+  109: ui.title: "Storm UI"
+  110: ui.childopts: "-Xmx768m"
+  111: ui.actions.enabled: true
+  112: ui.filter: null
+  113: ui.filter.params: null
+  114: ui.users: null
+  115: ui.header.buffer.bytes: 4096
+  116: ui.http.creds.plugin: org.apache.storm.security.auth.DefaultHttpCredentialsPlugin
+  117: ui.pagination: 20
+  118: ui.disable.http.binding: true
+  119: ui.disable.spout.lag.monitoring: true
+  120:
+
+============================================================
+UI servlet filter configuration
+Source: docs\SECURITY.md
+Lines: 50-78
+============================================================
+   50: The UI and logviewer processes provide a way to not only see what a cluster is
+   51: doing, but also manipulate running topologies.  In general these processes should
+   52: not be exposed except to users of the cluster.
+   53:
+   54: Some form of Authentication is typically required, and can be done using a java servlet filter
+   55:
+   56: ```yaml
+   57: ui.filter: "filter.class"
+   58: ui.filter.params: "param1":"value1"
+   59: logviewer.filter: "filter.class"
+   60: logviewer.filter.params: "param1":"value1"
+   61: ```
+   62:
+   63: The `ui.filter` is an instance of `javax.servlet.Filter` that is intended to
+   64: filter all incoming requests to the UI and authenticate the request mapping
+   65: it to a "user".  Typically this is done by modifying or wrapping the
+   66: `HttpServletRequest` to return the user principal through the
+   67: `getUserPrincipal()` method or returning the user name through the
+   68: `getRemoteUser()` method.  If your filter authenticates in a different way you
+   69: can look at setting `ui.http.creds.plugin` to point to an instance of `IHttpCredentialsPlugin`
+   70: that can take the `HttpServletRequest` and return a user name and populate the needed fields
+   71: in the current `ReqContext`.  These are advanced features and you may want to look at the
+   72: `DefaultHttpCredentialsPlugin` as an example of how to do this.
+   73:
+   74: These same settings apply to the logviewer too.  If you want to have separate control
+   75: over how authentication works in the logviewer you may optionally set `logviewer.filter`
+   76: instead and it will override any `ui.filter` settings for the logviewer process.
+   77:
+   78: If the cluster is single tenant you might want to just restrict access to the UI/log
+
+============================================================
+UI header buffer and HTTPS configuration
+Source: docs\SECURITY.md
+Lines: 105-150
+============================================================
+  105: 1. Firefox: Goto about:config and search for network.negotiate-auth.trusted-uris double-click to  add value "http://storm-ui-hostname:8080"
+  106: 2. Google-chrome:  start from command line with: google-chrome --auth-server-whitelist="*storm-ui-hostname" --auth-negotiate-delegate-whitelist="*storm-ui-hostname"
+  107: 3. IE:  Configure trusted websites to include "storm-ui-hostname" and allow negotiation for that website
+  108:
+  109: **Note**: For viewing any logs via `logviewer` in secure mode, all the hosts that runs `logviewer` should also be added to the above white list. For big clusters you could white list the host's domain (for e.g. set `network.negotiate-auth.trusted-uris` to `.yourdomain.com`).
+  110:
+  111: **Caution**: In AD MIT Keberos setup the key size is bigger than the default UI jetty server request header size. Make sure you set ui.header.buffer.bytes to 65536 in storm.yaml. More details are on [STORM-633](https://issues.apache.org/jira/browse/STORM-633)
+  112:
+  113:
+  114: ## DRPC HTTP
+  115:
+  116: The DRPC server optionally supports a REST endpoint as well, and you can configure authentication
+  117: on that endpoint similar to the ui/logviewer.
+  118:
+  119: The `drpc.http.filter` and `drpc.http.filter.params` configs can be used to setup a `Filter` for the DRPC server.  Unlike the logviewer
+  120: it does not fall back to the UI configs as the DRPC server is intended to be REST only and often will be hit by headless users.
+  121:
+  122: The `drpc.http.creds.plugin` config can be used in cases where the default plugin is not good enough because of how authentication happens.
+  123:
+  124:
+  125: ## UI / DRPC / LOGVIEWER SSL
+  126:
+  127: UI,DRPC and LOGVIEWER allows users to configure ssl .
+  128:
+  129: ### UI
+  130:
+  131: These configurations enable HTTPS for the Storm UI, allowing secure communication between users and the cluster.
+  132:
+  133: For UI users needs to set following config in storm.yaml. Generating keystores with proper keys and certs should be taken care by the user before this step.
+  134:
+  135: 1. ui.https.port (Port for HTTPS UI access)
+  136: 2. ui.https.keystore.type (example "jks")
+  137: 3. ui.https.keystore.path (example "/etc/ssl/storm_keystore.jks")
+  138: 4. ui.https.keystore.password (keystore password)
+  139: 5. ui.https.key.password (private key password)
+  140:
+  141: optional config
+  142: 6. ui.https.truststore.path (example "/etc/ssl/storm_truststore.jks")
+  143: 7. ui.https.truststore.password (truststore password)
+  144: 8. ui.https.truststore.type (example "jks")
+  145:
+  146: If users want to setup 2-way auth
+  147: 9. ui.https.want.client.auth (If this set to true server requests for client certificate authentication, but keeps the connection if no authentication provided)
+  148: 10. ui.https.need.client.auth (If this set to true server requires client to provide authentication)
+  149:
+  150:
+
+============================================================
+UI access logging and HTTP response security
+Source: docs\SECURITY.md
+Lines: 315-334
+============================================================
+  315: - Proper TLS termination with up-to-date cipher suites and certificate management
+  316: - CSRF token validation or same-origin enforcement on state-mutating requests
+  317: - Security response headers (see below)
+  318: - Rate limiting and request filtering
+  319: - Centralized access logging and monitoring
+  320:
+  321: This is especially important because the Storm UI exposes state-mutating operations (topology kill, activate, deactivate, rebalance) via its REST API.
+  322:
+  323: ### CSRF Protection
+  324:
+  325: The Storm UI REST API does not currently include built-in Cross-Site Request Forgery (CSRF) protection. State-mutating endpoints can potentially be triggered by a malicious website if a user has an active authenticated session in the same browser. This is particularly relevant when using browser-based authentication mechanisms such as Kerberos (SPNEGO), as the browser automatically attaches credentials to cross-origin requests.
+  326:
+  327: To mitigate this risk, configure your reverse proxy to enforce CSRF token validation or same-origin checks on POST requests.
+  328:
+  329: ### Security Response Headers
+  330:
+  331: The Storm UI does not set security-related HTTP response headers by default. Operators deploying a secured cluster should configure the following headers via their reverse proxy or a custom servlet filter configured through `ui.filter`:
+  332:
+  333: - `X-Frame-Options: DENY` or `SAMEORIGIN` to prevent clickjacking attacks
+  334: - `X-Content-Type-Options: nosniff` to prevent MIME type sniffing
+
+============================================================
+UI REST endpoint and port
+Source: docs\STORM-UI-REST-API.md
+Lines: 24-40
+============================================================
+   24: ## REST API Base URL
+   25:
+   26: The REST API is part of the UI daemon of Storm (started by `storm ui`) and thus runs on the same host and port as the
+   27: Storm UI (the UI daemon is often run on the same host as the Nimbus daemon).  The port is configured by `ui.port`,
+   28: which is set to `8080` by default (see [defaults.yaml](conf/defaults.yaml)).
+   29:
+   30: The API base URL would thus be:
+   31:
+   32:     http://<ui-host>:<ui-port>/api/v1/...
+   33:
+   34: You can use a tool such as `curl` to talk to the REST API:
+   35:
+   36:     # Request the cluster configuration.
+   37:     # Note: We assume ui.port is configured to the default value of 8080.
+   38:     $ curl http://<ui-host>:8080/api/v1/cluster/configuration
+   39:
+   40: ##Impersonating a user in secure environment

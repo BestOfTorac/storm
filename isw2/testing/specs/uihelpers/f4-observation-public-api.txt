@@ -1,0 +1,67 @@
+============================================================
+org.eclipse.jetty.server.AbstractNetworkConnector
+============================================================
+  public void setHost(java.lang.String);
+  public java.lang.String getHost();
+  public void setPort(int);
+  public int getPort();
+  public int getLocalPort();
+
+============================================================
+org.eclipse.jetty.server.HttpConnectionFactory
+============================================================
+  public org.eclipse.jetty.server.HttpConfiguration getHttpConfiguration();
+
+============================================================
+org.eclipse.jetty.server.SslConnectionFactory
+============================================================
+  public org.eclipse.jetty.util.ssl.SslContextFactory$Server getSslContextFactory();
+  public java.lang.String getNextProtocol();
+
+============================================================
+org.eclipse.jetty.util.ssl.SslContextFactory
+============================================================
+  public java.lang.String getKeyStorePath();
+  public java.lang.String getKeyStoreProvider();
+  public java.lang.String getKeyStoreType();
+  public java.lang.String getTrustStorePath();
+  public java.lang.String getTrustStoreProvider();
+  public java.lang.String getTrustStoreType();
+  public java.lang.String getKeyStorePassword();
+  public java.security.KeyStore getKeyStore();
+  public java.security.KeyStore getTrustStore();
+  public org.eclipse.jetty.util.resource.Resource getKeyStoreResource();
+  public org.eclipse.jetty.util.resource.Resource getTrustStoreResource();
+
+============================================================
+org.eclipse.jetty.ee10.servlet.Holder
+============================================================
+  public java.lang.String getInitParameter(java.lang.String);
+  public java.util.Enumeration<java.lang.String> getInitParameterNames();
+  public java.util.Map<java.lang.String, java.lang.String> getInitParameters();
+  public java.lang.String getName();
+  public boolean isAsyncSupported();
+
+============================================================
+org.eclipse.jetty.ee10.servlet.ServletHandler
+============================================================
+  public org.eclipse.jetty.ee10.servlet.FilterMapping[] getFilterMappings();
+  public org.eclipse.jetty.ee10.servlet.FilterHolder[] getFilters();
+  public org.eclipse.jetty.ee10.servlet.ServletMapping[] getServletMappings();
+  public org.eclipse.jetty.ee10.servlet.ServletHolder[] getServlets();
+  public java.util.List<org.eclipse.jetty.ee10.servlet.ServletHolder> getServlets(java.lang.Class<?>);
+
+============================================================
+org.eclipse.jetty.ee10.servlet.FilterMapping
+============================================================
+  public java.lang.String getFilterName();
+  public java.lang.String[] getPathSpecs();
+  public java.util.EnumSet<jakarta.servlet.DispatcherType> getDispatcherTypes();
+
+============================================================
+org.apache.storm.daemon.ui.IConfigurator
+============================================================
+Compiled from "IConfigurator.java"
+public interface org.apache.storm.daemon.ui.IConfigurator {
+  public abstract void execute(org.eclipse.jetty.server.Server);
+}

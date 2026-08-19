@@ -1,0 +1,11 @@
+public static org.eclipse.jetty.ee10.servlet.FilterHolder corsFilterHandle();
+public static org.eclipse.jetty.ee10.servlet.FilterHolder mkAccessLoggingFilterHandle();
+public static org.eclipse.jetty.server.Server jettyCreateServer(java.lang.Integer, java.lang.String, java.lang.Integer, java.lang.Boolean);
+public static org.eclipse.jetty.server.Server jettyCreateServer(java.lang.Integer, java.lang.String, java.lang.Integer, java.lang.Integer, java.lang.Boolean);
+public static void configFilter(org.eclipse.jetty.server.Server, jakarta.servlet.Servlet, java.util.List<org.apache.storm.daemon.ui.FilterConfiguration>);
+public static void configFilter(org.eclipse.jetty.server.Server, jakarta.servlet.Servlet, java.util.List<org.apache.storm.daemon.ui.FilterConfiguration>, java.util.Map<java.lang.String, java.lang.String>);
+public static void configFilters(org.eclipse.jetty.ee10.servlet.ServletContextHandler, java.util.List<org.apache.storm.daemon.ui.FilterConfiguration>);
+public static void configSsl(org.eclipse.jetty.server.Server, java.lang.Integer, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.Boolean, java.lang.Boolean, boolean);
+public static void configSsl(org.eclipse.jetty.server.Server, java.lang.Integer, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.Boolean, java.lang.Boolean, java.lang.Integer, boolean);
+public static void stormRunJetty(java.lang.Integer, java.lang.Integer, org.apache.storm.daemon.ui.IConfigurator) throws java.lang.Exception;
+public static void stormRunJetty(java.lang.Integer, java.lang.String, java.lang.Integer, java.lang.Integer, org.apache.storm.daemon.ui.IConfigurator) throws java.lang.Exception;

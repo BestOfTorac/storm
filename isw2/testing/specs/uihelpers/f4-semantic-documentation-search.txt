@@ -1,0 +1,176 @@
+===== ui.port =====
+MATCHES: 6
+.\SECURITY.md:35: | 8080 | `ui.port` | Client Web Browsers | UI |
+.\conf\defaults.yaml:108: ui.port: 8080
+.\dev-tools\cluster\storm.yaml:32: ui.port: 8080
+.\docs\SECURITY.md:40: | 8080 | `ui.port` | Client Web Browsers | UI |
+.\docs\STORM-UI-REST-API.md:27: Storm UI (the UI daemon is often run on the same host as the Nimbus daemon).  The port is configured by `ui.port`,
+.\docs\STORM-UI-REST-API.md:37: # Note: We assume ui.port is configured to the default value of 8080.
+
+===== ui.host =====
+MATCHES: 1
+.\conf\defaults.yaml:107: ui.host: 0.0.0.0
+
+===== ui.https =====
+MATCHES: 20
+.\SECURITY.md:104: 1. `ui.https.port`
+.\SECURITY.md:105: 2. `ui.https.keystore.type` (example "jks")
+.\SECURITY.md:106: 3. `ui.https.keystore.path` (example "/etc/ssl/storm_keystore.jks")
+.\SECURITY.md:107: 4. `ui.https.keystore.password` (keystore password)
+.\SECURITY.md:108: 5. `ui.https.key.password` (private key password)
+.\SECURITY.md:112: 1. `ui.https.truststore.path` (example "/etc/ssl/storm_truststore.jks")
+.\SECURITY.md:113: 2. `ui.https.truststore.password` (truststore password)
+.\SECURITY.md:114: 3. `ui.https.truststore.type` (example "jks")
+.\SECURITY.md:118: 1. `ui.https.want.client.auth` (If this set to true, server requests for client certificate authentication, but keeps the connection even if no authentication is provided)
+.\SECURITY.md:119: 2. `ui.https.need.client.auth` (If this set to true, server requires the client to provide authentication)
+.\docs\SECURITY.md:135: 1. ui.https.port (Port for HTTPS UI access)
+.\docs\SECURITY.md:136: 2. ui.https.keystore.type (example "jks")
+.\docs\SECURITY.md:137: 3. ui.https.keystore.path (example "/etc/ssl/storm_keystore.jks")
+.\docs\SECURITY.md:138: 4. ui.https.keystore.password (keystore password)
+.\docs\SECURITY.md:139: 5. ui.https.key.password (private key password)
+.\docs\SECURITY.md:142: 6. ui.https.truststore.path (example "/etc/ssl/storm_truststore.jks")
+.\docs\SECURITY.md:143: 7. ui.https.truststore.password (truststore password)
+.\docs\SECURITY.md:144: 8. ui.https.truststore.type (example "jks")
+.\docs\SECURITY.md:147: 9. ui.https.want.client.auth (If this set to true server requests for client certificate authentication, but keeps the connection if no authentication provided)
+.\docs\SECURITY.md:148: 10. ui.https.need.client.auth (If this set to true server requires client to provide authentication)
+
+===== disable.http =====
+MATCHES: 3
+.\conf\defaults.yaml:118: ui.disable.http.binding: true
+.\conf\defaults.yaml:127: logviewer.disable.http.binding: true
+.\conf\defaults.yaml:148: drpc.disable.http.binding: true
+
+===== header.buffer =====
+MATCHES: 3
+.\SECURITY.md:93: **Caution**: In AD MIT Kerberos setup, the key size is bigger than the default UI jetty server request header size. So make sure you set `ui.header.buffer.bytes` to 65536 in `storm.yaml`. More details are in [STORM-633](https://issues.apache.org/jira/browse/STORM-633)
+.\conf\defaults.yaml:115: ui.header.buffer.bytes: 4096
+.\docs\SECURITY.md:111: **Caution**: In AD MIT Keberos setup the key size is bigger than the default UI jetty server request header size. Make sure you set ui.header.buffer.bytes to 65536 in storm.yaml. More details are on [STORM-633](https://issues.apache.org/jira/browse/STORM-633)
+
+===== keystore =====
+MATCHES: 53
+.\SECURITY.md:102: For UI, set the following config in `storm.yaml`. Generating keystores with proper keys and certs should be taken care of by the user before this step.
+.\SECURITY.md:105: 2. `ui.https.keystore.type` (example "jks")
+.\SECURITY.md:106: 3. `ui.https.keystore.path` (example "/etc/ssl/storm_keystore.jks")
+.\SECURITY.md:107: 4. `ui.https.keystore.password` (keystore password)
+.\SECURITY.md:126: 2. `drpc.https.keystore.type` (example "jks")
+.\SECURITY.md:127: 3. `drpc.https.keystore.path` (example "/etc/ssl/storm_keystore.jks")
+.\SECURITY.md:128: 4. `drpc.https.keystore.password` (keystore password)
+.\SECURITY.md:151: keytool -keystore $DIR/server.keystore.jks -alias localhost -validity 365 -keyalg RSA -genkey
+.\SECURITY.md:155: keytool -keystore $DIR/server.truststore.jks -alias CARoot -import -file $DIR/ca-cert
+.\SECURITY.md:157: keytool -keystore $DIR/client.truststore.jks -alias CARoot -import -file $DIR/ca-cert
+.\SECURITY.md:159: keytool -keystore $DIR/server.keystore.jks -alias localhost -certreq -file $DIR/cert-file
+.\SECURITY.md:163: keytool -keystore $DIR/server.keystore.jks -alias CARoot -import -file $DIR/ca-cert
+.\SECURITY.md:165: keytool -keystore $DIR/server.keystore.jks -alias localhost -import -file $DIR/cert-signed
+.\conf\defaults.yaml:143: drpc.https.keystore.password: ""
+.\conf\defaults.yaml:144: drpc.https.keystore.type: "JKS"
+.\docs\SECURITY.md:133: For UI users needs to set following config in storm.yaml. Generating keystores with proper keys and certs should be taken care by the user before this step.
+.\docs\SECURITY.md:136: 2. ui.https.keystore.type (example "jks")
+.\docs\SECURITY.md:137: 3. ui.https.keystore.path (example "/etc/ssl/storm_keystore.jks")
+.\docs\SECURITY.md:138: 4. ui.https.keystore.password (keystore password)
+.\docs\SECURITY.md:157: 2. drpc.https.keystore.type (example "jks")
+.\docs\SECURITY.md:158: 3. drpc.https.keystore.path (example "/etc/ssl/storm_keystore.jks")
+.\docs\SECURITY.md:159: 4. drpc.https.keystore.password (keystore password)
+.\docs\SECURITY.md:178: 2. logviewer.https.keystore.type (example "jks")
+.\docs\SECURITY.md:179: 3. logviewer.https.keystore.path (example "/etc/ssl/storm_keystore.jks")
+.\docs\SECURITY.md:180: 4. logviewer.https.keystore.password (keystore password)
+... truncated after first 25 matches ...
+
+===== truststore =====
+MATCHES: 46
+.\SECURITY.md:112: 1. `ui.https.truststore.path` (example "/etc/ssl/storm_truststore.jks")
+.\SECURITY.md:113: 2. `ui.https.truststore.password` (truststore password)
+.\SECURITY.md:114: 3. `ui.https.truststore.type` (example "jks")
+.\SECURITY.md:133: 1. `drpc.https.truststore.path` (example "/etc/ssl/storm_truststore.jks")
+.\SECURITY.md:134: 2. `drpc.https.truststore.password` (truststore password)
+.\SECURITY.md:135: 3. `drpc.https.truststore.type` (example "jks")
+.\SECURITY.md:155: keytool -keystore $DIR/server.truststore.jks -alias CARoot -import -file $DIR/ca-cert
+.\SECURITY.md:157: keytool -keystore $DIR/client.truststore.jks -alias CARoot -import -file $DIR/ca-cert
+.\docs\SECURITY.md:142: 6. ui.https.truststore.path (example "/etc/ssl/storm_truststore.jks")
+.\docs\SECURITY.md:143: 7. ui.https.truststore.password (truststore password)
+.\docs\SECURITY.md:144: 8. ui.https.truststore.type (example "jks")
+.\docs\SECURITY.md:163: 6. drpc.https.truststore.path (example "/etc/ssl/storm_truststore.jks")
+.\docs\SECURITY.md:164: 7. drpc.https.truststore.password (truststore password)
+.\docs\SECURITY.md:165: 8. drpc.https.truststore.type (example "jks")
+.\docs\SECURITY.md:184: 6. logviewer.https.truststore.path (example "/etc/ssl/storm_truststore.jks")
+.\docs\SECURITY.md:185: 7. logviewer.https.truststore.password (truststore password)
+.\docs\SECURITY.md:186: 8. logviewer.https.truststore.type (example "jks")
+.\docs\SECURITY.md:202: The TLS setup requires configuring keystore and truststore paths along with enabling TLS flags for each component. Nimbus and Supervisors use Thrift TLS settings, while workers use Netty TLS settings.
+.\docs\SECURITY.md:216: # Server-side certificates & truststore
+.\docs\SECURITY.md:219: nimbus.thrift.tls.server.truststore.path: /etc/ssl//server.truststore.jks
+.\docs\SECURITY.md:220: nimbus.thrift.tls.server.truststore.password: password
+.\docs\SECURITY.md:226: nimbus.thrift.tls.client.truststore.path: /etc/ssl/client.truststore.jks
+.\docs\SECURITY.md:227: nimbus.thrift.tls.client.truststore.password: password
+.\docs\SECURITY.md:240: supervisor.thrift.tls.server.truststore.path: /etc/ssl/server.truststore.jks
+.\docs\SECURITY.md:241: supervisor.thrift.tls.server.truststore.password: password
+... truncated after first 25 matches ...
+
+===== needClientAuth =====
+MATCHES: 0
+NO DOCUMENTATION MATCH
+
+===== wantClientAuth =====
+MATCHES: 0
+NO DOCUMENTATION MATCH
+
+===== client auth =====
+MATCHES: 0
+NO DOCUMENTATION MATCH
+
+===== ui.filter =====
+MATCHES: 13
+.\SECURITY.md:55: ui.filter: "filter.class"
+.\SECURITY.md:56: ui.filter.params: "param1":"value1"
+.\SECURITY.md:73: ui.filter: "org.apache.hadoop.security.authentication.server.AuthenticationFilter"
+.\SECURITY.md:74: ui.filter.params:
+.\conf\defaults.yaml:112: ui.filter: null
+.\conf\defaults.yaml:113: ui.filter.params: null
+.\docs\SECURITY.md:57: ui.filter: "filter.class"
+.\docs\SECURITY.md:58: ui.filter.params: "param1":"value1"
+.\docs\SECURITY.md:63: The `ui.filter` is an instance of `javax.servlet.Filter` that is intended to
+.\docs\SECURITY.md:76: instead and it will override any `ui.filter` settings for the logviewer process.
+.\docs\SECURITY.md:91: ui.filter: "org.apache.hadoop.security.authentication.server.AuthenticationFilter"
+.\docs\SECURITY.md:92: ui.filter.params:
+.\docs\SECURITY.md:331: The Storm UI does not set security-related HTTP response headers by default. Operators deploying a secured cluster should configure the following headers via their reverse proxy or a custom servlet filter configured through `ui.filter`:
+
+===== filter.params =====
+MATCHES: 9
+.\SECURITY.md:56: ui.filter.params: "param1":"value1"
+.\SECURITY.md:58: logviewer.filter.params: "param1":"value1"
+.\SECURITY.md:74: ui.filter.params:
+.\conf\defaults.yaml:113: ui.filter.params: null
+.\conf\defaults.yaml:129: logviewer.filter.params: null
+.\docs\SECURITY.md:58: ui.filter.params: "param1":"value1"
+.\docs\SECURITY.md:60: logviewer.filter.params: "param1":"value1"
+.\docs\SECURITY.md:92: ui.filter.params:
+.\docs\SECURITY.md:119: The `drpc.http.filter` and `drpc.http.filter.params` configs can be used to setup a `Filter` for the DRPC server.  Unlike the logviewer
+
+===== CORS =====
+MATCHES: 0
+NO DOCUMENTATION MATCH
+
+===== Access-Control-Allow-Origin =====
+MATCHES: 0
+NO DOCUMENTATION MATCH
+
+===== access log =====
+MATCHES: 1
+.\docs\SECURITY.md:319: - Centralized access logging and monitoring
+
+===== Jetty =====
+MATCHES: 2
+.\SECURITY.md:93: **Caution**: In AD MIT Kerberos setup, the key size is bigger than the default UI jetty server request header size. So make sure you set `ui.header.buffer.bytes` to 65536 in `storm.yaml`. More details are in [STORM-633](https://issues.apache.org/jira/browse/STORM-633)
+.\docs\SECURITY.md:111: **Caution**: In AD MIT Keberos setup the key size is bigger than the default UI jetty server request header size. Make sure you set ui.header.buffer.bytes to 65536 in storm.yaml. More details are on [STORM-633](https://issues.apache.org/jira/browse/STORM-633)
+
+===== servlet =====
+MATCHES: 11
+.\SECURITY.md:52: Some form of Authentication is typically required; e.g., by using java servlet filters
+.\SECURITY.md:67: The servlet filters are preferred because they allow individual topologies to
+.\THIRD-PARTY.properties:30: javax.servlet--jsp-api--2.0=COMMON DEVELOPMENT AND DISTRIBUTION LICENSE (CDDL) Version 1.1
+.\THIRD-PARTY.properties:31: javax.servlet--servlet-api--2.5=COMMON DEVELOPMENT AND DISTRIBUTION LICENSE (CDDL) Version 1.1
+.\THIRD-PARTY.properties:32: javax.servlet.jsp--jsp-api--2.1=COMMON DEVELOPMENT AND DISTRIBUTION LICENSE (CDDL) Version 1.1
+.\docs\SECURITY.md:54: Some form of Authentication is typically required, and can be done using a java servlet filter
+.\docs\SECURITY.md:63: The `ui.filter` is an instance of `javax.servlet.Filter` that is intended to
+.\docs\SECURITY.md:66: `HttpServletRequest` to return the user principal through the
+.\docs\SECURITY.md:70: that can take the `HttpServletRequest` and return a user name and populate the needed fields
+.\docs\SECURITY.md:85: The servlet filters are preferred because it allows individual topologies to
+.\docs\SECURITY.md:331: The Storm UI does not set security-related HTTP response headers by default. Operators deploying a secured cluster should configure the following headers via their reverse proxy or a custom servlet filter configured through `ui.filter`:

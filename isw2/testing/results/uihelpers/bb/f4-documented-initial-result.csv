@@ -1,0 +1,2 @@
+﻿"Phase","Tests","Failures","Errors","Skipped","FailedFrame","FailedTest","ExpectedObservation","ActualObservation","Classification","DefectCandidate","C0Inspected","Decision"
+"F4_DOCUMENTATION_ONLY_INITIAL","12","1","0","0","TS-01","ts01PreservesExplicitTrustStoreConfiguration","Filesystem path supplied as truststore","Equivalent file URI returned by Jetty public API","DOCUMENTATION_AMBIGUITY_OVER_SPECIFIED_ORACLE","NO","NO","Compare truststore locations semantically instead of requiring identical textual representation"
