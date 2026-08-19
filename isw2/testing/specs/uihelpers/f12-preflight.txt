@@ -1,0 +1,99 @@
+F12 MINIMAL STRICT BLACK-BOX PREFLIGHT
+HEAD=915539d113dd2c7cbe2626028e6ade3d2a33ff09
+RemoteHEAD=915539d113dd2c7cbe2626028e6ade3d2a33ff09
+WorkingTree=clean
+ExplicitFrames=15
+TbbGroups=8
+LogicalCases=19
+TargetFinalTests=0_TO_2
+C0Inspected=NO
+
+===== FRAMES =====
+OPRSP-01 | F12.1 | | OPRSP-01 | activate | topology id + `activate` + `success` |
+OPRSP-02 | F12.1 | | OPRSP-02 | deactivate | topology id + `deactivate` + `success` |
+OPRSP-03 | F12.1 | | OPRSP-03 | rebalance | topology id + `rebalance` + `success` |
+OPRSP-04 | F12.1 | | OPRSP-04 | kill | topology id + `kill` + `success` |
+OPRSP-05 | F12.1 | | OPRSP-05 | debug/enable | topology id + operation + `success` |
+ACTIVATE-01 | F12.2 | **ACTIVATE-01**
+DEACTIVATE-01 | F12.3 | **DEACTIVATE-01**
+DEBUG-01 | F12.4 | | DEBUG-01 | enable | 10 | Nimbus debugging enabled at requested sampling percentage |
+DEBUG-02 | F12.4 | | DEBUG-02 | disable | 10 | Nimbus debugging disabled |
+DEBUG-03 | F12.4 | | DEBUG-03 | enable | 0 | zero sampling value preserved |
+DEBUG-04 | F12.4 | | DEBUG-04 | enable | 100 | upper representative percentage preserved |
+REBALANCE-01 | F12.5 | | REBALANCE-01 | 0 | rebalance requested with zero wait |
+REBALANCE-02 | F12.5 | | REBALANCE-02 | positive | supplied wait seconds preserved |
+KILL-01 | F12.6 | | KILL-01 | 0 | kill requested with zero wait |
+KILL-02 | F12.6 | | KILL-02 | positive | supplied wait seconds preserved |
+
+===== T_BB GROUPS =====
+TBB-066 | F12.1 | EXPLICIT_FRAME | 5 | Defined by explicit Category Partition frames
+TBB-067 | F12.2 | EXPLICIT_FRAME | 1 | Defined by explicit Category Partition frames
+TBB-068 | F12.3 | EXPLICIT_FRAME | 1 | Defined by explicit Category Partition frames
+TBB-069 | F12.4 | EXPLICIT_FRAME | 4 | Defined by explicit Category Partition frames
+TBB-070 | F12.5 | EXPLICIT_FRAME | 2 | Defined by explicit Category Partition frames
+TBB-071 | F12.6 | EXPLICIT_FRAME | 2 | Defined by explicit Category Partition frames
+TBB-072 | F12.7 | IMPLICIT_CP_CHOICES | 3 | invalid debug sampling | invalid rebalance wait time | invalid kill wait time
+TBB-073 | F12.8 | IMPLICIT_CP_CHOICES | 1 | representative Nimbus/Thrift operation failure
+
+===== TOPOLOGY-OPERATION PUBLIC API =====
+public static java.util.Map<java.lang.String, java.lang.Object> getTopologyOpResponse(java.lang.String, java.lang.String);
+public static java.util.Map<java.lang.String, java.lang.Object> putTopologyActivate(org.apache.storm.generated.Nimbus$Iface, java.lang.String) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> putTopologyDeactivate(org.apache.storm.generated.Nimbus$Iface, java.lang.String) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> putTopologyDebugActionSpct(org.apache.storm.generated.Nimbus$Iface, java.lang.String, java.lang.String, java.lang.String, java.lang.String) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> putTopologyKill(org.apache.storm.generated.Nimbus$Iface, java.lang.String, java.lang.String) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> putTopologyLogLevel(org.apache.storm.generated.Nimbus$Iface, java.util.Map<java.lang.String, java.util.Map>, java.lang.String) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> putTopologyRebalance(org.apache.storm.generated.Nimbus$Iface, java.lang.String, java.lang.String) throws org.apache.storm.thrift.TException;
+
+===== REST OPERATION DOCUMENTATION =====
+1091: |topologyStatus| String | Topology status|
+1096: |debug| Boolean | If debug is enabled for the component|
+1098: |eventLogLink| String| URL viewer link to event log (debug mode)|
+1099: |profilingAndDebuggingCapable| Boolean |true if there is support for Profiling and Debugging Actions|
+1173: "profilingAndDebuggingCapable": true,
+1301: ## Profiling and Debugging POST Operations
+1305: Request to start profiler on worker with timeout. Returns status and link to profiler artifacts for worker.
+1319: |status | String | Response Status |
+1335: "status": "ok",
+1344: Request to dump profiler recording on worker. Returns status and worker id for the request.
+1357: |status | String | Response Status |
+1369: "status": "ok",
+1376: Request to stop profiler on worker. Returns status and worker id for the request.
+1389: |status | String | Response Status |
+1401: "status": "ok",
+1408: Request to dump jstack on worker. Returns status and worker id for the request.
+1421: |status | String | Response Status |
+1433: "status": "ok",
+1440: Request to dump heap (jmap) on worker. Returns status and worker id for the request.
+1453: |status | String | Response Status |
+1465: "status": "ok",
+1472: Request to request the worker. Returns status and worker id for the request.
+1485: |status | String | Response Status |
+1497: "status": "ok",
+1504: ### /api/v1/topology/\<id\>/activate (POST)
+1506: Activates a topology. Substitute for \<id\>.
+1515: {"topologyOperation":"activate","topologyId":"wordcount-1-1420308665","status":"success"}
+1519: ### /api/v1/topology/\<id\>/deactivate (POST)
+1521: Deactivates a topology. Substitute for \<id\>.
+1530: {"topologyOperation":"deactivate","topologyId":"wordcount-1-1420308665","status":"success"}
+1534: ### /api/v1/topology/\<id\>/rebalance/\<wait-time\> (POST)
+1536: Rebalances a topology.
+1542: |wait-time |String (required)| Wait time before rebalance happens |
+1543: |rebalanceOptions| Json (optional) | topology rebalance options |
+1546: Sample rebalanceOptions json:
+1549: {"rebalanceOptions" : {"numWorkers" : 2, "executors" : {"spout" :4, "count" : 10}}, "callback" : "foo"}
+1557: -d  '{"rebalanceOptions": {"numWorkers": 2, "executors": { "spout" : "5", "split": 7, "count": 5 }}, "callback":"foo"}'
+1558: http://localhost:8080/api/v1/topology/wordcount-1-1420308665/rebalance/0
+1564: {"topologyOperation":"rebalance","topologyId":"wordcount-1-1420308665","status":"success"}
+1569: ### /api/v1/topology/\<id\>/kill/\<wait-time\> (POST)
+1571: Kills a topology.
+1577: |wait-time |String (required)| Wait time before rebalance happens |
+1586: {"topologyOperation":"kill","topologyId":"wordcount-1-1420308665","status":"success"}
+1591: The API returns 500 HTTP status codes in case of any errors.
+180: |status| String| Possible values are Leader, Not a Leader, Dead|
+195: "status":"Leader",
+410: |status| String| Topology Status|
+435: "status": "ACTIVE",
+50: 2. curl 'http://localhost:8080/api/v1/topology/wordcount-1-1425844354/activate' -X POST -H 'doAsUser:testUSer1'
+511: |status| String |Current status of the topology, e.g. "ACTIVE"|
+519: |debug| Boolean | If debug is enabled for the topology|
+604: "status": "ACTIVE",

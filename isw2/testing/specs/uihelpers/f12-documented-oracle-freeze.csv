@@ -1,0 +1,2 @@
+﻿"CaseId","Method","OracleType","InputTopologyId","InputOperation","ExpectedTopologyOperation","ExpectedTopologyId","ExpectedStatus","Evidence","C0Inspected"
+"OPRSP-01","getTopologyOpResponse","DOCUMENTED_EXACT","topology-activate","activate","activate","topology-activate","success","STORM-UI-REST-API.md activate POST example documents topologyOperation=activate, topologyId=<id>, status=success.","NO"
