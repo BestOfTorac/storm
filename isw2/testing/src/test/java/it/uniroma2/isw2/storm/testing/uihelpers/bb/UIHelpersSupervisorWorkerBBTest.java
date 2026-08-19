@@ -26,10 +26,9 @@ class UIHelpersSupervisorWorkerBBTest {
     /*
      * F6 strict black-box suite.
      *
-     * Only frames whose fixtures and expected properties are derivable
-     * from Storm's public REST/configuration contracts are implemented.
-     *
-     * No UIHelpers implementation is used to derive these tests.
+     * Fixtures and expected properties are derived from Storm's external
+     * REST, configuration and public DTO contracts.
+     * No implementation-derived expectation is used.
      */
 
     @Test

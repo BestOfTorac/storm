@@ -15,20 +15,11 @@ import static org.junit.jupiter.api.Assertions.assertInstanceOf;
 class UIHelpersNimbusLoggingBBTest {
 
     /*
-     * F13 minimal strict black-box suite.
+     * F13 strict black-box suite.
      *
-     * Storm REST API /api/v1/nimbus/summary documents:
-     * - Nimbus host
-     * - Nimbus port
-     * - status, including "Leader"
-     *
-     * It does not externally specify how active Nimbus entries and
-     * nimbus.seeds are merged/deduplicated inside the helper response.
-     *
-     * Therefore the oracle checks only that the supplied leader Nimbus
-     * is represented with its documented host, port and Leader status.
-     *
-     * UIHelpers implementation was not inspected.
+     * The suite verifies externally documented Nimbus host, port and
+     * leadership-status properties.
+     * No implementation-derived expectation is used.
      */
 
     @Test

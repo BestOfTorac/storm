@@ -12,12 +12,11 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class UIHelpersUrlLogviewerBBTest {
 
     /*
-     * Reduced F2 strict black-box suite.
+     * F2 strict black-box suite.
      *
-     * Exact internal endpoint paths are deliberately not asserted because
-     * Storm's REST documentation contains different logviewer endpoint forms.
-     *
-     * The final oracle checks only externally documented properties.
+     * The suite verifies externally documented Nimbus and worker
+     * logviewer-link properties without asserting internal endpoint details.
+     * No implementation-derived expectation is used.
      */
 
     @Test

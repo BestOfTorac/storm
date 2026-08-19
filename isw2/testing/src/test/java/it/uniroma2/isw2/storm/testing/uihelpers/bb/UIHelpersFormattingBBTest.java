@@ -8,11 +8,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class UIHelpersFormattingBBTest {
 
     /*
-     * Reduced F1 strict black-box suite.
+     * F1 strict black-box suite.
      *
-     * The original Category Partition remains documented separately.
-     * Only two representative cases whose final oracle can be justified
-     * without inspecting UIHelpers are retained in executable T_BB.
+     * Test oracles are derived from Storm's external REST documentation.
+     * No implementation-derived expectation is used.
      */
 
     @Test

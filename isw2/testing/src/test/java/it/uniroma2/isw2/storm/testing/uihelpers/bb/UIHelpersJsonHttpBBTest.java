@@ -11,11 +11,10 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class UIHelpersJsonHttpBBTest {
 
     /*
-     * Final minimal F3 strict black-box suite.
+     * F3 strict black-box suite.
      *
-     * Only externally documented JSON / JSONP properties are asserted.
-     * Detailed callback grammar, complete header sets and exact
-     * serialization rules are deliberately outside final T_BB.
+     * The suite verifies externally documented JSON and JSONP properties.
+     * No implementation-derived expectation is used.
      */
 
     @Test

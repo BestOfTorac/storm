@@ -10,14 +10,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class UIHelpersTopologyOperationBBTest {
 
     /*
-     * F12 minimal strict black-box suite.
+     * F12 strict black-box suite.
      *
-     * Storm's REST API explicitly documents an activate response as:
-     * topologyOperation=activate
-     * topologyId=<requested topology>
-     * status=success
-     *
-     * No UIHelpers implementation was inspected.
+     * The suite verifies the externally documented response contract
+     * for topology activation.
+     * No implementation-derived expectation is used.
      */
 
     @Test

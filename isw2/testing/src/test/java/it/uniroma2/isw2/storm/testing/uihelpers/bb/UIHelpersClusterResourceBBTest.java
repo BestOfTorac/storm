@@ -19,11 +19,11 @@ class UIHelpersClusterResourceBBTest {
     private static final double EPSILON = 0.000001;
 
     /*
-     * Strict black-box F5 suite.
+     * F5 strict black-box suite.
      *
-     * Only frames whose fixtures and expected behaviour can be derived
-     * completely from external documentation/public contracts are retained.
-     * No UIHelpers implementation was inspected to derive these tests.
+     * Fixtures and expected properties are derived from Storm's external
+     * REST documentation and public contracts.
+     * No implementation-derived expectation is used.
      */
 
     @Test

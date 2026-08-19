@@ -37,10 +37,11 @@ class UIHelpersJettySslFilterBBTest {
             "changeit".toCharArray();
 
     /*
-     * Final minimal F4 strict black-box suite.
+     * F4 strict black-box suite.
      *
-     * Only representative properties directly supported by Storm's
-     * external UI/security configuration documentation are retained.
+     * The suite verifies externally documented UI, HTTPS and custom-filter
+     * configuration properties.
+     * No implementation-derived expectation is used.
      */
 
     @Test

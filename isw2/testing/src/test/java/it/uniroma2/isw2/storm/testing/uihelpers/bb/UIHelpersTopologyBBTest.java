@@ -6,20 +6,11 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.storm.daemon.ui.UIHelpers;
-import org.apache.storm.generated.BoltAggregateStats;
-import org.apache.storm.generated.CommonAggregateStats;
-import org.apache.storm.generated.ComponentAggregateStats;
-import org.apache.storm.generated.DebugOptions;
 import org.apache.storm.generated.ExecutorInfo;
 import org.apache.storm.generated.ExecutorSummary;
-import org.apache.storm.generated.SpecificAggregateStats;
-import org.apache.storm.generated.SpoutAggregateStats;
 import org.apache.storm.generated.TopologyHistoryInfo;
 import org.apache.storm.generated.TopologyInfo;
-import org.apache.storm.generated.TopologyPageInfo;
-import org.apache.storm.generated.TopologyStats;
 import org.apache.storm.generated.TopologySummary;
-import org.apache.storm.generated.WorkerSummary;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -33,10 +24,9 @@ class UIHelpersTopologyBBTest {
     /*
      * F7 strict black-box suite.
      *
-     * Every implemented oracle is derived from Storm's public REST
-     * documentation and public generated DTO contracts.
-     *
-     * No UIHelpers implementation was inspected to derive these tests.
+     * Test oracles are derived from Storm's external REST documentation
+     * and public generated DTO contracts.
+     * No implementation-derived expectation is used.
      */
 
     @Test
@@ -420,186 +410,6 @@ class UIHelpersTopologyBBTest {
         );
 
         return summary;
-    }
-
-    private static TopologyPageInfo populatedTopologyPage() {
-
-        TopologyPageInfo page =
-                new TopologyPageInfo(
-                        "topology-page"
-                );
-
-        page.set_name("Topology Page");
-        page.set_uptime_secs(600);
-        page.set_status("ACTIVE");
-
-        page.set_num_tasks(8);
-        page.set_num_workers(1);
-        page.set_num_executors(4);
-
-        page.set_owner("owner");
-        page.set_replication_count(1);
-
-        page.set_storm_version("3.0.0");
-        page.set_topology_version("1");
-
-        page.set_sched_status("");
-
-        page.set_topology_conf("{}");
-
-        page.set_requested_memonheap(640.0);
-        page.set_requested_memoffheap(128.0);
-        page.set_requested_cpu(80.0);
-
-        page.set_assigned_memonheap(640.0);
-        page.set_assigned_memoffheap(128.0);
-        page.set_assigned_cpu(80.0);
-
-        page.set_requested_generic_resources(
-                new HashMap<>()
-        );
-
-        page.set_assigned_generic_resources(
-                new HashMap<>()
-        );
-
-        page.set_workers(
-                List.of(
-                        worker()
-                )
-        );
-
-        page.set_topology_stats(
-                emptyTopologyStats()
-        );
-
-        Map<String, ComponentAggregateStats> spouts =
-                new HashMap<>();
-
-        spouts.put(
-                "spout-component",
-                componentStats(true)
-        );
-
-        page.set_id_to_spout_agg_stats(
-                spouts
-        );
-
-        Map<String, ComponentAggregateStats> bolts =
-                new HashMap<>();
-
-        bolts.put(
-                "bolt-component",
-                componentStats(false)
-        );
-
-        page.set_id_to_bolt_agg_stats(
-                bolts
-        );
-
-        DebugOptions debug =
-                new DebugOptions();
-
-        debug.set_enable(false);
-        debug.set_samplingpct(10.0);
-
-        page.set_debug_options(debug);
-
-        return page;
-    }
-
-    private static WorkerSummary worker() {
-
-        WorkerSummary worker =
-                new WorkerSummary();
-
-        worker.set_supervisor_id("supervisor-1");
-        worker.set_host("worker-host");
-        worker.set_port(6701);
-
-        worker.set_topology_id(
-                "topology-page"
-        );
-
-        worker.set_topology_name(
-                "Topology Page"
-        );
-
-        worker.set_num_executors(4);
-        worker.set_uptime_secs(500);
-
-        worker.set_assigned_memonheap(640.0);
-        worker.set_assigned_memoffheap(128.0);
-        worker.set_assigned_cpu(80.0);
-
-        worker.set_component_to_num_tasks(
-                Map.of(
-                        "spout-component",
-                        4L,
-                        "bolt-component",
-                        4L
-                )
-        );
-
-        return worker;
-    }
-
-    private static TopologyStats emptyTopologyStats() {
-
-        TopologyStats stats =
-                new TopologyStats();
-
-        stats.set_window_to_emitted(
-                new HashMap<>()
-        );
-
-        stats.set_window_to_transferred(
-                new HashMap<>()
-        );
-
-        stats.set_window_to_acked(
-                new HashMap<>()
-        );
-
-        stats.set_window_to_failed(
-                new HashMap<>()
-        );
-
-        return stats;
-    }
-
-    private static ComponentAggregateStats componentStats(
-            boolean spout) {
-
-        CommonAggregateStats common =
-                new CommonAggregateStats();
-
-        common.set_num_executors(1);
-        common.set_num_tasks(1);
-
-        SpecificAggregateStats specific =
-                new SpecificAggregateStats();
-
-        if (spout) {
-
-            specific.set_spout(
-                    new SpoutAggregateStats()
-            );
-
-        } else {
-
-            specific.set_bolt(
-                    new BoltAggregateStats()
-            );
-        }
-
-        ComponentAggregateStats stats =
-                new ComponentAggregateStats();
-
-        stats.set_common_stats(common);
-        stats.set_specific_stats(specific);
-
-        return stats;
     }
 
     private static TopologyInfo topologyInfo(

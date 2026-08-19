@@ -12,12 +12,11 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 class UIHelpersStatsComponentsBBTest {
 
     /*
-     * F8 minimal strict black-box suite.
+     * F8 strict black-box suite.
      *
-     * These tests verify only externally documented
-     * statistical-window formatting.
-     *
-     * No UIHelpers implementation was inspected.
+     * The suite verifies externally documented statistical-window
+     * formatting properties.
+     * No implementation-derived expectation is used.
      */
 
     @Test
