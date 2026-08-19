@@ -1,0 +1,3 @@
+﻿"CaseId","TbbId","Method","Input","Expected","OracleType","Evidence","C0Used"
+"WH-01","TBB-005","getWindowHint",":all-time","All time","DOCUMENTED_EXACT","STORM-UI-REST-API.md explicitly shows window=:all-time with windowPretty/Hint=All time.","NO"
+"WH-04","TBB-005","getWindowHint","60","1m 0s","DOCUMENTED_PROPERTY","STORM-UI-REST-API.md defines window values in seconds and windowHint as formatted duration; 60 seconds is one minute.","NO"

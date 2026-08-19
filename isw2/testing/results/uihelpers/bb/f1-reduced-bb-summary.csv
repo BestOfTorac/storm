@@ -1,0 +1,2 @@
+﻿"Family","OriginalTests","FinalStrictBlackBoxTests","ReductionPercent","RetainedFunctionalArea","RetainedCases","ExcludedGroups","PartiallyImplementedGroup","CategoryPartitionModified","FinalC0Inference","Result"
+"F1","46","2","95,65","Window hint formatting","WH-01;WH-04","TBB-001;TBB-002;TBB-003;TBB-004;TBB-006","TBB-005","NO","NO","PASS"
