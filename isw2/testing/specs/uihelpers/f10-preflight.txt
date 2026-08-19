@@ -1,0 +1,138 @@
+F10 MINIMAL STRICT BLACK-BOX PREFLIGHT
+HEAD=0d7430ae203c1c6adaca414d5d973aa7259fbf5b
+RemoteHEAD=0d7430ae203c1c6adaca414d5d973aa7259fbf5b
+WorkingTree=clean
+ExplicitFrames=14
+TbbGroups=3
+LogicalCases=14
+TargetFinalTests=0_TO_2
+C0Inspected=NO
+
+===== FRAMES =====
+VIS-01 | F10.1 | | VIS-01 | none | none | exclude | empty visualization data |
+VIS-02 | F10.1 | | VIS-02 | Spout only | present | exclude | Spout visualization entry exposed |
+VIS-03 | F10.1 | | VIS-03 | Bolt only | present | exclude | Bolt visualization entry exposed |
+VIS-04 | F10.1 | | VIS-04 | Spout + Bolt | present | exclude | both component types represented |
+VIS-05 | F10.1 | | VIS-05 | topology containing system component | present | exclude | system visibility follows exclusion mode |
+VIS-06 | F10.1 | | VIS-06 | topology containing system component | present | include | requested system component can be represented |
+STREAMBOX-01 | F10.2 | | STREAMBOX-01 | regular stream | stream identity preserved and marked as selectable/checked |
+STREAMBOX-02 | F10.2 | | STREAMBOX-02 | system stream | system nature reflected by the checked state |
+STREAMBOX-03 | F10.2 | | STREAMBOX-03 | stream requiring sanitization | sanitized identifier preserved consistently |
+VISTABLE-01 | F10.3 | | VISTABLE-01 | 0 | empty visualization table |
+VISTABLE-02 | F10.3 | | VISTABLE-02 | 1 | one row containing one stream box |
+VISTABLE-03 | F10.3 | | VISTABLE-03 | 3 | one row containing three stream boxes |
+VISTABLE-04 | F10.3 | | VISTABLE-04 | 4 | one complete row of four |
+VISTABLE-05 | F10.3 | | VISTABLE-05 | 5 | first row of four and second row of one |
+
+===== T_BB GROUPS =====
+TBB-055 | F10.1 | EXPLICIT_FRAME | 6 | Defined by explicit Category Partition frames
+TBB-056 | F10.2 | EXPLICIT_FRAME | 3 | Defined by explicit Category Partition frames
+TBB-057 | F10.3 | EXPLICIT_FRAME | 5 | Defined by explicit Category Partition frames
+
+===== VISUALIZATION PUBLIC API =====
+public static java.util.Map<java.lang.String, java.lang.Object> getBuildVisualization(org.apache.storm.generated.Nimbus$Iface, java.util.Map<java.lang.String, java.lang.Object>, java.lang.String, java.lang.String, boolean) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> getInputMap(java.util.Map$Entry<org.apache.storm.generated.GlobalStreamId, org.apache.storm.generated.Grouping>);
+public static java.util.Map<java.lang.String, java.lang.Object> getStreamBox(java.lang.Object);
+public static java.util.Map<java.lang.String, java.lang.Object> getVisualizationData(org.apache.storm.generated.Nimbus$Iface, java.lang.String, java.lang.String, boolean) throws org.apache.storm.thrift.TException;
+
+===== REST VISUALIZATION DOCUMENTATION =====
+1003: "stream_id":"__ack_ack",
+1007: "stream_id":"__system",
+1013: "stream_id":"__metrics",
+1017: "stream_id":"default",
+1021: "stream_id":"__ack_ack",
+1025: "stream_id":"__system",
+1031: "component_id":"spout",
+1032: "stream_id":"default",
+1041: "component_id":"spout",
+1042: "stream_id":"default",
+1048: "component_id":"spout",
+1049: "stream_id":"default",
+1055: "component_id":"spout",
+1056: "stream_id":"default",
+1065: ### /api/v1/topology/\<id\>/component/\<component\> (GET)
+1067: Returns detailed metrics and executor information for a topology whose id is substituted for \<id\> and a component whose id is substituted for \<component\>
+1072: |component |String (required)| Component Id |
+1081: |id   | String | Component id|
+1082: |encodedId   | String | URL encoded component id|
+1084: |executors| Integer |Number of executor tasks in the component|
+1085: |tasks| Integer |Number of instances of component|
+1094: |componentType | String | component type: SPOUT or BOLT|
+1096: |debug| Boolean | If debug is enabled for the component|
+1102: |componentErrors| Array of Errors | List of component errors|
+1103: |componentErrors.errorTime| Long | Timestamp when the exception occurred (Prior to 0.11.0, this field was named 'time'.)|
+1104: |componentErrors.errorHost| String | host name for the error|
+1105: |componentErrors.errorPort| String | port for the error|
+1106: |componentErrors.error| String |Shows the error happened in a component|
+1107: |componentErrors.errorLapsedSecs| Integer | Number of seconds elapsed since the error happened in a component |
+1108: |componentErrors.errorWorkerLogLink| String | Link to the worker log that reported the exception |
+1109: |spoutSummary| Array | (only for spouts) Array of component stats, one element per window.|
+1117: |boltStats| Array | (only for bolts) Array of component stats, one element per window.|
+1124: |inputStats| Array | (only for bolts) Array of input stats|
+1125: |inputStats.component| String |Component id|
+1126: |inputStats.encodedComponentId| String |URL encoded component id|
+1127: |inputStats.executeLatency| Long | The average time a tuple spends in the execute method|
+1128: |inputStats.processLatency| Long | The average time it takes to ack a tuple after it is first received|
+1129: |inputStats.executed| Long |The number of incoming tuples processed|
+1130: |inputStats.acked| Long |Number of messages acked|
+1131: |inputStats.failed| Long |Number of messages failed|
+1132: |inputStats.stream| String |The name of the tuple stream given in the topology, or "default" if none specified|
+1133: |outputStats| Array | Array of output stats|
+1134: |outputStats.transferred| Long |Number of tuples emitted that sent to one ore more bolts|
+1135: |outputStats.emitted| Long |Number of tuples emitted|
+1136: |outputStats.stream| String |The name of the tuple stream given in the topology, or "default" if none specified|
+1141: 1. http://ui-daemon-host-name:8080/api/v1/topology/WordCount3-1-1402960825/component/spout
+1142: 2. http://ui-daemon-host-name:8080/api/v1/topology/WordCount3-1-1402960825/component/spout?sys=1
+1143: 3. http://ui-daemon-host-name:8080/api/v1/topology/WordCount3-1-1402960825/component/spout?window=600
+1152: "componentType": "spout",
+1155: "componentErrors":[{"errorTime": 1406006074000,
+1213: "outputStats": [
+1215: "stream": "__metrics",
+1223: "stream": "default",
+281: |componentNumTasks | Dictionary | Components -> # of executing tasks|
+314: "componentNumTasks": {
+330: "componentNumTasks":{
+546: |workers.componentNumTasks | Dictionary | Components -> # of executing tasks|
+550: |spouts| Array | Array of all the spout components in the topology|
+568: |bolts| Array | Array of bolt components in the topology|
+573: |bolts.executors| Integer |Number of executor tasks in the bolt component|
+621: "componentNumTasks": {
+678: "componentNumTasks": {
+790: Returns detailed metrics for topology for a topology whose id is substituted for \<id\>. It shows metrics per component, which are aggregated by stream.
+804: |spouts| Array | Array of all the spout components in the topology|
+806: |spouts.emitted| Array | Array of all the output streams this spout emits messages |
+807: |spouts.emitted.stream_id| String | Stream id for this stream |
+809: |spouts.transferred | Array | Array of all the output streams this spout transfers messages |
+810: |spouts.transferred.stream_id| String | Stream id for this stream |
+812: |spouts.acked| Array | Array of all the output streams this spout receives ack of messages |
+813: |spouts.acked.stream_id| String | Stream id for this stream |
+815: |spouts.failed| Array | Array of all the output streams this spout receives fail of messages |
+816: |spouts.failed.stream_id| String | Stream id for this stream |
+818: |spouts.complete_ms_avg| Array | Array of all the output streams this spout receives ack of messages |
+819: |spouts.complete_ms_avg.stream_id| String | Stream id for this stream |
+821: |bolts| Array | Array of all the bolt components in the topology|
+823: |bolts.emitted| Array | Array of all the output streams this bolt emits messages |
+824: |bolts.emitted.stream_id| String | Stream id for this stream |
+826: |bolts.transferred | Array | Array of all the output streams this bolt transfers messages |
+827: |bolts.transferred.stream_id| String | Stream id for this stream |
+829: |bolts.acked| Array | Array of all the input streams this bolt acknowledges of messages |
+830: |bolts.acked.component_id| String | Component id for this stream |
+831: |bolts.acked.stream_id| String | Stream id for this stream |
+833: |bolts.failed| Array | Array of all the input streams this bolt receives fail of messages |
+834: |bolts.failed.component_id| String | Component id for this stream |
+835: |bolts.failed.stream_id| String | Stream id for this stream |
+837: |bolts.process_ms_avg| Array | Array of all the input streams this spout acks messages |
+838: |bolts.process_ms_avg.component_id| String | Component id for this stream |
+839: |bolts.process_ms_avg.stream_id| String | Stream id for this stream |
+841: |bolts.executed| Array | Array of all the input streams this bolt executes messages |
+842: |bolts.executed.component_id| String | Component id for this stream |
+843: |bolts.executed.stream_id| String | Stream id for this stream |
+845: |bolts.executed_ms_avg| Array | Array of all the output streams this spout receives ack of messages |
+846: |bolts.executed_ms_avg.component_id| String | Component id for this stream |
+847: |bolts.executed_ms_avg.stream_id| String | Stream id for this stream |
+869: "stream_id":"__metrics",
+873: "stream_id":"default",
+877: "stream_id":"__ack_init",
+881: "stream_id":"__system",
+887: "stream_id":"__metrics",
+891: "stream_id":"default",

@@ -1,0 +1,2 @@
+﻿"Family","FunctionalArea","LogicalCategoryPartitionCases","NewImplementedTests","ExcludedCases","SelectionPolicy","ExternalSpecificationReviewed","MainExclusionReason","C0SourceInferenceUsed","DefectCandidates","CumulativeUiHelpersTests","CumulativeUiHelpersPassed","Result"
+"F10","Visualization","14","0","14","Minimal_representative_explainable_strict_black_box_suite","YES","Visualization-specific transformations are not sufficiently specified externally and full visualization methods require complex Nimbus/topology fixtures.","NO","0","151","151","NO_NEW_TESTS_REQUIRED"
