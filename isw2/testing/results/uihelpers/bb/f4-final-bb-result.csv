@@ -1,0 +1,2 @@
+﻿"Family","OriginalExecutableTests","FinalExecutableTests","PreservedCategoryPartitionCases","ImplementedCases","FinalOracleSource","C0UsedForFinalOracle","TestsPassed","Failures","Errors","Result"
+"F4","32","6","32","JETTY-01;JETTY-08;SSL-03;SSL-04;FIL-02;FIL-04","EXTERNAL_DOCUMENTATION","NO","6","0","0","PASS"

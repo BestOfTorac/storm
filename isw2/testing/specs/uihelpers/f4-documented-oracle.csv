@@ -1,0 +1,7 @@
+﻿"CaseId","TbbId","OracleType","Property","Evidence","C0Used"
+"JETTY-01","TBB-020","DOCUMENTED_PROPERTY","Configured ui.port is used by the HTTP UI connector.","STORM-UI-REST-API.md; SECURITY.md ui.port","NO"
+"JETTY-08","TBB-020","DOCUMENTED_PROPERTY","Configured ui.header.buffer.bytes determines the UI HTTP request header capacity.","SECURITY.md ui.header.buffer.bytes","NO"
+"SSL-03","TBB-021","DOCUMENTED_PROPERTY","Configured ui.https.port is used for HTTPS UI access.","SECURITY.md ui.https.port","NO"
+"SSL-04","TBB-021","DOCUMENTED_PROPERTY","When ui.https.need.client.auth is true, client authentication is required.","SECURITY.md ui.https.need.client.auth","NO"
+"FIL-02","TBB-024","DOCUMENTED_PROPERTY","A custom filter configured through ui.filter is installed.","SECURITY.md ui.filter","NO"
+"FIL-04","TBB-024","DOCUMENTED_PROPERTY","Configured ui.filter.params are supplied to the custom filter.","SECURITY.md ui.filter.params","NO"
