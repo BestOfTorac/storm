@@ -1,0 +1,3 @@
+﻿"CaseId","TbbId","Method","Input","OracleType","FinalOracle","Evidence","ExactInternalEndpointRequired","C0Used"
+"DAEMON-01","TBB-011","getNimbusLogLink","host=192.168.202.1; logviewer.port=8000","DOCUMENTED_PROPERTY","Result is an HTTP logviewer URL on host 192.168.202.1 port 8000 and points to nimbus.log.","STORM-UI-REST-API.md nimbusLogLink sample.","NO","NO"
+"WORKERLOG-HTTP","TBB-012","getWorkerLogLink","host=host; workerPort=6707; topologyId=ras-4-1460229987; logviewer.port=8000","DOCUMENTED_PROPERTY","Result is an HTTP logviewer URL on host host port 8000 and identifies topology ras-4-1460229987, worker port 6707 and worker.log.","STORM-UI-REST-API.md workerLogLink sample.","NO","NO"
