@@ -1,0 +1,39 @@
+============================================================
+Utils.urlEncodeUtf8
+Source: v3.0.0:storm-client/src/jvm/org/apache/storm/utils/Utils.java
+Lines: 250-265
+============================================================
+  250:         return findAndReadConfigFile("defaults.yaml", true);
+  251:     }
+  252:
+  253:     /**
+  254:      * URL encode the given string using the UTF-8 charset. Once Storm is baselined to Java 11, we can use URLEncoder.encode(String,
+  255:      * Charset) instead, which obsoletes this method.
+  256:      */
+  257:     public static String urlEncodeUtf8(String s) {
+  258:         try {
+  259:             return URLEncoder.encode(s, StandardCharsets.UTF_8.name());
+  260:         } catch (UnsupportedEncodingException e) {
+  261:             //This cannot happen since we're using a standard charset
+  262:             throw Utils.wrapInRuntime(e);
+  263:         }
+  264:     }
+  265:
+
+============================================================
+WebAppUtils.logsFilename
+Source: v3.0.0:storm-core/src/jvm/org/apache/storm/utils/WebAppUtils.java
+Lines: 20-31
+============================================================
+   20:
+   21: import java.io.File;
+   22:
+   23: public class WebAppUtils {
+   24:     public static String eventLogsFilename(String stormId, String port) {
+   25:         return stormId + File.separator + port + File.separator + "events.log";
+   26:     }
+   27:
+   28:     public static String logsFilename(String stormId, String port) {
+   29:         return stormId + File.separator + port + File.separator + "worker.log";
+   30:     }
+   31: }

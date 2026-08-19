@@ -1,0 +1,181 @@
+============================================================
+F2.1 URL formatting
+Source: v3.0.0:storm-webapp/src/main/java/org/apache/storm/daemon/ui/UIHelpers.java
+Lines: 194-207
+============================================================
+  194:     /**
+  195:      * url formatter for log links.
+  196:      * @param fmt string format
+  197:      * @param args hostname and other arguments.
+  198:      * @return string formatter
+  199:      */
+  200:     public static String urlFormat(String fmt, Object... args) {
+  201:         String[] argsEncoded = new String[args.length];
+  202:         for (int i = 0; i < args.length; i++) {
+  203:             argsEncoded[i] = Utils.urlEncodeUtf8(String.valueOf(args[i]));
+  204:         }
+  205:         return String.format(fmt, argsEncoded);
+  206:     }
+  207:
+
+============================================================
+F2.4-F2.6 logviewer and daemon links
+Source: v3.0.0:storm-webapp/src/main/java/org/apache/storm/daemon/ui/UIHelpers.java
+Lines: 850-930
+============================================================
+  850:     /**
+  851:      * getLogviewerLink.
+  852:      * @param host host
+  853:      * @param fname fname
+  854:      * @param config config
+  855:      * @param port port
+  856:      * @return getLogviewerLink.
+  857:      */
+  858:     public static String getLogviewerLink(String host, String fname,
+  859:                                           Map<String, Object> config, int port) {
+  860:         if (isSecureLogviewer(config)) {
+  861:             return UIHelpers.urlFormat("https://%s:%s/api/v1/log?file=%s",
+  862:                     host, config.get(DaemonConfig.LOGVIEWER_HTTPS_PORT), fname);
+  863:         } else {
+  864:             return UIHelpers.urlFormat("http://%s:%s/api/v1/log?file=%s",
+  865:                     host, config.get(DaemonConfig.LOGVIEWER_PORT), fname);
+  866:         }
+  867:     }
+  868:
+  869:     /**
+  870:      * Get log link to nimbus log.
+  871:      * @param host nimbus host name
+  872:      * @param config storm config
+  873:      * @return log link.
+  874:      */
+  875:     public static String getNimbusLogLink(String host, Map<String, Object> config) {
+  876:         if (isSecureLogviewer(config)) {
+  877:             return UIHelpers.urlFormat("https://%s:%s/api/v1/daemonlog?file=nimbus.log",
+  878:                     host, config.get(DaemonConfig.LOGVIEWER_HTTPS_PORT));
+  879:         }
+  880:         return UIHelpers.urlFormat("http://%s:%s/api/v1/daemonlog?file=nimbus.log",
+  881:                 host, config.get(DaemonConfig.LOGVIEWER_PORT));
+  882:     }
+  883:
+  884:     /**
+  885:      * Get log link to supervisor log.
+  886:      * @param host supervisor host name
+  887:      * @param config storm config
+  888:      * @return log link.
+  889:      */
+  890:     public static String getSupervisorLogLink(String host, Map<String, Object> config) {
+  891:         if (isSecureLogviewer(config)) {
+  892:             return UIHelpers.urlFormat("https://%s:%s/api/v1/daemonlog?file=supervisor.log",
+  893:                     host, config.get(DaemonConfig.LOGVIEWER_HTTPS_PORT));
+  894:         }
+  895:         return UIHelpers.urlFormat("http://%s:%s/api/v1/daemonlog?file=supervisor.log",
+  896:                 host, config.get(DaemonConfig.LOGVIEWER_PORT));
+  897:     }
+  898:
+  899:     /**
+  900:      * Get log link to supervisor log.
+  901:      * @param host supervisor host name
+  902:      * @param config storm config
+  903:      * @return log link.
+  904:      */
+  905:     public static String getWorkerLogLink(String host, int port,
+  906:                                           Map<String, Object> config, String topologyId) {
+  907:         return getLogviewerLink(host,
+  908:                 WebAppUtils.logsFilename(
+  909:                         topologyId, String.valueOf(port)),
+  910:                 config, port
+  911:         );
+  912:     }
+  913:
+  914:     /**
+  915:      * Get supervisor info in a map.
+  916:      * @param supervisorSummary from nimbus call.
+  917:      * @param config Storm config.
+  918:      * @return prettified supervisor info map.
+  919:      */
+  920:     public static Map<String, Object> getPrettifiedSupervisorMap(
+  921:             SupervisorSummary supervisorSummary,
+  922:             Map<String, Object> config) {
+  923:         Map<String, Object> result = new HashMap();
+  924:
+  925:         result.put("id", supervisorSummary.get_supervisor_id());
+  926:         result.put("host", supervisorSummary.get_host());
+  927:         result.put("uptime", UIHelpers.prettyUptimeSec(supervisorSummary.get_uptime_secs()));
+  928:         result.put("blacklisted", supervisorSummary.is_blacklisted());
+  929:         result.put("uptimeSeconds", supervisorSummary.get_uptime_secs());
+  930:         result.put("slotsTotal", supervisorSummary.get_num_workers());
+
+============================================================
+F2.2-F2.3 logviewer security and port
+Source: v3.0.0:storm-webapp/src/main/java/org/apache/storm/daemon/ui/UIHelpers.java
+Lines: 978-1015
+============================================================
+  978:         return result;
+  979:     }
+  980:
+  981:     /**
+  982:      * Check if logviewer is secure.
+  983:      * @param config Storm config.
+  984:      * @return true if logiviwer is secure.
+  985:      */
+  986:     public static boolean isSecureLogviewer(Map<String, Object> config) {
+  987:         if (config.containsKey(DaemonConfig.LOGVIEWER_HTTPS_PORT)) {
+  988:             int logviewerPort = (int) config.get(DaemonConfig.LOGVIEWER_HTTPS_PORT);
+  989:             if (logviewerPort >= 0) {
+  990:                 return true;
+  991:             }
+  992:         }
+  993:         return false;
+  994:     }
+  995:
+  996:     /**
+  997:      * Get logviewer port depending on whether the logviewer is secure or not.
+  998:      * @param config Storm config.
+  999:      * @return appropriate port.
+ 1000:      */
+ 1001:     public static int getLogviewerPort(Map<String, Object> config) {
+ 1002:         if (isSecureLogviewer(config)) {
+ 1003:             return (int) config.get(DaemonConfig.LOGVIEWER_HTTPS_PORT);
+ 1004:         }
+ 1005:         return (int) config.get(DaemonConfig.LOGVIEWER_PORT);
+ 1006:     }
+ 1007:
+ 1008:     /**
+ 1009:      * getWorkerSummaries.
+ 1010:      * @param supervisorPageInfo supervisorPageInfo
+ 1011:      * @param config config
+ 1012:      * @return getWorkerSummaries
+ 1013:      */
+ 1014:     public static List<Map> getWorkerSummaries(SupervisorPageInfo supervisorPageInfo,
+ 1015:                                                Map<String, Object> config) {
+
+============================================================
+F2.7 worker dump link
+Source: v3.0.0:storm-webapp/src/main/java/org/apache/storm/daemon/ui/UIHelpers.java
+Lines: 1978-2002
+============================================================
+ 1978:      * getWorkerDumpLink.
+ 1979:      *
+ 1980:      * @param host host
+ 1981:      * @param port port
+ 1982:      * @param topologyId topologyId
+ 1983:      * @param config config
+ 1984:      * @return getWorkerDumpLink
+ 1985:      */
+ 1986:     public static String getWorkerDumpLink(String host, long port, String topologyId, Map<String, Object> config) {
+ 1987:         if (isSecureLogviewer(config)) {
+ 1988:             return UIHelpers.urlFormat(
+ 1989:                 "https://%s:%s/api/v1/dumps/%s/%s",
+ 1990:                 Utils.urlEncodeUtf8(host), config.get(DaemonConfig.LOGVIEWER_HTTPS_PORT),
+ 1991:                 Utils.urlEncodeUtf8(topologyId),
+ 1992:                 Utils.urlEncodeUtf8(host)
+ 1993:                 + ":" + Utils.urlEncodeUtf8(String.valueOf(port))
+ 1994:             );
+ 1995:         } else {
+ 1996:             return UIHelpers.urlFormat(
+ 1997:                 "http://%s:%s/api/v1/dumps/%s/%s",
+ 1998:                 Utils.urlEncodeUtf8(host), config.get(DaemonConfig.LOGVIEWER_PORT),
+ 1999:                 Utils.urlEncodeUtf8(topologyId),
+ 2000:                 Utils.urlEncodeUtf8(host) + ":" + Utils.urlEncodeUtf8(String.valueOf(port))
+ 2001:             );
+ 2002:         }

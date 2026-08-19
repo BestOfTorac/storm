@@ -1,0 +1,8 @@
+public static java.lang.String urlFormat(java.lang.String, java.lang.Object...);
+public static boolean isSecureLogviewer(java.util.Map<java.lang.String, java.lang.Object>);
+public static int getLogviewerPort(java.util.Map<java.lang.String, java.lang.Object>);
+public static java.lang.String getLogviewerLink(java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>, int);
+public static java.lang.String getNimbusLogLink(java.lang.String, java.util.Map<java.lang.String, java.lang.Object>);
+public static java.lang.String getSupervisorLogLink(java.lang.String, java.util.Map<java.lang.String, java.lang.Object>);
+public static java.lang.String getWorkerLogLink(java.lang.String, int, java.util.Map<java.lang.String, java.lang.Object>, java.lang.String);
+public static java.lang.String getWorkerDumpLink(java.lang.String, long, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>);
