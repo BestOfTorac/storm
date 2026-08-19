@@ -1,0 +1,235 @@
+===== cluster summary =====
+MATCHES: 2
+.\dev-tools\cluster\README.md:194: 1. **Cluster summary** ? *Storm Cluster* dashboard
+.\docs\STORM-UI-REST-API.md:85: Returns cluster summary information such as nimbus uptime or number of supervisors.
+
+===== /api/v1/cluster/summary =====
+MATCHES: 3
+.\SECURITY.md:86: curl  -i --negotiate -u:anyUser  -b ~/cookiejar.txt -c ~/cookiejar.txt  http://storm-ui-hostname:8080/api/v1/cluster/summary
+.\docs\SECURITY.md:103: curl  -i --negotiate -u:anyUser  -b ~/cookiejar.txt -c ~/cookiejar.txt  http://storm-ui-hostname:8080/api/v1/cluster/summary
+.\docs\STORM-UI-REST-API.md:83: ### /api/v1/cluster/summary (GET)
+
+===== supervisors =====
+MATCHES: 90
+.\SECURITY.md:32: | 2181 | `storm.zookeeper.port` | Nimbus, Supervisors, and Worker processes | ZooKeeper |
+.\SECURITY.md:33: | 6627 | `nimbus.thrift.port` | Storm clients, Supervisors, and UI | Nimbus |
+.\SECURITY.md:34: | 6628 | `supervisor.thrift.port` | Nimbus | Supervisors |
+.\SECURITY.md:180: The supervisors and UI also need a principal to run as, but because they are outgoing connections they do not need to be service principals.
+.\SECURITY.md:191: # All UI logviewer and Supervisors
+.\SECURITY.md:225: The Client section is used by processes wanting to talk to ZooKeeper and really only needs to be included with nimbus and the supervisors.
+.\SECURITY.md:370: ### Supervisors headless User and group Setup
+.\SECURITY.md:372: To ensure isolation of users in multi-tenancy, the supervisors must run under a headless user and unique group:
+.\conf\defaults.yaml:172: ### supervisor.* configs are for node supervisors
+.\conf\defaults.yaml:196: supervisor.supervisors: [ ]
+.\conf\defaults.yaml:197: supervisor.supervisors.commands: [ ]
+.\dev-tools\cluster\docker-compose.yml:17: # two Supervisors + UI, plus a Pushgateway + Prometheus + Grafana stack for
+.\dev-tools\cluster\FileReadWordCountTopo-cluster.yaml:23: # with two supervisors, separate containers), so inter-worker tuple traffic
+.\dev-tools\cluster\README.md:4: Nimbus + two Supervisors + UI** plus an observability stack (**Pushgateway +
+.\dev-tools\cluster\README.md:7: Two supervisors with **2 worker slots each (4 slots total)** are intentional: a
+.\dev-tools\cluster\README.md:168: may time out. With both supervisors delayed by `D`, worker round-trip latency is
+.\dev-tools\cluster\README.md:207: The pushed series are cluster-level (not per-topology): `summary_cluster_num_supervisors`,
+.\dev-tools\cluster\storm.yaml:25: # Two slots per supervisor. With two supervisors that is four worker slots,
+.\docs\Cluster-State-Serialization.md:107: 1. **Roll Nimbus and Supervisors onto the new build.** The bridge
+.\docs\Cluster-State-Serialization.md:148: cluster across Nimbus, Supervisors and workers: heartbeats do not
+.\docs\Cluster-State-Serialization.md:152: replaced on the next report interval; supervisors rewrite their
+.\docs\ClusterMetrics.md:25: | cluster:num-supervisors | gauge | Number of supervisors. |
+.\docs\ClusterMetrics.md:45: | supervisors:fragmented-cpu | histogram | fragmented cpu per supervisor (% of a core) |
+.\docs\ClusterMetrics.md:46: | supervisors:fragmented-mem | histogram | fragmented memory per supervisor (MB) |
+.\docs\ClusterMetrics.md:47: | supervisors:num-used-workers | histogram | workers used per supervisor |
+.\docs\ClusterMetrics.md:48: | supervisors:num-workers | histogram | number of workers per supervisor |
+.\docs\ClusterMetrics.md:49: | supervisors:uptime-secs | histogram | uptime of supervisors |
+.\docs\ClusterMetrics.md:50: | supervisors:used-cpu | histogram | cpu used per supervisor (% of a core) |
+.\docs\ClusterMetrics.md:51: | supervisors:used-mem | histogram | memory used per supervisor MB |
+.\docs\ClusterMetrics.md:66: | nimbus:num-blacklisted-supervisor | gauge | Number of supervisors currently marked as blacklisted because they appear to be somewhat unstable. |
+... truncated after first 30 matches ...
+
+===== topologies =====
+MATCHES: 256
+.\DEVELOPER.md:357: If you are testing topologies that do not do full tuple acking, then you should be testing using the "tracked
+.\DEVELOPER.md:358: topologies" utilities in `org.apache.storm.testing.TrackedTopology` (see also `org.apache.storm.Testing`). The key is the
+.\DEVELOPER.md:361: tracked topologies for topologies that have tick tuples.
+.\SECURITY.md:49: doing, but also manipulate running topologies.  In general these processes should
+.\SECURITY.md:67: The servlet filters are preferred because they allow individual topologies to
+.\SECURITY.md:384: Be aware that many of the features of this scheduler rely on storm authentication.  Without storm authentication, the scheduler will not know what the user is, and thus will not isolate topologies properly.
+.\SECURITY.md:386: The goal of the multi-tenant scheduler is to provide a way to isolate topologies from one another, but it also allows you to limit the total resources that an individual user can have in the cluster.
+.\SECURITY.md:392: * `multitenant.scheduler.user.pools`: a map from the user name to the maximum number of nodes that the user is guaranteed to be able to use for their topologies.
+.\SECURITY.md:403: By default storm runs workers as the user that is running the supervisor.  This is not ideal for security.  To make storm run the topologies as the user that launched them set.
+.\SECURITY.md:465: Individual topologies have the ability to push credentials (tickets and tokens) to workers so that they can access secure services.  Exposing this to all of the users can be a pain for them.
+.\SECURITY.md:472: In addition Nimbus itself can be used to get credentials on behalf of the user submitting topologies. This can be configures using:
+.\SECURITY.md:485: The Logviewer daemon now is also responsible for cleaning up old log files for dead topologies.
+.\dev-tools\cluster\docker-compose.yml:74: - "127.0.0.1:6627:6627"   # Thrift, for submitting topologies from the host
+.\dev-tools\cluster\README.md:49: | `storm-client.yaml` | Client config to submit topologies from the host (e.g. from IntelliJ). |
+.\dev-tools\cluster\README.md:103: | Storm UI | http://localhost:8080 | topologies, workers, capacity |
+.\dev-tools\cluster\README.md:106: | Nimbus Thrift | localhost:6627 | submit topologies from the host |
+.\dev-tools\cluster\README.md:208: `summary_cluster_num_topologies`, `summary_cluster_num_total_workers`,
+.\dev-tools\cluster\README.md:211: `summary_topologies_assigned_*` histograms. Quick check:
+.\dev-tools\cluster\README.md:268: Bump `worker.childopts` / `*.childopts` for heavier topologies.
+.\dev-tools\cluster\storm-client.yaml:16: # CLIENT-side config for submitting topologies to the local docker cluster from
+.\docs\Classpath-handling.md:23: You might have noticed the overlap between the first mechanism and the others. If you consider the `--jar` / `--artifacts` option versus the `extlib/` / `STORM_EXT_CLASSPATH` it is not obvious which one you should choose for using dependencies with your Worker processes. i.e., both mechanisms allow including JARs to be used for running your Worker processes. Here is my understanding of the difference: `--jar` / `--artifacts` will result in the dependencies being used for running the `storm jar/sql` command, *and* the dependencies will be uploaded and available in the classpath of the topology's `Worker` processes. Whereas the use of `extlib/` / `STORM_EXT_CLASSPATH` requires you to have distributed your JAR dependencies out to all Worker nodes.  Another difference is that `extlib/` / `STORM_EXT_CLASSPATH` would impact all topologies, whereas `--jar` / `--artifacts` is a topology-specific option.
+.\docs\ClusterMetrics.md:26: | cluster:num-topologies | gauge | Number of topologies. |
+.\docs\ClusterMetrics.md:31: | topologies:assigned-cpu | histogram | CPU scheduled per topology (% of a core) |
+.\docs\ClusterMetrics.md:32: | topologies:assigned-mem-off-heap | histogram | Off heap memory scheduled per topology (MB) |
+.\docs\ClusterMetrics.md:33: | topologies:assigned-mem-on-heap | histogram | On heap memory scheduled per topology (MB) |
+.\docs\ClusterMetrics.md:34: | topologies:num-executors | histogram | Number of executors per topology. |
+.\docs\ClusterMetrics.md:35: | topologies:num-tasks | histogram | Number of tasks per topology. |
+.\docs\ClusterMetrics.md:36: | topologies:num-workers | histogram | Number of workers per topology. |
+.\docs\ClusterMetrics.md:37: | topologies:replication-count | histogram | Replication count per topology. |
+.\docs\ClusterMetrics.md:38: | topologies:requested-cpu | histogram | CPU requested per topology  (% of a core). |
+... truncated after first 30 matches ...
+
+===== slotsTotal =====
+MATCHES: 6
+.\docs\STORM-UI-REST-API.md:94: |slotsTotal| Integer|Total number of available worker slots|
+.\docs\STORM-UI-REST-API.md:113: "slotsTotal": 4,
+.\docs\STORM-UI-REST-API.md:140: |slotsTotal| Integer| Total number of available worker slots for this supervisor|
+.\docs\STORM-UI-REST-API.md:158: "slotsTotal": 4,
+.\docs\STORM-UI-REST-API.md:260: |slotsTotal| Integer| Total number of worker slots for this supervisor|
+.\docs\STORM-UI-REST-API.md:300: "slotsTotal":4,
+
+===== slotsUsed =====
+MATCHES: 6
+.\docs\STORM-UI-REST-API.md:95: |slotsUsed| Integer| Number of worker slots used|
+.\docs\STORM-UI-REST-API.md:114: "slotsUsed": 3,
+.\docs\STORM-UI-REST-API.md:141: |slotsUsed| Integer| Number of worker slots used on this supervisor|
+.\docs\STORM-UI-REST-API.md:159: "slotsUsed": 3,
+.\docs\STORM-UI-REST-API.md:261: |slotsUsed| Integer| Number of worker slots used on this supervisor|
+.\docs\STORM-UI-REST-API.md:298: "slotsUsed":2,
+
+===== slotsFree =====
+MATCHES: 2
+.\docs\STORM-UI-REST-API.md:96: |slotsFree| Integer |Number of worker slots available|
+.\docs\STORM-UI-REST-API.md:115: "slotsFree": 1,
+
+===== executorsTotal =====
+MATCHES: 12
+.\docs\STORM-UI-REST-API.md:97: |executorsTotal| Integer |Total number of executors|
+.\docs\STORM-UI-REST-API.md:116: "executorsTotal": 28,
+.\docs\STORM-UI-REST-API.md:277: |executorsTotal | Integer | Number of executors used by the topology in this worker|
+.\docs\STORM-UI-REST-API.md:317: "executorsTotal":8,
+.\docs\STORM-UI-REST-API.md:335: "executorsTotal":10,
+.\docs\STORM-UI-REST-API.md:415: |executorsTotal| Integer |Number of executors used for this topology|
+.\docs\STORM-UI-REST-API.md:440: "executorsTotal": 28,
+.\docs\STORM-UI-REST-API.md:514: |executorsTotal| Integer |Number of executors used for this topology|
+.\docs\STORM-UI-REST-API.md:542: |workers.executorsTotal | Integer | Number of executors used by the topology in this worker|
+.\docs\STORM-UI-REST-API.md:606: "executorsTotal": 28,
+.\docs\STORM-UI-REST-API.md:626: "executorsTotal": 15,
+.\docs\STORM-UI-REST-API.md:681: "executorsTotal":8,
+
+===== tasksTotal =====
+MATCHES: 6
+.\docs\STORM-UI-REST-API.md:98: |tasksTotal| Integer |Total tasks|
+.\docs\STORM-UI-REST-API.md:117: "tasksTotal": 28,
+.\docs\STORM-UI-REST-API.md:413: |tasksTotal| Integer |Total number of tasks for this topology|
+.\docs\STORM-UI-REST-API.md:438: "tasksTotal": 28,
+.\docs\STORM-UI-REST-API.md:512: |tasksTotal| Integer |Total number of tasks for this topology|
+.\docs\STORM-UI-REST-API.md:605: "tasksTotal": 28,
+
+===== total memory =====
+MATCHES: 7
+.\docs\ClusterMetrics.md:44: | nimbus:total-memory | gauge | total memory on the cluster MB |
+.\docs\STORM-UI-REST-API.md:143: |totalMem| Double| Total memory capacity on this supervisor|
+.\docs\STORM-UI-REST-API.md:263: |totalMem| Double| Total memory capacity on this supervisor|
+.\docs\STORM-UI-REST-API.md:356: |totalMemoryUsage|Double|Total Memory Assigned on behalf of owner in MB
+.\docs\STORM-UI-REST-API.md:365: |totalReqMem|Double|Total Memory Requested by User in MB
+.\docs\STORM-UI-REST-API.md:419: |requestedTotalMem| Double|Requested Total Memory by User (MB)|
+.\docs\STORM-UI-REST-API.md:423: |assignedTotalMem| Double|Assigned Total Memory by Scheduler (MB)|
+
+===== available memory =====
+MATCHES: 4
+.\docs\ClusterMetrics.md:108: | nimbus:total-available-memory-non-negative | gauge | available memory on the cluster MB |
+.\docs\Resource_Aware_Scheduler_overview.md:150: A storm administrator can specify how much available memory a node has in megabytes adding the following to *storm.yaml*
+.\docs\Resource_Aware_Scheduler_overview.md:426: Originally the getBestClustering algorithm for RAS finds the "Best" rack based on which rack has the "most available" resources by finding the rack with the biggest sum of available memory + available across all nodes in the rack. This method is not very accurate since memory and cpu usage agree values on a different scale and the values are not normalized. This method is also not effective since it does not consider the number of slots available and it fails to identifying racks that are not schedulable due to the exhaustion of one of the resources either memory, cpu, or slots. Also the previous method does not consider failures of workers. When executors of a topology gets unassigned and needs to be scheduled again, the current logic in getBestClustering may be inadequate since it will likely return a cluster that is different from where the majority of executors from the topology is originally scheduling in.
+.\docs\STORM-UI-REST-API.md:102: |availMem| Double | The amount of available memory in the cluster in MB|
+
+===== total cpu =====
+MATCHES: 5
+.\docs\ClusterMetrics.md:43: | nimbus:total-cpu | gauge | total CPU on the cluster (% of a core) |
+.\docs\STORM-UI-REST-API.md:144: |totalCpu| Double| Total CPU capacity on this supervisor|
+.\docs\STORM-UI-REST-API.md:264: |totalCpu| Double| Total CPU capacity on this supervisor|
+.\docs\STORM-UI-REST-API.md:357: |totalCpuUsage|Double|Total CPU Resource Assigned on behalf of User. Every 100 means 1 core
+.\docs\STORM-UI-REST-API.md:366: |totalReqCpu|Double|Total CPU Resource Requested by User. Every 100 means 1 core
+
+===== available cpu =====
+MATCHES: 4
+.\docs\ClusterMetrics.md:42: | nimbus:available-cpu-non-negative | gauge | Available cpu on the cluster (% of a core). |
+.\docs\Resource_Aware_Scheduler_overview.md:154: A storm administrator can also specify how much available CPU resources a node has available adding the following to *storm.yaml*
+.\docs\Resource_Aware_Scheduler_overview.md:159: Note: that the amount the user can specify for the available CPU is represented using a point system like discussed earlier.
+.\docs\STORM-UI-REST-API.md:103: |availCpu| Double | The amount of available cpu in the cluster|
+
+===== generic resources =====
+MATCHES: 7
+.\docs\Generic-resources.md:2: title: Generic Resources
+.\docs\Generic-resources.md:7: ### Generic Resources
+.\docs\Generic-resources.md:8: Generic Resources allow Storm to reference arbitrary resource types. Generic Resources may be considered an extension of the resources enumerated by the [Resource Aware Scheduler](Resource_Aware_Scheduler_overview.html), which accounts for CPU and memory.
+.\docs\Generic-resources.md:11: For a Storm Topology, the user can now specify the amount of generic resources a topology component (i.e. Spout or Bolt) is required to run a single instance of the component. The user can specify the resource requirement for a topology component by using the following API call.
+.\docs\Generic-resources.md:37: ### Generic Resources in UI
+.\docs\index.md:56: * [Generic Resources](Generic-resources.html)
+.\docs\NUMA.md:80: numa.generic.resources.map: # Generic Resources in the zone to be used for generic resource scheduling (optional)
+
+===== resource scheduler =====
+MATCHES: 0
+NO DOCUMENTATION MATCH
+
+===== owner resource =====
+MATCHES: 0
+NO DOCUMENTATION MATCH
+
+===== owner resources =====
+MATCHES: 0
+NO DOCUMENTATION MATCH
+
+===== resource guarantee =====
+MATCHES: 3
+.\docs\IConfigLoader.md:9: IConfigLoader is an interface designed to allow dynamic loading of scheduler resource constraints. Currently, the MultiTenant scheduler uses this interface to dynamically load the number of isolated nodes a given user has been guaranteed, and the ResoureAwareScheduler uses the interface to dynamically load per user resource guarantees.
+.\docs\Resource_Aware_Scheduler_overview.md:201: The resource guarantees of a user can be specified *conf/user-resource-pools.yaml*.  Specify the resource guarantees of a user in the following format:
+.\docs\Resource_Aware_Scheduler_overview.md:291: * `Guaranteed` is the resource guarantee for this user
+
+===== isolated node =====
+MATCHES: 1
+.\docs\IConfigLoader.md:9: IConfigLoader is an interface designed to allow dynamic loading of scheduler resource constraints. Currently, the MultiTenant scheduler uses this interface to dynamically load the number of isolated nodes a given user has been guaranteed, and the ResoureAwareScheduler uses the interface to dynamically load per user resource guarantees.
+
+===== scheduler =====
+MATCHES: 112
+.\SECURITY.md:378: ### Multi-tenant Scheduler
+.\SECURITY.md:380: To support multi-tenancy better we have written a new scheduler.  To enable this scheduler set:
+.\SECURITY.md:382: storm.scheduler: "org.apache.storm.scheduler.multitenant.MultitenantScheduler"
+.\SECURITY.md:384: Be aware that many of the features of this scheduler rely on storm authentication.  Without storm authentication, the scheduler will not know what the user is, and thus will not isolate topologies properly.
+.\SECURITY.md:386: The goal of the multi-tenant scheduler is to provide a way to isolate topologies from one another, but it also allows you to limit the total resources that an individual user can have in the cluster.
+.\SECURITY.md:388: The scheduler config can be set either through `storm.yaml` or through a separate config file called `multitenant-scheduler.yaml` (which should be placed in the same directory as `storm.yaml`).  Though it *is* preferable to use `multitenant-scheduler.yaml`, because it can be updated without needing to restart nimbus.
+.\SECURITY.md:392: * `multitenant.scheduler.user.pools`: a map from the user name to the maximum number of nodes that the user is guaranteed to be able to use for their topologies.
+.\SECURITY.md:397: multitenant.scheduler.user.pools:
+.\conf\defaults.yaml:96: scheduler.display.resource: false
+.\conf\defaults.yaml:358: # Configs for Resource Aware Scheduler
+.\conf\defaults.yaml:366: topology.scheduler.strategy: "org.apache.storm.scheduler.resource.strategies.scheduling.DefaultResourceAwareStrategy"
+.\conf\defaults.yaml:367: resource.aware.scheduler.priority.strategy: "org.apache.storm.scheduler.resource.strategies.priority.DefaultSchedulingPriorityStrategy"
+.\conf\defaults.yaml:369: resource.aware.scheduler.constraint.max.state.search: 100_000 # Daemon limit on maximum number of states that will be searched looking for a solution in the constraint solver strategy
+.\conf\defaults.yaml:373: blacklist.scheduler.tolerance.time.secs: 300
+.\conf\defaults.yaml:374: blacklist.scheduler.tolerance.count: 3
+.\conf\defaults.yaml:375: blacklist.scheduler.resume.time.secs: 1800
+.\conf\defaults.yaml:376: blacklist.scheduler.reporter: "org.apache.storm.scheduler.blacklist.reporters.LogReporter"
+.\conf\defaults.yaml:377: blacklist.scheduler.strategy: "org.apache.storm.scheduler.blacklist.strategies.DefaultBlacklistStrategy"
+.\conf\defaults.yaml:378: blacklist.scheduler.assume.supervisor.bad.based.on.bad.slot: true
+.\conf\user-resource-pools-example.yaml:17: resource.aware.scheduler.user.pools:
+.\docs\cgroups_in_storm.md:74: | storm.worker.cgroup.memory.mb.limit | The memory limit in MB for each worker.  This can be set on a per supervisor node basis.  This config is used to set the cgroup config memory.limit_in_bytes.  For more details about memory.limit_in_bytes, please visit:  https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Resource_Management_Guide/sec-memory.html.    Please note, if you are using the Resource Aware Scheduler, please do NOT set this config as this config will override the values calculated by the Resource Aware Scheduler |
+.\docs\cgroups_in_storm.md:75: | storm.worker.cgroup.cpu.limit       | The cpu share for each worker. This can be set on a per supervisor node basis.  This config is used to set the cgroup config cpu.share. For more details about cpu.share, please visit:   https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Resource_Management_Guide/sec-cpu.html. Please note, if you are using the Resource Aware Scheduler, please do NOT set this config as this config will override the values calculated by the Resource Aware Scheduler.                                       |
+.\docs\cgroups_in_storm.md:79: ## Integration with Resource Aware Scheduler
+.\docs\cgroups_in_storm.md:81: CGroups can be used in conjunction with the Resource Aware Scheduler.  CGroups will then enforce the resource usage of workers as allocated by the Resource Aware Scheduler.  To use cgroups with the Resource Aware Scheduler, simply enable cgroups and be sure NOT to set storm.worker.cgroup.memory.mb.limit and storm.worker.cgroup.cpu.limit configs.
+.\docs\ClusterMetrics.md:106: | nimbus:scheduler-internal-errors | meter | tracks internal scheduling errors |
+.\docs\Configuration.md:27: when writing a custom scheduler or a plugin to some part of storm.  In those
+.\docs\FAQ.md:14: * Use the isolation scheduler
+.\docs\Generic-resources.md:8: Generic Resources allow Storm to reference arbitrary resource types. Generic Resources may be considered an extension of the resources enumerated by the [Resource Aware Scheduler](Resource_Aware_Scheduler_overview.html), which accounts for CPU and memory.
+.\docs\IConfigLoader.md:9: IConfigLoader is an interface designed to allow dynamic loading of scheduler resource constraints. Currently, the MultiTenant scheduler uses this interface to dynamically load the number of isolated nodes a given user has been guaranteed, and the ResoureAwareScheduler uses the interface to dynamically load per user resource guarantees.
+.\docs\IConfigLoader.md:11: The following interface is provided for users to create an IConfigLoader instance based on the scheme of the `scheduler.config.loader.uri`.
+... truncated after first 30 matches ...
+
+===== N/A =====
+MATCHES: 9
+.\dev-tools\cluster\docker-compose.yml:169: - "127.0.0.1:3000:3000"   # Grafana -> http://localhost:3000 (admin/admin)
+.\docs\Acking-framework-implementation.md:7: [Storm's acker]({{page.git-blob-base}}/storm-client/src/jvm/org/apache/storm/daemon/Acker.java) tracks completion of each tupletree with a checksum hash: each time a tuple is sent, its value is XORed into the checksum, and each time a tuple is acked its value is XORed in again. If all tuples have been successfully acked, the checksum will be zero (the odds that the checksum will be zero otherwise are vanishingly small).
+.\docs\distcache-blobstore.md:13: extraction, document classification, URL re-writing, location/address detection
+.\docs\Serialization.md:145: rtt min/avg/max/mdev = 18.767/24.353/42.486/9.083 ms
+.\docs\storm-jms-example.md:67: $ [ACTIVEMQ_HOME]/bin/activemq
+.\docs\storm-kafka-client.md:336: | **Setting:** `socketTimeoutMs`<br><br> **Default:** `10000` | **N/A** ||
+.\docs\storm-kafka-client.md:339: | **Setting:** `maxOffsetBehind`<br><br> Specifies how long a spout attempts to retry the processing of a failed tuple. One of the scenarios is when a failing tuple's offset is more than `maxOffsetBehind` behind the acked offset, the spout stops retrying the tuple.<br>**Default:** `LONG.MAX_VALUE`| **N/A** ||
+.\docs\STORM-UI-REST-API.md:382: "isolatedNodes": "N/A",
+.\docs\Structure-of-the-codebase.md:95: [org.apache.storm.daemon.Acker]({{page.git-blob-base}}/storm-client/src/jvm/org/apache/storm/daemon/Acker.java): Implementation of the "acker" bolt, which is a key part of how Storm guarantees data processing.

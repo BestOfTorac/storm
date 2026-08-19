@@ -1,0 +1,4 @@
+public static java.util.Map<java.lang.String, java.lang.Object> getClusterSummary(org.apache.storm.generated.ClusterSummary, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>);
+public static java.util.Map<java.lang.String, java.lang.Object> getOwnerResourceSummaries(java.util.List<org.apache.storm.generated.OwnerResourceSummary>, java.util.Map<java.lang.String, java.lang.Object>);
+public static java.util.Map<java.lang.String, java.lang.Object> getOwnerResourceSummary(java.util.List<org.apache.storm.generated.OwnerResourceSummary>, org.apache.storm.generated.Nimbus$Iface, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> unpackOwnerResourceSummary(org.apache.storm.generated.OwnerResourceSummary);

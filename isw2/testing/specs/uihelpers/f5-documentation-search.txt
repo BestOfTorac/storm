@@ -1,0 +1,11 @@
+===== getClusterSummary =====
+NO DOCUMENTATION MATCH
+
+===== unpackOwnerResourceSummary =====
+NO DOCUMENTATION MATCH
+
+===== getOwnerResourceSummaries =====
+.\docs\ClusterMetrics.md:78: | nimbus:num-getOwnerResourceSummaries-calls | meter | calls to getOwnerResourceSummaries thrift method. |
+
+===== getOwnerResourceSummary =====
+NO DOCUMENTATION MATCH

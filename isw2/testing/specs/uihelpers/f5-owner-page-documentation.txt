@@ -1,0 +1,140 @@
+============================================================
+OWNER RESOURCES FULL CONTINUATION
+============================================================
+  343: ### /api/v1/owner-resources (GET)
+  344:
+  345: Returns summary information aggregated at the topology owner level. Pass an optional id for a specific owner (e.g. /api/v1/owner-resources/theowner)
+  346:
+  347: Response fields:
+  348:
+  349: |Field  |Value|Description|
+  350: |---	|---	|---
+  351: |owner  |String |Topology owner
+  352: |totalTopologies|Integer|Total number of topologies owner is running
+  353: |totalExecutors |Integer|Total number of executors used by owner
+  354: |totalWorkers |Integer|Total number of workers used by owner
+  355: |totalTasks|Integer|Total number of tasks used by owner
+  356: |totalMemoryUsage|Double|Total Memory Assigned on behalf of owner in MB
+  357: |totalCpuUsage|Double|Total CPU Resource Assigned on behalf of User. Every 100 means 1 core
+  358: |memoryGuarantee|Double|The amount of memory resource (in MB) guaranteed to owner
+  359: |cpuGuarantee|Double|The amount of CPU resource (every 100 means 1 core) guaranteed to owner
+  360: |isolatedNodes|Integer|The amount of nodes that are guaranteed isolated to owner
+  361: |memoryGuaranteeRemaining|Double|The amount of guaranteed memory resources (in MB) remaining
+  362: |cpuGuaranteeRemaining|Double|The amount of guaranteed CPU resource (every 100 means 1 core) remaining
+  363: |totalReqOnHeapMem|Double| Total On-Heap Memory Requested by User in MB
+  364: |totalReqOffHeapMem|Double|Total Off-Heap Memory Requested by User in MB
+  365: |totalReqMem|Double|Total Memory Requested by User in MB
+  366: |totalReqCpu|Double|Total CPU Resource Requested by User. Every 100 means 1 core
+  367: |totalAssignedOnHeapMem|Double|Total On-Heap Memory Assigned on behalf of owner in MB
+  368: |totalAssignedOffHeapMem|Double|Total Off-Heap Memory Assigned on behalf of owner in MB
+  369:
+  370: Sample response:
+  371:
+  372: ```json
+  373: {
+  374:     "owners": [
+  375:         {
+  376:             "totalReqOnHeapMem": 896,
+  377:             "owner": "ownerA",
+  378:             "totalExecutors": 7,
+  379:             "cpuGuaranteeRemaining": 30,
+  380:             "totalReqMem": 896,
+  381:             "cpuGuarantee": 100,
+  382:             "isolatedNodes": "N/A",
+  383:             "memoryGuarantee": 4000,
+  384:             "memoryGuaranteeRemaining": 3104,
+  385:             "totalTasks": 7,
+  386:             "totalMemoryUsage": 896,
+  387:             "totalReqOffHeapMem": 0,
+  388:             "totalReqCpu": 70,
+  389:             "totalWorkers": 2,
+  390:             "totalCpuUsage": 70,
+  391:             "totalAssignedOffHeapMem": 0,
+  392:             "totalAssignedOnHeapMem": 896,
+  393:             "totalTopologies": 1
+  394:         }
+  395:     ],
+  396:     "schedulerDisplayResource": true
+  397: }
+  398: ```
+  399:
+  400: ### /api/v1/topology/summary (GET)
+  401:
+  402: Returns summary information for all topologies.
+  403:
+  404: Response fields:
+  405:
+  406: |Field  |Value | Description|
+  407: |---	|---	|---
+  408: |id| String| Topology Id|
+  409: |name| String| Topology Name|
+  410: |status| String| Topology Status|
+  411: |uptime| String|  Shows how long the topology is running|
+  412: |uptimeSeconds| Integer|  Shows how long the topology is running in seconds|
+  413: |tasksTotal| Integer |Total number of tasks for this topology|
+  414: |workersTotal| Integer |Number of workers used for this topology|
+  415: |executorsTotal| Integer |Number of executors used for this topology|
+  416: |replicationCount| Integer |Number of nimbus hosts on which this topology code is replicated|
+  417: |requestedMemOnHeap| Double|Requested On-Heap Memory by User (MB)
+  418: |requestedMemOffHeap| Double|Requested Off-Heap Memory by User (MB)|
+  419: |requestedTotalMem| Double|Requested Total Memory by User (MB)|
+  420: |requestedCpu| Double|Requested CPU by User (%)|
+  421: |assignedMemOnHeap| Double|Assigned On-Heap Memory by Scheduler (MB)|
+  422: |assignedMemOffHeap| Double|Assigned Off-Heap Memory by Scheduler (MB)|
+  423: |assignedTotalMem| Double|Assigned Total Memory by Scheduler (MB)|
+  424: |assignedCpu| Double|Assigned CPU by Scheduler (%)|
+  425: |schedulerDisplayResource| Boolean | Whether to display scheduler resource information|
+  426:
+  427: Sample response:
+  428:
+  429: ```json
+  430: {
+
+============================================================
+SEARCH: owner-resources/
+============================================================
+MATCHES: 1
+  345: Returns summary information aggregated at the topology owner level. Pass an optional id for a specific owner (e.g. /api/v1/owner-resources/theowner)
+
+============================================================
+SEARCH: owner
+============================================================
+MATCHES: 16
+  343: ### /api/v1/owner-resources (GET)
+  345: Returns summary information aggregated at the topology owner level. Pass an optional id for a specific owner (e.g. /api/v1/owner-resources/theowner)
+  351: |owner  |String |Topology owner
+  352: |totalTopologies|Integer|Total number of topologies owner is running
+  353: |totalExecutors |Integer|Total number of executors used by owner
+  354: |totalWorkers |Integer|Total number of workers used by owner
+  355: |totalTasks|Integer|Total number of tasks used by owner
+  356: |totalMemoryUsage|Double|Total Memory Assigned on behalf of owner in MB
+  358: |memoryGuarantee|Double|The amount of memory resource (in MB) guaranteed to owner
+  359: |cpuGuarantee|Double|The amount of CPU resource (every 100 means 1 core) guaranteed to owner
+  360: |isolatedNodes|Integer|The amount of nodes that are guaranteed isolated to owner
+  367: |totalAssignedOnHeapMem|Double|Total On-Heap Memory Assigned on behalf of owner in MB
+  368: |totalAssignedOffHeapMem|Double|Total Off-Heap Memory Assigned on behalf of owner in MB
+  374: "owners": [
+  377: "owner": "ownerA",
+
+============================================================
+SEARCH: topologies
+============================================================
+MATCHES: 8
+  352: |totalTopologies|Integer|Total number of topologies owner is running
+  393: "totalTopologies": 1
+  402: Returns summary information for all topologies.
+  431: "topologies": [
+
+============================================================
+SEARCH: totalTopologies
+============================================================
+MATCHES: 2
+  352: |totalTopologies|Integer|Total number of topologies owner is running
+  393: "totalTopologies": 1
+
+============================================================
+SEARCH: topology owner
+============================================================
+MATCHES: 3
+  345: Returns summary information aggregated at the topology owner level. Pass an optional id for a specific owner (e.g. /api/v1/owner-resources/theowner)
+  351: |owner  |String |Topology owner
