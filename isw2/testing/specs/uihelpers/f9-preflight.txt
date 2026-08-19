@@ -1,0 +1,101 @@
+F9 MINIMAL STRICT BLACK-BOX PREFLIGHT
+HEAD=eabc24b46426a0b3d8b75c9b5bea06bb05c55fef
+RemoteHEAD=eabc24b46426a0b3d8b75c9b5bea06bb05c55fef
+WorkingTree=clean
+ExplicitFrames=11
+TbbGroups=4
+LogicalCases=13
+TargetFinalTests=1_TO_3
+C0Inspected=NO
+
+===== FRAMES =====
+ERRJSON-01 | F9.1 | | ERRJSON-01 | non-empty | client error | supplied exception message exposed |
+ERRJSON-02 | F9.1 | | ERRJSON-02 | non-empty | server error | supplied exception message exposed |
+ERRJSON-03 | F9.1 | | ERRJSON-03 | empty | client error | exception type used as fallback message |
+ERRJSON-04 | F9.1 | | ERRJSON-04 | null | server error | exception type used as fallback message |
+COMPERR-01 | F9.2 | | COMPERR-01 | none | empty component-error collection |
+COMPERR-02 | F9.2 | | COMPERR-02 | one | error details exposed |
+COMPERR-03 | F9.2 | | COMPERR-03 | multiple | all errors exposed in the externally defined ordering |
+COMPERR-04 | F9.2 | | COMPERR-04 | errors on different workers | each error retains its host/port and worker-log information |
+LASTERR-01 | F9.3 | | LASTERR-01 | absent | - | empty/default last-error representation |
+LASTERR-02 | F9.3 | | LASTERR-02 | present | short | supplied error information exposed |
+LASTERR-03 | F9.3 | | LASTERR-03 | present | long | display-oriented last-error text is bounded while error metadata is preserved |
+
+===== T_BB GROUPS =====
+TBB-051 | F9.1 | EXPLICIT_FRAME | 4 | Defined by explicit Category Partition frames
+TBB-052 | F9.2 | EXPLICIT_FRAME | 4 | Defined by explicit Category Partition frames
+TBB-053 | F9.3 | EXPLICIT_FRAME | 3 | Defined by explicit Category Partition frames
+TBB-054 | F9.4 | IMPLICIT_CP_CHOICES | 2 | HTTP error-log link | HTTPS error-log link
+
+===== ERROR PUBLIC API =====
+public static java.util.List getActiveProfileActions(org.apache.storm.generated.Nimbus$Iface, java.lang.String, java.lang.String, java.util.Map) throws org.apache.storm.thrift.TException;
+public static java.util.Map exceptionToJson(java.lang.Exception, int);
+public static java.util.Map<java.lang.String, java.lang.Object> getBuildVisualization(org.apache.storm.generated.Nimbus$Iface, java.util.Map<java.lang.String, java.lang.Object>, java.lang.String, java.lang.String, boolean) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> getComponentPage(org.apache.storm.generated.Nimbus$Iface, java.lang.String, java.lang.String, java.lang.String, boolean, java.lang.String, java.util.Map) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> getOwnerResourceSummary(java.util.List<org.apache.storm.generated.OwnerResourceSummary>, org.apache.storm.generated.Nimbus$Iface, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> getTopologyProfilingDump(org.apache.storm.generated.Nimbus$Iface, java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> getTopologyProfilingDumpHeap(org.apache.storm.generated.Nimbus$Iface, java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> getTopologyProfilingDumpJstack(org.apache.storm.generated.Nimbus$Iface, java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> getTopologyProfilingRestartWorker(org.apache.storm.generated.Nimbus$Iface, java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> getTopologyProfilingStart(org.apache.storm.generated.Nimbus$Iface, java.lang.String, java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> getTopologyProfilingStop(org.apache.storm.generated.Nimbus$Iface, java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> getVisualizationData(org.apache.storm.generated.Nimbus$Iface, java.lang.String, java.lang.String, boolean) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> putTopologyActivate(org.apache.storm.generated.Nimbus$Iface, java.lang.String) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> putTopologyDeactivate(org.apache.storm.generated.Nimbus$Iface, java.lang.String) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> putTopologyDebugActionSpct(org.apache.storm.generated.Nimbus$Iface, java.lang.String, java.lang.String, java.lang.String, java.lang.String) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> putTopologyKill(org.apache.storm.generated.Nimbus$Iface, java.lang.String, java.lang.String) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> putTopologyLogLevel(org.apache.storm.generated.Nimbus$Iface, java.util.Map<java.lang.String, java.util.Map>, java.lang.String) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> putTopologyRebalance(org.apache.storm.generated.Nimbus$Iface, java.lang.String, java.lang.String) throws org.apache.storm.thrift.TException;
+public static void setTopologyProfilingAction(org.apache.storm.generated.Nimbus$Iface, java.lang.String, java.lang.String, java.lang.Long, java.util.Map<java.lang.String, java.lang.Object>, org.apache.storm.generated.ProfileAction) throws org.apache.storm.thrift.TException;
+public static void stormRunJetty(java.lang.Integer, java.lang.Integer, org.apache.storm.daemon.ui.IConfigurator) throws java.lang.Exception;
+public static void stormRunJetty(java.lang.Integer, java.lang.String, java.lang.Integer, java.lang.Integer, org.apache.storm.daemon.ui.IConfigurator) throws java.lang.Exception;
+
+===== REST ERROR DOCUMENTATION =====
+1102: |componentErrors| Array of Errors | List of component errors|
+1103: |componentErrors.errorTime| Long | Timestamp when the exception occurred (Prior to 0.11.0, this field was named 'time'.)|
+1104: |componentErrors.errorHost| String | host name for the error|
+1105: |componentErrors.errorPort| String | port for the error|
+1106: |componentErrors.error| String |Shows the error happened in a component|
+1107: |componentErrors.errorLapsedSecs| Integer | Number of seconds elapsed since the error happened in a component |
+1108: |componentErrors.errorWorkerLogLink| String | Link to the worker log that reported the exception |
+1155: "componentErrors":[{"errorTime": 1406006074000,
+1156: "errorHost": "10.11.1.70",
+1157: "errorPort": 6701,
+1158: "errorWorkerLogLink": "http://10.11.1.7:8000/log?file=worker-6701.log",
+1159: "errorLapsedSecs": 16,
+1160: "error": "java.lang.RuntimeException: java.lang.StringIndexOutOfBoundsException: Some Error\n\tat org.apache.storm.utils.DisruptorQueue.consumeBatchToCursor(DisruptorQueue.java:128)\n\tat org.apache.storm.utils.DisruptorQueue.consumeBatchWhenAvailable(DisruptorQueue.java:99)\n\t...more.."
+1589: ## API errors
+1591: The API returns 500 HTTP status codes in case of any errors.
+1600: In all cases DRPC does not have state, so if your request times out or results in an error please retry the request, but preferably with an exponential backoff to avoid doing a
+557: |spouts.lastError| String |Shows the last error happened in a spout|
+558: |spouts.errorHost| String | Worker hostname the last error was reported on|
+559: |spouts.errorPort| String | Worker port the last error was reported on|
+560: |spouts.errorTime| Integer | Unix timestamp the last error was reported (seconds since epoch) |
+561: |spouts.errorLapsedSecs| Integer | Number of seconds elapsed since that last error happened in a spout|
+562: |spouts.errorWorkerLogLink| String | Link to the worker log that reported the exception |
+577: |bolts.lastError| String |Shows the last error occurred in the bolt|
+578: |bolts.errorHost| String | Worker hostname the last error was reported on|
+579: |bolts.errorPort| String | Worker port the last error was reported on|
+580: |bolts.errorTime| Integer | Unix timestamp the last error was reported (seconds since epoch) |
+581: |bolts.errorLapsedSecs| Integer |Number of seconds elapsed since that last error happened in a bolt|
+582: |bolts.errorWorkerLogLink| String | Link to the worker log that reported the exception |
+67: "topology.max.error.report.per.interval": 5,
+695: "lastError": "",
+696: "errorHost": "",
+697: "errorPort": null,
+698: "errorWorkerLogLink": "",
+699: "errorTime": null,
+700: "errorLapsedSecs": null,
+715: "lastError": "",
+716: "errorHost": "",
+717: "errorPort": null,
+718: "errorWorkerLogLink": "",
+719: "errorTime": null,
+720: "errorLapsedSecs": null,
+734: "lastError": "java.lang.RuntimeException: Error here! at org.apache.storm.starter.bolt.WordCountBolt.nextTuple(WordCountBolt.java:50) at org.apache.storm.executor.bolt.BoltExecutor$2.call",
+735: "errorHost": "192.168.10.237",
+736: "errorPort": 6707,
+737: "errorWorkerLogLink": "http://192.168.10.237:8000/api/v1/log?file=WordCount3-1-1402960825%2F6707%2Fworker.log",
+738: "errorTime": 1597626060,
+739: "errorLapsedSecs": 65,
+750: "topology.max.error.report.per.interval": 5,
