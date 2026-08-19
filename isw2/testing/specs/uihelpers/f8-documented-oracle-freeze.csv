@@ -1,0 +1,3 @@
+﻿"CaseId","Method","OracleType","Input","Expected","Evidence","C0Inspected"
+"STATWIN-02","getStatDisplayMap","DOCUMENTED_PROPERTY",":all-time -> 11.0","All time -> 11.0","STORM-UI-REST-API.md documents :all-time with windowPretty All time.","NO"
+"STATWIN-03","getStatDisplayMap","DOCUMENTED_PROPERTY","600 -> 22.0","10m 0s -> 22.0","STORM-UI-REST-API.md documents window 600 with windowPretty 10m 0s.","NO"

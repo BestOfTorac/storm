@@ -1,0 +1,128 @@
+F8 STRICT BLACK-BOX PREFLIGHT
+Branch=isw2-project
+HEAD=597a7149a7ed3a118a3929f309693a410443b8d4
+RemoteHEAD=597a7149a7ed3a118a3929f309693a410443b8d4
+WorkingTree=clean
+ExplicitFrames=25
+TbbGroups=9
+LogicalCases=35
+
+===== FRAMES =====
+STATWIN-01 | F8.1 | | STATWIN-01 | empty | empty result |
+STATWIN-02 | F8.1 | | STATWIN-02 | `:all-time` only | value associated with `All time` |
+STATWIN-03 | F8.1 | | STATWIN-03 | numeric window only | value associated with formatted duration |
+STATWIN-04 | F8.1 | | STATWIN-04 | mixed windows | all values preserved under formatted keys |
+EXECSTAT-01 | F8.3 | | EXECSTAT-01 | absent | host, port and uptime exposed; transferred value absent/null |
+EXECSTAT-02 | F8.3 | | EXECSTAT-02 | present but empty | empty transferred-stat representation |
+EXECSTAT-03 | F8.3 | | EXECSTAT-03 | present and non-empty | sanitized transferred statistics exposed |
+BEXEC-01 | F8.5 | | BEXEC-01 | empty | exclude | empty result |
+BEXEC-02 | F8.5 | | BEXEC-02 | one Bolt | exclude | Bolt grouped by component identifier |
+BEXEC-03 | F8.5 | | BEXEC-03 | several same Bolt | exclude | all executors grouped under same component |
+BEXEC-04 | F8.5 | | BEXEC-04 | multiple Bolts | exclude | independent groups |
+BEXEC-05 | F8.5 | | BEXEC-05 | Bolt plus non-Bolt | exclude | only Bolt executors represented |
+BEXEC-06 | F8.5 | | BEXEC-06 | system Bolt present | exclude/include | system visibility follows requested mode |
+BOLT-01 | F8.7 | | BOLT-01 | empty | empty | empty | empty | none | all Bolt collections empty |
+BOLT-02 | F8.7 | | BOLT-02 | one | empty | empty | empty | none | aggregate Bolt statistics exposed |
+BOLT-03 | F8.7 | | BOLT-03 | one | present | present | present | none | complete Bolt statistical view exposed |
+BOLT-04 | F8.7 | | BOLT-04 | multiple | present | present | present | present | statistics and component errors both exposed |
+SPOUT-01 | F8.8 | | SPOUT-01 | empty | empty | empty | none | all Spout collections empty |
+SPOUT-02 | F8.8 | | SPOUT-02 | one | empty | empty | none | aggregate Spout statistics exposed |
+SPOUT-03 | F8.8 | | SPOUT-03 | one | present | present | none | complete Spout statistical view exposed |
+SPOUT-04 | F8.8 | | SPOUT-04 | multiple | present | present | present | statistics and component errors both exposed |
+COMP-01 | F8.9 | | COMP-01 | Bolt | zero | absent | absent | common Bolt page fields plus Bolt-specific collections |
+COMP-02 | F8.9 | | COMP-02 | Bolt | positive | enabled | present | full Bolt page with debug/event metadata |
+COMP-03 | F8.9 | | COMP-03 | Spout | zero | absent | absent | common Spout page fields plus Spout-specific collections |
+COMP-04 | F8.9 | | COMP-04 | Spout | positive | disabled | present | full Spout page with event metadata |
+
+===== T_BB GROUPS =====
+TBB-042 | F8.1 | EXPLICIT_FRAME | 4 | Defined by explicit Category Partition frames
+TBB-043 | F8.2 | IMPLICIT_CP_CHOICES | 3 | empty map | one window with stream requiring sanitization | multiple windows with mixed stream identifiers
+TBB-044 | F8.3 | EXPLICIT_FRAME | 3 | Defined by explicit Category Partition frames
+TBB-045 | F8.4 | IMPLICIT_CP_CHOICES | 2 | valid stream identifier | stream identifier requiring sanitization
+TBB-046 | F8.5 | EXPLICIT_FRAME | 6 | Defined by explicit Category Partition frames
+TBB-047 | F8.6 | IMPLICIT_CP_CHOICES | 5 | empty | one Spout | multiple executors for one Spout | multiple Spouts | mixed Spout/non-Spout components
+TBB-048 | F8.7 | EXPLICIT_FRAME | 4 | Defined by explicit Category Partition frames
+TBB-049 | F8.8 | EXPLICIT_FRAME | 4 | Defined by explicit Category Partition frames
+TBB-050 | F8.9 | EXPLICIT_FRAME | 4 | Defined by explicit Category Partition frames
+
+===== PUBLIC API CANDIDATES =====
+public static boolean isSecureLogviewer(java.util.Map<java.lang.String, java.lang.Object>);
+public static int getLogviewerPort(java.util.Map<java.lang.String, java.lang.Object>);
+public static jakarta.ws.rs.core.Response makeStandardResponse(java.lang.Object, java.lang.String);
+public static jakarta.ws.rs.core.Response makeStandardResponse(java.lang.Object, java.lang.String, boolean, jakarta.ws.rs.core.Response$Status);
+public static jakarta.ws.rs.core.Response makeStandardResponse(java.lang.Object, java.lang.String, jakarta.ws.rs.core.Response$Status);
+public static java.lang.String getJsonResponseBody(java.lang.Object, java.lang.String, boolean);
+public static java.lang.String getLogviewerLink(java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>, int);
+public static java.lang.String getNimbusLogLink(java.lang.String, java.util.Map<java.lang.String, java.lang.Object>);
+public static java.lang.String getSupervisorLogLink(java.lang.String, java.util.Map<java.lang.String, java.lang.Object>);
+public static java.lang.String getWindowHint(java.lang.String);
+public static java.lang.String getWorkerDumpLink(java.lang.String, long, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>);
+public static java.lang.String getWorkerLogLink(java.lang.String, int, java.util.Map<java.lang.String, java.lang.Object>, java.lang.String);
+public static java.lang.String prettyExecutorInfo(org.apache.storm.generated.ExecutorInfo);
+public static java.lang.String prettyUptimeMs(int);
+public static java.lang.String prettyUptimeMs(java.lang.String);
+public static java.lang.String prettyUptimeSec(int);
+public static java.lang.String prettyUptimeSec(java.lang.String);
+public static java.lang.String prettyUptimeStr(java.lang.String, java.lang.Object[][]);
+public static java.lang.String sanitizeStreamName(java.lang.String);
+public static java.lang.String urlFormat(java.lang.String, java.lang.Object...);
+public static java.lang.String wrapJsonInCallback(java.lang.String, java.lang.String);
+public static java.util.List getActiveProfileActions(org.apache.storm.generated.Nimbus$Iface, java.lang.String, java.lang.String, java.util.Map) throws org.apache.storm.thrift.TException;
+public static java.util.List<java.util.Map> getWorkerSummaries(org.apache.storm.generated.SupervisorPageInfo, java.util.Map<java.lang.String, java.lang.Object>);
+public static java.util.Map exceptionToJson(java.lang.Exception, int);
+public static java.util.Map getJsonResponseHeaders(java.lang.String, java.util.Map);
+public static java.util.Map<java.lang.String, java.lang.Double> getStatDisplayMap(java.util.Map<java.lang.String, java.lang.Double>);
+public static java.util.Map<java.lang.String, java.lang.Object> getActiveAction(org.apache.storm.generated.ProfileRequest, java.util.Map, java.lang.String);
+public static java.util.Map<java.lang.String, java.lang.Object> getAllTopologiesSummary(java.util.List<org.apache.storm.generated.TopologySummary>, java.util.Map<java.lang.String, java.lang.Object>);
+public static java.util.Map<java.lang.String, java.lang.Object> getBuildVisualization(org.apache.storm.generated.Nimbus$Iface, java.util.Map<java.lang.String, java.lang.Object>, java.lang.String, java.lang.String, boolean) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> getClusterSummary(org.apache.storm.generated.ClusterSummary, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>);
+public static java.util.Map<java.lang.String, java.lang.Object> getComponentPage(org.apache.storm.generated.Nimbus$Iface, java.lang.String, java.lang.String, java.lang.String, boolean, java.lang.String, java.util.Map) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> getInputMap(java.util.Map$Entry<org.apache.storm.generated.GlobalStreamId, org.apache.storm.generated.Grouping>);
+public static java.util.Map<java.lang.String, java.lang.Object> getNimbusSummary(org.apache.storm.generated.ClusterSummary, java.util.Map<java.lang.String, java.lang.Object>);
+public static java.util.Map<java.lang.String, java.lang.Object> getOwnerResourceSummaries(java.util.List<org.apache.storm.generated.OwnerResourceSummary>, java.util.Map<java.lang.String, java.lang.Object>);
+public static java.util.Map<java.lang.String, java.lang.Object> getOwnerResourceSummary(java.util.List<org.apache.storm.generated.OwnerResourceSummary>, org.apache.storm.generated.Nimbus$Iface, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> getPrettifiedSupervisorMap(org.apache.storm.generated.SupervisorSummary, java.util.Map<java.lang.String, java.lang.Object>);
+public static java.util.Map<java.lang.String, java.lang.Object> getProfilingDisabled();
+public static java.util.Map<java.lang.String, java.lang.Object> getStatMapFromExecutorSummary(org.apache.storm.generated.ExecutorSummary);
+public static java.util.Map<java.lang.String, java.lang.Object> getStreamBox(java.lang.Object);
+public static java.util.Map<java.lang.String, java.lang.Object> getSupervisorPageInfo(org.apache.storm.generated.SupervisorPageInfo, java.util.Map<java.lang.String, java.lang.Object>);
+public static java.util.Map<java.lang.String, java.lang.Object> getSupervisorSummary(java.util.List<org.apache.storm.generated.SupervisorSummary>, jakarta.ws.rs.core.SecurityContext, java.util.Map<java.lang.String, java.lang.Object>);
+public static java.util.Map<java.lang.String, java.lang.Object> getTopolgoyLogConfig(org.apache.storm.generated.LogConfig);
+public static java.util.Map<java.lang.String, java.lang.Object> getTopologyHistoryInfo(org.apache.storm.generated.TopologyHistoryInfo);
+public static java.util.Map<java.lang.String, java.lang.Object> getTopologyMap(org.apache.storm.generated.TopologySummary);
+public static java.util.Map<java.lang.String, java.lang.Object> getTopologyOpResponse(java.lang.String, java.lang.String);
+public static java.util.Map<java.lang.String, java.lang.Object> getTopologyProfilingDump(org.apache.storm.generated.Nimbus$Iface, java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> getTopologyProfilingDumpHeap(org.apache.storm.generated.Nimbus$Iface, java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> getTopologyProfilingDumpJstack(org.apache.storm.generated.Nimbus$Iface, java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> getTopologyProfilingRestartWorker(org.apache.storm.generated.Nimbus$Iface, java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> getTopologyProfilingStart(org.apache.storm.generated.Nimbus$Iface, java.lang.String, java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> getTopologyProfilingStop(org.apache.storm.generated.Nimbus$Iface, java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> getTopologySummary(org.apache.storm.generated.TopologyPageInfo, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>, java.lang.String);
+public static java.util.Map<java.lang.String, java.lang.Object> getTopologyWorkers(org.apache.storm.generated.TopologyInfo, java.util.Map);
+public static java.util.Map<java.lang.String, java.lang.Object> getVisualizationData(org.apache.storm.generated.Nimbus$Iface, java.lang.String, java.lang.String, boolean) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> putTopologyActivate(org.apache.storm.generated.Nimbus$Iface, java.lang.String) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> putTopologyDeactivate(org.apache.storm.generated.Nimbus$Iface, java.lang.String) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> putTopologyDebugActionSpct(org.apache.storm.generated.Nimbus$Iface, java.lang.String, java.lang.String, java.lang.String, java.lang.String) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> putTopologyKill(org.apache.storm.generated.Nimbus$Iface, java.lang.String, java.lang.String) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> putTopologyLogLevel(org.apache.storm.generated.Nimbus$Iface, java.util.Map<java.lang.String, java.util.Map>, java.lang.String) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> putTopologyRebalance(org.apache.storm.generated.Nimbus$Iface, java.lang.String, java.lang.String) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> unauthorizedUserJson(java.lang.String);
+public static java.util.Map<java.lang.String, java.lang.Object> unpackBoltPageInfo(org.apache.storm.generated.ComponentPageInfo, java.lang.String, java.lang.String, boolean, java.util.Map);
+public static java.util.Map<java.lang.String, java.lang.Object> unpackOwnerResourceSummary(org.apache.storm.generated.OwnerResourceSummary);
+public static java.util.Map<java.lang.String, java.lang.Object> unpackSpoutPageInfo(org.apache.storm.generated.ComponentPageInfo, java.lang.String, java.lang.String, boolean, java.util.Map);
+public static java.util.Map<java.lang.String, java.util.List<org.apache.storm.generated.ExecutorSummary>> getBoltExecutors(java.util.List<org.apache.storm.generated.ExecutorSummary>, org.apache.storm.generated.StormTopology, boolean);
+public static java.util.Map<java.lang.String, java.util.List<org.apache.storm.generated.ExecutorSummary>> getSpoutExecutors(java.util.List<org.apache.storm.generated.ExecutorSummary>, org.apache.storm.generated.StormTopology);
+public static java.util.Map<java.lang.String, java.util.Map<java.lang.String, java.lang.Long>> sanitizeTransferredStats(java.util.Map<java.lang.String, java.util.Map<java.lang.String, java.lang.Long>>);
+public static java.util.Map<java.lang.String, java.util.Map<java.lang.String, java.lang.Object>> getTopologyLag(org.apache.storm.generated.StormTopology, java.util.Map<java.lang.String, java.lang.Object>);
+public static org.eclipse.jetty.ee10.servlet.FilterHolder corsFilterHandle();
+public static org.eclipse.jetty.ee10.servlet.FilterHolder mkAccessLoggingFilterHandle();
+public static org.eclipse.jetty.server.Server jettyCreateServer(java.lang.Integer, java.lang.String, java.lang.Integer, java.lang.Boolean);
+public static org.eclipse.jetty.server.Server jettyCreateServer(java.lang.Integer, java.lang.String, java.lang.Integer, java.lang.Integer, java.lang.Boolean);
+public static void configFilter(org.eclipse.jetty.server.Server, jakarta.servlet.Servlet, java.util.List<org.apache.storm.daemon.ui.FilterConfiguration>);
+public static void configFilter(org.eclipse.jetty.server.Server, jakarta.servlet.Servlet, java.util.List<org.apache.storm.daemon.ui.FilterConfiguration>, java.util.Map<java.lang.String, java.lang.String>);
+public static void configFilters(org.eclipse.jetty.ee10.servlet.ServletContextHandler, java.util.List<org.apache.storm.daemon.ui.FilterConfiguration>);
+public static void configSsl(org.eclipse.jetty.server.Server, java.lang.Integer, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.Boolean, java.lang.Boolean, boolean);
+public static void configSsl(org.eclipse.jetty.server.Server, java.lang.Integer, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.Boolean, java.lang.Boolean, java.lang.Integer, boolean);
+public static void setTopologyProfilingAction(org.apache.storm.generated.Nimbus$Iface, java.lang.String, java.lang.String, java.lang.Long, java.util.Map<java.lang.String, java.lang.Object>, org.apache.storm.generated.ProfileAction) throws org.apache.storm.thrift.TException;
+public static void stormRunJetty(java.lang.Integer, java.lang.Integer, org.apache.storm.daemon.ui.IConfigurator) throws java.lang.Exception;
+public static void stormRunJetty(java.lang.Integer, java.lang.String, java.lang.Integer, java.lang.Integer, org.apache.storm.daemon.ui.IConfigurator) throws java.lang.Exception;

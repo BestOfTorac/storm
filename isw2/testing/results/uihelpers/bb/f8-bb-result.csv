@@ -1,0 +1,3 @@
+﻿"CaseId","JUnitTest","OracleType","Result","Classification","C0Inspected"
+"STATWIN-02","statwin02FormatsAllTimeWindow","DOCUMENTED_PROPERTY","PASS","CONFORMS_TO_DOCUMENTED_ORACLE","NO"
+"STATWIN-03","statwin03FormatsNumericWindow","DOCUMENTED_PROPERTY","PASS","CONFORMS_TO_DOCUMENTED_ORACLE","NO"

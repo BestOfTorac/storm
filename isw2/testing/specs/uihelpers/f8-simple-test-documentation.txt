@@ -1,0 +1,346 @@
+F8 SIMPLE-TEST DOCUMENTATION DISCOVERY
+C0_INSPECTED=NO
+
+=========================================
+STAT_WINDOWS
+=========================================
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\README.md:59: > **Platform:** Linux or macOS (or Windows via WSL2). The helper scripts are
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\README.md:61: > `tc`/`netem`. Native Windows is not supported yet.
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\docker\README.md:8: This is especially useful for people on Mac OSX or Windows. It also provides a consistent environment for all developers.
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\cgroups_in_storm.md:172: The name of the GC metrics vary based off of the garbage collector you use, but they all start with "GC/".  If you sum up all of the "GC/*.timeMs" metrics for a given worker/window pair
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\FAQ.md:106: 2. per partition, an effective windowing mechanism for windowed stream analytics
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\FAQ.md:127: * Lambda architecture: Record all events into an archival store (S3, HBase, HDFS) on receipt. in the fast layer, once the time window is clear, process the bucket to get an actionable answer, and ignore everything older than the time window. Periodically run a global aggregation to calculate a "correct" answer.
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\index.md:58: * [Windows users guide](windows-users-guide.html)
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\index.md:72: * [Windowing](Windowing.html)
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Joins.md:118: 1. Joins can be CPU and memory intensive. The larger the data accumulated in the current window (proportional to window
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Joins.md:120: joins. Consequently performance can suffer if using large window lengths or small sliding intervals or both.
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Joins.md:122: 2. Duplication of joined records across windows is possible when using Sliding Windows. This is because the tuples continue to exist
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Joins.md:123: across multiple windows when using Sliding Windows.
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Joins.md:126: accommodate the window size, plus the additional processing by other spouts and bolts.
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Joins.md:128: 4. Joining a window of two streams with M and N elements each, *in the worst case*, can produce MxN elements with every output tuple
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Joins.md:136: * Set topology.max.spout.pending to a value large enough to accommodate an estimated full window worth of tuples plus some more for headroom.
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Joins.md:139: * Lastly, keep the window size to the minimum value necessary for solving the problem at hand.
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Joins.md:34: .withTumblingWindow( new Duration(10, TimeUnit.MINUTES) ) ;
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Joins.md:59: The call to `withTumblingWindow()` above, configures the join window to be a 10 minute tumbling window. Since `JoinBolt`
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Joins.md:60: is a Windowed Bolt, we can also use the `withWindow` method to configure it as a sliding window (see tips section below).
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Joins.md:8: `JoinBolt` is a Windowed bolt, i.e. it waits for the configured window duration to match up the
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Joins.md:9: tuples among the streams being joined. This helps align the streams within a Window boundary.
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Joins.md:94: .withTumblingWindow( new Duration(10, TimeUnit.MINUTES) ) ;
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Performance.md:51: for windowing or expiry logic must tolerate an occasional missed tick ? it is not only internal signals that can be dropped.
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Setting-up-a-Storm-cluster.md:62: If you run storm on windows, it could be:
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\STORM-UI-REST-API.md:1073: |window    |String. Default value :all-time| window duration for metrics in seconds|
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\STORM-UI-REST-API.md:1093: |window    |String. Default value "All Time" | window duration for metrics in seconds|
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\STORM-UI-REST-API.md:1095: |windowHint| String | window param value in "hh mm ss" format. Default value is "All Time"|
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\STORM-UI-REST-API.md:1109: |spoutSummary| Array | (only for spouts) Array of component stats, one element per window.|
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\STORM-UI-REST-API.md:1110: |spoutSummary.windowPretty| String |Duration passed in HH:MM:SS format|
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\STORM-UI-REST-API.md:1111: |spoutSummary.window| String | window duration for metrics in seconds|
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\STORM-UI-REST-API.md:1112: |spoutSummary.emitted| Long |Number of messages emitted in given window |
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\STORM-UI-REST-API.md:1114: |spoutSummary.transferred| Long |Total number of messages transferred in given window|
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\STORM-UI-REST-API.md:1117: |boltStats| Array | (only for bolts) Array of component stats, one element per window.|
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\STORM-UI-REST-API.md:1118: |boltStats.windowPretty| String |Duration passed in HH:MM:SS format|
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\STORM-UI-REST-API.md:1119: |boltStats.window| String| window duration for metrics in seconds|
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\STORM-UI-REST-API.md:1120: |boltStats.transferred| Long |Total number of messages  transferred in given window|
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\STORM-UI-REST-API.md:1143: 3. http://ui-daemon-host-name:8080/api/v1/topology/WordCount3-1-1402960825/component/spout?window=600
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\STORM-UI-REST-API.md:1153: "windowHint": "10m 0s",
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\STORM-UI-REST-API.md:1164: "window": "600",
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\STORM-UI-REST-API.md:1177: "windowPretty": "10m 0s",
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\STORM-UI-REST-API.md:1178: "window": "600",
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\STORM-UI-REST-API.md:1186: "windowPretty": "3h 0m 0s",
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\STORM-UI-REST-API.md:1187: "window": "10800",
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\STORM-UI-REST-API.md:1195: "windowPretty": "1d 0h 0m 0s",
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\STORM-UI-REST-API.md:1196: "window": "86400",
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\STORM-UI-REST-API.md:1204: "windowPretty": "All time",
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\STORM-UI-REST-API.md:1205: "window": ":all-time",
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\STORM-UI-REST-API.md:499: |window    |String. Default value :all-time| Window duration for metrics in seconds|
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\STORM-UI-REST-API.md:516: |windowHint| String | window param value in "hh mm ss" format. Default value is "All Time"|
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\STORM-UI-REST-API.md:528: |topologyStats| Array | Array of all the topology related stats per time window|
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\STORM-UI-REST-API.md:529: |topologyStats.windowPretty| String |Duration passed in HH:MM:SS format|
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\STORM-UI-REST-API.md:530: |topologyStats.window| String |User requested time window for metrics|
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\STORM-UI-REST-API.md:531: |topologyStats.emitted| Long |Number of messages emitted in given window|
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\STORM-UI-REST-API.md:532: |topologyStats.trasferred| Long |Number messages transferred in given window|
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\STORM-UI-REST-API.md:534: |topologyStats.acked| Long |Number of messages acked in given window|
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\STORM-UI-REST-API.md:535: |topologyStats.failed| Long |Number of messages failed in given window|
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\STORM-UI-REST-API.md:553: |spouts.emitted| Long |Number of messages emitted in given window |
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\STORM-UI-REST-API.md:555: |spouts.transferred| Long |Total number of messages  transferred in given window|
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\STORM-UI-REST-API.md:570: |bolts.capacity| String (double value returned in String format) |This value indicates number of messages executed * average execute latency / time window|
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\STORM-UI-REST-API.md:593: 3. http://ui-daemon-host-name:8080/api/v1/topology/WordCount3-1-1402960825?window=600
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\STORM-UI-REST-API.md:603: "window": "600",
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\STORM-UI-REST-API.md:610: "windowHint": "10m 0s",
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\STORM-UI-REST-API.md:633: "windowPretty": "10m 0s",
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\STORM-UI-REST-API.md:634: "window": "600",
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\STORM-UI-REST-API.md:642: "windowPretty": "3h 0m 0s",
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\STORM-UI-REST-API.md:643: "window": "10800",
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\STORM-UI-REST-API.md:651: "windowPretty": "1d 0h 0m 0s",
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\STORM-UI-REST-API.md:652: "window": "86400",
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\STORM-UI-REST-API.md:660: "windowPretty": "All time",
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\STORM-UI-REST-API.md:661: "window": ":all-time",
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\STORM-UI-REST-API.md:795: |window    |String. Default value :all-time| window duration for metrics in seconds|
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\STORM-UI-REST-API.md:802: |window    |String. Default value ":all-time" | window duration for metrics in seconds|
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\STORM-UI-REST-API.md:803: |windowHint| String | window param value in "hh mm ss" format. Default value is "All Time"|
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\STORM-UI-REST-API.md:808: |spouts.emitted.value| Long | Number of messages emitted in given window|
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\STORM-UI-REST-API.md:811: |spouts.transferred.value| Long |Number messages transferred in given window|
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\STORM-UI-REST-API.md:814: |spouts.acked.value| Long |Number of messages acked in given window|
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\STORM-UI-REST-API.md:817: |spouts.failed.value| Long |Number of messages failed in given window|
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\STORM-UI-REST-API.md:825: |bolts.emitted.value| Long | Number of messages emitted in given window|
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\STORM-UI-REST-API.md:828: |bolts.transferred.value| Long |Number messages transferred in given window|
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\STORM-UI-REST-API.md:832: |bolts.acked.value| Long |Number of messages acked in given window|
+
+=========================================
+TRANSFERRED_STATS
+=========================================
+C:\Users\torac\Desktop\ISW2-STORM\storm\.asf.yaml:37: - streaming
+C:\Users\torac\Desktop\ISW2-STORM\storm\conf\defaults.yaml:165: storm.blobstore.inputstream.buffer.size.bytes: 65536
+C:\Users\torac\Desktop\ISW2-STORM\storm\conf\defaults.yaml:292: topology.upstream.feedback.freq.secs: 10
+C:\Users\torac\Desktop\ISW2-STORM\storm\conf\defaults.yaml:293: topology.upstream.feedback.enable: false
+C:\Users\torac\Desktop\ISW2-STORM\storm\conf\defaults.yaml:318: # BackPressure Wait Strategy - for any producer (spout/bolt/transfer thread) when the downstream Q is full
+C:\Users\torac\Desktop\ISW2-STORM\storm\DEVELOPER.md:164: your fork up to date with the latest changes of the upstream (official) `storm` repository.
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\grafana\dashboards\storm-metrics-v2.json:114: "legendFormat": "{{host}} {{component}} t{{task}} {{stream}}",
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\grafana\dashboards\storm-metrics-v2.json:562: "legendFormat": "{{host}} {{component}} t{{task}} {{stream}}",
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\grafana\dashboards\storm-metrics-v2.json:58: "legendFormat": "{{host}} {{component}} t{{task}} {{stream}}",
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\graphite\graphite-mapping.yml:101: labels: {topology_id: "$1", host: "$2", component: "$3", stream: "$4", task: "$5", port: "$6", key: "$7"}
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\graphite\graphite-mapping.yml:105: labels: {topology_id: "$1", host: "$2", component: "$3", stream: "$4", task: "$5", port: "$6", key: "$7"}
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\graphite\graphite-mapping.yml:109: labels: {topology_id: "$1", host: "$2", component: "$3", stream: "$4", task: "$5", port: "$6", key: "$7"}
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\graphite\graphite-mapping.yml:111: # ---- TaskMetrics: capacity (RollingAverageGauge over all streams) ----
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\graphite\graphite-mapping.yml:115: labels: {topology_id: "$1", host: "$2", component: "$3", stream: "$4", task: "$5", port: "$6"}
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\graphite\graphite-mapping.yml:122: labels: {topology_id: "$1", host: "$2", component: "$3", stream: "$4", task: "$5", port: "$6", metric: "$7"}
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\graphite\graphite-mapping.yml:126: labels: {topology_id: "$1", host: "$2", component: "$3", stream: "", task: "$4", port: "$5", metric: "$6"}
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\graphite\graphite-mapping.yml:20: #   storm.worker.<stormId>.<host>.<component>.<stream>.<task>.<port>-<metric>   (per-stream)
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\graphite\graphite-mapping.yml:21: #   storm.worker.<stormId>.<host>.<component>.<task>.<port>-<metric>            (no stream)
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\graphite\graphite-mapping.yml:27: # Each TaskMetrics metric is per (component, task, stream); the `key` label holds
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\graphite\graphite-mapping.yml:28: # the metric key -- the own stream for OUTPUT metrics (emit/transfer) or the
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\graphite\graphite-mapping.yml:29: # <sourceComponent>:<sourceStream> for INPUT metrics (execute/ack/fail/latency).
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\graphite\graphite-mapping.yml:37: #   $1 topology_id  $2 host  $3 component  $4 stream  $5 task  $6 port  $7 key
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\graphite\graphite-mapping.yml:43: labels: {topology_id: "$1", host: "$2", component: "$3", stream: "$4", task: "$5", port: "$6", key: "$7"}
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\graphite\graphite-mapping.yml:47: labels: {topology_id: "$1", host: "$2", component: "$3", stream: "$4", task: "$5", port: "$6", key: "$7"}
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\graphite\graphite-mapping.yml:51: labels: {topology_id: "$1", host: "$2", component: "$3", stream: "$4", task: "$5", port: "$6", key: "$7"}
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\graphite\graphite-mapping.yml:55: labels: {topology_id: "$1", host: "$2", component: "$3", stream: "$4", task: "$5", port: "$6", key: "$7"}
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\graphite\graphite-mapping.yml:59: labels: {topology_id: "$1", host: "$2", component: "$3", stream: "$4", task: "$5", port: "$6", key: "$7"}
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\graphite\graphite-mapping.yml:65: labels: {topology_id: "$1", host: "$2", component: "$3", stream: "$4", task: "$5", port: "$6", key: "$7"}
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\graphite\graphite-mapping.yml:69: labels: {topology_id: "$1", host: "$2", component: "$3", stream: "$4", task: "$5", port: "$6", key: "$7"}
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\graphite\graphite-mapping.yml:73: labels: {topology_id: "$1", host: "$2", component: "$3", stream: "$4", task: "$5", port: "$6", key: "$7"}
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\graphite\graphite-mapping.yml:77: labels: {topology_id: "$1", host: "$2", component: "$3", stream: "$4", task: "$5", port: "$6", key: "$7"}
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\graphite\graphite-mapping.yml:81: labels: {topology_id: "$1", host: "$2", component: "$3", stream: "$4", task: "$5", port: "$6", key: "$7"}
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\graphite\graphite-mapping.yml:87: labels: {topology_id: "$1", host: "$2", component: "$3", stream: "$4", task: "$5", port: "$6", key: "$7"}
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\graphite\graphite-mapping.yml:91: labels: {topology_id: "$1", host: "$2", component: "$3", stream: "$4", task: "$5", port: "$6", key: "$7"}
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\graphite\graphite-mapping.yml:95: labels: {topology_id: "$1", host: "$2", component: "$3", stream: "$4", task: "$5", port: "$6", key: "$7"}
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\README.md:174: > back-pressures the spout to **zero throughput** (you'll see `transferred 0`).
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\README.md:226: stream** for emit/transfer, or the **`sourceComponent:sourceStream`** for the
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\README.md:242: | `storm_capacity` | `__capacity` (over all streams) | RollingAverageGauge (0..1) |
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Acking-framework-implementation.md:13: The acker is actually a regular bolt.  When a new tupletree is born, the spout sends the XORed edge-ids of each tuple recipient, which the acker records in its `pending` ledger. Every time an executor acks a tuple, the acker receives a partial checksum that is the XOR of the tuple's own edge-id (clearing it from the ledger) and the edge-id of each downstream tuple the executor emitted (thus entering them into the ledger).
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Acking-framework-implementation.md:38: Whenever its owner calls `.rotate()`, the RotatingMap advances each cohort one step further towards expiration. (Typically, Storm objects call rotate on every receipt of a system tick stream tuple.) If there are any key-value pairs in the former death row bucket, the RotatingMap invokes a callback (given in the constructor) for each key-value pair, letting its owner take appropriate action (eg, failing a tuple.
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\cgroups_in_storm.md:174: for a near real time streaming system so pay attention to this ratio.
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Cluster-State-Serialization.md:62: | Decompression bound | none                                                    | bounded (`BoundedInputStream`), default 100 MiB     |
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Cluster-State-Serialization.md:93: `org.apache.storm.utils.Utils`) wrap the decompressor stream in an Apache
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Cluster-State-Serialization.md:94: Commons `BoundedInputStream` with `maxCount` set to the configured cap.
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Cluster-State-Serialization.md:95: After draining the bounded stream, the underlying decompressor is probed
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Command-line-client.md:259: Syntax: `storm monitor topology-name [-i interval-secs] [-m component-id] [-s stream-id] [-w [emitted | transferred]]`
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Command-line-client.md:262: One can specify poll-interval, component-id, stream-id, watch-item[emitted | transferred]
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Command-line-client.md:266: stream-id is 'default';
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Common-patterns.md:12: 4. Streaming top N
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Common-patterns.md:19: Oftentimes for efficiency reasons or otherwise, you want to process a group of tuples in batch rather than individually. For example, you may want to batch updates to a database or do a streaming aggregation of some sort.
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Common-patterns.md:44: ### Streaming top N
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Common-patterns.md:46: A common continuous computation done on Storm is a "streaming top N" of some sort. Suppose you have a bolt that emits tuples of the form ["value", "count"] and you want a bolt that emits the top N tuples based on the count. The simplest way to do this is to have a bolt that does a global grouping on the stream and maintains a list in memory of the top N items.
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Common-patterns.md:48: This approach obviously doesn't scale to large streams since the entire stream has to go through one task. A better way to do the computation is to do many top N's in parallel across partitions of the stream, and then merge those top N's together to get the global top N. The pattern looks like this:
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Common-patterns.md:59: If however, you have a known skew in the data being processed it can be advantageous to use partialKeyGrouping instead of fieldsGrouping.  This will distribute the load for each key between two downstream bolts instead of a single one.
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Common-patterns.md:70: The topology needs an extra layer of processing to aggregate the partial counts from the upstream bolts but this only processes aggregated values now so the bolt is not subject to the load caused by the skewed data. You can see an example of this pattern in storm-starter [here]({{page.git-blob-base}}/examples/storm-starter/src/jvm/org/apache/storm/starter/SkewedRollingTopWords.java).
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Common-patterns.md:80: `CoordinatedBolt` wraps the bolt containing your logic and figures out when your bolt has received all the tuples for any given request. It makes heavy use of direct streams to do this.
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Concepts.md:10: 2. Streams
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Concepts.md:107: Each spout or bolt executes as many tasks across the cluster. Each task corresponds to one thread of execution, and stream groupings define how to send tuples from one set of tasks to another set of tasks. You set the parallelism for each spout or bolt in the `setSpout` and `setBolt` methods of [TopologyBuilder](https://javadoc.io/doc/org.apache.storm/storm-client/3.0.0/org/apache/storm/topology/TopologyBuilder.html).
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Concepts.md:13: 5. Stream groupings
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Concepts.md:20: The logic for a realtime application is packaged into a Storm topology. A Storm topology is analogous to a MapReduce job. One key difference is that a MapReduce job eventually finishes, whereas a topology runs forever (or until you kill it, of course). A topology is a graph of spouts and bolts that are connected with stream groupings. These concepts are described below.
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Concepts.md:28: ### Streams
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Concepts.md:30: The stream is the core abstraction in Storm. A stream is an unbounded sequence of tuples that is processed and created in parallel in a distributed fashion. Streams are defined with a schema that names the fields in the stream's tuples. By default, tuples can contain integers, longs, shorts, bytes, strings, doubles, floats, booleans, and byte arrays. You can also define your own serializers so that custom types can be used natively within tuples.
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Concepts.md:32: Every stream is given an id when declared. Since single-stream spouts and bolts are so common, [OutputFieldsDeclarer](https://javadoc.io/doc/org.apache.storm/storm-client/3.0.0/org/apache/storm/topology/OutputFieldsDeclarer.html) has convenience methods for declaring a single stream without specifying an id. In this case, the stream is given the default id of "default".
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Concepts.md:37: * [Tuple](https://javadoc.io/doc/org.apache.storm/storm-client/3.0.0/org/apache/storm/tuple/Tuple.html): streams are composed of tuples
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Concepts.md:38: * [OutputFieldsDeclarer](https://javadoc.io/doc/org.apache.storm/storm-client/3.0.0/org/apache/storm/topology/OutputFieldsDeclarer.html): used to declare streams and their schemas
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Concepts.md:43: A spout is a source of streams in a topology. Generally spouts will read tuples from an external source and emit them into the topology (e.g. a Kestrel queue or the Twitter API). Spouts can either be __reliable__ or __unreliable__. A reliable spout is capable of replaying a tuple if it failed to be processed by Storm, whereas an unreliable spout forgets about the tuple as soon as it is emitted.
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Concepts.md:45: Spouts can emit more than one stream. To do so, declare multiple streams using the `declareStream` method of [OutputFieldsDeclarer](https://javadoc.io/doc/org.apache.storm/storm-client/3.0.0/org/apache/storm/topology/OutputFieldsDeclarer.html) and specify the stream to emit to when using the `emit` method on [SpoutOutputCollector](https://javadoc.io/doc/org.apache.storm/storm-client/3.0.0/org/apache/storm/spout/SpoutOutputCollector.html).
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Concepts.md:60: Bolts can do simple stream transformations. Doing complex stream transformations often requires multiple steps and thus multiple bolts. For example, transforming a stream of tweets into a stream of trending images requires at least two steps: a bolt to do a rolling count of retweets for each image, and one or more bolts to stream out the top X images (you can do this particular stream transformation in a more scalable way with three bolts than with two).
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Concepts.md:62: Bolts can emit more than one stream. To do so, declare multiple streams using the `declareStream` method of [OutputFieldsDeclarer](https://javadoc.io/doc/org.apache.storm/storm-client/3.0.0/org/apache/storm/topology/OutputFieldsDeclarer.html) and specify the stream to emit to when using the `emit` method on [OutputCollector](https://javadoc.io/doc/org.apache.storm/storm-client/3.0.0/org/apache/storm/task/OutputCollector.html).
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Concepts.md:64: When you declare a bolt's input streams, you always subscribe to specific streams of another component. If you want to subscribe to all the streams of another component, you have to subscribe to each one individually. [InputDeclarer](https://javadoc.io/doc/org.apache.storm/storm-client/3.0.0/org/apache/storm/topology/InputDeclarer.html) has syntactic sugar for subscribing to streams declared on the default stream id. Saying `declarer.shuffleGrouping("1")` subscribes to the default stream on component "1" and is equivalent to `declarer.shuffleGrouping("1", DEFAULT_STREAM_ID)`.
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Concepts.md:74: * [OutputCollector](https://javadoc.io/doc/org.apache.storm/storm-client/3.0.0/org/apache/storm/task/OutputCollector.html): bolts emit tuples to their output streams using an instance of this class
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Concepts.md:77: ### Stream groupings
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Concepts.md:79: Part of defining a topology is specifying for each bolt which streams it should receive as input. A stream grouping defines how that stream should be partitioned among the bolt's tasks.
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Concepts.md:81: There are eight built-in stream groupings in Storm, and you can implement a custom stream grouping by implementing the [CustomStreamGrouping](https://javadoc.io/doc/org.apache.storm/storm-client/3.0.0/org/apache/storm/grouping/CustomStreamGrouping.html) interface:
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Concepts.md:84: 2. **Fields grouping**: The stream is partitioned by the fields specified in the grouping. For example, if the stream is grouped by the "user-id" field, tuples with the same "user-id" will always go to the same task, but tuples with different "user-id"'s may go to different tasks.
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Concepts.md:85: 3. **Partial Key grouping**: The stream is partitioned by the fields specified in the grouping, like the Fields grouping, but are load balanced between two downstream bolts, which provides better utilization of resources when the incoming data is skewed. [This paper](https://melmeric.files.wordpress.com/2014/11/the-power-of-both-choices-practical-load-balancing-for-distributed-stream-processing-engines.pdf) provides a good explanation of how it works and the advantages it provides.
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Concepts.md:86: 4. **All grouping**: The stream is replicated across all the bolt's tasks. Use this grouping with care.
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Concepts.md:87: 5. **Global grouping**: The entire stream goes to a single one of the bolt's tasks. Specifically, it goes to the task with the lowest id.
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Concepts.md:88: 6. **None grouping**: This grouping specifies that you don't care how the stream is grouped. Currently, none groupings are equivalent to shuffle groupings. Eventually though, Storm will push down bolts with none groupings to execute in the same thread as the bolt or spout they subscribe from (when possible).
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Concepts.md:89: 7. **Direct grouping**: This is a special kind of grouping. A stream grouped this way means that the __producer__ of the tuple decides which task of the consumer will receive this tuple. Direct groupings can only be declared on streams that have been declared as direct streams. Tuples emitted to a direct stream must be emitted using one of the [emitDirect](https://javadoc.io/doc/org.apache.storm/storm-client/3.0.0/org/apache/storm/task/OutputCollector.html#emitDirect-int-java.util.Collection-java.util.List-) methods. A bolt can get the task ids of its consumers by either using the provided [TopologyContext](https://javadoc.io/doc/org.apache.storm/storm-client/3.0.0/org/apache/storm/task/TopologyContext.html) or by keeping track of the output of the `emit` method in [OutputCollector](https://javadoc.io/doc/org.apache.storm/storm-client/3.0.0/org/apache/storm/task/OutputCollector.html) (which returns the task ids that the tuple was sent to).
+
+=========================================
+EXECUTOR_STATS
+=========================================
+C:\Users\torac\Desktop\ISW2-STORM\storm\.github\workflows\asf-allowlist-check.yml:21: # job must report a status on every PR, otherwise PRs that don't touch
+C:\Users\torac\Desktop\ISW2-STORM\storm\.github\workflows\asf-allowlist-check.yml:43: # Python's glob.glob(), which does not support brace expansion, so
+C:\Users\torac\Desktop\ISW2-STORM\storm\.github\workflows\maven.yaml:100: export USER=github
+C:\Users\torac\Desktop\ISW2-STORM\storm\.github\workflows\maven.yaml:99: export JDK_VERSION=${{ matrix.java }}
+C:\Users\torac\Desktop\ISW2-STORM\storm\.github\workflows\nightlies.yaml:60: remote_host: ${{ secrets.NIGHTLIES_RSYNC_HOST }}
+C:\Users\torac\Desktop\ISW2-STORM\storm\.github\workflows\nightlies.yaml:61: remote_port: ${{ secrets.NIGHTLIES_RSYNC_PORT }}
+C:\Users\torac\Desktop\ISW2-STORM\storm\AGENTS.md:3: See [Security Model](https://storm.apache.org/security-model.html) - the linked security model for the project's threat model, in-scope / out-of-scope declarations, and known non-findings before reporting issues.
+C:\Users\torac\Desktop\ISW2-STORM\storm\conf\defaults.yaml:107: ui.host: 0.0.0.0
+C:\Users\torac\Desktop\ISW2-STORM\storm\conf\defaults.yaml:108: ui.port: 8080
+C:\Users\torac\Desktop\ISW2-STORM\storm\conf\defaults.yaml:121: logviewer.port: 8000
+C:\Users\torac\Desktop\ISW2-STORM\storm\conf\defaults.yaml:133: drpc.port: 3772
+C:\Users\torac\Desktop\ISW2-STORM\storm\conf\defaults.yaml:137: drpc.invocations.port: 3773
+C:\Users\torac\Desktop\ISW2-STORM\storm\conf\defaults.yaml:141: drpc.http.port: 3774
+C:\Users\torac\Desktop\ISW2-STORM\storm\conf\defaults.yaml:142: drpc.https.port: -1
+C:\Users\torac\Desktop\ISW2-STORM\storm\conf\defaults.yaml:152: transactional.zookeeper.port: null
+C:\Users\torac\Desktop\ISW2-STORM\storm\conf\defaults.yaml:173: # Define the amount of workers that can be run on this machine. Each worker is assigned a port to use for communication
+C:\Users\torac\Desktop\ISW2-STORM\storm\conf\defaults.yaml:174: supervisor.slots.ports:
+C:\Users\torac\Desktop\ISW2-STORM\storm\conf\defaults.yaml:205: supervisor.thrift.port: 6628
+C:\Users\torac\Desktop\ISW2-STORM\storm\conf\defaults.yaml:230: # Executor metrics reporting interval.
+C:\Users\torac\Desktop\ISW2-STORM\storm\conf\defaults.yaml:234: executor.metrics.frequency.secs: 60
+C:\Users\torac\Desktop\ISW2-STORM\storm\conf\defaults.yaml:277: topology.acker.executors: null
+C:\Users\torac\Desktop\ISW2-STORM\storm\conf\defaults.yaml:278: topology.ras.acker.executors.per.worker: 1
+C:\Users\torac\Desktop\ISW2-STORM\storm\conf\defaults.yaml:279: topology.eventlogger.executors: 0
+C:\Users\torac\Desktop\ISW2-STORM\storm\conf\defaults.yaml:28: - "localhost"
+C:\Users\torac\Desktop\ISW2-STORM\storm\conf\defaults.yaml:29: storm.zookeeper.port: 2181
+C:\Users\torac\Desktop\ISW2-STORM\storm\conf\defaults.yaml:328: topology.backpressure.check.millis: 50   # how often to check if backpressure has relieved on executors under BP, for informing other workers to resume sending msgs to them. Must be > 0
+C:\Users\torac\Desktop\ISW2-STORM\storm\conf\defaults.yaml:329: topology.executor.overflow.limit: 0    # max items in overflowQ of any bolt/spout. When exceeded, worker will drop incoming messages (from the workers) destined to that overflowing spout/bolt. Set to 0 to disable overflow limiting. Enabling this may degrade perf slightly.
+C:\Users\torac\Desktop\ISW2-STORM\storm\conf\defaults.yaml:332: topology.max.error.report.per.interval: 5
+C:\Users\torac\Desktop\ISW2-STORM\storm\conf\defaults.yaml:343: topology.executor.receive.buffer.size: 32768  # size of recv queue for spouts & bolts. Will be internally rounded up to next power of 2 (if not already a power of 2)
+C:\Users\torac\Desktop\ISW2-STORM\storm\conf\defaults.yaml:344: topology.producer.batch.size: 1               # can be no larger than half of `topology.executor.receive.buffer.size`
+C:\Users\torac\Desktop\ISW2-STORM\storm\conf\defaults.yaml:346: topology.executor.receive.control.queue.enable: false  # when true, low-volume control tuples (flush/tick/metrics tick/feedback) are delivered via a dedicated control lane of the recv queue, drained before the data queue and exempt from backpressure.
+C:\Users\torac\Desktop\ISW2-STORM\storm\conf\defaults.yaml:347: topology.executor.receive.control.buffer.size: 1024    # size of the control lane of the recv queue. Only used when topology.executor.receive.control.queue.enable is true. Will be internally rounded up to next power of 2 (if not already a power of 2)
+C:\Users\torac\Desktop\ISW2-STORM\storm\conf\defaults.yaml:359: # topology priority describing the importance of the topology in decreasing importance starting from 0 (i.e. 0 is the highest priority and the priority importance decreases as the priority number increases).
+C:\Users\torac\Desktop\ISW2-STORM\storm\conf\defaults.yaml:370: topology.ras.one.executor.per.worker: false
+C:\Users\torac\Desktop\ISW2-STORM\storm\conf\defaults.yaml:376: blacklist.scheduler.reporter: "org.apache.storm.scheduler.blacklist.reporters.LogReporter"
+C:\Users\torac\Desktop\ISW2-STORM\storm\conf\defaults.yaml:383: pacemaker.port: 6699
+C:\Users\torac\Desktop\ISW2-STORM\storm\conf\defaults.yaml:39: storm.zookeeper.ssl.hostnameVerification: false
+C:\Users\torac\Desktop\ISW2-STORM\storm\conf\defaults.yaml:393: #default storm daemon metrics reporter plugins
+C:\Users\torac\Desktop\ISW2-STORM\storm\conf\defaults.yaml:394: storm.daemon.metrics.reporter.plugins:
+C:\Users\torac\Desktop\ISW2-STORM\storm\conf\defaults.yaml:395: - "org.apache.storm.daemon.metrics.reporters.JmxPreparableReporter"
+C:\Users\torac\Desktop\ISW2-STORM\storm\conf\defaults.yaml:396: storm.daemon.metrics.reporter.interval.secs: 10
+C:\Users\torac\Desktop\ISW2-STORM\storm\conf\defaults.yaml:415: # Configs for CGroup support
+C:\Users\torac\Desktop\ISW2-STORM\storm\conf\defaults.yaml:42: storm.thrift.transport: "org.apache.storm.security.auth.SimpleTransportPlugin"
+C:\Users\torac\Desktop\ISW2-STORM\storm\conf\defaults.yaml:48: storm.messaging.transport: "org.apache.storm.messaging.netty.Context"
+C:\Users\torac\Desktop\ISW2-STORM\storm\conf\defaults.yaml:71: nimbus.seeds: [ "localhost" ]
+C:\Users\torac\Desktop\ISW2-STORM\storm\conf\defaults.yaml:72: nimbus.thrift.port: 6627
+C:\Users\torac\Desktop\ISW2-STORM\storm\conf\defaults.yaml:75: nimbus.thrift.tls.port: 0
+C:\Users\torac\Desktop\ISW2-STORM\storm\conf\defaults.yaml:79: nimbus.thrift.tls.transport: "org.apache.storm.security.auth.tls.TlsTransportPlugin"
+C:\Users\torac\Desktop\ISW2-STORM\storm\DEVELOPER.md:12: * <a href="#report-bug">Report a bug</a>
+C:\Users\torac\Desktop\ISW2-STORM\storm\DEVELOPER.md:160: you reported a bug report via JIRA earlier -- then prefix the title of your pull request with the corresponding JIRA
+C:\Users\torac\Desktop\ISW2-STORM\storm\DEVELOPER.md:181: **Important: A pull request must first be properly approved before you are allowed to merge it.**
+C:\Users\torac\Desktop\ISW2-STORM\storm\DEVELOPER.md:234: In order to build `storm` you need `python3`, `ruby` and `nodejs`. In order to avoid an overfull page we don't provide platform/OS specific installation instructions for those here. Please refer to you platform's/OS' documentation for support.
+C:\Users\torac\Desktop\ISW2-STORM\storm\DEVELOPER.md:251: (Note: python 2.7.x is **not** supported).
+C:\Users\torac\Desktop\ISW2-STORM\storm\DEVELOPER.md:37: All contributions are welcome: ideas, documentation, code, patches, bug reports, feature requests, etc.  And you do not
+C:\Users\torac\Desktop\ISW2-STORM\storm\DEVELOPER.md:405: Issue tracking includes tasks such as reporting bugs, requesting and collaborating on new features, and administrative
+C:\Users\torac\Desktop\ISW2-STORM\storm\DEVELOPER.md:43: This section explains how to perform common activities such as reporting a bug or merging a pull request.
+C:\Users\torac\Desktop\ISW2-STORM\storm\DEVELOPER.md:46: <a name="report-bug"></a>
+C:\Users\torac\Desktop\ISW2-STORM\storm\DEVELOPER.md:48: ## Report a bug
+C:\Users\torac\Desktop\ISW2-STORM\storm\DEVELOPER.md:50: To report a bug you should [open an issue](https://issues.apache.org/jira/browse/STORM) in our issue tracker that
+C:\Users\torac\Desktop\ISW2-STORM\storm\DEVELOPER.md:63: **If you want to provide a patch along with your bug report:**
+C:\Users\torac\Desktop\ISW2-STORM\storm\DEVELOPER.md:96: because they require learning about only an isolated portion of the codebase and are a relatively small amount of work.
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\docker-compose.yml:106: hostname: ui
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\docker-compose.yml:108: ports:
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\docker-compose.yml:109: - "127.0.0.1:8080:8080"   # Storm UI http://localhost:8080
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\docker-compose.yml:118: hostname: pushgateway
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\docker-compose.yml:122: # Receives Storm metrics-v2 in Graphite plaintext (port 9109) from every worker
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\docker-compose.yml:126: graphite-exporter:
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\docker-compose.yml:127: image: prom/graphite-exporter:v0.16.0
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\docker-compose.yml:128: hostname: graphite-exporter
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\docker-compose.yml:138: hostname: prometheus
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\docker-compose.yml:148: ports:
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\docker-compose.yml:149: - "127.0.0.1:9090:9090"   # Prometheus UI http://localhost:9090
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\docker-compose.yml:157: hostname: grafana
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\docker-compose.yml:168: ports:
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\docker-compose.yml:169: - "127.0.0.1:3000:3000"   # Grafana -> http://localhost:3000 (admin/admin)
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\docker-compose.yml:35: # must exist on every supervisor host, not just where you submit from.
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\docker-compose.yml:46: hostname: zookeeper
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\docker-compose.yml:49: test: ["CMD-SHELL", "python3 -c 'import socket; socket.create_connection((\"localhost\", 2181), 2)'"]
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\docker-compose.yml:57: hostname: nimbus
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\docker-compose.yml:59: # Pushgateway reporter is enabled here (and only here) via -c overrides --
+
+=========================================
+STREAM_SANITIZATION
+=========================================
+C:\Users\torac\Desktop\ISW2-STORM\storm\.asf.yaml:37: - streaming
+C:\Users\torac\Desktop\ISW2-STORM\storm\conf\defaults.yaml:165: storm.blobstore.inputstream.buffer.size.bytes: 65536
+C:\Users\torac\Desktop\ISW2-STORM\storm\conf\defaults.yaml:292: topology.upstream.feedback.freq.secs: 10
+C:\Users\torac\Desktop\ISW2-STORM\storm\conf\defaults.yaml:293: topology.upstream.feedback.enable: false
+C:\Users\torac\Desktop\ISW2-STORM\storm\conf\defaults.yaml:318: # BackPressure Wait Strategy - for any producer (spout/bolt/transfer thread) when the downstream Q is full
+C:\Users\torac\Desktop\ISW2-STORM\storm\DEVELOPER.md:164: your fork up to date with the latest changes of the upstream (official) `storm` repository.
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\grafana\dashboards\storm-metrics-v2.json:114: "legendFormat": "{{host}} {{component}} t{{task}} {{stream}}",
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\grafana\dashboards\storm-metrics-v2.json:562: "legendFormat": "{{host}} {{component}} t{{task}} {{stream}}",
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\grafana\dashboards\storm-metrics-v2.json:58: "legendFormat": "{{host}} {{component}} t{{task}} {{stream}}",
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\graphite\graphite-mapping.yml:101: labels: {topology_id: "$1", host: "$2", component: "$3", stream: "$4", task: "$5", port: "$6", key: "$7"}
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\graphite\graphite-mapping.yml:105: labels: {topology_id: "$1", host: "$2", component: "$3", stream: "$4", task: "$5", port: "$6", key: "$7"}
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\graphite\graphite-mapping.yml:109: labels: {topology_id: "$1", host: "$2", component: "$3", stream: "$4", task: "$5", port: "$6", key: "$7"}
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\graphite\graphite-mapping.yml:111: # ---- TaskMetrics: capacity (RollingAverageGauge over all streams) ----
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\graphite\graphite-mapping.yml:115: labels: {topology_id: "$1", host: "$2", component: "$3", stream: "$4", task: "$5", port: "$6"}
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\graphite\graphite-mapping.yml:122: labels: {topology_id: "$1", host: "$2", component: "$3", stream: "$4", task: "$5", port: "$6", metric: "$7"}
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\graphite\graphite-mapping.yml:126: labels: {topology_id: "$1", host: "$2", component: "$3", stream: "", task: "$4", port: "$5", metric: "$6"}
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\graphite\graphite-mapping.yml:20: #   storm.worker.<stormId>.<host>.<component>.<stream>.<task>.<port>-<metric>   (per-stream)
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\graphite\graphite-mapping.yml:21: #   storm.worker.<stormId>.<host>.<component>.<task>.<port>-<metric>            (no stream)
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\graphite\graphite-mapping.yml:27: # Each TaskMetrics metric is per (component, task, stream); the `key` label holds
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\graphite\graphite-mapping.yml:28: # the metric key -- the own stream for OUTPUT metrics (emit/transfer) or the
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\graphite\graphite-mapping.yml:29: # <sourceComponent>:<sourceStream> for INPUT metrics (execute/ack/fail/latency).
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\graphite\graphite-mapping.yml:37: #   $1 topology_id  $2 host  $3 component  $4 stream  $5 task  $6 port  $7 key
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\graphite\graphite-mapping.yml:43: labels: {topology_id: "$1", host: "$2", component: "$3", stream: "$4", task: "$5", port: "$6", key: "$7"}
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\graphite\graphite-mapping.yml:47: labels: {topology_id: "$1", host: "$2", component: "$3", stream: "$4", task: "$5", port: "$6", key: "$7"}
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\graphite\graphite-mapping.yml:51: labels: {topology_id: "$1", host: "$2", component: "$3", stream: "$4", task: "$5", port: "$6", key: "$7"}
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\graphite\graphite-mapping.yml:55: labels: {topology_id: "$1", host: "$2", component: "$3", stream: "$4", task: "$5", port: "$6", key: "$7"}
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\graphite\graphite-mapping.yml:59: labels: {topology_id: "$1", host: "$2", component: "$3", stream: "$4", task: "$5", port: "$6", key: "$7"}
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\graphite\graphite-mapping.yml:65: labels: {topology_id: "$1", host: "$2", component: "$3", stream: "$4", task: "$5", port: "$6", key: "$7"}
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\graphite\graphite-mapping.yml:69: labels: {topology_id: "$1", host: "$2", component: "$3", stream: "$4", task: "$5", port: "$6", key: "$7"}
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\graphite\graphite-mapping.yml:73: labels: {topology_id: "$1", host: "$2", component: "$3", stream: "$4", task: "$5", port: "$6", key: "$7"}
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\graphite\graphite-mapping.yml:77: labels: {topology_id: "$1", host: "$2", component: "$3", stream: "$4", task: "$5", port: "$6", key: "$7"}
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\graphite\graphite-mapping.yml:81: labels: {topology_id: "$1", host: "$2", component: "$3", stream: "$4", task: "$5", port: "$6", key: "$7"}
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\graphite\graphite-mapping.yml:87: labels: {topology_id: "$1", host: "$2", component: "$3", stream: "$4", task: "$5", port: "$6", key: "$7"}
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\graphite\graphite-mapping.yml:91: labels: {topology_id: "$1", host: "$2", component: "$3", stream: "$4", task: "$5", port: "$6", key: "$7"}
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\graphite\graphite-mapping.yml:95: labels: {topology_id: "$1", host: "$2", component: "$3", stream: "$4", task: "$5", port: "$6", key: "$7"}
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\README.md:226: stream** for emit/transfer, or the **`sourceComponent:sourceStream`** for the
+C:\Users\torac\Desktop\ISW2-STORM\storm\dev-tools\cluster\README.md:242: | `storm_capacity` | `__capacity` (over all streams) | RollingAverageGauge (0..1) |
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Acking-framework-implementation.md:13: The acker is actually a regular bolt.  When a new tupletree is born, the spout sends the XORed edge-ids of each tuple recipient, which the acker records in its `pending` ledger. Every time an executor acks a tuple, the acker receives a partial checksum that is the XOR of the tuple's own edge-id (clearing it from the ledger) and the edge-id of each downstream tuple the executor emitted (thus entering them into the ledger).
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Acking-framework-implementation.md:38: Whenever its owner calls `.rotate()`, the RotatingMap advances each cohort one step further towards expiration. (Typically, Storm objects call rotate on every receipt of a system tick stream tuple.) If there are any key-value pairs in the former death row bucket, the RotatingMap invokes a callback (given in the constructor) for each key-value pair, letting its owner take appropriate action (eg, failing a tuple.
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\cgroups_in_storm.md:174: for a near real time streaming system so pay attention to this ratio.
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Cluster-State-Serialization.md:62: | Decompression bound | none                                                    | bounded (`BoundedInputStream`), default 100 MiB     |
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Cluster-State-Serialization.md:93: `org.apache.storm.utils.Utils`) wrap the decompressor stream in an Apache
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Cluster-State-Serialization.md:94: Commons `BoundedInputStream` with `maxCount` set to the configured cap.
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Cluster-State-Serialization.md:95: After draining the bounded stream, the underlying decompressor is probed
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Command-line-client.md:259: Syntax: `storm monitor topology-name [-i interval-secs] [-m component-id] [-s stream-id] [-w [emitted | transferred]]`
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Command-line-client.md:262: One can specify poll-interval, component-id, stream-id, watch-item[emitted | transferred]
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Command-line-client.md:266: stream-id is 'default';
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Common-patterns.md:12: 4. Streaming top N
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Common-patterns.md:19: Oftentimes for efficiency reasons or otherwise, you want to process a group of tuples in batch rather than individually. For example, you may want to batch updates to a database or do a streaming aggregation of some sort.
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Common-patterns.md:44: ### Streaming top N
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Common-patterns.md:46: A common continuous computation done on Storm is a "streaming top N" of some sort. Suppose you have a bolt that emits tuples of the form ["value", "count"] and you want a bolt that emits the top N tuples based on the count. The simplest way to do this is to have a bolt that does a global grouping on the stream and maintains a list in memory of the top N items.
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Common-patterns.md:48: This approach obviously doesn't scale to large streams since the entire stream has to go through one task. A better way to do the computation is to do many top N's in parallel across partitions of the stream, and then merge those top N's together to get the global top N. The pattern looks like this:
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Common-patterns.md:59: If however, you have a known skew in the data being processed it can be advantageous to use partialKeyGrouping instead of fieldsGrouping.  This will distribute the load for each key between two downstream bolts instead of a single one.
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Common-patterns.md:70: The topology needs an extra layer of processing to aggregate the partial counts from the upstream bolts but this only processes aggregated values now so the bolt is not subject to the load caused by the skewed data. You can see an example of this pattern in storm-starter [here]({{page.git-blob-base}}/examples/storm-starter/src/jvm/org/apache/storm/starter/SkewedRollingTopWords.java).
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Common-patterns.md:80: `CoordinatedBolt` wraps the bolt containing your logic and figures out when your bolt has received all the tuples for any given request. It makes heavy use of direct streams to do this.
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Concepts.md:10: 2. Streams
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Concepts.md:107: Each spout or bolt executes as many tasks across the cluster. Each task corresponds to one thread of execution, and stream groupings define how to send tuples from one set of tasks to another set of tasks. You set the parallelism for each spout or bolt in the `setSpout` and `setBolt` methods of [TopologyBuilder](https://javadoc.io/doc/org.apache.storm/storm-client/3.0.0/org/apache/storm/topology/TopologyBuilder.html).
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Concepts.md:13: 5. Stream groupings
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Concepts.md:20: The logic for a realtime application is packaged into a Storm topology. A Storm topology is analogous to a MapReduce job. One key difference is that a MapReduce job eventually finishes, whereas a topology runs forever (or until you kill it, of course). A topology is a graph of spouts and bolts that are connected with stream groupings. These concepts are described below.
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Concepts.md:28: ### Streams
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Concepts.md:30: The stream is the core abstraction in Storm. A stream is an unbounded sequence of tuples that is processed and created in parallel in a distributed fashion. Streams are defined with a schema that names the fields in the stream's tuples. By default, tuples can contain integers, longs, shorts, bytes, strings, doubles, floats, booleans, and byte arrays. You can also define your own serializers so that custom types can be used natively within tuples.
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Concepts.md:32: Every stream is given an id when declared. Since single-stream spouts and bolts are so common, [OutputFieldsDeclarer](https://javadoc.io/doc/org.apache.storm/storm-client/3.0.0/org/apache/storm/topology/OutputFieldsDeclarer.html) has convenience methods for declaring a single stream without specifying an id. In this case, the stream is given the default id of "default".
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Concepts.md:37: * [Tuple](https://javadoc.io/doc/org.apache.storm/storm-client/3.0.0/org/apache/storm/tuple/Tuple.html): streams are composed of tuples
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Concepts.md:38: * [OutputFieldsDeclarer](https://javadoc.io/doc/org.apache.storm/storm-client/3.0.0/org/apache/storm/topology/OutputFieldsDeclarer.html): used to declare streams and their schemas
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Concepts.md:43: A spout is a source of streams in a topology. Generally spouts will read tuples from an external source and emit them into the topology (e.g. a Kestrel queue or the Twitter API). Spouts can either be __reliable__ or __unreliable__. A reliable spout is capable of replaying a tuple if it failed to be processed by Storm, whereas an unreliable spout forgets about the tuple as soon as it is emitted.
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Concepts.md:45: Spouts can emit more than one stream. To do so, declare multiple streams using the `declareStream` method of [OutputFieldsDeclarer](https://javadoc.io/doc/org.apache.storm/storm-client/3.0.0/org/apache/storm/topology/OutputFieldsDeclarer.html) and specify the stream to emit to when using the `emit` method on [SpoutOutputCollector](https://javadoc.io/doc/org.apache.storm/storm-client/3.0.0/org/apache/storm/spout/SpoutOutputCollector.html).
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Concepts.md:60: Bolts can do simple stream transformations. Doing complex stream transformations often requires multiple steps and thus multiple bolts. For example, transforming a stream of tweets into a stream of trending images requires at least two steps: a bolt to do a rolling count of retweets for each image, and one or more bolts to stream out the top X images (you can do this particular stream transformation in a more scalable way with three bolts than with two).
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Concepts.md:62: Bolts can emit more than one stream. To do so, declare multiple streams using the `declareStream` method of [OutputFieldsDeclarer](https://javadoc.io/doc/org.apache.storm/storm-client/3.0.0/org/apache/storm/topology/OutputFieldsDeclarer.html) and specify the stream to emit to when using the `emit` method on [OutputCollector](https://javadoc.io/doc/org.apache.storm/storm-client/3.0.0/org/apache/storm/task/OutputCollector.html).
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Concepts.md:64: When you declare a bolt's input streams, you always subscribe to specific streams of another component. If you want to subscribe to all the streams of another component, you have to subscribe to each one individually. [InputDeclarer](https://javadoc.io/doc/org.apache.storm/storm-client/3.0.0/org/apache/storm/topology/InputDeclarer.html) has syntactic sugar for subscribing to streams declared on the default stream id. Saying `declarer.shuffleGrouping("1")` subscribes to the default stream on component "1" and is equivalent to `declarer.shuffleGrouping("1", DEFAULT_STREAM_ID)`.
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Concepts.md:74: * [OutputCollector](https://javadoc.io/doc/org.apache.storm/storm-client/3.0.0/org/apache/storm/task/OutputCollector.html): bolts emit tuples to their output streams using an instance of this class
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Concepts.md:77: ### Stream groupings
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Concepts.md:79: Part of defining a topology is specifying for each bolt which streams it should receive as input. A stream grouping defines how that stream should be partitioned among the bolt's tasks.
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Concepts.md:81: There are eight built-in stream groupings in Storm, and you can implement a custom stream grouping by implementing the [CustomStreamGrouping](https://javadoc.io/doc/org.apache.storm/storm-client/3.0.0/org/apache/storm/grouping/CustomStreamGrouping.html) interface:
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Concepts.md:84: 2. **Fields grouping**: The stream is partitioned by the fields specified in the grouping. For example, if the stream is grouped by the "user-id" field, tuples with the same "user-id" will always go to the same task, but tuples with different "user-id"'s may go to different tasks.
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Concepts.md:85: 3. **Partial Key grouping**: The stream is partitioned by the fields specified in the grouping, like the Fields grouping, but are load balanced between two downstream bolts, which provides better utilization of resources when the incoming data is skewed. [This paper](https://melmeric.files.wordpress.com/2014/11/the-power-of-both-choices-practical-load-balancing-for-distributed-stream-processing-engines.pdf) provides a good explanation of how it works and the advantages it provides.
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Concepts.md:86: 4. **All grouping**: The stream is replicated across all the bolt's tasks. Use this grouping with care.
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Concepts.md:87: 5. **Global grouping**: The entire stream goes to a single one of the bolt's tasks. Specifically, it goes to the task with the lowest id.
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Concepts.md:88: 6. **None grouping**: This grouping specifies that you don't care how the stream is grouped. Currently, none groupings are equivalent to shuffle groupings. Eventually though, Storm will push down bolts with none groupings to execute in the same thread as the bolt or spout they subscribe from (when possible).
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Concepts.md:89: 7. **Direct grouping**: This is a special kind of grouping. A stream grouped this way means that the __producer__ of the tuple decides which task of the consumer will receive this tuple. Direct groupings can only be declared on streams that have been declared as direct streams. Tuples emitted to a direct stream must be emitted using one of the [emitDirect](https://javadoc.io/doc/org.apache.storm/storm-client/3.0.0/org/apache/storm/task/OutputCollector.html#emitDirect-int-java.util.Collection-java.util.List-) methods. A bolt can get the task ids of its consumers by either using the provided [TopologyContext](https://javadoc.io/doc/org.apache.storm/storm-client/3.0.0/org/apache/storm/task/TopologyContext.html) or by keeping track of the output of the `emit` method in [OutputCollector](https://javadoc.io/doc/org.apache.storm/storm-client/3.0.0/org/apache/storm/task/OutputCollector.html) (which returns the task ids that the tuple was sent to).
+C:\Users\torac\Desktop\ISW2-STORM\storm\docs\Concepts.md:95: * [InputDeclarer](https://javadoc.io/doc/org.apache.storm/storm-client/3.0.0/org/apache/storm/topology/InputDeclarer.html): this object is returned whenever `setBolt` is called on `TopologyBuilder` and is used for declaring a bolt's input streams and how those streams should be grouped
+
+=========================================
+SIMPLE PUBLIC METHODS
+=========================================
+public static java.util.Map<java.lang.String, java.lang.Double> getStatDisplayMap(java.util.Map<java.lang.String, java.lang.Double>);
+public static java.util.Map<java.lang.String, java.util.Map<java.lang.String, java.lang.Long>> sanitizeTransferredStats(java.util.Map<java.lang.String, java.util.Map<java.lang.String, java.lang.Long>>);
+public static java.util.Map<java.lang.String, java.lang.Object> getStatMapFromExecutorSummary(org.apache.storm.generated.ExecutorSummary);
+public static java.lang.String sanitizeStreamName(java.lang.String);
