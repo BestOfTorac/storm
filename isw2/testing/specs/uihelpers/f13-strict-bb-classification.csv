@@ -1,0 +1,2 @@
+﻿"CaseId","InitialFailure","Classification","UnsupportedAssertion","Reason","AllowedFinalOracle","StormDefect","C0Inspected"
+"NIMBUS-02","YES","TEST_ORACLE_OVERCONSTRAINT","nimbuses.size() == 1","The external REST contract documents Nimbus host, port and status but does not define how active Nimbus entries and configured nimbus.seeds are merged or deduplicated by getNimbusSummary.","A representation matching the supplied Nimbus host and port exposes status=Leader.","NO","NO"

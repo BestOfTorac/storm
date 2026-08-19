@@ -1,0 +1,2 @@
+﻿"CaseId","JUnitTest","InitialResult","FailureMessage","FailedAssertion","Classification","StormDefectCandidate","C0Inspected"
+"NIMBUS-02","nimbus02RepresentsLeaderNimbusAsLeader","FAILURE","expected: <1> but was: <2>","Exact nimbuses collection cardinality expected to be 1","TEST_ORACLE_OVERCONSTRAINT","NO","NO"

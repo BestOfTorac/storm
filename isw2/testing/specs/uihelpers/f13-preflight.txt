@@ -1,0 +1,142 @@
+F13 MINIMAL STRICT BLACK-BOX PREFLIGHT
+HEAD=c6e44a13226544c3ad2a8c2e799e63944c1f08bd
+RemoteHEAD=c6e44a13226544c3ad2a8c2e799e63944c1f08bd
+WorkingTree=clean
+ExplicitFrames=15
+TbbGroups=3
+LogicalCases=15
+TargetFinalTests=0_TO_2
+C0Inspected=NO
+
+===== FRAMES =====
+LOGCFG-01 | F13.1 | | LOGCFG-01 | not set | empty named logger-level map |
+LOGCFG-02 | F13.1 | | LOGCFG-02 | empty | empty named logger-level map |
+LOGCFG-03 | F13.1 | | LOGCFG-03 | one logger | logger configuration exposed |
+LOGCFG-04 | F13.1 | | LOGCFG-04 | multiple loggers | every named logger represented |
+LOGPUT-01 | F13.2 | | LOGPUT-01 | update | one | Nimbus receives update for named logger |
+LOGPUT-02 | F13.2 | | LOGPUT-02 | remove | one | Nimbus receives removal for named logger |
+LOGPUT-03 | F13.2 | | LOGPUT-03 | update | multiple | requested logger updates are submitted |
+LOGPUT-04 | F13.2 | | LOGPUT-04 | update | one with positive timeout | timeout preserved |
+NIMBUS-01 | F13.3 | | NIMBUS-01 | none | one remote seed | seed represented as Offline |
+NIMBUS-02 | F13.3 | | NIMBUS-02 | one leader | matching seed | Nimbus represented as Leader |
+NIMBUS-03 | F13.3 | | NIMBUS-03 | one non-leader | matching seed | Nimbus represented as Not a Leader |
+NIMBUS-04 | F13.3 | | NIMBUS-04 | one active | one additional remote seed | active Nimbus plus Offline seed |
+NIMBUS-05 | F13.3 | | NIMBUS-05 | multiple | matching seeds | all active Nimbus instances represented |
+NIMBUS-06 | F13.3 | | NIMBUS-06 | active | localhost-style seed also configured | localhost seed is not reported as an offline remote Nimbus |
+NIMBUS-07 | F13.3 | | NIMBUS-07 | one active | matching seed | HTTPS logviewer link uses secure endpoint |
+
+===== T_BB GROUPS =====
+TBB-074 | F13.1 | EXPLICIT_FRAME | 4 | Defined by explicit Category Partition frames
+TBB-075 | F13.2 | EXPLICIT_FRAME | 4 | Defined by explicit Category Partition frames
+TBB-076 | F13.3 | EXPLICIT_FRAME | 7 | Defined by explicit Category Partition frames
+
+===== NIMBUS / LOGGING PUBLIC API =====
+public static boolean isSecureLogviewer(java.util.Map<java.lang.String, java.lang.Object>);
+public static int getLogviewerPort(java.util.Map<java.lang.String, java.lang.Object>);
+public static java.lang.String getLogviewerLink(java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>, int);
+public static java.lang.String getNimbusLogLink(java.lang.String, java.util.Map<java.lang.String, java.lang.Object>);
+public static java.lang.String getWorkerLogLink(java.lang.String, int, java.util.Map<java.lang.String, java.lang.Object>, java.lang.String);
+public static java.util.List getActiveProfileActions(org.apache.storm.generated.Nimbus$Iface, java.lang.String, java.lang.String, java.util.Map) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> getBuildVisualization(org.apache.storm.generated.Nimbus$Iface, java.util.Map<java.lang.String, java.lang.Object>, java.lang.String, java.lang.String, boolean) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> getComponentPage(org.apache.storm.generated.Nimbus$Iface, java.lang.String, java.lang.String, java.lang.String, boolean, java.lang.String, java.util.Map) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> getNimbusSummary(org.apache.storm.generated.ClusterSummary, java.util.Map<java.lang.String, java.lang.Object>);
+public static java.util.Map<java.lang.String, java.lang.Object> getOwnerResourceSummary(java.util.List<org.apache.storm.generated.OwnerResourceSummary>, org.apache.storm.generated.Nimbus$Iface, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> getTopolgoyLogConfig(org.apache.storm.generated.LogConfig);
+public static java.util.Map<java.lang.String, java.lang.Object> getTopologyProfilingDump(org.apache.storm.generated.Nimbus$Iface, java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> getTopologyProfilingDumpHeap(org.apache.storm.generated.Nimbus$Iface, java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> getTopologyProfilingDumpJstack(org.apache.storm.generated.Nimbus$Iface, java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> getTopologyProfilingRestartWorker(org.apache.storm.generated.Nimbus$Iface, java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> getTopologyProfilingStart(org.apache.storm.generated.Nimbus$Iface, java.lang.String, java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> getTopologyProfilingStop(org.apache.storm.generated.Nimbus$Iface, java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> getVisualizationData(org.apache.storm.generated.Nimbus$Iface, java.lang.String, java.lang.String, boolean) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> putTopologyActivate(org.apache.storm.generated.Nimbus$Iface, java.lang.String) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> putTopologyDeactivate(org.apache.storm.generated.Nimbus$Iface, java.lang.String) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> putTopologyDebugActionSpct(org.apache.storm.generated.Nimbus$Iface, java.lang.String, java.lang.String, java.lang.String, java.lang.String) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> putTopologyKill(org.apache.storm.generated.Nimbus$Iface, java.lang.String, java.lang.String) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> putTopologyLogLevel(org.apache.storm.generated.Nimbus$Iface, java.util.Map<java.lang.String, java.util.Map>, java.lang.String) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> putTopologyRebalance(org.apache.storm.generated.Nimbus$Iface, java.lang.String, java.lang.String) throws org.apache.storm.thrift.TException;
+public static org.eclipse.jetty.ee10.servlet.FilterHolder mkAccessLoggingFilterHandle();
+public static void configFilter(org.eclipse.jetty.server.Server, jakarta.servlet.Servlet, java.util.List<org.apache.storm.daemon.ui.FilterConfiguration>);
+public static void configFilter(org.eclipse.jetty.server.Server, jakarta.servlet.Servlet, java.util.List<org.apache.storm.daemon.ui.FilterConfiguration>, java.util.Map<java.lang.String, java.lang.String>);
+public static void configFilters(org.eclipse.jetty.ee10.servlet.ServletContextHandler, java.util.List<org.apache.storm.daemon.ui.FilterConfiguration>);
+public static void configSsl(org.eclipse.jetty.server.Server, java.lang.Integer, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.Boolean, java.lang.Boolean, boolean);
+public static void configSsl(org.eclipse.jetty.server.Server, java.lang.Integer, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.Boolean, java.lang.Boolean, java.lang.Integer, boolean);
+public static void setTopologyProfilingAction(org.apache.storm.generated.Nimbus$Iface, java.lang.String, java.lang.String, java.lang.Long, java.util.Map<java.lang.String, java.lang.Object>, org.apache.storm.generated.ProfileAction) throws org.apache.storm.thrift.TException;
+public static void stormRunJetty(java.lang.Integer, java.lang.Integer, org.apache.storm.daemon.ui.IConfigurator) throws java.lang.Exception;
+public static void stormRunJetty(java.lang.Integer, java.lang.String, java.lang.Integer, java.lang.Integer, org.apache.storm.daemon.ui.IConfigurator) throws java.lang.Exception;
+
+===== NON-NIMBUS CANDIDATES =====
+public static boolean isSecureLogviewer(java.util.Map<java.lang.String, java.lang.Object>);
+public static int getLogviewerPort(java.util.Map<java.lang.String, java.lang.Object>);
+public static java.lang.String getLogviewerLink(java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>, int);
+public static java.lang.String getNimbusLogLink(java.lang.String, java.util.Map<java.lang.String, java.lang.Object>);
+public static java.lang.String getWorkerLogLink(java.lang.String, int, java.util.Map<java.lang.String, java.lang.Object>, java.lang.String);
+public static java.util.Map<java.lang.String, java.lang.Object> getNimbusSummary(org.apache.storm.generated.ClusterSummary, java.util.Map<java.lang.String, java.lang.Object>);
+public static java.util.Map<java.lang.String, java.lang.Object> getTopolgoyLogConfig(org.apache.storm.generated.LogConfig);
+public static org.eclipse.jetty.ee10.servlet.FilterHolder mkAccessLoggingFilterHandle();
+public static void configFilter(org.eclipse.jetty.server.Server, jakarta.servlet.Servlet, java.util.List<org.apache.storm.daemon.ui.FilterConfiguration>);
+public static void configFilter(org.eclipse.jetty.server.Server, jakarta.servlet.Servlet, java.util.List<org.apache.storm.daemon.ui.FilterConfiguration>, java.util.Map<java.lang.String, java.lang.String>);
+public static void configFilters(org.eclipse.jetty.ee10.servlet.ServletContextHandler, java.util.List<org.apache.storm.daemon.ui.FilterConfiguration>);
+public static void configSsl(org.eclipse.jetty.server.Server, java.lang.Integer, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.Boolean, java.lang.Boolean, boolean);
+public static void configSsl(org.eclipse.jetty.server.Server, java.lang.Integer, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.Boolean, java.lang.Boolean, java.lang.Integer, boolean);
+public static void stormRunJetty(java.lang.Integer, java.lang.Integer, org.apache.storm.daemon.ui.IConfigurator) throws java.lang.Exception;
+public static void stormRunJetty(java.lang.Integer, java.lang.String, java.lang.Integer, java.lang.Integer, org.apache.storm.daemon.ui.IConfigurator) throws java.lang.Exception;
+
+===== REST NIMBUS / LOGGING DOCUMENTATION =====
+1091: |topologyStatus| String | Topology status|
+1305: Request to start profiler on worker with timeout. Returns status and link to profiler artifacts for worker.
+1319: |status | String | Response Status |
+1335: "status": "ok",
+1344: Request to dump profiler recording on worker. Returns status and worker id for the request.
+1357: |status | String | Response Status |
+1369: "status": "ok",
+1376: Request to stop profiler on worker. Returns status and worker id for the request.
+1389: |status | String | Response Status |
+1401: "status": "ok",
+1408: Request to dump jstack on worker. Returns status and worker id for the request.
+1421: |status | String | Response Status |
+1433: "status": "ok",
+1440: Request to dump heap (jmap) on worker. Returns status and worker id for the request.
+1453: |status | String | Response Status |
+1465: "status": "ok",
+1472: Request to request the worker. Returns status and worker id for the request.
+1485: |status | String | Response Status |
+1497: "status": "ok",
+15: Clients can pass a callback query parameter to wrap JSON in the callback function.
+1515: {"topologyOperation":"activate","topologyId":"wordcount-1-1420308665","status":"success"}
+1530: {"topologyOperation":"deactivate","topologyId":"wordcount-1-1420308665","status":"success"}
+1549: {"rebalanceOptions" : {"numWorkers" : 2, "executors" : {"spout" :4, "count" : 10}}, "callback" : "foo"}
+1557: -d  '{"rebalanceOptions": {"numWorkers": 2, "executors": { "spout" : "5", "split": 7, "count": 5 }}, "callback":"foo"}'
+1564: {"topologyOperation":"rebalance","topologyId":"wordcount-1-1420308665","status":"success"}
+1586: {"topologyOperation":"kill","topologyId":"wordcount-1-1420308665","status":"success"}
+1591: The API returns 500 HTTP status codes in case of any errors.
+170: ### /api/v1/nimbus/summary (GET)
+172: Returns summary information for all nimbus hosts.
+178: |host| String | Nimbus' host name|
+179: |port| int| Nimbus' port number|
+180: |status| String| Possible values are Leader, Not a Leader, Dead|
+181: |nimbusUpTime| String| Shows since how long the nimbus has been running|
+182: |nimbusUpTimeSeconds| String| Shows since how long the nimbus has been running in seconds|
+183: |nimbusLogLink| String| Logviewer url to view the nimbus.log|
+184: |version| String| Version of storm this nimbus host is running|
+190: "nimbuses":[
+194: "nimbusLogLink":"http:\/\/192.168.202.1:8000\/log?file=nimbus.log",
+195: "status":"Leader",
+197: "nimbusUpTime":"3m 33s",
+198: "nimbusUpTimeSeconds":"213"
+27: Storm UI (the UI daemon is often run on the same host as the Nimbus daemon).  The port is configured by `ui.port`,
+410: |status| String| Topology Status|
+416: |replicationCount| Integer |Number of nimbus hosts on which this topology code is replicated|
+435: "status": "ACTIVE",
+44: are used by nimbus.
+511: |status| String |Current status of the topology, e.g. "ACTIVE"|
+518: |replicationCount| Integer |Number of nimbus hosts on which this topology code is replicated|
+604: "status": "ACTIVE",
+73: "nimbus.reassign": true,
+756: "nimbus.reassign": true,
+759: "nimbus.monitor.freq.secs": 10,
+76: "nimbus.monitor.freq.secs": 10,
+767: "nimbus.cleanup.inbox.freq.secs": 600,
+768: "nimbus.inbox.jar.expiration.secs": 3600,
+771: "nimbus.seeds": [
+85: Returns cluster summary information such as nimbus uptime or number of supervisors.

@@ -1,0 +1,164 @@
+F13 NIMBUS-02 PUBLIC API CHECK
+Candidate=NIMBUS-02
+C0Inspected=NO
+InspectionType=PUBLIC_COMPILED_API_ONLY
+
+===== NimbusSummary PUBLIC API =====
+Compiled from "NimbusSummary.java"
+public class org.apache.storm.generated.NimbusSummary implements org.apache.storm.thrift.TBase<org.apache.storm.generated.NimbusSummary, org.apache.storm.generated.NimbusSummary$_Fields>, java.io.Serializable, java.lang.Cloneable, java.lang.Comparable<org.apache.storm.generated.NimbusSummary> {
+  public static final java.util.Map<org.apache.storm.generated.NimbusSummary$_Fields, org.apache.storm.thrift.meta_data.FieldMetaData> metaDataMap;
+  public org.apache.storm.generated.NimbusSummary();
+  public org.apache.storm.generated.NimbusSummary(java.lang.String, int, int, boolean, java.lang.String);
+  public org.apache.storm.generated.NimbusSummary(org.apache.storm.generated.NimbusSummary);
+  public org.apache.storm.generated.NimbusSummary deepCopy();
+  public void clear();
+  public java.lang.String get_host();
+  public void set_host(java.lang.String);
+  public void unset_host();
+  public boolean is_set_host();
+  public void set_host_isSet(boolean);
+  public int get_port();
+  public void set_port(int);
+  public void unset_port();
+  public boolean is_set_port();
+  public void set_port_isSet(boolean);
+  public int get_uptime_secs();
+  public void set_uptime_secs(int);
+  public void unset_uptime_secs();
+  public boolean is_set_uptime_secs();
+  public void set_uptime_secs_isSet(boolean);
+  public boolean is_isLeader();
+  public void set_isLeader(boolean);
+  public void unset_isLeader();
+  public boolean is_set_isLeader();
+  public void set_isLeader_isSet(boolean);
+  public java.lang.String get_version();
+  public void set_version(java.lang.String);
+  public void unset_version();
+  public boolean is_set_version();
+  public void set_version_isSet(boolean);
+  public int get_tlsPort();
+  public void set_tlsPort(int);
+  public void unset_tlsPort();
+  public boolean is_set_tlsPort();
+  public void set_tlsPort_isSet(boolean);
+  public void setFieldValue(org.apache.storm.generated.NimbusSummary$_Fields, java.lang.Object);
+  public java.lang.Object getFieldValue(org.apache.storm.generated.NimbusSummary$_Fields);
+  public boolean isSet(org.apache.storm.generated.NimbusSummary$_Fields);
+  public boolean equals(java.lang.Object);
+  public boolean equals(org.apache.storm.generated.NimbusSummary);
+  public int hashCode();
+  public int compareTo(org.apache.storm.generated.NimbusSummary);
+  public org.apache.storm.generated.NimbusSummary$_Fields fieldForId(int);
+  public void read(org.apache.storm.thrift.protocol.TProtocol) throws org.apache.storm.thrift.TException;
+  public void write(org.apache.storm.thrift.protocol.TProtocol) throws org.apache.storm.thrift.TException;
+  public java.lang.String toString();
+  public void validate() throws org.apache.storm.thrift.TException;
+  public org.apache.storm.thrift.TBase deepCopy();
+  public void setFieldValue(org.apache.storm.thrift.TFieldIdEnum, java.lang.Object);
+  public java.lang.Object getFieldValue(org.apache.storm.thrift.TFieldIdEnum);
+  public boolean isSet(org.apache.storm.thrift.TFieldIdEnum);
+  public org.apache.storm.thrift.TFieldIdEnum fieldForId(int);
+  public int compareTo(java.lang.Object);
+  static {};
+}
+
+===== ClusterSummary PUBLIC API =====
+Compiled from "ClusterSummary.java"
+public class org.apache.storm.generated.ClusterSummary implements org.apache.storm.thrift.TBase<org.apache.storm.generated.ClusterSummary, org.apache.storm.generated.ClusterSummary$_Fields>, java.io.Serializable, java.lang.Cloneable, java.lang.Comparable<org.apache.storm.generated.ClusterSummary> {
+  public static final java.util.Map<org.apache.storm.generated.ClusterSummary$_Fields, org.apache.storm.thrift.meta_data.FieldMetaData> metaDataMap;
+  public org.apache.storm.generated.ClusterSummary();
+  public org.apache.storm.generated.ClusterSummary(java.util.List<org.apache.storm.generated.SupervisorSummary>, java.util.List<org.apache.storm.generated.TopologySummary>, java.util.List<org.apache.storm.generated.NimbusSummary>);
+  public org.apache.storm.generated.ClusterSummary(org.apache.storm.generated.ClusterSummary);
+  public org.apache.storm.generated.ClusterSummary deepCopy();
+  public void clear();
+  public int get_supervisors_size();
+  public java.util.Iterator<org.apache.storm.generated.SupervisorSummary> get_supervisors_iterator();
+  public void add_to_supervisors(org.apache.storm.generated.SupervisorSummary);
+  public java.util.List<org.apache.storm.generated.SupervisorSummary> get_supervisors();
+  public void set_supervisors(java.util.List<org.apache.storm.generated.SupervisorSummary>);
+  public void unset_supervisors();
+  public boolean is_set_supervisors();
+  public void set_supervisors_isSet(boolean);
+  public int get_topologies_size();
+  public java.util.Iterator<org.apache.storm.generated.TopologySummary> get_topologies_iterator();
+  public void add_to_topologies(org.apache.storm.generated.TopologySummary);
+  public java.util.List<org.apache.storm.generated.TopologySummary> get_topologies();
+  public void set_topologies(java.util.List<org.apache.storm.generated.TopologySummary>);
+  public void unset_topologies();
+  public boolean is_set_topologies();
+  public void set_topologies_isSet(boolean);
+  public int get_nimbuses_size();
+  public java.util.Iterator<org.apache.storm.generated.NimbusSummary> get_nimbuses_iterator();
+  public void add_to_nimbuses(org.apache.storm.generated.NimbusSummary);
+  public java.util.List<org.apache.storm.generated.NimbusSummary> get_nimbuses();
+  public void set_nimbuses(java.util.List<org.apache.storm.generated.NimbusSummary>);
+  public void unset_nimbuses();
+  public boolean is_set_nimbuses();
+  public void set_nimbuses_isSet(boolean);
+  public void setFieldValue(org.apache.storm.generated.ClusterSummary$_Fields, java.lang.Object);
+  public java.lang.Object getFieldValue(org.apache.storm.generated.ClusterSummary$_Fields);
+  public boolean isSet(org.apache.storm.generated.ClusterSummary$_Fields);
+  public boolean equals(java.lang.Object);
+  public boolean equals(org.apache.storm.generated.ClusterSummary);
+  public int hashCode();
+  public int compareTo(org.apache.storm.generated.ClusterSummary);
+  public org.apache.storm.generated.ClusterSummary$_Fields fieldForId(int);
+  public void read(org.apache.storm.thrift.protocol.TProtocol) throws org.apache.storm.thrift.TException;
+  public void write(org.apache.storm.thrift.protocol.TProtocol) throws org.apache.storm.thrift.TException;
+  public java.lang.String toString();
+  public void validate() throws org.apache.storm.thrift.TException;
+  public org.apache.storm.thrift.TBase deepCopy();
+  public void setFieldValue(org.apache.storm.thrift.TFieldIdEnum, java.lang.Object);
+  public java.lang.Object getFieldValue(org.apache.storm.thrift.TFieldIdEnum);
+  public boolean isSet(org.apache.storm.thrift.TFieldIdEnum);
+  public org.apache.storm.thrift.TFieldIdEnum fieldForId(int);
+  public int compareTo(java.lang.Object);
+  static {};
+}
+
+===== RELEVANT CONSTRUCTORS / SETTERS =====
+  public org.apache.storm.generated.NimbusSummary();
+  public org.apache.storm.generated.NimbusSummary(java.lang.String, int, int, boolean, java.lang.String);
+  public org.apache.storm.generated.NimbusSummary(org.apache.storm.generated.NimbusSummary);
+  public void set_host(java.lang.String);
+  public void unset_host();
+  public boolean is_set_host();
+  public void set_host_isSet(boolean);
+  public void set_port(int);
+  public void unset_port();
+  public boolean is_set_port();
+  public void set_port_isSet(boolean);
+  public void set_uptime_secs(int);
+  public void unset_uptime_secs();
+  public boolean is_set_uptime_secs();
+  public void set_uptime_secs_isSet(boolean);
+  public void set_isLeader(boolean);
+  public void unset_isLeader();
+  public boolean is_set_isLeader();
+  public void set_isLeader_isSet(boolean);
+  public void set_version(java.lang.String);
+  public void unset_version();
+  public boolean is_set_version();
+  public void set_version_isSet(boolean);
+  public org.apache.storm.generated.ClusterSummary();
+  public org.apache.storm.generated.ClusterSummary(java.util.List<org.apache.storm.generated.SupervisorSummary>, java.util.List<org.apache.storm.generated.TopologySummary>, java.util.List<org.apache.storm.generated.NimbusSummary>);
+  public org.apache.storm.generated.ClusterSummary(org.apache.storm.generated.ClusterSummary);
+  public int get_nimbuses_size();
+  public java.util.Iterator<org.apache.storm.generated.NimbusSummary> get_nimbuses_iterator();
+  public java.util.List<org.apache.storm.generated.NimbusSummary> get_nimbuses();
+  public void set_nimbuses(java.util.List<org.apache.storm.generated.NimbusSummary>);
+  public void unset_nimbuses();
+  public boolean is_set_nimbuses();
+  public void set_nimbuses_isSet(boolean);
+
+===== NIMBUS REST CONTRACT =====
+137: |host| String| Supervisor's host name|
+170: ### /api/v1/nimbus/summary (GET)
+178: |host| String | Nimbus' host name|
+179: |port| int| Nimbus' port number|
+180: |status| String| Possible values are Leader, Not a Leader, Dead|
+195: "status":"Leader",
+257: |host| String| Supervisor's host name|
+410: |status| String| Topology Status|
+511: |status| String |Current status of the topology, e.g. "ACTIVE"|

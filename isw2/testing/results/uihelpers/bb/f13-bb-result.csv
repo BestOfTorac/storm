@@ -1,0 +1,2 @@
+﻿"CaseId","JUnitTest","OracleType","Result","Classification","InitialAttempt","FinalOracle","StormDefectCandidate","C0Inspected"
+"NIMBUS-02","nimbus02RepresentsLeaderNimbusAsLeader","DOCUMENTED_PROPERTY","PASS","CONFORMS_TO_DOCUMENTED_NIMBUS_REPRESENTATION","FAILED_DUE_TO_UNSUPPORTED_EXACT_CARDINALITY_ASSERTION","Supplied host/port represented with status Leader","NO","NO"

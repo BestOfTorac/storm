@@ -1,0 +1,2 @@
+﻿"Family","FunctionalArea","LogicalCategoryPartitionCases","InitialCandidateTests","InitialFailures","InitialFailureClassification","FinalImplementedTests","FinalExcludedCases","ImplementedCase","TestClass","FinalOracleType","FinalPassed","FinalFailures","DefectCandidates","C0SourceInferenceUsed","CumulativeUiHelpersTests","CumulativeUiHelpersPassed","Result"
+"F13","Nimbus and logging","15","1","1","TEST_ORACLE_OVERCONSTRAINT","1","14","NIMBUS-02","UIHelpersNimbusLoggingBBTest","DOCUMENTED_PROPERTY","1","0","0","NO","153","153","PASS"
