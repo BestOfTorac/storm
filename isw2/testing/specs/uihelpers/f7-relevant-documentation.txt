@@ -1,0 +1,478 @@
+============================================================
+TOPOLOGY SUMMARY AND TOPOLOGY-WORKERS CONTRACT
+LINES: 400-500
+============================================================
+  400: ### /api/v1/topology/summary (GET)
+  401:
+  402: Returns summary information for all topologies.
+  403:
+  404: Response fields:
+  405:
+  406: |Field  |Value | Description|
+  407: |---	|---	|---
+  408: |id| String| Topology Id|
+  409: |name| String| Topology Name|
+  410: |status| String| Topology Status|
+  411: |uptime| String|  Shows how long the topology is running|
+  412: |uptimeSeconds| Integer|  Shows how long the topology is running in seconds|
+  413: |tasksTotal| Integer |Total number of tasks for this topology|
+  414: |workersTotal| Integer |Number of workers used for this topology|
+  415: |executorsTotal| Integer |Number of executors used for this topology|
+  416: |replicationCount| Integer |Number of nimbus hosts on which this topology code is replicated|
+  417: |requestedMemOnHeap| Double|Requested On-Heap Memory by User (MB)
+  418: |requestedMemOffHeap| Double|Requested Off-Heap Memory by User (MB)|
+  419: |requestedTotalMem| Double|Requested Total Memory by User (MB)|
+  420: |requestedCpu| Double|Requested CPU by User (%)|
+  421: |assignedMemOnHeap| Double|Assigned On-Heap Memory by Scheduler (MB)|
+  422: |assignedMemOffHeap| Double|Assigned Off-Heap Memory by Scheduler (MB)|
+  423: |assignedTotalMem| Double|Assigned Total Memory by Scheduler (MB)|
+  424: |assignedCpu| Double|Assigned CPU by Scheduler (%)|
+  425: |schedulerDisplayResource| Boolean | Whether to display scheduler resource information|
+  426:
+  427: Sample response:
+  428:
+  429: ```json
+  430: {
+  431:     "topologies": [
+  432:         {
+  433:             "id": "WordCount3-1-1402960825",
+  434:             "name": "WordCount3",
+  435:             "status": "ACTIVE",
+  436:             "uptime": "6m 5s",
+  437:             "uptimeSeconds": 365,
+  438:             "tasksTotal": 28,
+  439:             "workersTotal": 3,
+  440:             "executorsTotal": 28,
+  441:             "replicationCount": 1,
+  442:             "requestedMemOnHeap": 640,
+  443:             "requestedMemOffHeap": 128,
+  444:             "requestedTotalMem": 768,
+  445:             "requestedCpu": 80,
+  446:             "assignedMemOnHeap": 640,
+  447:             "assignedMemOffHeap": 128,
+  448:             "assignedTotalMem": 768,
+  449:             "assignedCpu": 80
+  450:         }
+  451:     ],
+  452:     "schedulerDisplayResource": true
+  453: }
+  454: ```
+  455:
+  456: ### /api/v1/topology-workers/\<id\> (GET)
+  457:
+  458: Returns the worker' information (host and port) for a topology whose id is substituted for \<id\>.
+  459: The topology id is obtained by the above /topology/summary call.
+  460:
+  461: Response fields:
+  462:
+  463: |Field  |Value | Description|
+  464: |---	|---	|---
+  465: |hostPortList| List| Workers' information for a topology|
+  466: |name| Integer| Logviewer Port|
+  467:
+  468: Sample response:
+  469:
+  470: ```json
+  471: {
+  472:     "hostPortList":[
+  473:             {
+  474:                 "host":"192.168.202.2",
+  475:                 "port":6701
+  476:             },
+  477:             {
+  478:                 "host":"192.168.202.2",
+  479:                 "port":6702
+  480:             },
+  481:             {
+  482:                 "host":"192.168.202.3",
+  483:                 "port":6700
+  484:             }
+  485:         ],
+  486:     "logviewerPort":8000
+  487: }
+  488: ```
+  489:
+  490: ### /api/v1/topology/\<id\> (GET)
+  491:
+  492: Returns topology information and statistics.  Substitute \<id\> with the topology id.
+  493:
+  494: Request parameters:
+  495:
+  496: |Parameter |Value   |Description  |
+  497: |----------|--------|-------------|
+  498: |id   	   |String (required)| Topology Id  |
+  499: |window    |String. Default value :all-time| Window duration for metrics in seconds|
+  500: |sys       |String. Values 1 or 0. Default value 0| Controls including sys stats part of the response|
+
+============================================================
+TOPOLOGY PAGE CONTRACT
+LINES: 500-750
+============================================================
+  500: |sys       |String. Values 1 or 0. Default value 0| Controls including sys stats part of the response|
+  501:
+  502:
+  503: Response fields:
+  504:
+  505: |Field  |Value |Description|
+  506: |---	|---	|---
+  507: |id| String| Topology Id|
+  508: |name| String |Topology Name|
+  509: |uptime| String |How long the topology has been running|
+  510: |uptimeSeconds| Integer |How long the topology has been running in seconds|
+  511: |status| String |Current status of the topology, e.g. "ACTIVE"|
+  512: |tasksTotal| Integer |Total number of tasks for this topology|
+  513: |workersTotal| Integer |Number of workers used for this topology|
+  514: |executorsTotal| Integer |Number of executors used for this topology|
+  515: |msgTimeout| Integer | Number of seconds a tuple has before the spout considers it failed |
+  516: |windowHint| String | window param value in "hh mm ss" format. Default value is "All Time"|
+  517: |schedulerDisplayResource| Boolean | Whether to display scheduler resource information|
+  518: |replicationCount| Integer |Number of nimbus hosts on which this topology code is replicated|
+  519: |debug| Boolean | If debug is enabled for the topology|
+  520: |samplingPct| Double| Controls downsampling of events before they are sent to event log (percentage)|
+  521: |assignedMemOnHeap| Double|Assigned On-Heap Memory by Scheduler (MB)
+  522: |assignedMemOffHeap| Double|Assigned Off-Heap Memory by Scheduler (MB)|
+  523: |assignedTotalMem| Double|Assigned Off-Heap + On-Heap Memory by Scheduler(MB)|
+  524: |assignedCpu| Double|Assigned CPU by Scheduler(%)|
+  525: |requestedMemOnHeap| Double|Requested On-Heap Memory by User (MB)
+  526: |requestedMemOffHeap| Double|Requested Off-Heap Memory by User (MB)|
+  527: |requestedCpu| Double|Requested CPU by User (%)|
+  528: |topologyStats| Array | Array of all the topology related stats per time window|
+  529: |topologyStats.windowPretty| String |Duration passed in HH:MM:SS format|
+  530: |topologyStats.window| String |User requested time window for metrics|
+  531: |topologyStats.emitted| Long |Number of messages emitted in given window|
+  532: |topologyStats.trasferred| Long |Number messages transferred in given window|
+  533: |topologyStats.completeLatency| String (double value returned in String format) |Total latency for processing the message|
+  534: |topologyStats.acked| Long |Number of messages acked in given window|
+  535: |topologyStats.failed| Long |Number of messages failed in given window|
+  536: |workers| Array | Array of workers in topology|
+  537: |workers.supervisorId | String| Supervisor's id|
+  538: |workers.host | String | Worker's host name|
+  539: |workers.port | Integer | Worker's port|
+  540: |workers.topologyId | String | Topology Id|
+  541: |workers.topologyName | String | Topology Name|
+  542: |workers.executorsTotal | Integer | Number of executors used by the topology in this worker|
+  543: |workers.assignedMemOnHeap | Double | Assigned On-Heap Memory by Scheduler (MB)|
+  544: |workers.assignedMemOffHeap | Double | Assigned Off-Heap Memory by Scheduler (MB)|
+  545: |workers.assignedCpu | Number | Assigned CPU by Scheduler (%)|
+  546: |workers.componentNumTasks | Dictionary | Components -> # of executing tasks|
+  547: |workers.uptime| String| Shows how long the worker is running|
+  548: |workers.uptimeSeconds| Integer| Shows how long the worker is running in seconds|
+  549: |workers.workerLogLink | String | Link to worker log viewer page|
+  550: |spouts| Array | Array of all the spout components in the topology|
+  551: |spouts.spoutId| String |Spout id|
+  552: |spouts.executors| Integer |Number of executors for the spout|
+  553: |spouts.emitted| Long |Number of messages emitted in given window |
+  554: |spouts.completeLatency| String (double value returned in String format) |Total latency for processing the message|
+  555: |spouts.transferred| Long |Total number of messages  transferred in given window|
+  556: |spouts.tasks| Integer |Total number of tasks for the spout|
+  557: |spouts.lastError| String |Shows the last error happened in a spout|
+  558: |spouts.errorHost| String | Worker hostname the last error was reported on|
+  559: |spouts.errorPort| String | Worker port the last error was reported on|
+  560: |spouts.errorTime| Integer | Unix timestamp the last error was reported (seconds since epoch) |
+  561: |spouts.errorLapsedSecs| Integer | Number of seconds elapsed since that last error happened in a spout|
+  562: |spouts.errorWorkerLogLink| String | Link to the worker log that reported the exception |
+  563: |spouts.acked| Long |Number of messages acked|
+  564: |spouts.failed| Long |Number of messages failed|
+  565: |spouts.requestedMemOnHeap| Double|Requested On-Heap Memory by User (MB)
+  566: |spouts.requestedMemOffHeap| Double|Requested Off-Heap Memory by User (MB)|
+  567: |spouts.requestedCpu| Double|Requested CPU by User (%)|
+  568: |bolts| Array | Array of bolt components in the topology|
+  569: |bolts.boltId| String |Bolt id|
+  570: |bolts.capacity| String (double value returned in String format) |This value indicates number of messages executed * average execute latency / time window|
+  571: |bolts.processLatency| String (double value returned in String format)  |Average time of the bolt to ack a message after it was received|
+  572: |bolts.executeLatency| String (double value returned in String format) |Average time to run the execute method of the bolt|
+  573: |bolts.executors| Integer |Number of executor tasks in the bolt component|
+  574: |bolts.tasks| Integer |Number of instances of bolt|
+  575: |bolts.acked| Long |Number of tuples acked by the bolt|
+  576: |bolts.failed| Long |Number of tuples failed by the bolt|
+  577: |bolts.lastError| String |Shows the last error occurred in the bolt|
+  578: |bolts.errorHost| String | Worker hostname the last error was reported on|
+  579: |bolts.errorPort| String | Worker port the last error was reported on|
+  580: |bolts.errorTime| Integer | Unix timestamp the last error was reported (seconds since epoch) |
+  581: |bolts.errorLapsedSecs| Integer |Number of seconds elapsed since that last error happened in a bolt|
+  582: |bolts.errorWorkerLogLink| String | Link to the worker log that reported the exception |
+  583: |bolts.emitted| Long |Number of tuples emitted|
+  584: |bolts.requestedMemOnHeap| Double|Requested On-Heap Memory by User (MB)
+  585: |bolts.requestedMemOffHeap| Double|Requested Off-Heap Memory by User (MB)|
+  586: |bolts.requestedCpu| Double|Requested CPU by User (%)|
+  587:
+  588: Examples:
+  589:
+  590: ```no-highlight
+  591:  1. http://ui-daemon-host-name:8080/api/v1/topology/WordCount3-1-1402960825
+  592:  2. http://ui-daemon-host-name:8080/api/v1/topology/WordCount3-1-1402960825?sys=1
+  593:  3. http://ui-daemon-host-name:8080/api/v1/topology/WordCount3-1-1402960825?window=600
+  594: ```
+  595:
+  596: Sample response:
+  597:
+  598: ```json
+  599:  {
+  600:     "name": "WordCount3",
+  601:     "id": "WordCount3-1-1402960825",
+  602:     "workersTotal": 3,
+  603:     "window": "600",
+  604:     "status": "ACTIVE",
+  605:     "tasksTotal": 28,
+  606:     "executorsTotal": 28,
+  607:     "uptime": "29m 19s",
+  608:     "uptimeSeconds": 1759,
+  609:     "msgTimeout": 30,
+  610:     "windowHint": "10m 0s",
+  611:     "schedulerDisplayResource": true,
+  612:     "workers": [{
+  613:         "topologyName": "WordCount3",
+  614:         "topologyId": "WordCount3-1-1402960825",
+  615:         "host": "my-host",
+  616:         "supervisorId": "9124ca9a-42e8-481e-9bf3-a041d9595430",
+  617:         "assignedMemOnHeap": 1452.0,
+  618:         "uptime": "27m 26s",
+  619:         "port": 6702,
+  620:         "workerLogLink": "logs",
+  621:         "componentNumTasks": {
+  622:             "spout": 2,
+  623:             "count": 3,
+  624:             "split": 10
+  625:         },
+  626:         "executorsTotal": 15,
+  627:         "uptimeSeconds": 1646,
+  628:         "assignedCpu": 260.0,
+  629:         "assignedMemOffHeap": 160.0
+  630:     }]
+  631:     "topologyStats": [
+  632:         {
+  633:             "windowPretty": "10m 0s",
+  634:             "window": "600",
+  635:             "emitted": 397960,
+  636:             "transferred": 213380,
+  637:             "completeLatency": "0.000",
+  638:             "acked": 213460,
+  639:             "failed": 0
+  640:         },
+  641:         {
+  642:             "windowPretty": "3h 0m 0s",
+  643:             "window": "10800",
+  644:             "emitted": 1190260,
+  645:             "transferred": 638260,
+  646:             "completeLatency": "0.000",
+  647:             "acked": 638280,
+  648:             "failed": 0
+  649:         },
+  650:         {
+  651:             "windowPretty": "1d 0h 0m 0s",
+  652:             "window": "86400",
+  653:             "emitted": 1190260,
+  654:             "transferred": 638260,
+  655:             "completeLatency": "0.000",
+  656:             "acked": 638280,
+  657:             "failed": 0
+  658:         },
+  659:         {
+  660:             "windowPretty": "All time",
+  661:             "window": ":all-time",
+  662:             "emitted": 1190260,
+  663:             "transferred": 638260,
+  664:             "completeLatency": "0.000",
+  665:             "acked": 638280,
+  666:             "failed": 0
+  667:         }
+  668:     ],
+  669:     "workers":[{
+  670:         "topologyName":"WordCount3",
+  671:         "topologyId":"WordCount3-1-1402960825",
+  672:         "host":"192.168.10.237",
+  673:         "supervisorId":"bdfe8eff-f1d8-4bce-81f5-9d3ae1bf432e-169.254.129.212",
+  674:         "uptime":"2m 47s",
+  675:         "uptimeSeconds":167,
+  676:         "port":6707,
+  677:         "workerLogLink":"http:\/\/192.168.10.237:8000\/log?file=WordCount3-1-1402960825%2F6707%2Fworker.log",
+  678:         "componentNumTasks": {
+  679:             "spout":5
+  680:         },
+  681:         "executorsTotal":8,
+  682:         "assignedMemOnHeap":704.0,
+  683:         "assignedCpu":130.0,
+  684:         "assignedMemOffHeap":80.0
+  685:     }],
+  686:     "spouts": [
+  687:         {
+  688:             "executors": 5,
+  689:             "emitted": 28880,
+  690:             "completeLatency": "0.000",
+  691:             "transferred": 28880,
+  692:             "acked": 0,
+  693:             "spoutId": "spout",
+  694:             "tasks": 5,
+  695:             "lastError": "",
+  696:             "errorHost": "",
+  697:             "errorPort": null,
+  698:             "errorWorkerLogLink": "",
+  699:             "errorTime": null,
+  700:             "errorLapsedSecs": null,
+  701:             "failed": 0
+  702:         }
+  703:     ],
+  704:         "bolts": [
+  705:         {
+  706:             "executors": 12,
+  707:             "emitted": 184580,
+  708:             "transferred": 0,
+  709:             "acked": 184640,
+  710:             "executeLatency": "0.048",
+  711:             "tasks": 12,
+  712:             "executed": 184620,
+  713:             "processLatency": "0.043",
+  714:             "boltId": "count",
+  715:             "lastError": "",
+  716:             "errorHost": "",
+  717:             "errorPort": null,
+  718:             "errorWorkerLogLink": "",
+  719:             "errorTime": null,
+  720:             "errorLapsedSecs": null,
+  721:             "capacity": "0.003",
+  722:             "failed": 0
+  723:         },
+  724:         {
+  725:             "executors": 8,
+  726:             "emitted": 184500,
+  727:             "transferred": 184500,
+  728:             "acked": 28820,
+  729:             "executeLatency": "0.024",
+  730:             "tasks": 8,
+  731:             "executed": 28780,
+  732:             "processLatency": "2.112",
+  733:             "boltId": "split",
+  734:             "lastError": "java.lang.RuntimeException: Error here! at org.apache.storm.starter.bolt.WordCountBolt.nextTuple(WordCountBolt.java:50) at org.apache.storm.executor.bolt.BoltExecutor$2.call",
+  735:             "errorHost": "192.168.10.237",
+  736:             "errorPort": 6707,
+  737:             "errorWorkerLogLink": "http://192.168.10.237:8000/api/v1/log?file=WordCount3-1-1402960825%2F6707%2Fworker.log",
+  738:             "errorTime": 1597626060,
+  739:             "errorLapsedSecs": 65,
+  740:             "capacity": "0.000",
+  741:             "failed": 0
+  742:         }
+  743:     ],
+  744:     "configuration": {
+  745:         "storm.id": "WordCount3-1-1402960825",
+  746:         "dev.zookeeper.path": "/tmp/dev-storm-zookeeper",
+  747:         "topology.tick.tuple.freq.secs": null,
+  748:         "topology.builtin.metrics.bucket.size.secs": 60,
+  749:         "topology.fall.back.on.java.serialization": false,
+  750:         "topology.max.error.report.per.interval": 5,
+
+============================================================
+HISTORY/LAG CONTEXT AROUND LINE 204
+LINES: 196-229
+============================================================
+  196:             "version":"0.10.0-SNAPSHOT",
+  197:             "nimbusUpTime":"3m 33s",
+  198:             "nimbusUpTimeSeconds":"213"
+  199:         }
+  200:     ]
+  201: }
+  202: ```
+  203:
+  204: ### /api/v1/history/summary (GET)
+  205:
+  206: Returns a list of all running topologies' IDs submitted by the current user.
+  207:
+  208: Response fields:
+  209:
+  210: |Field  |Value | Description|
+  211: |---	|---	|---
+  212: |topo-history| List| List of Topologies' IDs|
+  213:
+  214: Sample response:
+  215:
+  216: ```json
+  217: {
+  218:     "topo-history":[
+  219:         "wc6-1-1446571009",
+  220:         "wc8-2-1446587178"
+  221:      ]
+  222: }
+  223: ```
+  224:
+  225: ### /api/v1/supervisor (GET)
+  226:
+  227: Returns summary for a supervisor by id, or all supervisors running on a host.
+  228:
+  229: Examples:
+
+============================================================
+HISTORY/LAG CONTEXT AROUND LINE 212
+LINES: 204-237
+============================================================
+  204: ### /api/v1/history/summary (GET)
+  205:
+  206: Returns a list of all running topologies' IDs submitted by the current user.
+  207:
+  208: Response fields:
+  209:
+  210: |Field  |Value | Description|
+  211: |---	|---	|---
+  212: |topo-history| List| List of Topologies' IDs|
+  213:
+  214: Sample response:
+  215:
+  216: ```json
+  217: {
+  218:     "topo-history":[
+  219:         "wc6-1-1446571009",
+  220:         "wc8-2-1446587178"
+  221:      ]
+  222: }
+  223: ```
+  224:
+  225: ### /api/v1/supervisor (GET)
+  226:
+  227: Returns summary for a supervisor by id, or all supervisors running on a host.
+  228:
+  229: Examples:
+  230:
+  231: ```no-highlight
+  232:  1. By host: http://ui-daemon-host-name:8080/api/v1/supervisor?host=supervisor-daemon-host-name
+  233:  2. By id: http://ui-daemon-host-name:8080/api/v1/supervisor?id=f5449110-1daa-43e2-89e3-69917b16dec9-192.168.1.1
+  234: ```
+  235:
+  236: Request parameters:
+  237:
+
+============================================================
+HISTORY/LAG CONTEXT AROUND LINE 218
+LINES: 210-243
+============================================================
+  210: |Field  |Value | Description|
+  211: |---	|---	|---
+  212: |topo-history| List| List of Topologies' IDs|
+  213:
+  214: Sample response:
+  215:
+  216: ```json
+  217: {
+  218:     "topo-history":[
+  219:         "wc6-1-1446571009",
+  220:         "wc8-2-1446587178"
+  221:      ]
+  222: }
+  223: ```
+  224:
+  225: ### /api/v1/supervisor (GET)
+  226:
+  227: Returns summary for a supervisor by id, or all supervisors running on a host.
+  228:
+  229: Examples:
+  230:
+  231: ```no-highlight
+  232:  1. By host: http://ui-daemon-host-name:8080/api/v1/supervisor?host=supervisor-daemon-host-name
+  233:  2. By id: http://ui-daemon-host-name:8080/api/v1/supervisor?id=f5449110-1daa-43e2-89e3-69917b16dec9-192.168.1.1
+  234: ```
+  235:
+  236: Request parameters:
+  237:
+  238: |Parameter |Value   |Description  |
+  239: |----------|--------|-------------|
+  240: |id   	   |String. Supervisor id | If specified, respond with the supervisor and worker stats with id. Note that when id is specified, the host argument is ignored. |
+  241: |host      |String. Host name| If specified, respond with all supervisors and worker stats in the host (normally just one)|
+  242: |sys       |String. Values 1 or 0. Default value 0| Controls including sys stats part of the response|
+  243:

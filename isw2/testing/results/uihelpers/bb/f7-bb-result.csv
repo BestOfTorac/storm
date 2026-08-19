@@ -1,0 +1,8 @@
+﻿"CaseId","JUnitTest","OracleType","C0Inspected","Result","Classification","DefectCandidate"
+"HISTORY-02","history02ExposesOneTopologyIdentifier","DOCUMENTED_PROPERTY","NO","PASS","CONFORMS_TO_DOCUMENTED_ORACLE","NO"
+"HISTORY-03","history03ExposesMultipleTopologyIdentifiers","DOCUMENTED_PROPERTY","NO","PASS","CONFORMS_TO_DOCUMENTED_ORACLE","NO"
+"TOP-02","top02PreservesDocumentedPositiveTopologyValues","DOCUMENTED_PROPERTY","NO","PASS","CONFORMS_TO_DOCUMENTED_ORACLE","NO"
+"TOPLIST-02","toplist02RepresentsOneSuppliedTopology","DOCUMENTED_PROPERTY","NO","PASS","CONFORMS_TO_DOCUMENTED_ORACLE","NO"
+"TOPLIST-03","toplist03RepresentsAllSuppliedTopologies","DOCUMENTED_PROPERTY","NO","PASS","CONFORMS_TO_DOCUMENTED_ORACLE","NO"
+"TOPWORK-02","topwork02RepresentsOneWorkerLocation","DOCUMENTED_PROPERTY","NO","PASS","CONFORMS_TO_DOCUMENTED_ORACLE","NO"
+"TOPWORK-03","topwork03RepresentsAllDistinctWorkerLocations","DOCUMENTED_PROPERTY","NO","PASS","CONFORMS_TO_DOCUMENTED_ORACLE","NO"

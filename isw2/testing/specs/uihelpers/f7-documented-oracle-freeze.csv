@@ -1,0 +1,8 @@
+﻿"CaseId","OracleType","C0Inspected","Oracle","Evidence"
+"TOP-02","DOCUMENTED_PROPERTY","NO","A populated topology summary exposes its documented execution and requested/assigned resource values","STORM-UI-REST-API topology summary response fields and sample"
+"TOPLIST-02","DOCUMENTED_PROPERTY","NO","One supplied topology is represented by one topology summary entry","STORM-UI-REST-API /api/v1/topology/summary contract"
+"TOPLIST-03","DOCUMENTED_PROPERTY","NO","Multiple supplied topologies are represented by the topology summary collection","STORM-UI-REST-API /api/v1/topology/summary collection contract"
+"TOPWORK-02","DOCUMENTED_PROPERTY","NO","One topology worker location is represented by one host/port entry","STORM-UI-REST-API /api/v1/topology-workers/<id>"
+"TOPWORK-03","DOCUMENTED_PROPERTY","NO","Multiple distinct topology worker locations are represented in hostPortList","STORM-UI-REST-API topology-workers hostPortList contract and sample"
+"HISTORY-02","DOCUMENTED_PROPERTY","NO","One topology identifier supplied by the history DTO is exposed in topo-history","STORM-UI-REST-API /api/v1/history/summary"
+"HISTORY-03","DOCUMENTED_PROPERTY","NO","Multiple topology identifiers are exposed in the documented topo-history list","STORM-UI-REST-API /api/v1/history/summary list contract"

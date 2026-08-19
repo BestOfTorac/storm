@@ -1,0 +1,6 @@
+public static java.util.Map<java.lang.String, java.lang.Object> getAllTopologiesSummary(java.util.List<org.apache.storm.generated.TopologySummary>, java.util.Map<java.lang.String, java.lang.Object>);
+public static java.util.Map<java.lang.String, java.lang.Object> getTopologyHistoryInfo(org.apache.storm.generated.TopologyHistoryInfo);
+public static java.util.Map<java.lang.String, java.lang.Object> getTopologyMap(org.apache.storm.generated.TopologySummary);
+public static java.util.Map<java.lang.String, java.lang.Object> getTopologySummary(org.apache.storm.generated.TopologyPageInfo, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>, java.lang.String);
+public static java.util.Map<java.lang.String, java.lang.Object> getTopologyWorkers(org.apache.storm.generated.TopologyInfo, java.util.Map);
+public static java.util.Map<java.lang.String, java.util.Map<java.lang.String, java.lang.Object>> getTopologyLag(org.apache.storm.generated.StormTopology, java.util.Map<java.lang.String, java.lang.Object>);

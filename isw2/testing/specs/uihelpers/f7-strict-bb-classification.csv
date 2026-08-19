@@ -1,0 +1,3 @@
+﻿"CaseId","InitialResult","Classification","DefectCandidate","C0Inspected","Reason"
+"TOPPAGE-03","ERROR","EXCLUDE_INSUFFICIENT_EXTERNAL_SPEC","NO","NO","Execution requires additional configuration not derivable from the available external REST/public contract; strict black-box policy forbids recovering it from UIHelpers implementation."
+"TOPPAGE-04","ERROR","EXCLUDE_INSUFFICIENT_EXTERNAL_SPEC","NO","NO","Execution requires additional configuration not derivable from the available external REST/public contract; strict black-box policy forbids recovering it from UIHelpers implementation."

@@ -1,0 +1,115 @@
+============================================================
+DebugOptions
+============================================================
+public org.apache.storm.generated.DebugOptions();
+public org.apache.storm.generated.DebugOptions(org.apache.storm.generated.DebugOptions);
+public void set_enable(boolean);
+public void unset_enable();
+public boolean is_set_enable();
+public void set_samplingpct(double);
+public void unset_samplingpct();
+public boolean is_set_samplingpct();
+============================================================
+ExecutorInfo
+============================================================
+public org.apache.storm.generated.ExecutorInfo();
+public org.apache.storm.generated.ExecutorInfo(int, int);
+public org.apache.storm.generated.ExecutorInfo(org.apache.storm.generated.ExecutorInfo);
+public void set_task_start(int);
+public void unset_task_start();
+public boolean is_set_task_start();
+public void set_task_end(int);
+public void unset_task_end();
+public boolean is_set_task_end();
+============================================================
+ExecutorSummary
+============================================================
+public org.apache.storm.generated.ExecutorSummary();
+public org.apache.storm.generated.ExecutorSummary(org.apache.storm.generated.ExecutorInfo, java.lang.String, java.lang.String, int, int);
+public org.apache.storm.generated.ExecutorSummary(org.apache.storm.generated.ExecutorSummary);
+public void set_executor_info(org.apache.storm.generated.ExecutorInfo);
+public void unset_executor_info();
+public boolean is_set_executor_info();
+public void set_host(java.lang.String);
+public void unset_host();
+public boolean is_set_host();
+public void set_port(int);
+public void unset_port();
+public boolean is_set_port();
+public void set_uptime_secs(int);
+public void unset_uptime_secs();
+public boolean is_set_uptime_secs();
+============================================================
+ComponentAggregateStats
+============================================================
+public org.apache.storm.generated.ComponentAggregateStats();
+public org.apache.storm.generated.ComponentAggregateStats(org.apache.storm.generated.ComponentAggregateStats);
+public void set_common_stats(org.apache.storm.generated.CommonAggregateStats);
+public void unset_common_stats();
+public boolean is_set_common_stats();
+public void set_specific_stats(org.apache.storm.generated.SpecificAggregateStats);
+public void unset_specific_stats();
+public boolean is_set_specific_stats();
+============================================================
+CommonAggregateStats
+============================================================
+public org.apache.storm.generated.CommonAggregateStats();
+public org.apache.storm.generated.CommonAggregateStats(org.apache.storm.generated.CommonAggregateStats);
+public void set_emitted(long);
+public void unset_emitted();
+public boolean is_set_emitted();
+public void set_transferred(long);
+public void unset_transferred();
+public boolean is_set_transferred();
+public void set_acked(long);
+public void unset_acked();
+public boolean is_set_acked();
+public void set_failed(long);
+public void unset_failed();
+public boolean is_set_failed();
+============================================================
+SpecificAggregateStats
+============================================================
+public org.apache.storm.generated.SpecificAggregateStats();
+public org.apache.storm.generated.SpecificAggregateStats(org.apache.storm.generated.SpecificAggregateStats$_Fields, java.lang.Object);
+public org.apache.storm.generated.SpecificAggregateStats(org.apache.storm.generated.SpecificAggregateStats);
+public void set_bolt(org.apache.storm.generated.BoltAggregateStats);
+public void set_spout(org.apache.storm.generated.SpoutAggregateStats);
+public boolean is_set_bolt();
+public boolean is_set_spout();
+============================================================
+SpoutAggregateStats
+============================================================
+public org.apache.storm.generated.SpoutAggregateStats();
+public org.apache.storm.generated.SpoutAggregateStats(org.apache.storm.generated.SpoutAggregateStats);
+============================================================
+BoltAggregateStats
+============================================================
+public org.apache.storm.generated.BoltAggregateStats();
+public org.apache.storm.generated.BoltAggregateStats(org.apache.storm.generated.BoltAggregateStats);
+============================================================
+TopologyStats
+============================================================
+public org.apache.storm.generated.TopologyStats();
+public org.apache.storm.generated.TopologyStats(org.apache.storm.generated.TopologyStats);
+============================================================
+TopologyPageInfo
+============================================================
+public void set_uptime_secs(int);
+public void unset_uptime_secs();
+public boolean is_set_uptime_secs();
+public void set_id_to_spout_agg_stats(java.util.Map<java.lang.String, org.apache.storm.generated.ComponentAggregateStats>);
+public void unset_id_to_spout_agg_stats();
+public boolean is_set_id_to_spout_agg_stats();
+public void set_id_to_bolt_agg_stats(java.util.Map<java.lang.String, org.apache.storm.generated.ComponentAggregateStats>);
+public void unset_id_to_bolt_agg_stats();
+public boolean is_set_id_to_bolt_agg_stats();
+public void set_topology_stats(org.apache.storm.generated.TopologyStats);
+public void unset_topology_stats();
+public boolean is_set_topology_stats();
+public void set_debug_options(org.apache.storm.generated.DebugOptions);
+public void unset_debug_options();
+public boolean is_set_debug_options();
+public void set_workers(java.util.List<org.apache.storm.generated.WorkerSummary>);
+public void unset_workers();
+public boolean is_set_workers();

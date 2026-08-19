@@ -1,0 +1,326 @@
+============================================================
+SEARCH: /api/v1/topology/summary
+============================================================
+MATCHES: 1
+  400: ### /api/v1/topology/summary (GET)
+
+============================================================
+SEARCH: /api/v1/topology-workers
+============================================================
+MATCHES: 1
+  456: ### /api/v1/topology-workers/\<id\> (GET)
+
+============================================================
+SEARCH: /api/v1/topology/
+============================================================
+MATCHES: 34
+   49: 1. http://ui-daemon-host-name:8080/api/v1/topology/wordcount-1-1425844354\?doAsUser=testUSer1
+   50: 2. curl 'http://localhost:8080/api/v1/topology/wordcount-1-1425844354/activate' -X POST -H 'doAsUser:testUSer1'
+  400: ### /api/v1/topology/summary (GET)
+  490: ### /api/v1/topology/\<id\> (GET)
+  591: 1. http://ui-daemon-host-name:8080/api/v1/topology/WordCount3-1-1402960825
+  592: 2. http://ui-daemon-host-name:8080/api/v1/topology/WordCount3-1-1402960825?sys=1
+  593: 3. http://ui-daemon-host-name:8080/api/v1/topology/WordCount3-1-1402960825?window=600
+  788: ### /api/v1/topology/\<id\>/metrics
+  853: 1. http://ui-daemon-host-name:8080/api/v1/topology/WordCount3-1-1402960825/metrics
+  854: 1. http://ui-daemon-host-name:8080/api/v1/topology/WordCount3-1-1402960825/metrics?sys=1
+  855: 2. http://ui-daemon-host-name:8080/api/v1/topology/WordCount3-1-1402960825/metrics?window=600
+ 1065: ### /api/v1/topology/\<id\>/component/\<component\> (GET)
+ 1141: 1. http://ui-daemon-host-name:8080/api/v1/topology/WordCount3-1-1402960825/component/spout
+ 1142: 2. http://ui-daemon-host-name:8080/api/v1/topology/WordCount3-1-1402960825/component/spout?sys=1
+ 1143: 3. http://ui-daemon-host-name:8080/api/v1/topology/WordCount3-1-1402960825/component/spout?window=600
+ 1303: ###  /api/v1/topology/\<id\>/profiling/start/\<host-port\>/\<timeout\> (POST)
+ 1326: 1. http://ui-daemon-host-name:8080/api/v1/topology/wordcount-1-1446614150/profiling/start/10.11.1.7:6701/10
+ 1327: 2. http://ui-daemon-host-name:8080/api/v1/topology/wordcount-1-1446614150/profiling/start/10.11.1.7:6701/5
+ 1328: 3. http://ui-daemon-host-name:8080/api/v1/topology/wordcount-1-1446614150/profiling/start/10.11.1.7:6701/20
+ 1342: ###  /api/v1/topology/\<id\>/profiling/dumpprofile/\<host-port\> (POST)
+ 1362: 1. http://ui-daemon-host-name:8080/api/v1/topology/wordcount-1-1446614150/profiling/dumpprofile/10.11.1.7:6701
+ 1374: ###  /api/v1/topology/\<id\>/profiling/stop/\<host-port\> (POST)
+ 1394: 1. http://ui-daemon-host-name:8080/api/v1/topology/wordcount-1-1446614150/profiling/stop/10.11.1.7:6701
+ 1406: ###  /api/v1/topology/\<id\>/profiling/dumpjstack/\<host-port\> (POST)
+ 1426: 1. http://ui-daemon-host-name:8080/api/v1/topology/wordcount-1-1446614150/profiling/dumpjstack/10.11.1.7:6701
+ 1438: ###  /api/v1/topology/\<id\>/profiling/dumpheap/\<host-port\> (POST)
+ 1458: 1. http://ui-daemon-host-name:8080/api/v1/topology/wordcount-1-1446614150/profiling/dumpheap/10.11.1.7:6701
+ 1470: ###  /api/v1/topology/\<id\>/profiling/restartworker/\<host-port\> (POST)
+ 1490: 1. http://ui-daemon-host-name:8080/api/v1/topology/wordcount-1-1446614150/profiling/restartworker/10.11.1.7:6701
+ 1504: ### /api/v1/topology/\<id\>/activate (POST)
+ 1519: ### /api/v1/topology/\<id\>/deactivate (POST)
+ 1534: ### /api/v1/topology/\<id\>/rebalance/\<wait-time\> (POST)
+ 1558: http://localhost:8080/api/v1/topology/wordcount-1-1420308665/rebalance/0
+ 1569: ### /api/v1/topology/\<id\>/kill/\<wait-time\> (POST)
+
+============================================================
+SEARCH: topology history
+============================================================
+MATCHES: 0
+
+============================================================
+SEARCH: history
+============================================================
+MATCHES: 3
+  204: ### /api/v1/history/summary (GET)
+  212: |topo-history| List| List of Topologies' IDs|
+  218: "topo-history":[
+
+============================================================
+SEARCH: lag
+============================================================
+MATCHES: 0
+
+============================================================
+SEARCH: requestedMemOnHeap
+============================================================
+MATCHES: 6
+  417: |requestedMemOnHeap| Double|Requested On-Heap Memory by User (MB)
+  442: "requestedMemOnHeap": 640,
+  525: |requestedMemOnHeap| Double|Requested On-Heap Memory by User (MB)
+  565: |spouts.requestedMemOnHeap| Double|Requested On-Heap Memory by User (MB)
+  584: |bolts.requestedMemOnHeap| Double|Requested On-Heap Memory by User (MB)
+ 1086: |requestedMemOnHeap| Double|Requested On-Heap Memory by User (MB)
+
+============================================================
+SEARCH: requestedMemOffHeap
+============================================================
+MATCHES: 6
+  418: |requestedMemOffHeap| Double|Requested Off-Heap Memory by User (MB)|
+  443: "requestedMemOffHeap": 128,
+  526: |requestedMemOffHeap| Double|Requested Off-Heap Memory by User (MB)|
+  566: |spouts.requestedMemOffHeap| Double|Requested Off-Heap Memory by User (MB)|
+  585: |bolts.requestedMemOffHeap| Double|Requested Off-Heap Memory by User (MB)|
+ 1087: |requestedMemOffHeap| Double|Requested Off-Heap Memory by User (MB)|
+
+============================================================
+SEARCH: requestedTotalMem
+============================================================
+MATCHES: 2
+  419: |requestedTotalMem| Double|Requested Total Memory by User (MB)|
+  444: "requestedTotalMem": 768,
+
+============================================================
+SEARCH: requestedCpu
+============================================================
+MATCHES: 6
+  420: |requestedCpu| Double|Requested CPU by User (%)|
+  445: "requestedCpu": 80,
+  527: |requestedCpu| Double|Requested CPU by User (%)|
+  567: |spouts.requestedCpu| Double|Requested CPU by User (%)|
+  586: |bolts.requestedCpu| Double|Requested CPU by User (%)|
+ 1088: |requestedCpu| Double|Requested CPU by User (%)|
+
+============================================================
+SEARCH: assignedMemOnHeap
+============================================================
+MATCHES: 9
+  278: |assignedMemOnHeap | Double | Assigned On-Heap Memory by Scheduler (MB)|
+  309: "assignedMemOnHeap":704.0,
+  326: "assignedMemOnHeap":904.0,
+  421: |assignedMemOnHeap| Double|Assigned On-Heap Memory by Scheduler (MB)|
+  446: "assignedMemOnHeap": 640,
+  521: |assignedMemOnHeap| Double|Assigned On-Heap Memory by Scheduler (MB)
+  543: |workers.assignedMemOnHeap | Double | Assigned On-Heap Memory by Scheduler (MB)|
+  617: "assignedMemOnHeap": 1452.0,
+  682: "assignedMemOnHeap":704.0,
+
+============================================================
+SEARCH: assignedMemOffHeap
+============================================================
+MATCHES: 9
+  279: |assignedMemOffHeap | Double | Assigned Off-Heap Memory by Scheduler (MB)|
+  319: "assignedMemOffHeap":80.0
+  338: "assignedMemOffHeap":80.0
+  422: |assignedMemOffHeap| Double|Assigned Off-Heap Memory by Scheduler (MB)|
+  447: "assignedMemOffHeap": 128,
+  522: |assignedMemOffHeap| Double|Assigned Off-Heap Memory by Scheduler (MB)|
+  544: |workers.assignedMemOffHeap | Double | Assigned Off-Heap Memory by Scheduler (MB)|
+  629: "assignedMemOffHeap": 160.0
+  684: "assignedMemOffHeap":80.0
+
+============================================================
+SEARCH: assignedTotalMem
+============================================================
+MATCHES: 3
+  423: |assignedTotalMem| Double|Assigned Total Memory by Scheduler (MB)|
+  448: "assignedTotalMem": 768,
+  523: |assignedTotalMem| Double|Assigned Off-Heap + On-Heap Memory by Scheduler(MB)|
+
+============================================================
+SEARCH: assignedCpu
+============================================================
+MATCHES: 9
+  280: |assignedCpu | Number | Assigned CPU by Scheduler (%)|
+  318: "assignedCpu":130.0,
+  337: "assignedCpu":165.0,
+  424: |assignedCpu| Double|Assigned CPU by Scheduler (%)|
+  449: "assignedCpu": 80
+  524: |assignedCpu| Double|Assigned CPU by Scheduler(%)|
+  545: |workers.assignedCpu | Number | Assigned CPU by Scheduler (%)|
+  628: "assignedCpu": 260.0,
+  683: "assignedCpu":130.0,
+
+============================================================
+SEARCH: requestedGenericResources
+============================================================
+MATCHES: 0
+
+============================================================
+SEARCH: assignedGenericResources
+============================================================
+MATCHES: 0
+
+============================================================
+SEARCH: workersTotal
+============================================================
+MATCHES: 4
+  414: |workersTotal| Integer |Number of workers used for this topology|
+  439: "workersTotal": 3,
+  513: |workersTotal| Integer |Number of workers used for this topology|
+  602: "workersTotal": 3,
+
+============================================================
+SEARCH: executorsTotal
+============================================================
+MATCHES: 12
+   97: |executorsTotal| Integer |Total number of executors|
+  116: "executorsTotal": 28,
+  277: |executorsTotal | Integer | Number of executors used by the topology in this worker|
+  317: "executorsTotal":8,
+  335: "executorsTotal":10,
+  415: |executorsTotal| Integer |Number of executors used for this topology|
+  440: "executorsTotal": 28,
+  514: |executorsTotal| Integer |Number of executors used for this topology|
+  542: |workers.executorsTotal | Integer | Number of executors used by the topology in this worker|
+  606: "executorsTotal": 28,
+  626: "executorsTotal": 15,
+  681: "executorsTotal":8,
+
+============================================================
+SEARCH: tasksTotal
+============================================================
+MATCHES: 6
+   98: |tasksTotal| Integer |Total tasks|
+  117: "tasksTotal": 28,
+  413: |tasksTotal| Integer |Total number of tasks for this topology|
+  438: "tasksTotal": 28,
+  512: |tasksTotal| Integer |Total number of tasks for this topology|
+  605: "tasksTotal": 28,
+
+============================================================
+SEARCH: replicationCount
+============================================================
+MATCHES: 4
+  416: |replicationCount| Integer |Number of nimbus hosts on which this topology code is replicated|
+  441: "replicationCount": 1,
+  518: |replicationCount| Integer |Number of nimbus hosts on which this topology code is replicated|
+  784: "replicationCount": 1
+
+============================================================
+SEARCH: encoded
+============================================================
+MATCHES: 3
+ 1082: |encodedId   | String | URL encoded component id|
+ 1092: |encodedTopologyId| String | URL encoded topology id|
+ 1126: |inputStats.encodedComponentId| String |URL encoded component id|
+
+============================================================
+SEARCH: encodedId
+============================================================
+MATCHES: 1
+ 1082: |encodedId   | String | URL encoded component id|
+
+============================================================
+SEARCH: debug
+============================================================
+MATCHES: 6
+  519: |debug| Boolean | If debug is enabled for the topology|
+ 1096: |debug| Boolean | If debug is enabled for the component|
+ 1098: |eventLogLink| String| URL viewer link to event log (debug mode)|
+ 1099: |profilingAndDebuggingCapable| Boolean |true if there is support for Profiling and Debugging Actions|
+ 1173: "profilingAndDebuggingCapable": true,
+ 1301: ## Profiling and Debugging POST Operations
+
+============================================================
+SEARCH: sampling
+============================================================
+MATCHES: 2
+  520: |samplingPct| Double| Controls downsampling of events before they are sent to event log (percentage)|
+ 1097: |samplingPct| Double| Controls downsampling of events before they are sent to event log (percentage)|
+
+============================================================
+SEARCH: samplingPct
+============================================================
+MATCHES: 2
+  520: |samplingPct| Double| Controls downsampling of events before they are sent to event log (percentage)|
+ 1097: |samplingPct| Double| Controls downsampling of events before they are sent to event log (percentage)|
+
+============================================================
+SEARCH: window
+============================================================
+MATCHES: 61
+  499: |window    |String. Default value :all-time| Window duration for metrics in seconds|
+  516: |windowHint| String | window param value in "hh mm ss" format. Default value is "All Time"|
+  528: |topologyStats| Array | Array of all the topology related stats per time window|
+  529: |topologyStats.windowPretty| String |Duration passed in HH:MM:SS format|
+  530: |topologyStats.window| String |User requested time window for metrics|
+  531: |topologyStats.emitted| Long |Number of messages emitted in given window|
+  532: |topologyStats.trasferred| Long |Number messages transferred in given window|
+  534: |topologyStats.acked| Long |Number of messages acked in given window|
+  535: |topologyStats.failed| Long |Number of messages failed in given window|
+  553: |spouts.emitted| Long |Number of messages emitted in given window |
+  555: |spouts.transferred| Long |Total number of messages  transferred in given window|
+  570: |bolts.capacity| String (double value returned in String format) |This value indicates number of messages executed * average execute latency / time window|
+  593: 3. http://ui-daemon-host-name:8080/api/v1/topology/WordCount3-1-1402960825?window=600
+  603: "window": "600",
+  610: "windowHint": "10m 0s",
+  633: "windowPretty": "10m 0s",
+  634: "window": "600",
+  642: "windowPretty": "3h 0m 0s",
+  643: "window": "10800",
+  651: "windowPretty": "1d 0h 0m 0s",
+  652: "window": "86400",
+  660: "windowPretty": "All time",
+  661: "window": ":all-time",
+  795: |window    |String. Default value :all-time| window duration for metrics in seconds|
+  802: |window    |String. Default value ":all-time" | window duration for metrics in seconds|
+  803: |windowHint| String | window param value in "hh mm ss" format. Default value is "All Time"|
+  808: |spouts.emitted.value| Long | Number of messages emitted in given window|
+  811: |spouts.transferred.value| Long |Number messages transferred in given window|
+  814: |spouts.acked.value| Long |Number of messages acked in given window|
+  817: |spouts.failed.value| Long |Number of messages failed in given window|
+  825: |bolts.emitted.value| Long | Number of messages emitted in given window|
+  828: |bolts.transferred.value| Long |Number messages transferred in given window|
+  832: |bolts.acked.value| Long |Number of messages acked in given window|
+  836: |bolts.failed.value| Long |Number of messages failed in given window|
+  844: |bolts.executed.value| Long |Number of messages executed in given window|
+  855: 2. http://ui-daemon-host-name:8080/api/v1/topology/WordCount3-1-1402960825/metrics?window=600
+  862: "window":":all-time",
+  863: "window-hint":"All time",
+ 1073: |window    |String. Default value :all-time| window duration for metrics in seconds|
+ 1093: |window    |String. Default value "All Time" | window duration for metrics in seconds|
+ 1095: |windowHint| String | window param value in "hh mm ss" format. Default value is "All Time"|
+ 1109: |spoutSummary| Array | (only for spouts) Array of component stats, one element per window.|
+ 1110: |spoutSummary.windowPretty| String |Duration passed in HH:MM:SS format|
+ 1111: |spoutSummary.window| String | window duration for metrics in seconds|
+ 1112: |spoutSummary.emitted| Long |Number of messages emitted in given window |
+ 1114: |spoutSummary.transferred| Long |Total number of messages transferred in given window|
+ 1117: |boltStats| Array | (only for bolts) Array of component stats, one element per window.|
+ 1118: |boltStats.windowPretty| String |Duration passed in HH:MM:SS format|
+ 1119: |boltStats.window| String| window duration for metrics in seconds|
+ 1120: |boltStats.transferred| Long |Total number of messages  transferred in given window|
+ 1143: 3. http://ui-daemon-host-name:8080/api/v1/topology/WordCount3-1-1402960825/component/spout?window=600
+ 1153: "windowHint": "10m 0s",
+ 1164: "window": "600",
+ 1177: "windowPretty": "10m 0s",
+ 1178: "window": "600",
+ 1186: "windowPretty": "3h 0m 0s",
+ 1187: "window": "10800",
+ 1195: "windowPretty": "1d 0h 0m 0s",
+ 1196: "window": "86400",
+ 1204: "windowPretty": "All time",
+ 1205: "window": ":all-time",
+
+============================================================
+SEARCH: hostPortList
+============================================================
+MATCHES: 2
+  465: |hostPortList| List| Workers' information for a topology|
+  472: "hostPortList":[

@@ -1,0 +1,73 @@
+F7 STRICT BLACK-BOX PREFLIGHT
+Branch=isw2-project
+HEAD=33c1195f5bca82f5482c20c3e7aa0fe01292d771
+RemoteHEAD=33c1195f5bca82f5482c20c3e7aa0fe01292d771
+WorkingTree=clean
+ExplicitFrames=20
+TbbGroups=6
+LogicalCases=23
+
+===== FRAMES =====
+TOP-01 | F7.1 | | TOP-01 | regular | zero | zero | absent | identity and zero execution values preserved |
+TOP-02 | F7.1 | | TOP-02 | regular | positive | positive | absent | execution and resource values preserved |
+TOP-03 | F7.1 | | TOP-03 | encoded characters | positive | positive | absent | raw and URL-safe identity exposed consistently |
+TOP-04 | F7.1 | | TOP-04 | regular | positive | positive | present | requested and assigned generic resources represented |
+TOP-05 | F7.1 | | TOP-05 | regular | positive | zero | absent | zero resource values preserved |
+TOPLIST-01 | F7.2 | | TOPLIST-01 | empty | present | empty topology list |
+TOPLIST-02 | F7.2 | | TOPLIST-02 | one | present | one transformed topology |
+TOPLIST-03 | F7.2 | | TOPLIST-03 | multiple | present | all topologies represented |
+TOPLIST-04 | F7.2 | | TOPLIST-04 | one | absent | topology information remains available |
+TOPPAGE-01 | F7.3 | | TOPPAGE-01 | `:all-time` | empty | empty | empty | absent | basic topology page with all-time hint |
+TOPPAGE-02 | F7.3 | | TOPPAGE-02 | numeric | one | empty | empty | disabled | worker and window information exposed |
+TOPPAGE-03 | F7.3 | | TOPPAGE-03 | numeric | multiple | present | present | full topology/component information exposed |
+TOPPAGE-04 | F7.3 | | TOPPAGE-04 | numeric | one | present | present | enabled | debugging state and sampling percentage exposed |
+TOPWORK-01 | F7.4 | | TOPWORK-01 | empty | empty host/port list |
+TOPWORK-02 | F7.4 | | TOPWORK-02 | one | one host/port entry |
+TOPWORK-03 | F7.4 | | TOPWORK-03 | multiple distinct | all distinct worker locations |
+TOPWORK-04 | F7.4 | | TOPWORK-04 | repeated host/port | duplicate worker location represented once |
+LAG-01 | F7.6 | | LAG-01 | disabled | any | empty lag information |
+LAG-02 | F7.6 | | LAG-02 | enabled | no relevant lag data | no relevant lag entries |
+LAG-03 | F7.6 | | LAG-03 | enabled | lag-capable spout data | computed lag information exposed |
+
+===== PUBLIC API CANDIDATES =====
+public static jakarta.ws.rs.core.Response makeStandardResponse(java.lang.Object, java.lang.String, boolean, jakarta.ws.rs.core.Response$Status);
+public static jakarta.ws.rs.core.Response makeStandardResponse(java.lang.Object, java.lang.String, jakarta.ws.rs.core.Response$Status);
+public static java.lang.String getWorkerDumpLink(java.lang.String, long, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>);
+public static java.lang.String getWorkerLogLink(java.lang.String, int, java.util.Map<java.lang.String, java.lang.Object>, java.lang.String);
+public static java.lang.String prettyExecutorInfo(org.apache.storm.generated.ExecutorInfo);
+public static java.lang.String prettyUptimeMs(int);
+public static java.lang.String prettyUptimeMs(java.lang.String);
+public static java.lang.String prettyUptimeSec(int);
+public static java.lang.String prettyUptimeSec(java.lang.String);
+public static java.lang.String prettyUptimeStr(java.lang.String, java.lang.Object[][]);
+public static java.util.List<java.util.Map> getWorkerSummaries(org.apache.storm.generated.SupervisorPageInfo, java.util.Map<java.lang.String, java.lang.Object>);
+public static java.util.Map<java.lang.String, java.lang.Object> getAllTopologiesSummary(java.util.List<org.apache.storm.generated.TopologySummary>, java.util.Map<java.lang.String, java.lang.Object>);
+public static java.util.Map<java.lang.String, java.lang.Object> getClusterSummary(org.apache.storm.generated.ClusterSummary, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>);
+public static java.util.Map<java.lang.String, java.lang.Object> getNimbusSummary(org.apache.storm.generated.ClusterSummary, java.util.Map<java.lang.String, java.lang.Object>);
+public static java.util.Map<java.lang.String, java.lang.Object> getOwnerResourceSummaries(java.util.List<org.apache.storm.generated.OwnerResourceSummary>, java.util.Map<java.lang.String, java.lang.Object>);
+public static java.util.Map<java.lang.String, java.lang.Object> getOwnerResourceSummary(java.util.List<org.apache.storm.generated.OwnerResourceSummary>, org.apache.storm.generated.Nimbus$Iface, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> getPrettifiedSupervisorMap(org.apache.storm.generated.SupervisorSummary, java.util.Map<java.lang.String, java.lang.Object>);
+public static java.util.Map<java.lang.String, java.lang.Object> getStatMapFromExecutorSummary(org.apache.storm.generated.ExecutorSummary);
+public static java.util.Map<java.lang.String, java.lang.Object> getSupervisorSummary(java.util.List<org.apache.storm.generated.SupervisorSummary>, jakarta.ws.rs.core.SecurityContext, java.util.Map<java.lang.String, java.lang.Object>);
+public static java.util.Map<java.lang.String, java.lang.Object> getTopologyHistoryInfo(org.apache.storm.generated.TopologyHistoryInfo);
+public static java.util.Map<java.lang.String, java.lang.Object> getTopologyMap(org.apache.storm.generated.TopologySummary);
+public static java.util.Map<java.lang.String, java.lang.Object> getTopologyOpResponse(java.lang.String, java.lang.String);
+public static java.util.Map<java.lang.String, java.lang.Object> getTopologyProfilingDump(org.apache.storm.generated.Nimbus$Iface, java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> getTopologyProfilingDumpHeap(org.apache.storm.generated.Nimbus$Iface, java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> getTopologyProfilingDumpJstack(org.apache.storm.generated.Nimbus$Iface, java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> getTopologyProfilingRestartWorker(org.apache.storm.generated.Nimbus$Iface, java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> getTopologyProfilingStart(org.apache.storm.generated.Nimbus$Iface, java.lang.String, java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> getTopologyProfilingStop(org.apache.storm.generated.Nimbus$Iface, java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> getTopologySummary(org.apache.storm.generated.TopologyPageInfo, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>, java.lang.String);
+public static java.util.Map<java.lang.String, java.lang.Object> getTopologyWorkers(org.apache.storm.generated.TopologyInfo, java.util.Map);
+public static java.util.Map<java.lang.String, java.lang.Object> putTopologyActivate(org.apache.storm.generated.Nimbus$Iface, java.lang.String) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> putTopologyDeactivate(org.apache.storm.generated.Nimbus$Iface, java.lang.String) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> putTopologyDebugActionSpct(org.apache.storm.generated.Nimbus$Iface, java.lang.String, java.lang.String, java.lang.String, java.lang.String) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> putTopologyKill(org.apache.storm.generated.Nimbus$Iface, java.lang.String, java.lang.String) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> putTopologyLogLevel(org.apache.storm.generated.Nimbus$Iface, java.util.Map<java.lang.String, java.util.Map>, java.lang.String) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> putTopologyRebalance(org.apache.storm.generated.Nimbus$Iface, java.lang.String, java.lang.String) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> unpackOwnerResourceSummary(org.apache.storm.generated.OwnerResourceSummary);
+public static java.util.Map<java.lang.String, java.util.List<org.apache.storm.generated.ExecutorSummary>> getBoltExecutors(java.util.List<org.apache.storm.generated.ExecutorSummary>, org.apache.storm.generated.StormTopology, boolean);
+public static java.util.Map<java.lang.String, java.util.List<org.apache.storm.generated.ExecutorSummary>> getSpoutExecutors(java.util.List<org.apache.storm.generated.ExecutorSummary>, org.apache.storm.generated.StormTopology);
+public static java.util.Map<java.lang.String, java.util.Map<java.lang.String, java.lang.Object>> getTopologyLag(org.apache.storm.generated.StormTopology, java.util.Map<java.lang.String, java.lang.Object>);
+public static void setTopologyProfilingAction(org.apache.storm.generated.Nimbus$Iface, java.lang.String, java.lang.String, java.lang.Long, java.util.Map<java.lang.String, java.lang.Object>, org.apache.storm.generated.ProfileAction) throws org.apache.storm.thrift.TException;
