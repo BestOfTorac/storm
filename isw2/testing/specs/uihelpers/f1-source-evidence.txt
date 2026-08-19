@@ -1,0 +1,159 @@
+============================================================
+F1.1-F1.4 uptime and executor formatting
+Source: v3.0.0:storm-webapp/src/main/java/org/apache/storm/daemon/ui/UIHelpers.java
+Lines: 118-220
+============================================================
+  118:     private static final Logger LOG = LoggerFactory.getLogger(UIHelpers.class);
+  119:     private static final Object[][] PRETTY_SEC_DIVIDERS = {
+  120:         new Object[]{ "s", 60 },
+  121:         new Object[]{ "m", 60 },
+  122:         new Object[]{ "h", 24 },
+  123:         new Object[]{ "d", null }
+  124:     };
+  125:
+  126:     private static final Object[][] PRETTY_MS_DIVIDERS = {
+  127:         new Object[]{ "ms", 1000 },
+  128:         new Object[]{ "s", 60 },
+  129:         new Object[]{ "m", 60 },
+  130:         new Object[]{ "h", 24 },
+  131:         new Object[]{ "d", null }
+  132:     };
+  133:
+  134:     /**
+  135:      * Prettify uptime string.
+  136:      * @param val val.
+  137:      * @param dividers dividers.
+  138:      * @return prettified uptime string.
+  139:      */
+  140:     public static String prettyUptimeStr(String val, Object[][] dividers) {
+  141:         int uptime = Integer.parseInt(val);
+  142:         LinkedList<String> tmp = new LinkedList<>();
+  143:         for (Object[] divider : dividers) {
+  144:             if (uptime > 0) {
+  145:                 String state = (String) divider[0];
+  146:                 Integer div = (Integer) divider[1];
+  147:                 if (div != null) {
+  148:                     tmp.addFirst(uptime % div + state);
+  149:                     uptime = uptime / div;
+  150:                 } else {
+  151:                     tmp.addFirst(uptime + state);
+  152:                 }
+  153:             }
+  154:         }
+  155:         return Joiner.on(" ").join(tmp);
+  156:     }
+  157:
+  158:     /**
+  159:      * Prettify uptime string.
+  160:      * @param sec uptime in seconds.
+  161:      * @return prettified uptime string.
+  162:      */
+  163:     public static String prettyUptimeSec(String sec) {
+  164:         return prettyUptimeStr(sec, PRETTY_SEC_DIVIDERS);
+  165:     }
+  166:
+  167:     /**
+  168:      * prettyUptimeSec.
+  169:      * @param secs secs
+  170:      * @return prettyUptimeSec
+  171:      */
+  172:     public static String prettyUptimeSec(int secs) {
+  173:         return prettyUptimeStr(String.valueOf(secs), PRETTY_SEC_DIVIDERS);
+  174:     }
+  175:
+  176:     /**
+  177:      * prettyUptimeMs.
+  178:      * @param ms ms
+  179:      * @return prettyUptimeMs
+  180:      */
+  181:     public static String prettyUptimeMs(String ms) {
+  182:         return prettyUptimeStr(ms, PRETTY_MS_DIVIDERS);
+  183:     }
+  184:
+  185:     /**
+  186:      * prettyUptimeMs.
+  187:      * @param ms ms
+  188:      * @return prettyUptimeMs
+  189:      */
+  190:     public static String prettyUptimeMs(int ms) {
+  191:         return prettyUptimeStr(String.valueOf(ms), PRETTY_MS_DIVIDERS);
+  192:     }
+  193:
+  194:     /**
+  195:      * url formatter for log links.
+  196:      * @param fmt string format
+  197:      * @param args hostname and other arguments.
+  198:      * @return string formatter
+  199:      */
+  200:     public static String urlFormat(String fmt, Object... args) {
+  201:         String[] argsEncoded = new String[args.length];
+  202:         for (int i = 0; i < args.length; i++) {
+  203:             argsEncoded[i] = Utils.urlEncodeUtf8(String.valueOf(args[i]));
+  204:         }
+  205:         return String.format(fmt, argsEncoded);
+  206:     }
+  207:
+  208:     /**
+  209:      * Prettified executor info.
+  210:      * @param e from Nimbus call
+  211:      * @return prettified executor info string
+  212:      */
+  213:     public static String prettyExecutorInfo(ExecutorInfo e) {
+  214:         return "[" + e.get_task_start() + "-" + e.get_task_end() + "]";
+  215:     }
+  216:
+  217:     /**
+  218:      * Unauthorized user json.
+  219:      * @param user User id.
+  220:      * @return Unauthorized user json.
+
+============================================================
+F1.5 window hint
+Source: v3.0.0:storm-webapp/src/main/java/org/apache/storm/daemon/ui/UIHelpers.java
+Lines: 1130-1145
+============================================================
+ 1130:     }
+ 1131:
+ 1132:     /**
+ 1133:      * getWindowHint.
+ 1134:      * @param window window
+ 1135:      * @return getWindowHint
+ 1136:      */
+ 1137:     public static String getWindowHint(String window) {
+ 1138:         if (window.equals(":all-time")) {
+ 1139:             return "All time";
+ 1140:         }
+ 1141:         return UIHelpers.prettyUptimeSec(window);
+ 1142:     }
+ 1143:
+ 1144:     /**
+ 1145:      * getStatDisplayMap.
+
+============================================================
+F1.6 stream-name sanitization
+Source: v3.0.0:storm-webapp/src/main/java/org/apache/storm/daemon/ui/UIHelpers.java
+Lines: 1763-1785
+============================================================
+ 1763:     }
+ 1764:
+ 1765:     /**
+ 1766:      * Sanitizes streamName for use as an identifier in the visualization.  Replaces all characters except A-Z, a-z,
+ 1767:      * '.', '-', and '_' with '_'.  If streamName does not start with A-Z or a-z, adds '_s' prefix.
+ 1768:      * @param streamName non-null streamName
+ 1769:      * @return sanitized stream name
+ 1770:      */
+ 1771:     public static String sanitizeStreamName(String streamName) {
+ 1772:         Matcher problemCharacterMatcher = Pattern.compile("(?![A-Za-z_\\-\\.]).").matcher(streamName);
+ 1773:         if (streamName.length() > 0 && Character.isLetter(streamName.charAt(0))) {
+ 1774:             return problemCharacterMatcher.replaceAll("_");
+ 1775:         } else {
+ 1776:             return "_s" + problemCharacterMatcher.replaceAll("_");
+ 1777:         }
+ 1778:     }
+ 1779:
+ 1780:     /**
+ 1781:      * sanitizeTransferredStats.
+ 1782:      * @param stats stats
+ 1783:      * @return sanitizeTransferredStats
+ 1784:      */
+ 1785:     public static  Map<String, Map<String, Long>> sanitizeTransferredStats(Map<String, Map<String, Long>> stats) {

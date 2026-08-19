@@ -81,13 +81,13 @@ information will be considered later when evolving `T_BB` into `T_CF`.
 | U-S-01 | 0 | empty formatted duration |
 | U-S-02 | 1 | `1s` |
 | U-S-03 | 59 | `59s` |
-| U-S-04 | 60 | `1m` |
+| U-S-04 | 60 | `1m 0s` |
 | U-S-05 | 61 | `1m 1s` |
 | U-S-06 | 3599 | `59m 59s` |
-| U-S-07 | 3600 | `1h` |
-| U-S-08 | 3601 | `1h 1s` |
+| U-S-07 | 3600 | `1h 0m 0s` |
+| U-S-08 | 3601 | `1h 0m 1s` |
 | U-S-09 | 86399 | `23h 59m 59s` |
-| U-S-10 | 86400 | `1d` |
+| U-S-10 | 86400 | `1d 0h 0m 0s` |
 | U-S-11 | 90061 | `1d 1h 1m 1s` |
 
 The same representative domain is exercised through both the String and int
@@ -200,13 +200,13 @@ representative F1 frames.
 | U-MS-01 | 0 | empty formatted duration |
 | U-MS-02 | 1 | `1ms` |
 | U-MS-03 | 999 | `999ms` |
-| U-MS-04 | 1000 | `1s` |
+| U-MS-04 | 1000 | `1s 0ms` |
 | U-MS-05 | 1001 | `1s 1ms` |
 | U-MS-06 | 59999 | `59s 999ms` |
-| U-MS-07 | 60000 | `1m` |
-| U-MS-08 | 60001 | `1m 1ms` |
-| U-MS-09 | 3600000 | `1h` |
-| U-MS-10 | 86400000 | `1d` |
+| U-MS-07 | 60000 | `1m 0s 0ms` |
+| U-MS-08 | 60001 | `1m 0s 1ms` |
+| U-MS-09 | 3600000 | `1h 0m 0s 0ms` |
+| U-MS-10 | 86400000 | `1d 0h 0m 0s 0ms` |
 | U-MS-11 | 90061001 | `1d 1h 1m 1s 1ms` |
 
 #### Executor formatting
@@ -225,8 +225,8 @@ representative F1 frames.
 | WH-01 | `:all-time` | `All time` |
 | WH-02 | `0` | empty formatted duration |
 | WH-03 | `59` | `59s` |
-| WH-04 | `60` | `1m` |
-| WH-05 | `3600` | `1h` |
+| WH-04 | `60` | `1m 0s` |
+| WH-05 | `3600` | `1h 0m 0s` |
 
 #### Stream-name sanitization
 
@@ -2190,5 +2190,3 @@ instances, the representation identifies:
 - `Offline` status;
 - version and uptime as not applicable;
 - a Nimbus log link using the configured logviewer mode.
-
-

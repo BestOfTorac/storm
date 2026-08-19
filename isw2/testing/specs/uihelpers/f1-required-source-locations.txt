@@ -1,0 +1,50 @@
+===== prettyUptimeStr =====
+140: public static String prettyUptimeStr(String val, Object[][] dividers) {
+164: return prettyUptimeStr(sec, PRETTY_SEC_DIVIDERS);
+173: return prettyUptimeStr(String.valueOf(secs), PRETTY_SEC_DIVIDERS);
+182: return prettyUptimeStr(ms, PRETTY_MS_DIVIDERS);
+191: return prettyUptimeStr(String.valueOf(ms), PRETTY_MS_DIVIDERS);
+
+===== prettyUptimeSec =====
+163: public static String prettyUptimeSec(String sec) {
+168: * prettyUptimeSec.
+170: * @return prettyUptimeSec
+172: public static String prettyUptimeSec(int secs) {
+780: result.put("uptime", UIHelpers.prettyUptimeSec(topologySummary.get_uptime_secs()));
+927: result.put("uptime", UIHelpers.prettyUptimeSec(supervisorSummary.get_uptime_secs()));
+1043: result.put("uptime", UIHelpers.prettyUptimeSec(workerSummary.get_uptime_secs()));
+1141: return UIHelpers.prettyUptimeSec(window);
+1381: result.put("uptime", prettyUptimeSec(executorSummary.get_uptime_secs()));
+1424: result.put("uptime", prettyUptimeSec(executorSummary.get_uptime_secs()));
+1619: result.put("uptime", UIHelpers.prettyUptimeSec(topologyPageInfo.get_uptime_secs()));
+2483: nimbusSummaryMap.put("nimbusUpTime", prettyUptimeSec(nimbusSummary.get_uptime_secs()));
+
+===== prettyUptimeMs =====
+177: * prettyUptimeMs.
+179: * @return prettyUptimeMs
+181: public static String prettyUptimeMs(String ms) {
+186: * prettyUptimeMs.
+188: * @return prettyUptimeMs
+190: public static String prettyUptimeMs(int ms) {
+
+===== prettyExecutorInfo =====
+213: public static String prettyExecutorInfo(ExecutorInfo e) {
+1378: String executorId = prettyExecutorInfo(executorInfo);
+1421: String executorId = prettyExecutorInfo(executorInfo);
+
+===== getWindowHint =====
+1133: * getWindowHint.
+1135: * @return getWindowHint
+1137: public static String getWindowHint(String window) {
+1152: result.put(getWindowHint(entry.getKey()), entry.getValue());
+1176: result.put("windowHint", getWindowHint(window));
+1251: result.put("windowPretty", getWindowHint(window));
+1274: result.put("windowPretty", getWindowHint(window));
+1592: temp.put("windowPretty", getWindowHint(window));
+1596: temp.put("completeLatency", StatsUtil.floatStr(completeLatency.get(getWindowHint(window))));
+2129: result.put("windowHint", getWindowHint(window));
+
+===== sanitizeStreamName =====
+1771: public static String sanitizeStreamName(String streamName) {
+1790: temp.put(sanitizeStreamName(innerEntry.getKey()), innerEntry.getValue());
+1825: result.put(":sani-stream", sanitizeStreamName(entryInput.getKey().get_streamId()));
