@@ -1,0 +1,8 @@
+﻿"Method","LineNumber","Declaration"
+"unauthorizedUserJson","222","public static Map<String, Object> unauthorizedUserJson(String user) {"
+"wrapJsonInCallback","467","public static String wrapJsonInCallback(String callback, String response) {"
+"getJsonResponseHeaders","477","public static Map getJsonResponseHeaders(String callback, Map headers) {"
+"getJsonResponseBody","499","public static String getJsonResponseBody(Object data, String callback, boolean needSerialize) {"
+"makeStandardResponse","524","public static Response makeStandardResponse(Object data, String callback) {"
+"makeStandardResponse","528","public static Response makeStandardResponse(Object data, String callback, Response.Status status) {"
+"makeStandardResponse","539","public static Response makeStandardResponse("

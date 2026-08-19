@@ -1,0 +1,45 @@
+===== STORM-UI-REST-API.md lines 8-24 =====
+    8: The Storm UI daemon provides a REST API that allows you to interact with a Storm cluster, which includes retrieving
+    9: metrics data and configuration information as well as management operations such as starting or stopping topologies.
+   10:
+   11:
+   12: # Data format
+   13:
+   14: The REST API returns JSON responses and supports JSONP.
+   15: Clients can pass a callback query parameter to wrap JSON in the callback function.
+   16:
+   17:
+   18: # Using the UI REST API
+   19:
+   20: _Note: It is recommended to ignore undocumented elements in the JSON response because future versions of Storm may not_
+   21: _support those elements anymore._
+   22:
+   23:
+   24: ## REST API Base URL
+
+===== callback context around line 15 =====
+   12: # Data format
+   13:
+   14: The REST API returns JSON responses and supports JSONP.
+   15: Clients can pass a callback query parameter to wrap JSON in the callback function.
+   16:
+   17:
+   18: # Using the UI REST API
+
+===== callback context around line 1549 =====
+ 1546: Sample rebalanceOptions json:
+ 1547:
+ 1548: ```json
+ 1549: {"rebalanceOptions" : {"numWorkers" : 2, "executors" : {"spout" :4, "count" : 10}}, "callback" : "foo"}
+ 1550: ```
+ 1551:
+ 1552: Examples:
+
+===== callback context around line 1557 =====
+ 1554: ```no-highlight
+ 1555: curl  -i -b ~/cookiejar.txt -c ~/cookiejar.txt -X POST
+ 1556: -H "Content-Type: application/json"
+ 1557: -d  '{"rebalanceOptions": {"numWorkers": 2, "executors": { "spout" : "5", "split": 7, "count": 5 }}, "callback":"foo"}'
+ 1558: http://localhost:8080/api/v1/topology/wordcount-1-1420308665/rebalance/0
+ 1559: ```
+ 1560:

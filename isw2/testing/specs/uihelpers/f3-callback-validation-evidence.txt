@@ -1,0 +1,21 @@
+Source: v3.0.0:storm-webapp/src/main/java/org/apache/storm/daemon/ui/UIHelpers.java
+Lines: 442-459
+============================================================
+  442:     public static void stormRunJetty(Integer port, Integer headerBufferSize,
+  443:                                      IConfigurator configurator) throws Exception {
+  444:         stormRunJetty(port, null, null, headerBufferSize, configurator);
+  445:     }
+  446:
+  447:     private static final Pattern JSONP_CALLBACK_PATTERN =
+  448:             Pattern.compile("^[A-Za-z_$][A-Za-z0-9_$]*(?:\\.[A-Za-z_$][A-Za-z0-9_$]*)*$");
+  449:
+  450:     private static String sanitizeJsonpCallback(String callback) {
+  451:         if (callback == null) {
+  452:             return null;
+  453:         }
+  454:         if (callback.length() > 128 || !JSONP_CALLBACK_PATTERN.matcher(callback).matches()) {
+  455:             LOG.warn("Ignoring invalid JSONP callback parameter");
+  456:             return null;
+  457:         }
+  458:         return callback;
+  459:     }

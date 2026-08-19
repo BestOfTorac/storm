@@ -1,0 +1,132 @@
+============================================================
+F3.1 unauthorized-user representation
+Source: v3.0.0:storm-webapp/src/main/java/org/apache/storm/daemon/ui/UIHelpers.java
+Lines: 216-232
+============================================================
+  216:
+  217:     /**
+  218:      * Unauthorized user json.
+  219:      * @param user User id.
+  220:      * @return Unauthorized user json.
+  221:      */
+  222:     public static Map<String, Object> unauthorizedUserJson(String user) {
+  223:         return ImmutableMap.of(
+  224:             "error", "No Authorization",
+  225:             "errorMessage", String.format("User %s is not authorized.", user));
+  226:     }
+  227:
+  228:     private static ServerConnector mkSslConnector(Server server, Integer port, String ksPath,
+  229:                                                   String ksPassword, String ksType,
+  230:                                                   String keyPassword, String tsPath,
+  231:                                                   String tsPassword, String tsType,
+  232:                                                   Boolean needClientAuth, Boolean wantClientAuth,
+
+============================================================
+F3.2-F3.6 JSON and HTTP response helpers
+Source: v3.0.0:storm-webapp/src/main/java/org/apache/storm/daemon/ui/UIHelpers.java
+Lines: 455-558
+============================================================
+  455:             LOG.warn("Ignoring invalid JSONP callback parameter");
+  456:             return null;
+  457:         }
+  458:         return callback;
+  459:     }
+  460:
+  461:     /**
+  462:      * wrapJsonInCallback.
+  463:      * @param callback callbackParameterName (must already be validated)
+  464:      * @param response response
+  465:      * @return wrapJsonInCallback
+  466:      */
+  467:     public static String wrapJsonInCallback(String callback, String response) {
+  468:         return callback + "(" + response + ");";
+  469:     }
+  470:
+  471:     /**
+  472:      * getJsonResponseHeaders.
+  473:      * @param callback callbackParameterName
+  474:      * @param headers headers
+  475:      * @return getJsonResponseHeaders
+  476:      */
+  477:     public static Map getJsonResponseHeaders(String callback, Map headers) {
+  478:         final String safeCallback = sanitizeJsonpCallback(callback);
+  479:         Map<String, String> headersResult = new HashMap<>();
+  480:         headersResult.put("Cache-Control", "no-cache, no-store");
+  481:         headersResult.put("Access-Control-Allow-Origin", "*");
+  482:         headersResult.put("Access-Control-Allow-Headers",
+  483:                           "Content-Type, Access-Control-Allow-Headers, "
+  484:                                   + "Access-Controler-Allow-Origin, "
+  485:                                   + "X-Requested-By, X-Csrf-Token, "
+  486:                                   + "Authorization, X-Requested-With");
+  487:         headersResult.put("X-Content-Type-Options", "nosniff");
+  488:         if (safeCallback != null) {
+  489:             headersResult.put("Content-Type", "application/javascript;charset=utf-8");
+  490:         } else {
+  491:             headersResult.put("Content-Type", "application/json;charset=utf-8");
+  492:         }
+  493:         if (headers != null) {
+  494:             headersResult.putAll(headers);
+  495:         }
+  496:         return headersResult;
+  497:     }
+  498:
+  499:     public static String getJsonResponseBody(Object data, String callback, boolean needSerialize) {
+  500:         String safeCallback = sanitizeJsonpCallback(callback);
+  501:         String serializedData = needSerialize ? JSONValue.toJSONString(data) : (String) data;
+  502:         return safeCallback != null ? wrapJsonInCallback(safeCallback, serializedData) : serializedData;
+  503:     }
+  504:
+  505:     /**
+  506:      * Converts exception into json map.
+  507:      * @param ex Exception to be converted.
+  508:      * @param statusCode Status code to be returned.
+  509:      * @return Map to be converted into json.
+  510:      */
+  511:     public static Map exceptionToJson(Exception ex, int statusCode) {
+  512:         LOG.error("HTTP {} error", statusCode, ex);
+  513:         String message = ex.getMessage();
+  514:         if (message == null || message.isEmpty()) {
+  515:             message = ex.getClass().getName();
+  516:         }
+  517:         return ImmutableMap.of(
+  518:                 "error", statusCode
+  519:                         + " "
+  520:                         + HttpStatus.getMessage(statusCode),
+  521:                 "errorMessage", message);
+  522:     }
+  523:
+  524:     public static Response makeStandardResponse(Object data, String callback) {
+  525:         return makeStandardResponse(data, callback, true, Response.Status.OK);
+  526:     }
+  527:
+  528:     public static Response makeStandardResponse(Object data, String callback, Response.Status status) {
+  529:         return makeStandardResponse(data, callback, true, status);
+  530:     }
+  531:
+  532:     /**
+  533:      * makeStandardResponse.
+  534:      * @param data data
+  535:      * @param callback callbackParameterName
+  536:      * @param needsSerialization needsSerialization
+  537:      * @return makeStandardResponse
+  538:      */
+  539:     public static Response makeStandardResponse(
+  540:             Object data, String callback, boolean needsSerialization, Response.Status status) {
+  541:         String body = getJsonResponseBody(data, callback, needsSerialization);
+  542:         Response.ResponseBuilder responseBuilder = Response.status(status).entity(body);
+  543:         Map<String, String> headers = getJsonResponseHeaders(callback, null);
+  544:         for (Map.Entry<String, String> headerEntry : headers.entrySet()) {
+  545:             responseBuilder.header(headerEntry.getKey(), headerEntry.getValue());
+  546:         }
+  547:         return responseBuilder.build();
+  548:     }
+  549:
+  550:     private static final AtomicReference<List<Map<String, String>>> MEMORIZED_VERSIONS = new AtomicReference<>();
+  551:     private static final AtomicReference<Map<String, String>> MEMORIZED_FULL_VERSION = new AtomicReference<>();
+  552:
+  553:     private static Map<String, String> toJsonStruct(IVersionInfo info) {
+  554:         Map<String, String> ret = new HashMap<>();
+  555:         ret.put("version", info.getVersion());
+  556:         ret.put("revision", info.getRevision());
+  557:         ret.put("branch", info.getBranch());
+  558:         ret.put("date", info.getDate());

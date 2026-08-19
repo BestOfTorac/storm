@@ -1,0 +1,134 @@
+===== JSONP =====
+MATCHES: 14
+.\docs\STORM-UI-REST-API.md:14: The REST API returns JSON responses and supports JSONP.
+.\storm-webapp\node_modules\axios\CHANGELOG.md:342: - silentJSONParsing=false should throw on invalid JSON ([#7253](https://github.com/axios/axios/issues/7253)) ([#7257](https://github.com/axios/axios/issues/7257)) ([7d19335](https://github.com/axios/axios/commit/7d19335e43d6754a1a9a66e424f7f7da259895bf))
+.\storm-webapp\node_modules\axios\CHANGELOG.md:360: - Revert "fix: silentJSONParsing=false should throw on invalid JSON (#7253) (#7?" (#7298) ([a4230f5](https://github.com/axios/axios/commit/a4230f5581b3f58b6ff531b6dbac377a4fd7942a)), closes [#7253](https://github.com/axios/axios/issues/7253) [#7](https://github.com/axios/axios/issues/7) [#7298](https://github.com/axios/axios/issues/7298)
+.\storm-webapp\node_modules\axios\README.md:1020: // When `responseType` is omitted (defaults to no value), axios uses `forcedJSONParsing`
+.\storm-webapp\node_modules\axios\README.md:1023: //   { responseType: 'json', transitional: { silentJSONParsing: false } }
+.\storm-webapp\node_modules\axios\README.md:1024: silentJSONParsing: true, // default value for the current Axios version
+.\storm-webapp\node_modules\axios\README.md:1027: forcedJSONParsing: true,
+.\storm-webapp\node_modules\axios\README.md:2302: const { data: post } = await axios.get('https://jsonplaceholder.typicode.com/posts/1', {
+.\storm-webapp\node_modules\body-parser\README.md:443: const jsonParser = bodyParser.json()
+.\storm-webapp\node_modules\body-parser\README.md:455: app.post('/api/users', jsonParser, function (req, res) {
+.\storm-webapp\node_modules\css-loader\README.md:1600: class CssModulesJsonPlugin {
+.\storm-webapp\node_modules\css-loader\README.md:1607: compiler.hooks.emit.tap("CssModulesJsonPlugin", () => {
+.\storm-webapp\node_modules\css-loader\README.md:1652: new CssModulesJsonPlugin({
+.\storm-webapp\node_modules\rfdc\readme.md:137: benchJsonParseJsonStringify*100: 2.290s // JSON.parse(JSON.stringify(obj))
+
+===== callback =====
+MATCHES: 411
+.\docs\Acking-framework-implementation.md:38: Whenever its owner calls `.rotate()`, the RotatingMap advances each cohort one step further towards expiration. (Typically, Storm objects call rotate on every receipt of a system tick stream tuple.) If there are any key-value pairs in the former death row bucket, the RotatingMap invokes a callback (given in the constructor) for each key-value pair, letting its owner take appropriate action (eg, failing a tuple.
+.\docs\Common-patterns.md:74: You sometimes want to keep a cache in memory of items that have been recently "active" and have items that have been inactive for some time automatically expire. [TimeCacheMap](https://javadoc.io/doc/org.apache.storm/storm-client/3.0.0/org/apache/storm/utils/TimeCacheMap.html) is an efficient data structure for doing this and provides hooks so you can insert callbacks whenever an item is expired.
+.\docs\distcache-blobstore.md:267: Note: All nimbus hosts have watchers on zookeeper to be notified immediately as soon as a new blobs is available for download, the callback may or may not download
+.\docs\Distributed-RPC.md:193: Batch bolts provide the `finishBatch` method which is called after all the tuples for this batch targeted at this task have been processed. In the callback, `PartialUniquer` emits a single tuple containing the unique count for its subset of follower ids.
+.\docs\nimbus-ha-design.md:221: download, the callback pretty much never results in code download. In practice we have observed that the desired replication is only achieved once the background-thread runs.
+.\docs\STORM-UI-REST-API.md:15: Clients can pass a callback query parameter to wrap JSON in the callback function.
+.\docs\STORM-UI-REST-API.md:1549: {"rebalanceOptions" : {"numWorkers" : 2, "executors" : {"spout" :4, "count" : 10}}, "callback" : "foo"}
+.\docs\STORM-UI-REST-API.md:1557: -d  '{"rebalanceOptions": {"numWorkers": 2, "executors": { "spout" : "5", "split": 7, "count": 5 }}, "callback":"foo"}'
+.\storm-webapp\node_modules\@cypress\request\README.md:33: - [**All Available Options**](#requestoptions-callback)
+.\storm-webapp\node_modules\@cypress\request\README.md:141: `request` supports both streaming and callback interfaces natively. If you'd like `request` to return a Promise instead, you can use an alternative interface wrapper for `request`. These wrappers can be useful if you prefer to work with Promises, or if you'd like to use `async`/`await` in ES2017.
+.\storm-webapp\node_modules\@cypress\request\README.md:148: Also, [`util.promisify`](https://nodejs.org/api/util.html#util_util_promisify_original), which is available from Node.js v8.0 can be used to convert a regular function that takes a callback to return a promise instead.
+.\storm-webapp\node_modules\@cypress\request\README.md:204: request.post({url:'http://service.com/upload', formData: formData}, function optionalCallback(err, httpResponse, body) {
+.\storm-webapp\node_modules\@cypress\request\README.md:216: const r = request.post('http://service.com/upload', function optionalCallback(err, httpResponse, body) {...})
+.\storm-webapp\node_modules\@cypress\request\README.md:353: function callback(error, response, body) {
+.\storm-webapp\node_modules\@cypress\request\README.md:361: request(options, callback);
+.\storm-webapp\node_modules\@cypress\request\README.md:654: ## request(options, callback)
+.\storm-webapp\node_modules\@cypress\request\README.md:703: - *(async callback usage)* If the function has two arguments, it will be treated as an asynchronous function and will be passed a callback as the second argument. Invoke the callback with an error (`null` if no error) and the boolean/url result as the second.
+.\storm-webapp\node_modules\@cypress\request\README.md:714: - `gzip` - if `true`, add an `Accept-Encoding` header to request compressed content encodings from the server (if not already present) and decode supported content encodings in the response. **Note:** Automatic decoding of the response content is performed on the body data returned through `request` (both through the `request` stream and passed to the callback function) but is not performed on the `response` stream (available from the `response` event) which is the unmodified `http.IncomingMessage` object which may contain compressed data. See example below.
+.\storm-webapp\node_modules\@cypress\request\README.md:721: - `agentOptions` - and pass its options. **Note:** for HTTPS see [tls API doc for TLS/SSL options](http://nodejs.org/api/tls.html#tls_tls_connect_options_callback) and the [documentation above](#using-optionsagentoptions).
+.\storm-webapp\node_modules\@cypress\request\README.md:774: - `callback` - alternatively pass the request's callback in the options object
+.\storm-webapp\node_modules\@cypress\request\README.md:776: The callback argument gets 3 arguments:
+.\storm-webapp\node_modules\@discoveryjs\json-ext\README.md:95: The `state` object passed to `onRootValue` and `onChunk` callbacks has the following properties:
+.\storm-webapp\node_modules\@egjs\hammerjs\tests\manual\nested.html:109: return window[Hammer.prefixed(window, "requestAnimationFrame")] || function(callback) {
+.\storm-webapp\node_modules\@egjs\hammerjs\tests\manual\nested.html:110: setTimeout(callback, 1000 / 60);
+.\storm-webapp\node_modules\@egjs\hammerjs\tests\manual\visual.html:48: return window[Hammer.prefixed(window, 'requestAnimationFrame')] || function (callback) {
+.\storm-webapp\node_modules\@egjs\hammerjs\tests\manual\visual.html:49: window.setTimeout(callback, 1000 / 60);
+.\storm-webapp\node_modules\@jridgewell\source-map\README.md:66: #### SourceMapConsumer.prototype.eachMapping(callback[, context[, order]])
+.\storm-webapp\node_modules\acorn\README.md:89: - **onInsertedSemicolon**: If given a callback, that callback will be
+.\storm-webapp\node_modules\acorn\README.md:91: callback will be given the character offset of the point where the
+.\storm-webapp\node_modules\acorn\README.md:144: callback?that will corrupt its internal state.
+... truncated after first 30 matches ...
+
+===== application/javascript =====
+MATCHES: 34
+.\licenses\javax.annotation CDDL 1.1.html:3918: <script crossorigin="anonymous" integrity="sha512-jFuNBkwlIX73xJbI2nTCs01W/xjwP+Ccc0gEdkD4d/tQBv4xIZx4dZLnkYhzawWhnxjJbvkHsxSXQffNs0Ce4Q==" type="application/javascript" src="https://github.githubassets.com/assets/compat-bootstrap-8102d067.js"></script>
+.\licenses\javax.annotation CDDL 1.1.html:3919: <script crossorigin="anonymous" integrity="sha512-p8hBLU7upkvGSTPOlZOg8xpzXyCnw3ZW22fEgH0h/VJ/BadJS9gt6SHGZ89F3wpFzqSDsFlU32OAJKYk/otSKw==" type="application/javascript" src="https://github.githubassets.com/assets/frameworks-ae48aebc.js"></script>
+.\licenses\javax.annotation CDDL 1.1.html:3921: <script crossorigin="anonymous" async="async" integrity="sha512-j9xZZ98nOvSw0VajZh0/iN+13HQJgpVp8MHuMQbJe87mSO2wj3dKGsilBdjK0VfnMGMjX+LfH5UJpsuB0DiDBQ==" type="application/javascript" src="https://github.githubassets.com/assets/github-bootstrap-2da7dfc7.js"></script>
+.\licenses\Jersey CDDL 1.1.html:1519: <script crossorigin="anonymous" integrity="sha512-jFuNBkwlIX73xJbI2nTCs01W/xjwP+Ccc0gEdkD4d/tQBv4xIZx4dZLnkYhzawWhnxjJbvkHsxSXQffNs0Ce4Q==" type="application/javascript" src="https://github.githubassets.com/assets/compat-bootstrap-8102d067.js"></script>
+.\licenses\Jersey CDDL 1.1.html:1520: <script crossorigin="anonymous" integrity="sha512-p8hBLU7upkvGSTPOlZOg8xpzXyCnw3ZW22fEgH0h/VJ/BadJS9gt6SHGZ89F3wpFzqSDsFlU32OAJKYk/otSKw==" type="application/javascript" src="https://github.githubassets.com/assets/frameworks-ae48aebc.js"></script>
+.\licenses\Jersey CDDL 1.1.html:1522: <script crossorigin="anonymous" async="async" integrity="sha512-j9xZZ98nOvSw0VajZh0/iN+13HQJgpVp8MHuMQbJe87mSO2wj3dKGsilBdjK0VfnMGMjX+LfH5UJpsuB0DiDBQ==" type="application/javascript" src="https://github.githubassets.com/assets/github-bootstrap-2da7dfc7.js"></script>
+.\storm-webapp\node_modules\accepts\node_modules\mime-db\HISTORY.md:32: * Remove extension `.mjs` from `application/javascript`
+.\storm-webapp\node_modules\accepts\node_modules\mime-db\HISTORY.md:204: * Add extension `.mjs` to `application/javascript`
+.\storm-webapp\node_modules\accepts\node_modules\mime-db\README.md:38: var data = db['application/javascript']
+.\storm-webapp\node_modules\accepts\node_modules\mime-types\HISTORY.md:189: - Add extension `.mjs` to `application/javascript`
+.\storm-webapp\node_modules\accepts\node_modules\mime-types\README.md:66: mime.lookup('folder/file.js') // 'application/javascript'
+.\storm-webapp\node_modules\express\node_modules\mime-db\HISTORY.md:32: * Remove extension `.mjs` from `application/javascript`
+.\storm-webapp\node_modules\express\node_modules\mime-db\HISTORY.md:204: * Add extension `.mjs` to `application/javascript`
+.\storm-webapp\node_modules\express\node_modules\mime-db\README.md:38: var data = db['application/javascript']
+.\storm-webapp\node_modules\express\node_modules\mime-types\HISTORY.md:189: - Add extension `.mjs` to `application/javascript`
+.\storm-webapp\node_modules\express\node_modules\mime-types\README.md:66: mime.lookup('folder/file.js') // 'application/javascript'
+.\storm-webapp\node_modules\mime-db\HISTORY.md:170: * Add extension `.mjs` to `application/javascript`
+.\storm-webapp\node_modules\mime-db\README.md:41: var data = db['application/javascript']
+.\storm-webapp\node_modules\mime-types\HISTORY.md:158: - Add extension `.mjs` to `application/javascript`
+.\storm-webapp\node_modules\mime-types\README.md:53: mime.lookup('folder/file.js') // 'application/javascript'
+.\storm-webapp\node_modules\send\node_modules\mime-db\HISTORY.md:32: * Remove extension `.mjs` from `application/javascript`
+.\storm-webapp\node_modules\send\node_modules\mime-db\HISTORY.md:204: * Add extension `.mjs` to `application/javascript`
+.\storm-webapp\node_modules\send\node_modules\mime-db\README.md:38: var data = db['application/javascript']
+.\storm-webapp\node_modules\send\node_modules\mime-types\HISTORY.md:189: - Add extension `.mjs` to `application/javascript`
+.\storm-webapp\node_modules\send\node_modules\mime-types\README.md:66: mime.lookup('folder/file.js') // 'application/javascript'
+.\storm-webapp\node_modules\type-is\HISTORY.md:66: - Add extension `.mjs` to `application/javascript`
+.\storm-webapp\node_modules\type-is\node_modules\mime-db\HISTORY.md:32: * Remove extension `.mjs` from `application/javascript`
+.\storm-webapp\node_modules\type-is\node_modules\mime-db\HISTORY.md:204: * Add extension `.mjs` to `application/javascript`
+.\storm-webapp\node_modules\type-is\node_modules\mime-db\README.md:38: var data = db['application/javascript']
+.\storm-webapp\node_modules\type-is\node_modules\mime-types\HISTORY.md:189: - Add extension `.mjs` to `application/javascript`
+... truncated after first 30 matches ...
+
+===== application/json =====
+MATCHES: 74
+.\docs\STORM-UI-REST-API.md:1556: -H "Content-Type: application/json"
+.\storm-webapp\node_modules\@cypress\request\README.md:52: You can also stream a file to a PUT or POST request. This method will also check the file extension against a mapping of file extensions to content-types (in this case `application/json`) and use the proper `content-type` in the PUT request (if the headers don?t already provide one).
+.\storm-webapp\node_modules\@cypress\request\README.md:236: 'content-type': 'application/json',
+.\storm-webapp\node_modules\@cypress\request\README.md:247: 'content-type': 'application/json',
+.\storm-webapp\node_modules\@cypress\request\README.md:688: - `json` - sets `body` to JSON representation of value and adds `Content-type: application/json` header. Additionally, parses the response body as JSON.
+.\storm-webapp\node_modules\@cypress\request\README.md:919: [ { 'content-type': 'application/json'
+.\storm-webapp\node_modules\accepts\README.md:14: - Allows types as an array or arguments list, ie `(['text/html', 'application/json'])`
+.\storm-webapp\node_modules\accepts\README.md:15: as well as `('text/html', 'application/json')`.
+.\storm-webapp\node_modules\accepts\README.md:103: res.setHeader('Content-Type', 'application/json')
+.\storm-webapp\node_modules\accepts\node_modules\mime-db\HISTORY.md:392: * Add `application/json-seq`
+.\storm-webapp\node_modules\accepts\node_modules\mime-db\HISTORY.md:464: - `application/json5`
+.\storm-webapp\node_modules\accepts\node_modules\mime-db\HISTORY.md:476: * Add `application/json5`
+.\storm-webapp\node_modules\accepts\node_modules\mime-types\HISTORY.md:304: - i.e. `'path/to/json'` will no longer return `application/json`
+.\storm-webapp\node_modules\accepts\node_modules\mime-types\HISTORY.md:423: * Set charset=utf-8 for `application/json`
+.\storm-webapp\node_modules\accepts\node_modules\mime-types\README.md:63: mime.lookup('json') // 'application/json'
+.\storm-webapp\node_modules\accepts\node_modules\mime-types\README.md:82: mime.contentType('file.json') // 'application/json; charset=utf-8'
+.\storm-webapp\node_modules\accepts\node_modules\mime-types\README.md:87: mime.contentType(path.extname('/path/to/file.json')) // 'application/json; charset=utf-8'
+.\storm-webapp\node_modules\aws4\README.md:102: 'Content-Type': 'application/json',
+.\storm-webapp\node_modules\axios\README.md:1811: `FormData` and `HTMLForm` objects can also be posted as `JSON` by explicitly setting the `Content-Type` header to `application/json`:
+.\storm-webapp\node_modules\axios\README.md:1816: 'Content-Type': 'application/json',
+.\storm-webapp\node_modules\axios\README.md:2012: Accept: 'application/json',
+.\storm-webapp\node_modules\body-parser\README.md:113: be an extension name (like `json`), a mime type (like `application/json`), or
+.\storm-webapp\node_modules\body-parser\README.md:116: value. Defaults to `application/json`.
+.\storm-webapp\node_modules\body-parser\README.md:420: // parse application/json
+.\storm-webapp\node_modules\body-parser\README.md:442: // create application/json parser
+.\storm-webapp\node_modules\csso\README.md:291: '/*# sourceMappingURL=data:application/json;base64,' +
+.\storm-webapp\node_modules\express\node_modules\mime-db\HISTORY.md:392: * Add `application/json-seq`
+.\storm-webapp\node_modules\express\node_modules\mime-db\HISTORY.md:464: - `application/json5`
+.\storm-webapp\node_modules\express\node_modules\mime-db\HISTORY.md:476: * Add `application/json5`
+.\storm-webapp\node_modules\express\node_modules\mime-types\HISTORY.md:304: - i.e. `'path/to/json'` will no longer return `application/json`
+... truncated after first 30 matches ...
+
+===== unauthorized user =====
+MATCHES: 0
+NO DOCUMENTATION MATCH
+
+===== HTTP response =====
+MATCHES: 9
+.\docs\SECURITY.md:331: The Storm UI does not set security-related HTTP response headers by default. Operators deploying a secured cluster should configure the following headers via their reverse proxy or a custom servlet filter configured through `ui.filter`:
+.\storm-webapp\node_modules\axios\README.md:874: // `maxContentLength` defines the max size of the http response content in bytes allowed in node.js
+.\storm-webapp\node_modules\axios\README.md:885: // HTTP response status code. If `validateStatus` returns `true` (or is set to `null`
+.\storm-webapp\node_modules\axios\README.md:1345: | status | HTTP response status code. See [here](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes) for common HTTP response status code meanings.
+.\storm-webapp\node_modules\body-parser\README.md:308: HTTP response code, an `expose` property to determine if the `message` property
+.\storm-webapp\node_modules\etag\README.md:12: HTTP responses.
+.\storm-webapp\node_modules\fresh\README.md:9: HTTP response freshness testing
+.\storm-webapp\node_modules\send\README.md:8: Send is a library for streaming files from the file system as a http response
+.\storm-webapp\node_modules\send\README.md:132: The `pipe` method is used to pipe the response into the Node.js HTTP response
