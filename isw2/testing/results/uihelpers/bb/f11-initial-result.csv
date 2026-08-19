@@ -1,0 +1,2 @@
+﻿"CaseId","JUnitTest","InitialResult","Message","InitialOracle","Classification","DefectCandidate","C0Inspected"
+"PROF-DISABLED-01","profDisabled01ReportsProfilingAsDisabled","FAILURE","expected: <true> but was: <false>","Expected getProfilingDisabled to expose both documented profiling capability/enabled flags as false.","UNSUPPORTED_ORACLE_INSUFFICIENT_EXTERNAL_SPEC","NO","NO"

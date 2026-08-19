@@ -1,0 +1,2 @@
+﻿"CaseId","FinalStatus","OracleType","Reason","C0Inspected"
+"PROF-DISABLED-01","EXCLUDED","UNSUPPORTED_EXTERNAL_ORACLE","REST documentation does not establish the exact return-map contract of getProfilingDisabled.","NO"

@@ -1,0 +1,170 @@
+F11 MINIMAL STRICT BLACK-BOX PREFLIGHT
+HEAD=7697331e2acc3d0d545b7f85473eaa2de4a4311d
+RemoteHEAD=7697331e2acc3d0d545b7f85473eaa2de4a4311d
+WorkingTree=clean
+ExplicitFrames=15
+TbbGroups=8
+LogicalCases=21
+TargetFinalTests=0_TO_2
+C0Inspected=NO
+
+===== FRAMES =====
+PROF-ACT-01 | F11.1 | | PROF-ACT-01 | recent | HTTP | host, port, dump link and elapsed time exposed |
+PROF-ACT-02 | F11.1 | | PROF-ACT-02 | older | HTTP | larger non-negative elapsed time exposed |
+PROF-ACT-03 | F11.1 | | PROF-ACT-03 | recent | HTTPS | dump link uses secure logviewer |
+PROF-LIST-01 | F11.2 | | PROF-LIST-01 | empty | empty active-action list |
+PROF-LIST-02 | F11.2 | | PROF-LIST-02 | one | one active-action representation |
+PROF-LIST-03 | F11.2 | | PROF-LIST-03 | multiple | all pending actions represented |
+PROF-START-01 | F11.3 | | PROF-START-01 | 0 | HTTP | profiling request submitted and `status=ok` returned |
+PROF-START-02 | F11.3 | | PROF-START-02 | positive | HTTP | stop timestamp scheduled according to timeout |
+PROF-START-03 | F11.3 | | PROF-START-03 | positive | HTTPS | secure dump link returned |
+PROF-STOP-01 | F11.4 | **PROF-STOP-01**
+PROF-DISABLED-01 | F11.5 | **PROF-DISABLED-01**
+PROF-DUMP-01 | F11.6 | | PROF-DUMP-01 | profiler dump | JPROFILE_DUMP | status `ok`, target id preserved |
+PROF-HEAP-01 | F11.6 | | PROF-HEAP-01 | heap dump | JMAP_DUMP | status `ok`, target id preserved |
+PROF-JSTACK-01 | F11.6 | | PROF-JSTACK-01 | JStack | JSTACK_DUMP | status `ok`, target id preserved |
+PROF-RESTART-01 | F11.6 | | PROF-RESTART-01 | worker restart | JVM_RESTART | status `ok`, target id preserved |
+
+===== T_BB GROUPS =====
+TBB-058 | F11.1 | EXPLICIT_FRAME | 3 | Defined by explicit Category Partition frames
+TBB-059 | F11.2 | EXPLICIT_FRAME | 3 | Defined by explicit Category Partition frames
+TBB-060 | F11.3 | EXPLICIT_FRAME | 3 | Defined by explicit Category Partition frames
+TBB-061 | F11.4 | EXPLICIT_FRAME | 1 | Defined by explicit Category Partition frames
+TBB-062 | F11.5 | EXPLICIT_FRAME | 1 | Defined by explicit Category Partition frames
+TBB-063 | F11.6 | EXPLICIT_FRAME | 4 | Defined by explicit Category Partition frames
+TBB-064 | F11.7 | IMPLICIT_CP_CHOICES | 3 | zero timestamp with representative stop action | recent timestamp with dump action | future timestamp with restart action
+TBB-065 | F11.8 | IMPLICIT_CP_CHOICES | 3 | missing host-port separator | non-numeric port | missing host
+
+===== PROFILING PUBLIC API =====
+public static java.util.List getActiveProfileActions(org.apache.storm.generated.Nimbus$Iface, java.lang.String, java.lang.String, java.util.Map) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> getActiveAction(org.apache.storm.generated.ProfileRequest, java.util.Map, java.lang.String);
+public static java.util.Map<java.lang.String, java.lang.Object> getProfilingDisabled();
+public static java.util.Map<java.lang.String, java.lang.Object> getTopologyProfilingDump(org.apache.storm.generated.Nimbus$Iface, java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> getTopologyProfilingDumpHeap(org.apache.storm.generated.Nimbus$Iface, java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> getTopologyProfilingDumpJstack(org.apache.storm.generated.Nimbus$Iface, java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> getTopologyProfilingRestartWorker(org.apache.storm.generated.Nimbus$Iface, java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> getTopologyProfilingStart(org.apache.storm.generated.Nimbus$Iface, java.lang.String, java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>) throws org.apache.storm.thrift.TException;
+public static java.util.Map<java.lang.String, java.lang.Object> getTopologyProfilingStop(org.apache.storm.generated.Nimbus$Iface, java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>) throws org.apache.storm.thrift.TException;
+public static void setTopologyProfilingAction(org.apache.storm.generated.Nimbus$Iface, java.lang.String, java.lang.String, java.lang.Long, java.util.Map<java.lang.String, java.lang.Object>, org.apache.storm.generated.ProfileAction) throws org.apache.storm.thrift.TException;
+
+===== REST PROFILING DOCUMENTATION =====
+1086: |requestedMemOnHeap| Double|Requested On-Heap Memory by User (MB)
+1087: |requestedMemOffHeap| Double|Requested Off-Heap Memory by User (MB)|
+1099: |profilingAndDebuggingCapable| Boolean |true if there is support for Profiling and Debugging Actions|
+1100: |profileActionEnabled| Boolean |true if worker profiling (Java Flight Recorder) is enabled|
+1101: |profilerActive| Array |Array of currently active Profiler Actions|
+1108: |componentErrors.errorWorkerLogLink| String | Link to the worker log that reported the exception |
+1158: "errorWorkerLogLink": "http://10.11.1.7:8000/log?file=worker-6701.log",
+1165: "profilerActive": [
+1173: "profilingAndDebuggingCapable": true,
+1174: "profileActionEnabled": true,
+1233: "workerLogLink": "http://10.11.1.7:8000/log?file=worker-6701.log",
+1246: "workerLogLink": "http://10.11.1.7:8000/log?file=worker-6703.log",
+1259: "workerLogLink": "http://10.11.1.7:8000/log?file=worker-6702.log",
+1272: "workerLogLink": "http://10.11.1.7:8000/log?file=worker-6701.log",
+1285: "workerLogLink": "http://10.11.1.7:8000/log?file=worker-6703.log",
+1301: ## Profiling and Debugging POST Operations
+1303: ###  /api/v1/topology/\<id\>/profiling/start/\<host-port\>/\<timeout\> (POST)
+1305: Request to start profiler on worker with timeout. Returns status and link to profiler artifacts for worker.
+1311: |host-port |String (required)| Worker Id |
+1312: |timeout |String (required)| Time out for profiler to stop in minutes |
+1318: |id   | String | Worker id|
+1321: |dumplink | String | Link to logviewer URL for worker profiler documents.|
+1326: 1. http://ui-daemon-host-name:8080/api/v1/topology/wordcount-1-1446614150/profiling/start/10.11.1.7:6701/10
+1327: 2. http://ui-daemon-host-name:8080/api/v1/topology/wordcount-1-1446614150/profiling/start/10.11.1.7:6701/5
+1328: 3. http://ui-daemon-host-name:8080/api/v1/topology/wordcount-1-1446614150/profiling/start/10.11.1.7:6701/20
+1342: ###  /api/v1/topology/\<id\>/profiling/dumpprofile/\<host-port\> (POST)
+1344: Request to dump profiler recording on worker. Returns status and worker id for the request.
+1350: |host-port |String (required)| Worker Id |
+1356: |id   | String | Worker id|
+1362: 1. http://ui-daemon-host-name:8080/api/v1/topology/wordcount-1-1446614150/profiling/dumpprofile/10.11.1.7:6701
+1374: ###  /api/v1/topology/\<id\>/profiling/stop/\<host-port\> (POST)
+1376: Request to stop profiler on worker. Returns status and worker id for the request.
+1382: |host-port |String (required)| Worker Id |
+1388: |id   | String | Worker id|
+1394: 1. http://ui-daemon-host-name:8080/api/v1/topology/wordcount-1-1446614150/profiling/stop/10.11.1.7:6701
+140: |slotsTotal| Integer| Total number of available worker slots for this supervisor|
+1406: ###  /api/v1/topology/\<id\>/profiling/dumpjstack/\<host-port\> (POST)
+1408: Request to dump jstack on worker. Returns status and worker id for the request.
+141: |slotsUsed| Integer| Number of worker slots used on this supervisor|
+1414: |host-port |String (required)| Worker Id |
+1420: |id   | String | Worker id|
+1426: 1. http://ui-daemon-host-name:8080/api/v1/topology/wordcount-1-1446614150/profiling/dumpjstack/10.11.1.7:6701
+1438: ###  /api/v1/topology/\<id\>/profiling/dumpheap/\<host-port\> (POST)
+1440: Request to dump heap (jmap) on worker. Returns status and worker id for the request.
+1446: |host-port |String (required)| Worker Id |
+1452: |id   | String | Worker id|
+1458: 1. http://ui-daemon-host-name:8080/api/v1/topology/wordcount-1-1446614150/profiling/dumpheap/10.11.1.7:6701
+1470: ###  /api/v1/topology/\<id\>/profiling/restartworker/\<host-port\> (POST)
+1472: Request to request the worker. Returns status and worker id for the request.
+1478: |host-port |String (required)| Worker Id |
+1484: |id   | String | Worker id|
+1490: 1. http://ui-daemon-host-name:8080/api/v1/topology/wordcount-1-1446614150/profiling/restartworker/10.11.1.7:6701
+1549: {"rebalanceOptions" : {"numWorkers" : 2, "executors" : {"spout" :4, "count" : 10}}, "callback" : "foo"}
+1557: -d  '{"rebalanceOptions": {"numWorkers": 2, "executors": { "spout" : "5", "split": 7, "count": 5 }}, "callback":"foo"}'
+240: |id   	   |String. Supervisor id | If specified, respond with the supervisor and worker stats with id. Note that when id is specified, the host argument is ignored. |
+241: |host      |String. Host name| If specified, respond with all supervisors and worker stats in the host (normally just one)|
+249: |workers| Array| Array of worker summaries |
+260: |slotsTotal| Integer| Total number of worker slots for this supervisor|
+261: |slotsUsed| Integer| Number of worker slots used on this supervisor|
+268: Each worker is defined by:
+273: |host | String | Worker's host name|
+274: |port | Integer | Worker's port|
+277: |executorsTotal | Integer | Number of executors used by the topology in this worker|
+278: |assignedMemOnHeap | Double | Assigned On-Heap Memory by Scheduler (MB)|
+279: |assignedMemOffHeap | Double | Assigned Off-Heap Memory by Scheduler (MB)|
+282: |uptime| String| Shows how long the worker is running|
+283: |uptimeSeconds| Integer| Shows how long the worker is running in seconds|
+284: |workerLogLink | String | Link to worker log viewer page|
+304: "workers":[{
+309: "assignedMemOnHeap":704.0,
+313: "workerLogLink":"http:\/\/host:8000\/log?file=ras-4-1460229987%2F6707%2Fworker.log",
+319: "assignedMemOffHeap":80.0
+326: "assignedMemOnHeap":904.0,
+329: "workerLogLink":"http:\/\/host:8000\/log?file=ras-4-1460229987%2F6706%2Fworker.log",
+338: "assignedMemOffHeap":80.0
+354: |totalWorkers |Integer|Total number of workers used by owner
+363: |totalReqOnHeapMem|Double| Total On-Heap Memory Requested by User in MB
+364: |totalReqOffHeapMem|Double|Total Off-Heap Memory Requested by User in MB
+367: |totalAssignedOnHeapMem|Double|Total On-Heap Memory Assigned on behalf of owner in MB
+368: |totalAssignedOffHeapMem|Double|Total Off-Heap Memory Assigned on behalf of owner in MB
+376: "totalReqOnHeapMem": 896,
+387: "totalReqOffHeapMem": 0,
+389: "totalWorkers": 2,
+391: "totalAssignedOffHeapMem": 0,
+392: "totalAssignedOnHeapMem": 896,
+414: |workersTotal| Integer |Number of workers used for this topology|
+417: |requestedMemOnHeap| Double|Requested On-Heap Memory by User (MB)
+418: |requestedMemOffHeap| Double|Requested Off-Heap Memory by User (MB)|
+421: |assignedMemOnHeap| Double|Assigned On-Heap Memory by Scheduler (MB)|
+422: |assignedMemOffHeap| Double|Assigned Off-Heap Memory by Scheduler (MB)|
+439: "workersTotal": 3,
+442: "requestedMemOnHeap": 640,
+443: "requestedMemOffHeap": 128,
+446: "assignedMemOnHeap": 640,
+447: "assignedMemOffHeap": 128,
+456: ### /api/v1/topology-workers/\<id\> (GET)
+458: Returns the worker' information (host and port) for a topology whose id is substituted for \<id\>.
+465: |hostPortList| List| Workers' information for a topology|
+513: |workersTotal| Integer |Number of workers used for this topology|
+521: |assignedMemOnHeap| Double|Assigned On-Heap Memory by Scheduler (MB)
+522: |assignedMemOffHeap| Double|Assigned Off-Heap Memory by Scheduler (MB)|
+523: |assignedTotalMem| Double|Assigned Off-Heap + On-Heap Memory by Scheduler(MB)|
+525: |requestedMemOnHeap| Double|Requested On-Heap Memory by User (MB)
+526: |requestedMemOffHeap| Double|Requested Off-Heap Memory by User (MB)|
+536: |workers| Array | Array of workers in topology|
+537: |workers.supervisorId | String| Supervisor's id|
+538: |workers.host | String | Worker's host name|
+539: |workers.port | Integer | Worker's port|
+540: |workers.topologyId | String | Topology Id|
+541: |workers.topologyName | String | Topology Name|
+542: |workers.executorsTotal | Integer | Number of executors used by the topology in this worker|
+543: |workers.assignedMemOnHeap | Double | Assigned On-Heap Memory by Scheduler (MB)|
+544: |workers.assignedMemOffHeap | Double | Assigned Off-Heap Memory by Scheduler (MB)|
+545: |workers.assignedCpu | Number | Assigned CPU by Scheduler (%)|
+546: |workers.componentNumTasks | Dictionary | Components -> # of executing tasks|
+547: |workers.uptime| String| Shows how long the worker is running|
+548: |workers.uptimeSeconds| Integer| Shows how long the worker is running in seconds|
+549: |workers.workerLogLink | String | Link to worker log viewer page|
+558: |spouts.errorHost| String | Worker hostname the last error was reported on|
+559: |spouts.errorPort| String | Worker port the last error was reported on|

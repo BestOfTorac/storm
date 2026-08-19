@@ -1,0 +1,24 @@
+F11 PROFILING-DISABLED DOCUMENTATION CHECK
+C0_INSPECTED=NO
+
+SEARCH=profilingAndDebuggingCapable
+MATCHES=2
+1099: |profilingAndDebuggingCapable| Boolean |true if there is support for Profiling and Debugging Actions|
+1173: "profilingAndDebuggingCapable": true,
+
+SEARCH=profileActionEnabled
+MATCHES=2
+1100: |profileActionEnabled| Boolean |true if worker profiling (Java Flight Recorder) is enabled|
+1174: "profileActionEnabled": true,
+
+SEARCH="profilingAndDebuggingCapable": false
+MATCHES=0
+
+SEARCH="profileActionEnabled": false
+MATCHES=0
+
+SEARCH="profilingAndDebuggingCapable":false
+MATCHES=0
+
+SEARCH="profileActionEnabled":false
+MATCHES=0

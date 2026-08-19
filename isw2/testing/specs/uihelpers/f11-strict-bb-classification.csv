@@ -1,0 +1,2 @@
+﻿"CaseId","InitialResult","Classification","OracleValidity","StormDefect","DefectCandidate","Reason","C0Inspected"
+"PROF-DISABLED-01","FAILURE","EXCLUDE_INSUFFICIENT_EXTERNAL_SPEC","UNSUPPORTED","NO","NO","REST documentation defines profilingAndDebuggingCapable and profileActionEnabled semantics in component responses, but does not specify that getProfilingDisabled must return both keys. The attempted oracle therefore exceeded the external contract.","NO"

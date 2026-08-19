@@ -1,0 +1,2 @@
+﻿"Family","FunctionalArea","LogicalCategoryPartitionCases","InitialCandidateTests","InitialPassed","InitialFailures","InitialFailureCase","FinalImplementedTests","FinalExcludedCases","FailureClassification","DefectCandidates","C0SourceInferenceUsed","CumulativeUiHelpersTests","CumulativeUiHelpersPassed","Result"
+"F11","Profiling","21","1","0","1","PROF-DISABLED-01","0","21","UNSUPPORTED_ORACLE_INSUFFICIENT_EXTERNAL_SPEC","0","NO","151","151","NO_FINAL_TESTS_REQUIRED"
