@@ -1,0 +1,7 @@
+public static boolean isSecureLogviewer(java.util.Map<java.lang.String, java.lang.Object>);
+public static java.lang.String getSupervisorLogLink(java.lang.String, java.util.Map<java.lang.String, java.lang.Object>);
+public static java.lang.String getWorkerLogLink(java.lang.String, int, java.util.Map<java.lang.String, java.lang.Object>, java.lang.String);
+public static java.util.List<java.util.Map> getWorkerSummaries(org.apache.storm.generated.SupervisorPageInfo, java.util.Map<java.lang.String, java.lang.Object>);
+public static java.util.Map<java.lang.String, java.lang.Object> getPrettifiedSupervisorMap(org.apache.storm.generated.SupervisorSummary, java.util.Map<java.lang.String, java.lang.Object>);
+public static java.util.Map<java.lang.String, java.lang.Object> getSupervisorPageInfo(org.apache.storm.generated.SupervisorPageInfo, java.util.Map<java.lang.String, java.lang.Object>);
+public static java.util.Map<java.lang.String, java.lang.Object> getSupervisorSummary(java.util.List<org.apache.storm.generated.SupervisorSummary>, jakarta.ws.rs.core.SecurityContext, java.util.Map<java.lang.String, java.lang.Object>);

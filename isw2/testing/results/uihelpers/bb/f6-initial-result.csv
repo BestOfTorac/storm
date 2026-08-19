@@ -1,0 +1,7 @@
+﻿"FrameId","JUnitTest","OracleType","C0Inspected","Result","Message","Classification","DefectCandidate"
+"SUPLIST-02","suplist02RepresentsOneSuppliedSupervisor","DOCUMENTED_PROPERTY","NO","PASS","","CONFORMS_TO_DOCUMENTED_ORACLE","NO"
+"SUPLIST-03","suplist03RepresentsAllSuppliedSupervisors","DOCUMENTED_PROPERTY","NO","PASS","","CONFORMS_TO_DOCUMENTED_ORACLE","NO"
+"SUPPAGE-03","suppage03ExposesSupervisorAndWorkerCollections","DOCUMENTED_PROPERTY","NO","PASS","","CONFORMS_TO_DOCUMENTED_ORACLE","NO"
+"WORKER-02","worker02PreservesDocumentedPositiveValues","DOCUMENTED_PROPERTY","NO","PASS","","CONFORMS_TO_DOCUMENTED_ORACLE","NO"
+"WORKERS-03","workers03RepresentsOneSuppliedWorker","DOCUMENTED_PROPERTY","NO","PASS","","CONFORMS_TO_DOCUMENTED_ORACLE","NO"
+"WORKERS-04","workers04RepresentsAllSuppliedWorkers","DOCUMENTED_PROPERTY","NO","PASS","","CONFORMS_TO_DOCUMENTED_ORACLE","NO"

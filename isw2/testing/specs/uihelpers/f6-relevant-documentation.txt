@@ -1,0 +1,242 @@
+============================================================
+SUPERVISOR SUMMARY REST CONTRACT
+LINES: 128-170
+============================================================
+  128: ### /api/v1/supervisor/summary (GET)
+  129:
+  130: Returns summary information for all supervisors.
+  131:
+  132: Response fields:
+  133:
+  134: |Field  |Value|Description|
+  135: |---	|---	|---
+  136: |id| String | Supervisor's id|
+  137: |host| String| Supervisor's host name|
+  138: |uptime| String| Shows how long the supervisor is running|
+  139: |uptimeSeconds| Integer| Shows how long the supervisor is running in seconds|
+  140: |slotsTotal| Integer| Total number of available worker slots for this supervisor|
+  141: |slotsUsed| Integer| Number of worker slots used on this supervisor|
+  142: |schedulerDisplayResource| Boolean | Whether to display scheduler resource information|
+  143: |totalMem| Double| Total memory capacity on this supervisor|
+  144: |totalCpu| Double| Total CPU capacity on this supervisor|
+  145: |usedMem| Double| Used memory capacity on this supervisor|
+  146: |usedCpu| Double| Used CPU capacity on this supervisor|
+  147:
+  148: Sample response:
+  149:
+  150: ```json
+  151: {
+  152:     "supervisors": [
+  153:         {
+  154:             "id": "0b879808-2a26-442b-8f7d-23101e0c3696",
+  155:             "host": "10.11.1.7",
+  156:             "uptime": "5m 58s",
+  157:             "uptimeSeconds": 358,
+  158:             "slotsTotal": 4,
+  159:             "slotsUsed": 3,
+  160:             "totalMem": 3000,
+  161:             "totalCpu": 400,
+  162:             "usedMem": 1280,
+  163:             "usedCPU": 160
+  164:         }
+  165:     ],
+  166:     "schedulerDisplayResource": true
+  167: }
+  168: ```
+  169:
+  170: ### /api/v1/nimbus/summary (GET)
+
+============================================================
+SUPERVISOR PAGE REST CONTRACT
+LINES: 225-340
+============================================================
+  225: ### /api/v1/supervisor (GET)
+  226:
+  227: Returns summary for a supervisor by id, or all supervisors running on a host.
+  228:
+  229: Examples:
+  230:
+  231: ```no-highlight
+  232:  1. By host: http://ui-daemon-host-name:8080/api/v1/supervisor?host=supervisor-daemon-host-name
+  233:  2. By id: http://ui-daemon-host-name:8080/api/v1/supervisor?id=f5449110-1daa-43e2-89e3-69917b16dec9-192.168.1.1
+  234: ```
+  235:
+  236: Request parameters:
+  237:
+  238: |Parameter |Value   |Description  |
+  239: |----------|--------|-------------|
+  240: |id   	   |String. Supervisor id | If specified, respond with the supervisor and worker stats with id. Note that when id is specified, the host argument is ignored. |
+  241: |host      |String. Host name| If specified, respond with all supervisors and worker stats in the host (normally just one)|
+  242: |sys       |String. Values 1 or 0. Default value 0| Controls including sys stats part of the response|
+  243:
+  244: Response fields:
+  245:
+  246: |Field  |Value|Description|
+  247: |---	|---	|---
+  248: |supervisors| Array| Array of supervisor summaries|
+  249: |workers| Array| Array of worker summaries |
+  250: |schedulerDisplayResource| Boolean | Whether to display scheduler resource information|
+  251:
+  252: Each supervisor is defined by:
+  253:
+  254: |Field  |Value|Description|
+  255: |---	|---	|---
+  256: |id| String | Supervisor's id|
+  257: |host| String| Supervisor's host name|
+  258: |uptime| String| Shows how long the supervisor is running|
+  259: |uptimeSeconds| Integer| Shows how long the supervisor is running in seconds|
+  260: |slotsTotal| Integer| Total number of worker slots for this supervisor|
+  261: |slotsUsed| Integer| Number of worker slots used on this supervisor|
+  262: |schedulerDisplayResource| Boolean | Whether to display scheduler resource information|
+  263: |totalMem| Double| Total memory capacity on this supervisor|
+  264: |totalCpu| Double| Total CPU capacity on this supervisor|
+  265: |usedMem| Double| Used memory capacity on this supervisor|
+  266: |usedCpu| Double| Used CPU capacity on this supervisor|
+  267:
+  268: Each worker is defined by:
+  269:
+  270: |Field  |Value  |Description|
+  271: |-------|-------|-----------|
+  272: |supervisorId | String| Supervisor's id|
+  273: |host | String | Worker's host name|
+  274: |port | Integer | Worker's port|
+  275: |topologyId | String | Topology Id|
+  276: |topologyName | String | Topology Name|
+  277: |executorsTotal | Integer | Number of executors used by the topology in this worker|
+  278: |assignedMemOnHeap | Double | Assigned On-Heap Memory by Scheduler (MB)|
+  279: |assignedMemOffHeap | Double | Assigned Off-Heap Memory by Scheduler (MB)|
+  280: |assignedCpu | Number | Assigned CPU by Scheduler (%)|
+  281: |componentNumTasks | Dictionary | Components -> # of executing tasks|
+  282: |uptime| String| Shows how long the worker is running|
+  283: |uptimeSeconds| Integer| Shows how long the worker is running in seconds|
+  284: |workerLogLink | String | Link to worker log viewer page|
+  285:
+  286: Sample response:
+  287:
+  288: ```json
+  289: {
+  290:     "supervisors": [{
+  291:         "totalMem": 4096.0,
+  292:         "host":"192.168.10.237",
+  293:         "id":"bdfe8eff-f1d8-4bce-81f5-9d3ae1bf432e",
+  294:         "uptime":"7m 8s",
+  295:         "totalCpu":400.0,
+  296:         "usedCpu":495.0,
+  297:         "usedMem":3432.0,
+  298:         "slotsUsed":2,
+  299:         "version":"0.10.1",
+  300:         "slotsTotal":4,
+  301:         "uptimeSeconds":428
+  302:     }],
+  303:     "schedulerDisplayResource":true,
+  304:     "workers":[{
+  305:         "topologyName":"ras",
+  306:         "topologyId":"ras-4-1460229987",
+  307:         "host":"192.168.10.237",
+  308:         "supervisorId":"bdfe8eff-f1d8-4bce-81f5-9d3ae1bf432e",
+  309:         "assignedMemOnHeap":704.0,
+  310:         "uptime":"2m 47s",
+  311:         "uptimeSeconds":167,
+  312:         "port":6707,
+  313:         "workerLogLink":"http:\/\/host:8000\/log?file=ras-4-1460229987%2F6707%2Fworker.log",
+  314:         "componentNumTasks": {
+  315:             "word":5
+  316:         },
+  317:         "executorsTotal":8,
+  318:         "assignedCpu":130.0,
+  319:         "assignedMemOffHeap":80.0
+  320:     },
+  321:     {
+  322:         "topologyName":"ras",
+  323:         "topologyId":"ras-4-1460229987",
+  324:         "host":"192.168.10.237",
+  325:         "supervisorId":"bdfe8eff-f1d8-4bce-81f5-9d3ae1bf432e",
+  326:         "assignedMemOnHeap":904.0,
+  327:         "uptime":"2m 53s",
+  328:         "port":6706,
+  329:         "workerLogLink":"http:\/\/host:8000\/log?file=ras-4-1460229987%2F6706%2Fworker.log",
+  330:         "componentNumTasks":{
+  331:             "exclaim2":2,
+  332:             "exclaim1":3,
+  333:             "word":5
+  334:         },
+  335:         "executorsTotal":10,
+  336:         "uptimeSeconds":173,
+  337:         "assignedCpu":165.0,
+  338:         "assignedMemOffHeap":80.0
+  339:     }]
+  340: }
+
+============================================================
+SEARCH: blacklisted
+============================================================
+MATCHES: 0
+
+============================================================
+SEARCH: generic
+============================================================
+MATCHES: 0
+
+============================================================
+SEARCH: supervisorLogLink
+============================================================
+MATCHES: 0
+
+============================================================
+SEARCH: workerLogLink
+============================================================
+MATCHES: 18
+  284: |workerLogLink | String | Link to worker log viewer page|
+  313: "workerLogLink":"http:\/\/host:8000\/log?file=ras-4-1460229987%2F6707%2Fworker.log",
+  329: "workerLogLink":"http:\/\/host:8000\/log?file=ras-4-1460229987%2F6706%2Fworker.log",
+
+============================================================
+SEARCH: slotsFree
+============================================================
+MATCHES: 2
+
+============================================================
+SEARCH: schedulerDisplayResource
+============================================================
+MATCHES: 13
+  142: |schedulerDisplayResource| Boolean | Whether to display scheduler resource information|
+  166: "schedulerDisplayResource": true
+  250: |schedulerDisplayResource| Boolean | Whether to display scheduler resource information|
+  262: |schedulerDisplayResource| Boolean | Whether to display scheduler resource information|
+  303: "schedulerDisplayResource":true,
+
+============================================================
+SEARCH: usedMem
+============================================================
+MATCHES: 4
+  145: |usedMem| Double| Used memory capacity on this supervisor|
+  162: "usedMem": 1280,
+  265: |usedMem| Double| Used memory capacity on this supervisor|
+  297: "usedMem":3432.0,
+
+============================================================
+SEARCH: usedCpu
+============================================================
+MATCHES: 4
+  146: |usedCpu| Double| Used CPU capacity on this supervisor|
+  163: "usedCPU": 160
+  266: |usedCpu| Double| Used CPU capacity on this supervisor|
+  296: "usedCpu":495.0,
+
+============================================================
+SEARCH: totalMem
+============================================================
+MATCHES: 13
+  143: |totalMem| Double| Total memory capacity on this supervisor|
+  160: "totalMem": 3000,
+  263: |totalMem| Double| Total memory capacity on this supervisor|
+  291: "totalMem": 4096.0,
+
+============================================================
+SEARCH: totalCpu
+============================================================
+MATCHES: 8
+  144: |totalCpu| Double| Total CPU capacity on this supervisor|
+  161: "totalCpu": 400,
+  264: |totalCpu| Double| Total CPU capacity on this supervisor|
+  295: "totalCpu":400.0,

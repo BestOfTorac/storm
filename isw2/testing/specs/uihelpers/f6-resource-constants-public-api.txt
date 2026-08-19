@@ -1,0 +1,6 @@
+  public static final java.lang.String DEFAULT_SHARED_RESOURCES;
+  public static final java.lang.String USER_SHARED_RESOURCES;
+  public static final java.lang.String COMMON_CPU_RESOURCE_NAME;
+  public static final java.lang.String COMMON_ONHEAP_MEMORY_RESOURCE_NAME;
+  public static final java.lang.String COMMON_OFFHEAP_MEMORY_RESOURCE_NAME;
+  public static final java.lang.String COMMON_TOTAL_MEMORY_RESOURCE_NAME;

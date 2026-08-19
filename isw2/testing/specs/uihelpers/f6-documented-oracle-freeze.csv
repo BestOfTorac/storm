@@ -1,0 +1,7 @@
+﻿"FrameId","OracleType","C0Inspected","Oracle","Evidence"
+"WORKERS-03","DOCUMENTED_PROPERTY","NO","One supplied worker summary is represented by one worker entry","STORM-UI-REST-API /api/v1/supervisor workers array contract"
+"WORKERS-04","DOCUMENTED_PROPERTY","NO","Multiple supplied worker summaries are all represented","STORM-UI-REST-API sample response contains multiple workers"
+"WORKER-02","DOCUMENTED_PROPERTY","NO","Positive documented worker fields are exposed with their supplied values","STORM-UI-REST-API worker field table and sample response"
+"SUPLIST-02","DOCUMENTED_PROPERTY","NO","One supplied supervisor summary is represented by one supervisor entry","STORM-UI-REST-API /api/v1/supervisor/summary contract and sample"
+"SUPLIST-03","DOCUMENTED_PROPERTY","NO","Multiple supplied supervisor summaries are all represented","Endpoint states that summary information is returned for all supervisors"
+"SUPPAGE-03","DOCUMENTED_PROPERTY","NO","A populated supervisor page exposes both supervisor and worker collections","STORM-UI-REST-API /api/v1/supervisor response contract and sample"

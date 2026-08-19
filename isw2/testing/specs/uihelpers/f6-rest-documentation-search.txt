@@ -1,0 +1,403 @@
+============================================================
+SEARCH: /api/v1/supervisor
+============================================================
+MATCHES: 4
+  128: ### /api/v1/supervisor/summary (GET)
+  225: ### /api/v1/supervisor (GET)
+  232: 1. By host: http://ui-daemon-host-name:8080/api/v1/supervisor?host=supervisor-daemon-host-name
+  233: 2. By id: http://ui-daemon-host-name:8080/api/v1/supervisor?id=f5449110-1daa-43e2-89e3-69917b16dec9-192.168.1.1
+
+============================================================
+SEARCH: supervisor summary
+============================================================
+MATCHES: 0
+
+============================================================
+SEARCH: supervisors
+============================================================
+MATCHES: 9
+   85: Returns cluster summary information such as nimbus uptime or number of supervisors.
+   92: |supervisors|Integer| Number of supervisors running|
+  112: "supervisors": 1,
+  130: Returns summary information for all supervisors.
+  152: "supervisors": [
+  227: Returns summary for a supervisor by id, or all supervisors running on a host.
+  241: |host      |String. Host name| If specified, respond with all supervisors and worker stats in the host (normally just one)|
+  248: |supervisors| Array| Array of supervisor summaries|
+  290: "supervisors": [{
+
+============================================================
+SEARCH: workers
+============================================================
+MATCHES: 28
+  249: |workers| Array| Array of worker summaries |
+  304: "workers":[{
+  354: |totalWorkers |Integer|Total number of workers used by owner
+  389: "totalWorkers": 2,
+  414: |workersTotal| Integer |Number of workers used for this topology|
+  439: "workersTotal": 3,
+  456: ### /api/v1/topology-workers/\<id\> (GET)
+  465: |hostPortList| List| Workers' information for a topology|
+  513: |workersTotal| Integer |Number of workers used for this topology|
+  536: |workers| Array | Array of workers in topology|
+  537: |workers.supervisorId | String| Supervisor's id|
+  538: |workers.host | String | Worker's host name|
+  539: |workers.port | Integer | Worker's port|
+  540: |workers.topologyId | String | Topology Id|
+  541: |workers.topologyName | String | Topology Name|
+  542: |workers.executorsTotal | Integer | Number of executors used by the topology in this worker|
+  543: |workers.assignedMemOnHeap | Double | Assigned On-Heap Memory by Scheduler (MB)|
+  544: |workers.assignedMemOffHeap | Double | Assigned Off-Heap Memory by Scheduler (MB)|
+  545: |workers.assignedCpu | Number | Assigned CPU by Scheduler (%)|
+  546: |workers.componentNumTasks | Dictionary | Components -> # of executing tasks|
+  547: |workers.uptime| String| Shows how long the worker is running|
+  548: |workers.uptimeSeconds| Integer| Shows how long the worker is running in seconds|
+  549: |workers.workerLogLink | String | Link to worker log viewer page|
+  602: "workersTotal": 3,
+  612: "workers": [{
+  669: "workers":[{
+ 1549: {"rebalanceOptions" : {"numWorkers" : 2, "executors" : {"spout" :4, "count" : 10}}, "callback" : "foo"}
+ 1557: -d  '{"rebalanceOptions": {"numWorkers": 2, "executors": { "spout" : "5", "split": 7, "count": 5 }}, "callback":"foo"}'
+
+============================================================
+SEARCH: slotsTotal
+============================================================
+MATCHES: 6
+   94: |slotsTotal| Integer|Total number of available worker slots|
+  113: "slotsTotal": 4,
+  140: |slotsTotal| Integer| Total number of available worker slots for this supervisor|
+  158: "slotsTotal": 4,
+  260: |slotsTotal| Integer| Total number of worker slots for this supervisor|
+  300: "slotsTotal":4,
+
+============================================================
+SEARCH: slotsUsed
+============================================================
+MATCHES: 6
+   95: |slotsUsed| Integer| Number of worker slots used|
+  114: "slotsUsed": 3,
+  141: |slotsUsed| Integer| Number of worker slots used on this supervisor|
+  159: "slotsUsed": 3,
+  261: |slotsUsed| Integer| Number of worker slots used on this supervisor|
+  298: "slotsUsed":2,
+
+============================================================
+SEARCH: slotsFree
+============================================================
+MATCHES: 2
+   96: |slotsFree| Integer |Number of worker slots available|
+  115: "slotsFree": 1,
+
+============================================================
+SEARCH: totalMem
+============================================================
+MATCHES: 13
+  100: |totalMem| Double | The total amount of memory in the cluster in MB|
+  119: "totalMem": 4096.0,
+  143: |totalMem| Double| Total memory capacity on this supervisor|
+  160: "totalMem": 3000,
+  263: |totalMem| Double| Total memory capacity on this supervisor|
+  291: "totalMem": 4096.0,
+  356: |totalMemoryUsage|Double|Total Memory Assigned on behalf of owner in MB
+  386: "totalMemoryUsage": 896,
+  419: |requestedTotalMem| Double|Requested Total Memory by User (MB)|
+  423: |assignedTotalMem| Double|Assigned Total Memory by Scheduler (MB)|
+  444: "requestedTotalMem": 768,
+  448: "assignedTotalMem": 768,
+  523: |assignedTotalMem| Double|Assigned Off-Heap + On-Heap Memory by Scheduler(MB)|
+
+============================================================
+SEARCH: totalCpu
+============================================================
+MATCHES: 8
+  101: |totalCpu| Double | The total amount of CPU in the cluster|
+  120: "totalCpu": 400.0,
+  144: |totalCpu| Double| Total CPU capacity on this supervisor|
+  161: "totalCpu": 400,
+  264: |totalCpu| Double| Total CPU capacity on this supervisor|
+  295: "totalCpu":400.0,
+  357: |totalCpuUsage|Double|Total CPU Resource Assigned on behalf of User. Every 100 means 1 core
+  390: "totalCpuUsage": 70,
+
+============================================================
+SEARCH: usedMem
+============================================================
+MATCHES: 4
+  145: |usedMem| Double| Used memory capacity on this supervisor|
+  162: "usedMem": 1280,
+  265: |usedMem| Double| Used memory capacity on this supervisor|
+  297: "usedMem":3432.0,
+
+============================================================
+SEARCH: usedCpu
+============================================================
+MATCHES: 4
+  146: |usedCpu| Double| Used CPU capacity on this supervisor|
+  163: "usedCPU": 160
+  266: |usedCpu| Double| Used CPU capacity on this supervisor|
+  296: "usedCpu":495.0,
+
+============================================================
+SEARCH: availMem
+============================================================
+MATCHES: 2
+  102: |availMem| Double | The amount of available memory in the cluster in MB|
+  121: "availMem": 1024.0,
+
+============================================================
+SEARCH: availCpu
+============================================================
+MATCHES: 2
+  103: |availCpu| Double | The amount of available cpu in the cluster|
+  122: "availCPU": 250.0,
+
+============================================================
+SEARCH: blacklisted
+============================================================
+MATCHES: 0
+
+============================================================
+SEARCH: uptime
+============================================================
+MATCHES: 43
+   85: Returns cluster summary information such as nimbus uptime or number of supervisors.
+  138: |uptime| String| Shows how long the supervisor is running|
+  139: |uptimeSeconds| Integer| Shows how long the supervisor is running in seconds|
+  156: "uptime": "5m 58s",
+  157: "uptimeSeconds": 358,
+  181: |nimbusUpTime| String| Shows since how long the nimbus has been running|
+  182: |nimbusUpTimeSeconds| String| Shows since how long the nimbus has been running in seconds|
+  197: "nimbusUpTime":"3m 33s",
+  198: "nimbusUpTimeSeconds":"213"
+  258: |uptime| String| Shows how long the supervisor is running|
+  259: |uptimeSeconds| Integer| Shows how long the supervisor is running in seconds|
+  282: |uptime| String| Shows how long the worker is running|
+  283: |uptimeSeconds| Integer| Shows how long the worker is running in seconds|
+  294: "uptime":"7m 8s",
+  301: "uptimeSeconds":428
+  310: "uptime":"2m 47s",
+  311: "uptimeSeconds":167,
+  327: "uptime":"2m 53s",
+  336: "uptimeSeconds":173,
+  411: |uptime| String|  Shows how long the topology is running|
+  412: |uptimeSeconds| Integer|  Shows how long the topology is running in seconds|
+  436: "uptime": "6m 5s",
+  437: "uptimeSeconds": 365,
+  509: |uptime| String |How long the topology has been running|
+  510: |uptimeSeconds| Integer |How long the topology has been running in seconds|
+  547: |workers.uptime| String| Shows how long the worker is running|
+  548: |workers.uptimeSeconds| Integer| Shows how long the worker is running in seconds|
+  607: "uptime": "29m 19s",
+  608: "uptimeSeconds": 1759,
+  618: "uptime": "27m 26s",
+  627: "uptimeSeconds": 1646,
+  674: "uptime":"2m 47s",
+  675: "uptimeSeconds":167,
+ 1240: "uptime": "43m 4s",
+ 1241: "uptimeSeconds": 2584,
+ 1253: "uptime": "42m 57s",
+ 1254: "uptimeSeconds": 2577,
+ 1266: "uptime": "42m 57s",
+ 1267: "uptimeSeconds": 2577,
+ 1279: "uptime": "43m 4s",
+ 1280: "uptimeSeconds": 2584,
+ 1292: "uptime": "42m 57s",
+ 1293: "uptimeSeconds": 2577,
+
+============================================================
+SEARCH: host
+============================================================
+MATCHES: 84
+   26: The REST API is part of the UI daemon of Storm (started by `storm ui`) and thus runs on the same host and port as the
+   27: Storm UI (the UI daemon is often run on the same host as the Nimbus daemon).  The port is configured by `ui.port`,
+   32: http://<ui-host>:<ui-port>/api/v1/...
+   38: $ curl http://<ui-host>:8080/api/v1/cluster/configuration
+   49: 1. http://ui-daemon-host-name:8080/api/v1/topology/wordcount-1-1425844354\?doAsUser=testUSer1
+   50: 2. curl 'http://localhost:8080/api/v1/topology/wordcount-1-1425844354/activate' -X POST -H 'doAsUser:testUSer1'
+  137: |host| String| Supervisor's host name|
+  155: "host": "10.11.1.7",
+  172: Returns summary information for all nimbus hosts.
+  178: |host| String | Nimbus' host name|
+  184: |version| String| Version of storm this nimbus host is running|
+  192: "host":"192.168.202.1",
+  227: Returns summary for a supervisor by id, or all supervisors running on a host.
+  232: 1. By host: http://ui-daemon-host-name:8080/api/v1/supervisor?host=supervisor-daemon-host-name
+  233: 2. By id: http://ui-daemon-host-name:8080/api/v1/supervisor?id=f5449110-1daa-43e2-89e3-69917b16dec9-192.168.1.1
+  240: |id   	   |String. Supervisor id | If specified, respond with the supervisor and worker stats with id. Note that when id is specified, the host argument is ignored. |
+  241: |host      |String. Host name| If specified, respond with all supervisors and worker stats in the host (normally just one)|
+  257: |host| String| Supervisor's host name|
+  273: |host | String | Worker's host name|
+  292: "host":"192.168.10.237",
+  307: "host":"192.168.10.237",
+  313: "workerLogLink":"http:\/\/host:8000\/log?file=ras-4-1460229987%2F6707%2Fworker.log",
+  324: "host":"192.168.10.237",
+  329: "workerLogLink":"http:\/\/host:8000\/log?file=ras-4-1460229987%2F6706%2Fworker.log",
+  416: |replicationCount| Integer |Number of nimbus hosts on which this topology code is replicated|
+  458: Returns the worker' information (host and port) for a topology whose id is substituted for \<id\>.
+  465: |hostPortList| List| Workers' information for a topology|
+  472: "hostPortList":[
+  474: "host":"192.168.202.2",
+  478: "host":"192.168.202.2",
+  482: "host":"192.168.202.3",
+  518: |replicationCount| Integer |Number of nimbus hosts on which this topology code is replicated|
+  538: |workers.host | String | Worker's host name|
+  558: |spouts.errorHost| String | Worker hostname the last error was reported on|
+  578: |bolts.errorHost| String | Worker hostname the last error was reported on|
+  591: 1. http://ui-daemon-host-name:8080/api/v1/topology/WordCount3-1-1402960825
+  592: 2. http://ui-daemon-host-name:8080/api/v1/topology/WordCount3-1-1402960825?sys=1
+  593: 3. http://ui-daemon-host-name:8080/api/v1/topology/WordCount3-1-1402960825?window=600
+  615: "host": "my-host",
+  672: "host":"192.168.10.237",
+  696: "errorHost": "",
+  716: "errorHost": "",
+  735: "errorHost": "192.168.10.237",
+  853: 1. http://ui-daemon-host-name:8080/api/v1/topology/WordCount3-1-1402960825/metrics
+  854: 1. http://ui-daemon-host-name:8080/api/v1/topology/WordCount3-1-1402960825/metrics?sys=1
+  855: 2. http://ui-daemon-host-name:8080/api/v1/topology/WordCount3-1-1402960825/metrics?window=600
+ 1104: |componentErrors.errorHost| String | host name for the error|
+ 1141: 1. http://ui-daemon-host-name:8080/api/v1/topology/WordCount3-1-1402960825/component/spout
+ 1142: 2. http://ui-daemon-host-name:8080/api/v1/topology/WordCount3-1-1402960825/component/spout?sys=1
+ 1143: 3. http://ui-daemon-host-name:8080/api/v1/topology/WordCount3-1-1402960825/component/spout?window=600
+ 1156: "errorHost": "10.11.1.70",
+ 1167: "host": "10.11.1.70",
+ 1238: "host": "10.11.1.7",
+ 1251: "host": "10.11.1.7",
+ 1264: "host": "10.11.1.7",
+ 1277: "host": "10.11.1.7",
+ 1290: "host": "10.11.1.7",
+ 1303: ###  /api/v1/topology/\<id\>/profiling/start/\<host-port\>/\<timeout\> (POST)
+ 1306: Substitute appropriate values for \<id\>, \<host-port\> and \<timeout\>.
+ 1311: |host-port |String (required)| Worker Id |
+ 1326: 1. http://ui-daemon-host-name:8080/api/v1/topology/wordcount-1-1446614150/profiling/start/10.11.1.7:6701/10
+ 1327: 2. http://ui-daemon-host-name:8080/api/v1/topology/wordcount-1-1446614150/profiling/start/10.11.1.7:6701/5
+ 1328: 3. http://ui-daemon-host-name:8080/api/v1/topology/wordcount-1-1446614150/profiling/start/10.11.1.7:6701/20
+ 1342: ###  /api/v1/topology/\<id\>/profiling/dumpprofile/\<host-port\> (POST)
+ 1345: Substitute for \<id\> and \<host-port\>.
+ 1350: |host-port |String (required)| Worker Id |
+ 1362: 1. http://ui-daemon-host-name:8080/api/v1/topology/wordcount-1-1446614150/profiling/dumpprofile/10.11.1.7:6701
+ 1374: ###  /api/v1/topology/\<id\>/profiling/stop/\<host-port\> (POST)
+ 1377: Substitute for \<id\> and \<host-port\>.
+ 1382: |host-port |String (required)| Worker Id |
+ 1394: 1. http://ui-daemon-host-name:8080/api/v1/topology/wordcount-1-1446614150/profiling/stop/10.11.1.7:6701
+ 1406: ###  /api/v1/topology/\<id\>/profiling/dumpjstack/\<host-port\> (POST)
+ 1409: Substitute for \<id\> and \<host-port\>.
+ 1414: |host-port |String (required)| Worker Id |
+ 1426: 1. http://ui-daemon-host-name:8080/api/v1/topology/wordcount-1-1446614150/profiling/dumpjstack/10.11.1.7:6701
+ 1438: ###  /api/v1/topology/\<id\>/profiling/dumpheap/\<host-port\> (POST)
+ 1441: Substitute for \<id\> and \<host-port\>.
+ 1446: |host-port |String (required)| Worker Id |
+ 1458: 1. http://ui-daemon-host-name:8080/api/v1/topology/wordcount-1-1446614150/profiling/dumpheap/10.11.1.7:6701
+ 1470: ###  /api/v1/topology/\<id\>/profiling/restartworker/\<host-port\> (POST)
+ 1473: Substitute for \<id\> and \<host-port\>.
+ 1478: |host-port |String (required)| Worker Id |
+ 1490: 1. http://ui-daemon-host-name:8080/api/v1/topology/wordcount-1-1446614150/profiling/restartworker/10.11.1.7:6701
+ 1558: http://localhost:8080/api/v1/topology/wordcount-1-1420308665/rebalance/0
+
+============================================================
+SEARCH: logLink
+============================================================
+MATCHES: 21
+  183: |nimbusLogLink| String| Logviewer url to view the nimbus.log|
+  194: "nimbusLogLink":"http:\/\/192.168.202.1:8000\/log?file=nimbus.log",
+  284: |workerLogLink | String | Link to worker log viewer page|
+  313: "workerLogLink":"http:\/\/host:8000\/log?file=ras-4-1460229987%2F6707%2Fworker.log",
+  329: "workerLogLink":"http:\/\/host:8000\/log?file=ras-4-1460229987%2F6706%2Fworker.log",
+  549: |workers.workerLogLink | String | Link to worker log viewer page|
+  562: |spouts.errorWorkerLogLink| String | Link to the worker log that reported the exception |
+  582: |bolts.errorWorkerLogLink| String | Link to the worker log that reported the exception |
+  620: "workerLogLink": "logs",
+  677: "workerLogLink":"http:\/\/192.168.10.237:8000\/log?file=WordCount3-1-1402960825%2F6707%2Fworker.log",
+  698: "errorWorkerLogLink": "",
+  718: "errorWorkerLogLink": "",
+  737: "errorWorkerLogLink": "http://192.168.10.237:8000/api/v1/log?file=WordCount3-1-1402960825%2F6707%2Fworker.log",
+ 1098: |eventLogLink| String| URL viewer link to event log (debug mode)|
+ 1108: |componentErrors.errorWorkerLogLink| String | Link to the worker log that reported the exception |
+ 1158: "errorWorkerLogLink": "http://10.11.1.7:8000/log?file=worker-6701.log",
+ 1233: "workerLogLink": "http://10.11.1.7:8000/log?file=worker-6701.log",
+ 1246: "workerLogLink": "http://10.11.1.7:8000/log?file=worker-6703.log",
+ 1259: "workerLogLink": "http://10.11.1.7:8000/log?file=worker-6702.log",
+ 1272: "workerLogLink": "http://10.11.1.7:8000/log?file=worker-6701.log",
+ 1285: "workerLogLink": "http://10.11.1.7:8000/log?file=worker-6703.log",
+
+============================================================
+SEARCH: logviewer
+============================================================
+MATCHES: 6
+   77: "logviewer.childopts": "-Xmx128m",
+  183: |nimbusLogLink| String| Logviewer url to view the nimbus.log|
+  466: |name| Integer| Logviewer Port|
+  486: "logviewerPort":8000
+  760: "logviewer.childopts": "-Xmx128m",
+ 1321: |dumplink | String | Link to logviewer URL for worker profiler documents.|
+
+============================================================
+SEARCH: port
+============================================================
+MATCHES: 67
+   14: The REST API returns JSON responses and supports JSONP.
+   21: _support those elements anymore._
+   26: The REST API is part of the UI daemon of Storm (started by `storm ui`) and thus runs on the same host and port as the
+   27: Storm UI (the UI daemon is often run on the same host as the Nimbus daemon).  The port is configured by `ui.port`,
+   32: http://<ui-host>:<ui-port>/api/v1/...
+   37: # Note: We assume ui.port is configured to the default value of 8080.
+   67: "topology.max.error.report.per.interval": 5,
+  179: |port| int| Nimbus' port number|
+  193: "port":6627,
+  274: |port | Integer | Worker's port|
+  312: "port":6707,
+  328: "port":6706,
+  458: Returns the worker' information (host and port) for a topology whose id is substituted for \<id\>.
+  465: |hostPortList| List| Workers' information for a topology|
+  466: |name| Integer| Logviewer Port|
+  472: "hostPortList":[
+  475: "port":6701
+  479: "port":6702
+  483: "port":6700
+  486: "logviewerPort":8000
+  539: |workers.port | Integer | Worker's port|
+  558: |spouts.errorHost| String | Worker hostname the last error was reported on|
+  559: |spouts.errorPort| String | Worker port the last error was reported on|
+  560: |spouts.errorTime| Integer | Unix timestamp the last error was reported (seconds since epoch) |
+  562: |spouts.errorWorkerLogLink| String | Link to the worker log that reported the exception |
+  578: |bolts.errorHost| String | Worker hostname the last error was reported on|
+  579: |bolts.errorPort| String | Worker port the last error was reported on|
+  580: |bolts.errorTime| Integer | Unix timestamp the last error was reported (seconds since epoch) |
+  582: |bolts.errorWorkerLogLink| String | Link to the worker log that reported the exception |
+  619: "port": 6702,
+  676: "port":6707,
+  697: "errorPort": null,
+  717: "errorPort": null,
+  736: "errorPort": 6707,
+  750: "topology.max.error.report.per.interval": 5,
+  775: "storm.zookeeper.port": 2181,
+  776: "transactional.zookeeper.port": null,
+ 1099: |profilingAndDebuggingCapable| Boolean |true if there is support for Profiling and Debugging Actions|
+ 1105: |componentErrors.errorPort| String | port for the error|
+ 1108: |componentErrors.errorWorkerLogLink| String | Link to the worker log that reported the exception |
+ 1157: "errorPort": 6701,
+ 1168: "port": "6701",
+ 1235: "port": 6701,
+ 1248: "port": 6703,
+ 1261: "port": 6702,
+ 1274: "port": 6701,
+ 1287: "port": 6703,
+ 1303: ###  /api/v1/topology/\<id\>/profiling/start/\<host-port\>/\<timeout\> (POST)
+ 1306: Substitute appropriate values for \<id\>, \<host-port\> and \<timeout\>.
+ 1311: |host-port |String (required)| Worker Id |
+ 1342: ###  /api/v1/topology/\<id\>/profiling/dumpprofile/\<host-port\> (POST)
+ 1345: Substitute for \<id\> and \<host-port\>.
+ 1350: |host-port |String (required)| Worker Id |
+ 1374: ###  /api/v1/topology/\<id\>/profiling/stop/\<host-port\> (POST)
+ 1377: Substitute for \<id\> and \<host-port\>.
+ 1382: |host-port |String (required)| Worker Id |
+ 1406: ###  /api/v1/topology/\<id\>/profiling/dumpjstack/\<host-port\> (POST)
+ 1409: Substitute for \<id\> and \<host-port\>.
+ 1414: |host-port |String (required)| Worker Id |
+ 1438: ###  /api/v1/topology/\<id\>/profiling/dumpheap/\<host-port\> (POST)
+ 1441: Substitute for \<id\> and \<host-port\>.
+ 1446: |host-port |String (required)| Worker Id |
+ 1470: ###  /api/v1/topology/\<id\>/profiling/restartworker/\<host-port\> (POST)
+ 1473: Substitute for \<id\> and \<host-port\>.
+ 1478: |host-port |String (required)| Worker Id |
+ 1579: Caution: Small wait times (0-5 seconds) may increase the probability of triggering the bug reported in
+ 1595: If DRPC is configured with either an http or https port it will expose a REST endpoint. (See [Setting up a Storm cluster](Setting-up-a-Storm-cluster.html) for how to do that)
