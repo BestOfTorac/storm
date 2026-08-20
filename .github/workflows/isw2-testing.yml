@@ -1,0 +1,179 @@
+﻿name: ISW2 Testing
+
+on:
+  push:
+    branches:
+      - isw2-project
+
+  pull_request:
+    branches:
+      - isw2-project
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: isw2-testing-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+
+  uihelpers-testing:
+
+    name: UIHelpers test suites
+
+    runs-on: ubuntu-latest
+
+    timeout-minutes: 20
+
+    steps:
+
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Set up Microsoft OpenJDK 25
+        uses: actions/setup-java@v5
+        with:
+          distribution: microsoft
+          java-version: '25'
+          cache: maven
+          cache-dependency-path: isw2/testing/pom.xml
+
+      - name: Show Java and Maven versions
+        shell: bash
+        run: |
+          java -version
+          mvn -version
+
+      - name: Compile ISW2 test harness
+        shell: bash
+        run: |
+          mvn \
+            --batch-mode \
+            --file isw2/testing/pom.xml \
+            test-compile \
+            -DskipTests
+
+      - name: Run UIHelpers manual suites
+        shell: bash
+        run: |
+          mvn \
+            --batch-mode \
+            --file isw2/testing/pom.xml \
+            test \
+            "-Dtest=UIHelpers*BBTest,UIHelpersControlFlowTest,UIHelpersMutationTest" \
+            -DfailIfNoTests=true
+
+      - name: Verify manual-suite result
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import glob
+          import xml.etree.ElementTree as ET
+
+          files = []
+
+          for path in glob.glob(
+              "isw2/testing/target/surefire-reports/TEST-*UIHelpers*.xml"
+          ):
+              if (
+                  "BBTest" in path
+                  or "UIHelpersControlFlowTest" in path
+                  or "UIHelpersMutationTest" in path
+              ):
+                  files.append(path)
+
+          tests = 0
+          failures = 0
+          errors = 0
+          skipped = 0
+
+          for path in files:
+              root = ET.parse(path).getroot()
+
+              tests += int(root.attrib.get("tests", 0))
+              failures += int(root.attrib.get("failures", 0))
+              errors += int(root.attrib.get("errors", 0))
+              skipped += int(root.attrib.get("skipped", 0))
+
+          print("Manual reports :", len(files))
+          print("Tests          :", tests)
+          print("Failures       :", failures)
+          print("Errors         :", errors)
+          print("Skipped        :", skipped)
+
+          assert len(files) == 12, (
+              f"Expected 12 manual UIHelpers reports, found {len(files)}"
+          )
+
+          assert tests == 53, (
+              f"Expected 53 manual UIHelpers tests, found {tests}"
+          )
+
+          assert failures == 0
+          assert errors == 0
+          assert skipped == 0
+
+          print("RESULT: UIHELPERS MANUAL SUITES 53/53 PASS")
+          PY
+
+      - name: Build T_RND runtime classpath
+        shell: bash
+        run: |
+          mvn \
+            --batch-mode \
+            --file isw2/testing/pom.xml \
+            dependency:build-classpath \
+            -Dmdep.outputFile=target/github-actions-rnd-classpath.txt
+
+      - name: Audit T_RND classpath
+        shell: bash
+        run: |
+          CP_FILE="isw2/testing/target/github-actions-rnd-classpath.txt"
+
+          test -f "$CP_FILE"
+
+          echo "Classpath file: $CP_FILE"
+
+          if tr ':' '\n' < "$CP_FILE" | grep -E -- '-tests\.jar$'; then
+            echo "ERROR: native Storm test JAR detected."
+            exit 1
+          fi
+
+          echo "Native Storm test JARs: NONE"
+
+      - name: Run frozen UIHelpers T_RND
+        shell: bash
+        run: |
+          CP_FILE="isw2/testing/target/github-actions-rnd-classpath.txt"
+
+          CP="isw2/testing/target/test-classes:$(cat "$CP_FILE")"
+
+          java \
+            -cp "$CP" \
+            org.junit.runner.JUnitCore \
+            it.uniroma2.isw2.storm.testing.uihelpers.rnd.generated.UIHelpersRandomRegressionTest \
+            | tee isw2/testing/target/github-actions-rnd-output.txt
+
+          grep -F "OK (35 tests)" \
+            isw2/testing/target/github-actions-rnd-output.txt
+
+          echo "RESULT: UIHELPERS T_RND 35/35 PASS"
+
+      - name: CI summary
+        if: always()
+        shell: bash
+        run: |
+          {
+            echo "## ISW2 Testing"
+            echo
+            echo "- Target class: \`org.apache.storm.daemon.ui.UIHelpers\`"
+            echo "- Java: Microsoft OpenJDK 25"
+            echo "- Manual test suites: T_BB + T_CF + T_MT"
+            echo "- Expected manual tests: 53"
+            echo "- Random suite: T_RND / Randoop"
+            echo "- Expected random tests: 35"
+            echo "- Native Apache Storm tests: excluded"
+          } >> "$GITHUB_STEP_SUMMARY"
