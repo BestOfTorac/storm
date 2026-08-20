@@ -1,4 +1,4 @@
-﻿# UIHelpers Testing Evidence Index
+# UIHelpers Testing Evidence Index
 
 Class:
 
@@ -68,6 +68,32 @@ Mutation improvement from T_CF:
 Evidence:
 
 `mutation/tmt/`
+
+### Reliability
+
+Operational profile:
+
+`uniform over the final 53 T_MT tests`
+
+Observed outcomes:
+
+- passed: 53
+- failures: 0
+- errors: 0
+- skipped: 0
+
+Estimate:
+
+- reliability: 1.000000 (100%)
+- estimated failure probability: 0.000000
+
+This value is explicitly interpreted as an empirical estimate relative
+to the finite uniform test profile, not as universal production
+reliability.
+
+Evidence:
+
+`reliability/`
 
 ## Documentation policy
 
