@@ -1,4 +1,4 @@
-﻿# UIHelpers - T_RND Random Test Generation
+# UIHelpers - T_RND Random Test Generation
 
 ## Objective
 
@@ -252,3 +252,24 @@ This directory stores:
 The Randoop binary itself is not versioned because its exact released
 version and configuration are recorded and it can be obtained again
 independently.
+
+## Source-tree mirror
+
+For easier inspection together with the other UIHelpers test suites, an
+exact byte-for-byte copy of the frozen Randoop-generated sources is also
+stored under:
+
+`isw2/testing/src/test/java/it/uniroma2/isw2/storm/testing/uihelpers/rnd/generated/`
+
+The canonical frozen generator output remains under:
+
+`isw2/testing/generated-tests/uihelpers/rnd/`
+
+The two copies have identical SHA-256 hashes.
+
+The mirrored sources are not manually rewritten or converted from
+JUnit 4 to JUnit Jupiter. JUnit 4.13.2 is therefore available as a test
+dependency solely to compile and execute the original Randoop output.
+
+T_RND remains a separate experimental suite and is not merged into
+T_BB, T_CF or T_MT.

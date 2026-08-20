@@ -72,6 +72,14 @@
             <artifactId>storm-core</artifactId>
             <version>3.0.0</version>
         </dependency>
+
+    <!-- Required only to compile and execute the original Randoop-generated T_RND suite. -->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.13.2</version>
+      <scope>test</scope>
+    </dependency>
     </dependencies>
 
     <build>
