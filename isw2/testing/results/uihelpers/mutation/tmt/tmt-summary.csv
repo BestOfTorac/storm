@@ -1,0 +1,2 @@
+﻿"Stage","Tests","AddedMTTests","Generated","TCFKilled","Batch1Killed","FinalKilled","TCFSurvived","Batch1Survived","FinalSurvived","TCFNoCoverage","Batch1NoCoverage","FinalNoCoverage","Batch2SurvivedToKilled","Batch2NoCoverageToKilled","TCFMutationScore","Batch1MutationScore","FinalMutationScore","TCFTestStrength","Batch1TestStrength","FinalTestStrength"
+"T_MT_BATCH_2","53","8","338","115","131","155","61","49","25","162","158","158","24","0","34,02","38,76","45,86","65,34","72,78","86,11"
