@@ -1,4 +1,4 @@
-﻿# GitHub Actions CI - ISW2 Testing
+# GitHub Actions CI - ISW2 Testing
 
 ## Objective
 
@@ -89,3 +89,28 @@ completed, their regression checks can be added to the same CI pipeline.
 A successful GitHub Actions execution demonstrates that the repository
 can reproduce the expected test results in a clean remote environment,
 independently from the developer workstation.
+
+## First successful remote execution
+
+The first execution of the `ISW2 Testing` GitHub Actions workflow
+completed successfully on the `isw2-project` branch.
+
+Observed GitHub Actions result:
+
+- workflow: `ISW2 Testing`;
+- trigger: push;
+- status: `Success`;
+- job: `UIHelpers test suites`;
+- environment: GitHub-hosted Ubuntu runner;
+- Java: Microsoft OpenJDK 25;
+- manual suites: T_BB + T_CF + T_MT;
+- expected manual tests: 53;
+- random suite: T_RND / Randoop;
+- expected random tests: 35;
+- native Apache Storm tests: excluded.
+
+The successful remote execution confirms that the current testing harness
+is reproducible outside the local development workstation.
+
+This CI validation does not replace the experimental coverage and
+mutation measurements: those remain separately recorded for each suite.
