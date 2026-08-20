@@ -1,0 +1,2 @@
+﻿"Class","Suite","Generator","Tests","Seed","OutputLimit","GeneratedMutants","Killed","Survived","NoCoverage","MutationScorePercent","CoveredMutants","TestStrengthPercent","NoCoveragePercent","TimedOut","RunError","NonViable"
+"org.apache.storm.daemon.ui.UIHelpers","T_RND","Randoop 4.3.4","35","20260820","37","338","32","39","267","9.47","71","45.07","78.99","0","0","0"

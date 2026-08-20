@@ -95,6 +95,44 @@ Evidence:
 
 `reliability/`
 
+### T_RND - Randoop Random Generation
+
+Generation:
+
+- generator: Randoop 4.3.4
+- seed: 20260820
+- target test budget: 35
+- final output-limit: 37
+- generated tests: 35
+- passing tests: 35/35
+- manual selection/editing: none
+- coverage/mutation feedback during generation: none
+
+Structural adequacy:
+
+- line coverage: 115/1122 = 10.25%
+- branch coverage: 30/242 = 12.40%
+
+Mutation adequacy:
+
+- mutation population: 338
+- killed: 32
+- survived: 39
+- no coverage: 267
+- mutation score: 9.47%
+- test strength: 45.07%
+
+The suite was frozen before adequacy measurement and its SHA-256 hashes
+remained unchanged.
+
+Generated tests:
+
+`../../generated-tests/uihelpers/rnd/`
+
+Evidence:
+
+`automatic/rnd/`
+
 ## Documentation policy
 
 For each experimental phase the repository preserves:

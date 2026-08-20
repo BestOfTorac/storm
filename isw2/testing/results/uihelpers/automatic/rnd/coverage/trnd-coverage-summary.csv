@@ -1,0 +1,2 @@
+﻿"Class","Suite","Tests","Generator","Seed","OutputLimit","LineCovered","LineMissed","LineTotal","LineCoveragePercent","BranchCovered","BranchMissed","BranchTotal","BranchCoveragePercent","InstructionCovered","InstructionMissed","MethodCovered","MethodMissed","ComplexityCovered","ComplexityMissed"
+"org.apache.storm.daemon.ui.UIHelpers","T_RND","35","Randoop 4.3.4","20260820","37","115","1007","1122","10.25","30","212","242","12.40","608","5194","32","90","39","204"
