@@ -162,6 +162,159 @@ jobs:
 
           echo "RESULT: UIHELPERS T_RND 35/35 PASS"
 
+      - name: Prepare frozen UIHelpers T_ES
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          WORK="isw2/testing/target/github-actions-es"
+          TOOL_DIR="$WORK/tool"
+          CLASSES_DIR="$WORK/classes"
+          PROD_CP_FILE="isw2/testing/target/github-actions-es-classpath.txt"
+          RUNTIME_CP_FILE="$WORK/runtime-classpath.txt"
+
+          ES_ROOT="isw2/testing/src/test/java/it/uniroma2/isw2/storm/testing/uihelpers/es"
+          ES_TEST="$ES_ROOT/generated/UIHelpers_ESTest.java"
+          ES_SCAFFOLD="$ES_ROOT/generated/UIHelpers_ESTest_scaffolding.java"
+          ES_LAUNCHER="$ES_ROOT/runtime/EvoSuiteJava25Launcher.java"
+
+          mkdir -p "$TOOL_DIR" "$CLASSES_DIR"
+
+          mvn \
+            --batch-mode \
+            --file isw2/testing/pom.xml \
+            dependency:build-classpath \
+            -Dmdep.outputFile=target/github-actions-es-classpath.txt
+
+          mvn \
+            --batch-mode \
+            --file isw2/testing/pom.xml \
+            dependency:get \
+            -Dartifact=junit:junit:4.13.2
+
+          mvn \
+            --batch-mode \
+            --file isw2/testing/pom.xml \
+            dependency:get \
+            -Dartifact=org.clojure:clojure:1.10.3
+
+          EVOSUITE_JAR="$TOOL_DIR/evosuite-1.2.0.jar"
+
+          curl \
+            --fail \
+            --location \
+            --retry 3 \
+            --output "$EVOSUITE_JAR" \
+            "https://github.com/EvoSuite/evosuite/releases/download/v1.2.0/evosuite-1.2.0.jar"
+
+          echo "0BC0062FDEC70C35089AD736C9B88CCF87308C2F0AAAAFE43176F3C4A89DDEBA  $EVOSUITE_JAR" \
+            | sha256sum --check -
+
+          JUNIT_JAR="$HOME/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar"
+          HAMCREST_JAR="$HOME/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar"
+          CLOJURE_JAR="$HOME/.m2/repository/org/clojure/clojure/1.10.3/clojure-1.10.3.jar"
+
+          for file in \
+            "$PROD_CP_FILE" \
+            "$EVOSUITE_JAR" \
+            "$JUNIT_JAR" \
+            "$HAMCREST_JAR" \
+            "$CLOJURE_JAR" \
+            "$ES_TEST" \
+            "$ES_SCAFFOLD" \
+            "$ES_LAUNCHER"
+          do
+            test -f "$file"
+          done
+
+          PROD_CP="$(cat "$PROD_CP_FILE")"
+
+          WEBAPP_COUNT="$(
+            printf '%s' "$PROD_CP" \
+              | tr ':' '\n' \
+              | grep -E '/storm-webapp/3\.0\.0/storm-webapp-3\.0\.0\.jar$' \
+              | wc -l \
+              | tr -d ' '
+          )"
+
+          test "$WEBAPP_COUNT" = "1"
+
+          if printf '%s' "$PROD_CP" \
+            | tr ':' '\n' \
+            | grep -E -- '-tests\.jar$'
+          then
+            echo "ERROR: native Storm test JAR detected."
+            exit 1
+          fi
+
+          COMPILE_CP="$PROD_CP:$JUNIT_JAR:$HAMCREST_JAR:$CLOJURE_JAR:$EVOSUITE_JAR"
+
+          javac \
+            -proc:none \
+            -encoding UTF-8 \
+            -cp "$COMPILE_CP" \
+            -d "$CLASSES_DIR" \
+            "$ES_TEST" \
+            "$ES_SCAFFOLD" \
+            "$ES_LAUNCHER"
+
+          test -f \
+            "$CLASSES_DIR/org/apache/storm/daemon/ui/UIHelpers_ESTest.class"
+
+          test -f \
+            "$CLASSES_DIR/org/apache/storm/daemon/ui/UIHelpers_ESTest_scaffolding.class"
+
+          test -f \
+            "$CLASSES_DIR/isw2/evosuitecompat/EvoSuiteJava25Launcher.class"
+
+          printf '%s' \
+            "$CLASSES_DIR:$COMPILE_CP" \
+            > "$RUNTIME_CP_FILE"
+
+          echo "EvoSuite 1.2.0 SHA-256: 0BC0062FDEC70C35089AD736C9B88CCF87308C2F0AAAAFE43176F3C4A89DDEBA"
+          echo "T_ES dedicated compilation: PASS"
+
+      - name: Run frozen UIHelpers T_ES
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          WORK="isw2/testing/target/github-actions-es"
+          RUNTIME_CP_FILE="$WORK/runtime-classpath.txt"
+          OUTPUT="$WORK/tes-output.txt"
+
+          test -f "$RUNTIME_CP_FILE"
+
+          RUNTIME_CP="$(cat "$RUNTIME_CP_FILE")"
+
+          java \
+            --add-opens=java.desktop/java.awt=ALL-UNNAMED \
+            --add-opens=java.base/java.net=ALL-UNNAMED \
+            -ea \
+            -Djava.awt.headless=true \
+            -Dfile.encoding=UTF-8 \
+            -cp "$RUNTIME_CP" \
+            isw2.evosuitecompat.EvoSuiteJava25Launcher \
+            2>&1 \
+            | tee "$OUTPUT"
+
+          grep -F \
+            "COMPAT_EFFECTIVE separateClassLoader=false" \
+            "$OUTPUT"
+
+          grep -F \
+            "COMPAT_RESULT tests=37 failures=0 ignored=0 successful=true" \
+            "$OUTPUT"
+
+          WARNINGS="$(
+            grep -c \
+              "was not instrumented by EvoSuite" \
+              "$OUTPUT" \
+              || true
+          )"
+
+          echo "EvoSuite compatibility warnings: $WARNINGS"
+          echo "RESULT: UIHELPERS T_ES 37/37 PASS"
       - name: CI summary
         if: always()
         shell: bash
@@ -175,5 +328,8 @@ jobs:
             echo "- Expected manual tests: 53"
             echo "- Random suite: T_RND / Randoop"
             echo "- Expected random tests: 35"
+            echo "- Coverage-guided suite: T_ES / EvoSuite 1.2.0"
+            echo "- Expected EvoSuite target tests: 37"
+            echo "- EvoSuite execution: dedicated Java 25 compatibility launcher"
             echo "- Native Apache Storm tests: excluded"
           } >> "$GITHUB_STEP_SUMMARY"
