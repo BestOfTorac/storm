@@ -100,6 +100,41 @@
                 <configuration>
                     <failIfNoTests>false</failIfNoTests>
                     <useModulePath>false</useModulePath>
+
+                    <!--
+                      Unit tests only.
+                      Integration tests are handled by Maven Failsafe.
+                    -->
+                    <excludes>
+                        <exclude>**/*IT.java</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>${maven.surefire.version}</version>
+
+                <executions>
+                    <execution>
+                        <id>integration-tests</id>
+
+                        <goals>
+                            <goal>integration-test</goal>
+                            <goal>verify</goal>
+                        </goals>
+                    </execution>
+                </executions>
+
+                <configuration>
+                    <failIfNoTests>false</failIfNoTests>
+                    <useModulePath>false</useModulePath>
+
+                    <!-- Integration tests only. -->
+                    <includes>
+                        <include>**/*IT.java</include>
+                    </includes>
                 </configuration>
             </plugin>
 
