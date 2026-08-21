@@ -1,0 +1,5 @@
+﻿"Suite","Tests","LineCovered","LineTotal","LineCoveragePercent","BranchCovered","BranchTotal","BranchCoveragePercent"
+"T_BB","35","439","1122","39,1266","85","242","35,124"
+"T_CF","45","492","1122","43,8503","122","242","50,4132"
+"T_RND","35","115","1122","10,2496","30","242","12,3967"
+"T_ES_TARGET","37","256","1122","22,8164","51","242","21,0744"

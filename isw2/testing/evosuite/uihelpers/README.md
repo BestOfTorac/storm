@@ -659,3 +659,144 @@ This preserves both reproducibility and normal quality checks for the
 hand-maintained project files.
 
 <!-- T_ES_GENERATED_WHITESPACE_END -->
+
+<!-- T_ES_JACOCO_MEASUREMENT_START -->
+
+## JaCoCo measurement
+
+### Measurement protocol
+
+Coverage was measured only after `T_ES_TARGET` had been frozen.
+
+Measurement environment:
+
+- target: Apache Storm 3.0.0;
+- Java: 25;
+- EvoSuite: 1.2.0;
+- JaCoCo: 0.8.15;
+- frozen suite: `T_ES_TARGET`;
+- tests executed: 37.
+
+JaCoCo was attached directly to the dedicated Java 25 compatibility
+launcher using the Java agent.
+
+Instrumentation was restricted to:
+
+`org.apache.storm.daemon.ui.UIHelpers`
+
+The coverage run therefore used the same 37-test execution path that had
+already passed the target-portability and repeatability gates.
+
+The instrumented run produced:
+
+- 37 executed;
+- 37 passed;
+- 0 failed;
+- 0 ignored.
+
+No test body, assertion, input or launcher filter was changed after seeing
+the coverage result.
+
+### Coverage result
+
+For `UIHelpers`:
+
+| Metric | Covered | Total | Coverage |
+| --- | ---: | ---: | ---: |
+| Lines | 256 | 1122 | 22.8164% |
+| Branches | 51 | 242 | 21.0744% |
+| Methods | 53 | 122 | 43.4426% |
+| Instructions | 1308 | 5802 | 22.5440% |
+
+The line and branch denominators were explicitly compared with the
+previous BB, CF and RND measurements.
+
+All suites use:
+
+- 1122 executable lines;
+- 242 branches.
+
+The measurements are therefore directly comparable.
+
+### Cross-suite coverage comparison
+
+| Suite | Tests | Line coverage | Branch coverage |
+| --- | ---: | ---: | ---: |
+| T_BB | 35 | 39.1266% | 35.1240% |
+| T_CF | 45 | 43.8503% | 50.4132% |
+| T_RND | 35 | 10.2496% | 12.3967% |
+| T_ES_TARGET | 37 | 22.8164% | 21.0744% |
+
+`T_ES_TARGET` therefore obtains substantially higher structural coverage
+than the random Randoop suite, while remaining below both the black-box
+and control-flow suites.
+
+This observation is recorded only as an experimental result and was not
+used to modify the EvoSuite suite.
+
+### JaCoCo CLI report argument splitting
+
+**Problem**
+
+The first coverage execution itself succeeded:
+
+- 37/37 tests passed;
+- `jacoco.exec` was produced;
+- `UIHelpers` execution data was present.
+
+However, the first subsequent JaCoCo CLI `report` command failed.
+
+The error showed JaCoCo attempting to load an additional execution-data
+file named:
+
+`UIHelpers`
+
+**Cause**
+
+The initial report command used PowerShell `Start-Process` with an
+`ArgumentList` containing the report name:
+
+`T_ES UIHelpers Coverage`
+
+The value containing spaces was split incorrectly and part of the report
+name was interpreted by JaCoCo as an additional execution-data argument.
+
+This was a report-generation problem only. The instrumented 37-test run
+had already completed successfully.
+
+**Solution**
+
+The tests were not rerun.
+
+The already produced `jacoco.exec` file was preserved and verified with
+JaCoCo `execinfo`.
+
+It contained execution data for exactly the target class:
+
+`org/apache/storm/daemon/ui/UIHelpers`
+
+The report was then generated using the PowerShell call operator instead
+of `Start-Process`, and a report name without spaces:
+
+`T_ES_UIHelpers_Coverage`
+
+The recovered report produced CSV, XML and HTML output successfully.
+
+The SHA-256 of `jacoco.exec` was checked before and after report
+generation and remained identical, proving that the recovery reused the
+same original instrumented execution.
+
+### Permanent coverage artifacts
+
+The validated coverage artifacts are stored in:
+
+`results/uihelpers/automatic/es/coverage/`
+
+Files:
+
+- `jacoco.csv`
+- `jacoco.xml`
+- `tes-uihelpers-coverage-summary.csv`
+- `tes-coverage-comparison.csv`
+
+<!-- T_ES_JACOCO_MEASUREMENT_END -->
