@@ -1,0 +1,7 @@
+﻿"Test","Category","Evidence","Reason"
+"test02","native-generation-failure","Fails 5/5 on Storm 2.7.1 + Java 11 with original EvoRunner","NoClassDefFoundError while initializing clojure.lang.PersistentTreeMap"
+"test08","behavioral-drift","Passes on Storm 2.7.1 with and without EvoSuite instrumentation; fails on Storm 3.0.0","getJsonResponseHeaders returns 11 entries on Storm 3.0.0 instead of the generated oracle value 10"
+"test09","native-generation-failure","Fails 5/5 on Storm 2.7.1 + Java 11 with original EvoRunner","Expected ServiceConfigurationError is not thrown"
+"test10","instrumentation-dependency","Passes with original EvoSuite instrumentation but fails on Storm 2.7.1 when instrumentation is bypassed","Depends on EvoSuite VNET/network instrumentation; real network rejects port 104857600"
+"test22","native-generation-failure","Fails 5/5 on Storm 2.7.1 + Java 11 with original EvoRunner","Expected ServiceConfigurationError is not thrown"
+"test38","instrumentation-dependency","Passes with original EvoSuite instrumentation but fails on Storm 2.7.1 when instrumentation is bypassed","Depends on EvoSuite VFS/filesystem instrumentation; real Windows filesystem rejects generated filename"
