@@ -800,3 +800,35 @@ Files:
 - `tes-coverage-comparison.csv`
 
 <!-- T_ES_JACOCO_MEASUREMENT_END -->
+
+
+## Mutation testing (T_ES)
+
+The frozen 37-test EvoSuite target suite was measured with PIT 1.25.8 using
+the `DEFAULTS` mutator set and the same 338-mutant UIHelpers population used
+for the other mutation experiments.
+
+Results:
+
+- generated mutants: 338;
+- killed: 24;
+- survived: 80;
+- no coverage: 234;
+- Mutation Score: 7.10%;
+- Test Strength: 23.08%;
+- no-coverage proportion: 69.23%.
+
+The mutation population matches T_CF, T_MT, and T_RND exactly.
+
+PIT executes T_ES through the validated JUnit 4 Java 25 compatibility adapter.
+The adapter exposes one external test to PIT and internally executes the 37
+frozen EvoSuite methods. Consequently, mutation adequacy is valid at suite
+level, while PIT cannot provide reliable per-generated-test kill attribution.
+
+The primary structural metric remains the JaCoCo measurement
+(22.8164% line, 21.0744% branch). PIT's own line-coverage observation is kept
+separate because its instrumentation differs from JaCoCo.
+
+Full mutation evidence is stored under:
+
+`isw2/testing/results/uihelpers/automatic/es/mutation/`

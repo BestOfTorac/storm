@@ -1,0 +1,3 @@
+﻿T_CF mutants: 338
+T_ES mutants: 338
+Differences: 0
