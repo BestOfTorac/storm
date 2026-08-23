@@ -1,2 +1,2 @@
 org.apache.storm.daemon.ui.UIHelpers
-org.apache.storm.security.auth.DefaultHttpCredentialsPlugin
+org.apache.storm.redis.bolt.RedisFilterBolt

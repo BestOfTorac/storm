@@ -80,6 +80,27 @@
       <version>4.13.2</version>
       <scope>test</scope>
     </dependency>
+
+        <!--
+            Production artifact for the effective second De Angelis target:
+            org.apache.storm.redis.bolt.RedisFilterBolt.
+            Jedis is resolved transitively from storm-redis.
+
+            storm-redis 3.0.0 also declares an older Mockito dependency.
+            It is excluded here because this isolated testing module already
+            pins Mockito explicitly through ${mockito.version}.
+        -->
+        <dependency>
+            <groupId>org.apache.storm</groupId>
+            <artifactId>storm-redis</artifactId>
+            <version>3.0.0</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.mockito</groupId>
+                    <artifactId>mockito-core</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
     </dependencies>
 
     <build>

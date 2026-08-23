@@ -78,7 +78,7 @@ Structural inventory:
 Machine-readable selection policy:
 
 `isw2/config/testing-class-selection.properties`
-## Final selected classes
+## Original ranking result
 
 The eligible-class ranking contains 381 classes.
 
@@ -108,7 +108,7 @@ Using one-based positions, this corresponds to eligible ranks 3 and 379.
 - NSMELLS: 77
 - eligible rank: 3
 
-### C_0 B
+### Original C_0 B candidate
 
 `org.apache.storm.security.auth.DefaultHttpCredentialsPlugin`
 
@@ -123,3 +123,87 @@ The lower-ranked class belongs to a tie containing multiple classes with
 The project therefore uses the previously recorded deterministic
 `FQCN_ASC` tie-break and does not alter the selection after observing the
 result.
+## Testing-suitability reassessment of the second class
+
+The original Falessi-derived selection remains unchanged as a historical and
+reproducible result:
+
+`first +2` and `last -2`.
+
+After test design began, the lower-end class was subjected to the additional
+testing-suitability requirement of the Software Testing experiment.
+
+The original `last-2` candidate,
+`org.apache.storm.security.auth.DefaultHttpCredentialsPlugin`, was not removed
+because its tests failed. Its independently designed ten-test black-box suite
+passed 10/10. However, the first JaCoCo measurement performed only after the
+suite had been frozen produced:
+
+- Line Coverage: 30/30 = 100.0000%;
+- Branch Coverage: 16/18 = 88.8889%.
+
+Line Coverage was therefore already mathematically saturated before the
+control-flow-guided test evolution.
+
+Valid black-box tests were deliberately not removed after seeing the metric
+merely to manufacture an artificial coverage gap.
+
+The project consequently evaluated lower-end candidates sequentially in the
+same frozen NSMELLS/FQCN ranking. The original ranking metric, structural
+filter and deterministic tie-break were never changed.
+
+The complete audit and rejection rationale are recorded in:
+
+`isw2/docs/testing-second-class-reassessment.md`
+
+The sequential search eventually reached `last-19`, eligible rank 362:
+
+`org.apache.storm.redis.bolt.RedisFilterBolt`
+
+This class was accepted because it provides a non-trivial but testable
+functional surface:
+
+- TypeLOC: 107;
+- declared methods: 2, excluding constructors according to the original
+  structural metric;
+- four public executable entry points including the two constructors;
+- multiple observable Redis filtering behaviours;
+- control flow involving data-type dispatch, boundaries, success/failure and
+  exception handling;
+- no direct static calls in the target class;
+- Redis access can be represented through the `JedisCommandsContainer`
+  interface without requiring a real Redis service for the manually designed
+  unit tests.
+
+The fact that the class belongs to the `storm-redis` external module does not
+introduce a new selection exception: the frozen class-selection policy already
+contained `includeExternalModules=true`.
+
+### Effective C_0 B
+
+`org.apache.storm.redis.bolt.RedisFilterBolt`
+
+- module: `external/storm-redis`;
+- source:
+  `external/storm-redis/src/main/java/org/apache/storm/redis/bolt/RedisFilterBolt.java`;
+- TypeLOC: 107;
+- declared methods: 2;
+- NSMELLS: 0;
+- eligible rank: 362;
+- effective lower-end position: `last-19`.
+
+This is an experimental-suitability replacement for the original `last-2`
+slot. It does not redefine selection case 2 as `last-19`.
+
+The machine-readable policy therefore retains:
+
+`lastOffset=2`
+
+and records the replacement separately with:
+
+`secondClassEffectiveOffset=19`
+
+The final active Software Testing classes are thus:
+
+1. `org.apache.storm.daemon.ui.UIHelpers`
+2. `org.apache.storm.redis.bolt.RedisFilterBolt`

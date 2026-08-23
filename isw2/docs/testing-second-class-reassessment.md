@@ -182,3 +182,122 @@ They document:
 
 The Java test source is archived outside `src/test/java` so it does not become
 part of the final active test population.
+---
+
+# Extended sequential suitability audit
+
+After rejection of the original `last-2` candidate and the `last-3`
+pre-flight candidate, the project continued strictly through the same frozen
+eligible-class ranking.
+
+No native Apache Storm tests, JaCoCo results or mutation results were used to
+choose among the following candidates.
+
+The screening rule was declared before the extended scan:
+
+- retain the original eligible population and ranking;
+- evaluate candidates sequentially from the lower end;
+- reject obvious high-triviality candidates before test design;
+- prefer at least three public executable methods and at least four
+  control-flow signals for deeper review;
+- reject test-support packages;
+- perform a deeper human testability review before accepting a structurally
+  promising candidate.
+
+## Candidate sequence
+
+| Effective position | Eligible rank | Class | Control-flow signal | Decision |
+| --- | ---: | --- | ---: | --- |
+| last-4 | 377 | ObjectResourcesSummary | 0 | triviality risk |
+| last-5 | 376 | ObjectResourcesItem | 0 | triviality risk |
+| last-6 | 375 | MultitenantScheduler | 9 | rejected after deep coupling review |
+| last-7 | 374 | ExecutorDetails | 1 | triviality risk |
+| last-8 | 373 | Component | 0 | triviality risk |
+| last-9 | 372 | RedisStateUpdater | 5 | limited public surface |
+| last-10 | 371 | RedisClusterStateUpdater | 5 | limited public surface |
+| last-11 | 370 | RedisKeyValueStateIterator | 1 | triviality risk |
+| last-12 | 369 | RedisClusterContainer | 0 | triviality risk |
+| last-13 | 368 | JedisClusterContainer | 0 | triviality risk |
+| last-14 | 367 | JedisPoolConfig | 0 | triviality risk |
+| last-15 | 366 | JedisClusterConfig | 1 | triviality risk |
+| last-16 | 365 | RedisCommandsAdapterJedisCluster | 0 | triviality risk |
+| last-17 | 364 | RedisCommandsAdapterJedis | 0 | triviality risk |
+| last-18 | 363 | RedisLookupBolt | 3 | below predeclared structural review threshold |
+| last-19 | 362 | RedisFilterBolt | 5 | accepted after deep testability review |
+
+## MultitenantScheduler deep review
+
+`org.apache.storm.scheduler.multitenant.MultitenantScheduler` was the first
+candidate to pass the structural screen.
+
+It was not accepted automatically.
+
+The deeper review found that the target directly depends on three static
+dependency families:
+
+- `ConfigLoaderFactoryService.createConfigLoader`;
+- `Utils.findAndReadConfigFile`;
+- `Node.getAllNodesFrom`.
+
+It also constructs scheduling collaborators internally, including
+`SchedulerConfigCache`, `IsolatedPool`, `DefaultPool` and `FreePool`.
+
+The surrounding scheduler object graph is substantial. Producing simple
+black-box scenarios would therefore require a comparatively large mock and
+setup infrastructure.
+
+Decision:
+
+`REJECTED_AT_FINAL_PREFLIGHT_FOR_EXCESSIVE_TEST_COUPLING`
+
+The rejection is specific to the suitability of the class for this testing
+experiment and is not a statement about production-code quality.
+
+## Candidate 18 - effective selection
+
+Selection position reached sequentially:
+
+`last-19`
+
+Eligible rank:
+
+`362 / 381`
+
+Class:
+
+`org.apache.storm.redis.bolt.RedisFilterBolt`
+
+Production source:
+
+`external/storm-redis/src/main/java/org/apache/storm/redis/bolt/RedisFilterBolt.java`
+
+Production source SHA-256:
+
+`F60776FC3FC9E884843794506D05CB514B5CD2EA8B5CD3519DDA8C2CA69A1E7B`
+
+Falessi inventory:
+
+- TypeLOC: 107;
+- DeclaredMethods: 2;
+- NSMELLS: 0.
+
+Additional testability observations:
+
+- four public executable declarations when constructors are included;
+- five control-flow signals in the pre-flight;
+- no direct static-call families in the target;
+- documented Redis-data-type behaviours;
+- `JedisCommandsContainer` is an interface and can represent Redis responses;
+- `OutputCollector` exposes observable bolt outcomes such as emit, ack, fail
+  and error reporting;
+- no real Redis server is required for the intended manually designed tests.
+
+Decision:
+
+`ACCEPTED_AS_EFFECTIVE_SECOND_CLASS`
+
+The acceptance occurred before Category Partition, test implementation,
+JaCoCo or mutation testing for this class.
+
+This preserves independence between class suitability and the later adequacy
+results.
