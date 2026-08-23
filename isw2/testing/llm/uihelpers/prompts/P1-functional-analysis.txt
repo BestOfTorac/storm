@@ -1,0 +1,226 @@
+Sto svolgendo un esperimento universitario di Software Testing sul progetto
+Apache Storm 3.0.0.
+
+La classe di produzione oggetto dell'esperimento è:
+
+org.apache.storm.daemon.ui.UIHelpers
+
+Questa interazione corrisponde alla fase:
+
+P1 - Functional Analysis
+
+In questa fase devi ESCLUSIVAMENTE analizzare funzionalmente la classe di
+produzione e la sua testabilità.
+
+NON devi ancora progettare la suite finale di test.
+NON devi generare una lista T01-T35.
+NON devi scrivere codice Java di test.
+NON devi modificare o riscrivere codice di produzione.
+
+## Contesto disponibile
+
+Considera come contesto dell'esperimento esclusivamente i file che ti ho
+fornito/allegato a questa conversazione.
+
+I file iniziali sono:
+
+1. UIHelpers.java
+2. pom.xml del modulo isw2/testing
+
+Non assumere di avere accesso al mio repository locale, a GitHub, a IntelliJ
+o ad altri file che non ti sono stati esplicitamente forniti in questa
+conversazione.
+
+Se per comprendere correttamente un comportamento hai bisogno di un'altra
+classe o risorsa di PRODUZIONE Apache Storm, non inventarne il contenuto e
+non assumere come funzioni.
+
+Segnalala invece nella sezione 8 "Incertezze", indicando precisamente quale
+file, classe o informazione di produzione sarebbe necessario consultare.
+
+## Ambiente futuro dei test
+
+- Progetto target: Apache Storm 3.0.0
+- Java: 25
+- Modulo di test: isw2/testing
+- Framework di test previsto: JUnit Jupiter
+- Mockito è disponibile quando realmente necessario
+
+Queste informazioni servono soltanto per valutare la testabilità.
+In P1 non devi ancora generare test.
+
+## Regole di indipendenza
+
+Non utilizzare test esistenti come riferimento.
+
+Non chiedere e non utilizzare:
+
+- test BB già prodotti;
+- test control-flow già prodotti;
+- test mutation-guided già prodotti;
+- test Randoop;
+- test EvoSuite;
+- test di integrazione già prodotti;
+- test LLM precedenti;
+- test nativi Apache Storm.
+
+Non chiedere e non utilizzare risultati sperimentali quali:
+
+- JaCoCo;
+- line coverage;
+- branch coverage;
+- PIT;
+- Mutation Score;
+- Test Strength;
+- surviving mutants;
+- no-coverage mutants;
+- confronti tra suite.
+
+L'analisi deve derivare esclusivamente dal comportamento di PRODUZIONE
+osservabile nei file forniti.
+
+## Obiettivo
+
+Costruisci una comprensione funzionale e di testabilità di UIHelpers che
+possa essere utilizzata in una successiva fase di test planning.
+
+Non cercare di massimizzare coverage o mutation score.
+
+Non trasformare ancora l'analisi in casi di test.
+
+## Output richiesto
+
+Organizza la risposta ESATTAMENTE nelle otto sezioni seguenti.
+
+### 1. Responsabilità pubbliche della classe
+
+Descrivi le principali responsabilità funzionali osservabili di UIHelpers.
+
+Non limitarti a un elenco meccanico dei metodi: quando più metodi fanno parte
+della stessa responsabilità funzionale, evidenzialo.
+
+### 2. Inventario delle funzionalità pubbliche testabili
+
+Produci una tabella con una riga per ogni metodo o funzionalità pubblica
+rilevante.
+
+Per ogni riga indica:
+
+- nome del metodo/funzionalità;
+- ruolo funzionale;
+- principali input;
+- output o effetto osservabile;
+- collaboratori o dipendenze;
+- eventuale configurazione/stato coinvolto;
+- difficoltà qualitativa di test:
+  semplice, media oppure difficile;
+- breve motivazione della difficoltà.
+
+Non proporre casi di test concreti.
+
+### 3. Classi di input e condizioni significative
+
+Individua le categorie di input funzionalmente significative osservabili dal
+codice di produzione.
+
+Considera, soltanto quando applicabili:
+
+- valori normali;
+- null;
+- stringhe vuote/non vuote;
+- stringhe valide/malformate;
+- collezioni vuote/non vuote;
+- configurazioni presenti/assenti;
+- identificatori validi/non validi;
+- valori limite;
+- combinazioni funzionalmente differenti.
+
+Non trasformare queste categorie in test numerati.
+
+### 4. Comportamenti osservabili e possibili oracle
+
+Per ogni grande area funzionale indica quali risultati o effetti potrebbero
+essere osservati in un futuro test.
+
+Esempi possibili, solo se pertinenti al codice:
+
+- valore restituito;
+- contenuto di una struttura dati;
+- header o risposta prodotta;
+- eccezione osservabile;
+- interazione con un collaboratore;
+- configurazione di un oggetto prodotto;
+- stato osservabile dopo l'operazione.
+
+Non scrivere assertion Java.
+
+Non proporre ancora casi di test.
+
+### 5. Collaboratori e dipendenze
+
+Distingui esplicitamente:
+
+A. collaboratori utilizzabili direttamente in unit test;
+B. collaboratori che potrebbero richiedere mocking;
+C. infrastruttura che sarebbe preferibile evitare in unit test;
+D. funzionalità che sembrano richiedere integration test.
+
+Per ogni elemento spiega brevemente la motivazione.
+
+### 6. Rischi di testabilità
+
+Analizza eventuali difficoltà dovute, quando presenti, a:
+
+- stato globale;
+- metodi statici;
+- framework esterni;
+- filesystem;
+- rete;
+- HTTP;
+- Jetty;
+- configurazioni complesse;
+- oggetti difficili da istanziare;
+- concorrenza;
+- timing;
+- dipendenze esterne.
+
+Non proporre modifiche al codice di produzione per rendere i test più facili.
+
+### 7. Confini dell'esperimento
+
+Indica quali responsabilità o funzionalità sembrano ragionevolmente adatte a
+futuri unit test deterministici.
+
+Indica separatamente quali sembrano inappropriate, troppo costose o fragili
+per una suite unitaria generata dall'LLM.
+
+Motiva ogni esclusione sul piano funzionale o tecnico.
+
+### 8. Incertezze
+
+Elenca esclusivamente gli aspetti che NON puoi determinare con sicurezza dai
+file di produzione forniti.
+
+Per ciascuno specifica:
+
+- cosa non è determinabile;
+- perché il contesto corrente è insufficiente;
+- quale ulteriore classe, file o informazione di PRODUZIONE servirebbe.
+
+Non chiedere test esistenti o risultati sperimentali.
+
+## Vincolo finale di P1
+
+Questa risposta deve fermarsi alla sola analisi.
+
+NON generare:
+
+- codice Java;
+- metodi @Test;
+- test case numerati;
+- T01-T35;
+- una suite di 35 test;
+- suggerimenti guidati dalla coverage;
+- suggerimenti guidati dal mutation testing.
+
+Termina la risposta al termine della sezione 8.
