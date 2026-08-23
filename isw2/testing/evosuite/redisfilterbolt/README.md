@@ -169,3 +169,28 @@ Evidence:
 - `evidence/excluded-tests.csv`
 - `evidence/repeatability.csv`
 - `evidence/fingerprints.sha256`
+## Ex-post JaCoCo result
+
+After the suite freeze, JaCoCo 0.8.15 was executed against the actual
+Storm 3.0.0 / Java 25 target.
+
+All 9 frozen tests passed.
+
+Official adequacy results:
+
+- Line Coverage: `16/45 = 35.5556%`
+- Branch Coverage: `4/21 = 19.0476%`
+
+Secondary diagnostics:
+
+- Method Coverage: `3/4 = 75.0000%`
+- Instruction Coverage: `53/170 = 31.1765%`
+
+The denominators exactly match the RedisFilterBolt BB, CF and RND
+measurements.
+
+No test-source change followed from this measurement.
+
+Permanent measurement artifacts are stored under:
+
+`isw2/testing/results/redis-filter-bolt/tes/coverage/`
