@@ -1,0 +1,6 @@
+"P2Status","P3Status","Method","Line","Mutator","Description"
+"SURVIVED","KILLED","sanitizeStreamName","1773","org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator","changed conditional boundary"
+"KILLED","NO_COVERAGE","sanitizeStreamName","1773","org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE","removed conditional - replaced equality check with false"
+"KILLED","SURVIVED","sanitizeStreamName","1773","org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_ELSE","removed conditional - replaced comparison check with false"
+"KILLED","NO_COVERAGE","sanitizeStreamName","1774","org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator","replaced return value with """" for org/apache/storm/daemon/ui/UIHelpers::sanitizeStreamName"
+"NO_COVERAGE","KILLED","sanitizeStreamName","1776","org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator","replaced return value with """" for org/apache/storm/daemon/ui/UIHelpers::sanitizeStreamName"
