@@ -1,0 +1,37 @@
+Sto svolgendo un esperimento universitario di Software Testing sul progetto Apache Storm 3.0.0.
+
+La classe da testare è:
+
+org.apache.storm.daemon.ui.UIHelpers
+
+Ti fornisco UIHelpers.java e il pom.xml del modulo isw2/testing, che descrive l'ambiente e le dipendenze disponibili.
+
+Voglio che tu proceda in due fasi.
+
+Prima fase – Analisi
+
+Analizza attentamente UIHelpers dal punto di vista del testing. Individua:
+
+le principali funzionalità della classe; i metodi e i comportamenti osservabili; gli input e le condizioni significative; i possibili risultati attesi/oracle; le dipendenze che potrebbero richiedere mocking; eventuali funzionalità difficili o poco adatte a un unit test.
+
+Basa l'analisi sul codice di produzione che ti ho fornito. Se per comprendere correttamente qualche comportamento ti manca una classe o un'informazione di produzione, dichiaralo senza inventarne il comportamento.
+
+Seconda fase – Generazione dei test
+
+Dopo aver completato l'analisi, progetta e implementa esattamente 35 test per UIHelpers.
+
+Usa:
+
+Java 25; JUnit Jupiter; Mockito solo quando è realmente utile.
+
+I 35 test devono essere distinti, deterministici e rappresentativi delle funzionalità e delle condizioni significative che hai individuato nell'analisi.
+
+Preferisci test semplici, con un risultato atteso chiaramente verificabile. Evita test inutilmente complessi, dipendenze da servizi esterni, rete reale, sleep o verifiche di dettagli puramente implementativi quando non hanno significato funzionale.
+
+Per ciascun test indica brevemente:
+
+quale funzionalità verifica; quale scenario considera; qual è il risultato atteso.
+
+Successivamente fornisci il codice Java completo della suite, contenente esattamente 35 metodi di test.
+
+Non modificare il codice di produzione.
