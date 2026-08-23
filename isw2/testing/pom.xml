@@ -80,6 +80,13 @@
       <version>4.13.2</version>
       <scope>test</scope>
     </dependency>
+    <!-- Allows Randoop-generated JUnit 4 suites to run on JUnit Platform. -->
+    <dependency>
+        <groupId>org.junit.vintage</groupId>
+        <artifactId>junit-vintage-engine</artifactId>
+        <version>${junit.version}</version>
+        <scope>test</scope>
+    </dependency>
 
         <!--
             Production artifact for the effective second De Angelis target:
