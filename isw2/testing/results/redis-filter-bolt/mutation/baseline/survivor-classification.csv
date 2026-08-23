@@ -1,0 +1,2 @@
+"Line","Method","Mutator","RawStatus","Classification","Killable","TargetExpression","OriginalEmptyListOutcome","MutatedEmptyListOutcome","NullOutcome","NonEmptyOutcome","TMTTestAdded"
+"117","process","RemoveConditionalMutator_EQUAL_ELSE","SURVIVED","EQUIVALENT_IN_INTENDED_OPERATIONAL_DOMAIN","NO","geopos.isEmpty() shortcut","found=false","empty stream anyMatch(nonNull)=false","unchanged because preceding null check remains","unchanged because original already uses stream anyMatch","NO"
