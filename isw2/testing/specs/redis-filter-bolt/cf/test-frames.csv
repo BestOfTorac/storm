@@ -1,0 +1,5 @@
+"FrameId","TargetArea","GapLines","Trigger","ControlFlowOutcome","Oracle","ExpectedLineIncrease","ExpectedBranchIncrease"
+"RFB-CF-01","JedisPool constructor","61","SET with non-null additionalKey","SET=true; additionalKey-null=false","Construction succeeds","NO","YES"
+"RFB-CF-02","JedisPool constructor","61;63","SET with null additionalKey","SET=true; additionalKey-null=true","IllegalArgumentException","YES","YES"
+"RFB-CF-03","GEO processing","117","geopos returns null","geopos-null=true short-circuit","No emit; ack","NO","YES"
+"RFB-CF-04","process switch/default/error","94;127;135;136;137","RedisDataType LIST","switch default followed by process catch","reportError + fail; no emit; no ack","YES","YES"
