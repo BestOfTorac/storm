@@ -1,0 +1,4 @@
+Suite,Tests,LineCovered,LineTotal,LinePercent,BranchCovered,BranchTotal,BranchPercent,InstructionCovered,InstructionTotal,InstructionPercent
+T_BB,11,40,45,88.8889,16,21,76.1905,145,170,85.2941
+T_CF,15,45,45,100.0000,21,21,100.0000,170,170,100.0000
+T_RND,11,22,45,48.8889,1,21,4.7619,65,170,38.2353
