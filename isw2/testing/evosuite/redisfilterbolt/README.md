@@ -194,3 +194,31 @@ No test-source change followed from this measurement.
 Permanent measurement artifacts are stored under:
 
 `isw2/testing/results/redis-filter-bolt/tes/coverage/`
+## Ex-post PIT mutation result
+
+PIT 1.25.8 was executed after the T_ES freeze and after the official JaCoCo
+measurement.
+
+The final valid run used:
+
+- `DEFAULTS` mutators
+- one thread
+- no CLASSLIMIT
+- a JUnit 4 suite-level compatibility adapter
+- the same exact 12-mutant RedisFilterBolt population used by the manual and
+  T_RND measurements
+
+Results:
+
+- Killed: `2`
+- Survived: `1`
+- No coverage: `9`
+- Timed out: `0`
+- Mutation Score: `16.6667%`
+- Test Strength: `66.6667%`
+
+The frozen EvoSuite test sources were not modified.
+
+Permanent mutation artifacts are stored under:
+
+`isw2/testing/results/redis-filter-bolt/tes/mutation/`
