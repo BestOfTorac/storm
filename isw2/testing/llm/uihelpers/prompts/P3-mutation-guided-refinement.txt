@@ -1,0 +1,52 @@
+Abbiamo ora eseguito mutation testing sulla suite raffinata di 35 test per UIHelpers che hai prodotto.
+
+La suite continua a compilare ed eseguire correttamente: 35/35 test passano.
+
+Il mutation testing ha generato 338 mutanti della classe UIHelpers, con questo risultato:
+
+- 49 KILLED
+- 1 SURVIVED
+- 288 NO_COVERAGE
+
+L'unico mutante sopravvissuto è:
+
+Class:
+org.apache.storm.daemon.ui.UIHelpers
+
+Method:
+sanitizeStreamName
+
+Line:
+1773
+
+Mutator:
+org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator
+
+Description:
+changed conditional boundary
+
+Analizza il codice di produzione di UIHelpers che ti ho già fornito e determina perché questo mutante riesce a sopravvivere alla suite attuale.
+
+Poi proponi una modifica minima della suite che renda verificabile anche il comportamento mancante individuato.
+
+Mantieni esattamente 35 metodi @Test complessivi: puoi modificare o sostituire uno dei test esistenti, ma non aumentare né diminuire il totale.
+
+Mantieni inoltre:
+
+- Java 25;
+- JUnit Jupiter;
+- test deterministici;
+- nessuna rete reale;
+- nessun avvio di server;
+- nessuno sleep;
+- nessuna modifica al codice di produzione.
+
+Il nuovo test deve verificare un comportamento funzionale osservabile della classe, non semplicemente essere costruito per adattarsi artificialmente al mutante.
+
+Prima spiega:
+
+1. quale condizione di confine è modificata dal mutante;
+2. quale input distingue il comportamento originale da quello mutato;
+3. quale test della suite attuale conviene modificare o sostituire e perché.
+
+Successivamente fornisci il codice Java completo della suite aggiornata, contenente esattamente 35 metodi @Test.
