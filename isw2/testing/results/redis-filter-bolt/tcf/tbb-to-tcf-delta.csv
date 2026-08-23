@@ -1,0 +1,3 @@
+"Metric","BaselineCovered","Total","BaselinePct","FinalCovered","FinalPct","CoveredDelta","PercentagePointDelta"
+"LINE","40","45","88.8889","45","100.0000","5","11.1111"
+"BRANCH","16","21","76.1905","21","100.0000","5","23.8095"
