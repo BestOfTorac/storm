@@ -1,0 +1,2 @@
+Suite,Generator,GeneratorVersion,Java,Seed,TimeLimitSeconds,OutputLimit,TargetN,ActualTests,FactoryCalls,ProcessCalls,NormalProcessTests,ExceptionProcessTests,DeclareCalls,PrepareCalls,CleanupCalls,DirectJUnit4Execution,SurefireBeforeVintage,SurefireAfterVintage,CoverageUsedBeforeFreeze,PitUsedBeforeFreeze,ManualTestsSupplied,NativeTestsUsed,GeneratedEdits
+T_RND,Randoop,4.3.4,25,20260820,30,17,11,11,4,1,1,0,1,0,0,PASS_11_OF_11,0_TESTS,PASS_11_OF_11,NO,NO,NO,NO,0
