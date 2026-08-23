@@ -1,0 +1,3 @@
+"Selection","EligibleRank","FQCN","TypeLOC","DeclaredMethods","NSMELLS","EvaluationStage","TBBTests","LineCoveragePct","BranchCoveragePct","ControlFlowSignals","Decision","Reason"
+"last-2","379","org.apache.storm.security.auth.DefaultHttpCredentialsPlugin","62","3","0","POST_TBB_JACOCO","10","100.0000","88.8889","","REJECTED_FOR_EXPERIMENTAL_TRIVIALITY","Initial black-box suite already saturated Line Coverage"
+"last-3","378","org.apache.storm.scheduler.SupervisorResources","78","10","0","PREFLIGHT","0","","","2","REJECTED_AT_PREFLIGHT_FOR_TRIVIALITY_RISK","No if/switch/loops/catch; only two constructor null-fallback ternaries"
