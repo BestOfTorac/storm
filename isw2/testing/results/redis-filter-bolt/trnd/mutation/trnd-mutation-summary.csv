@@ -1,0 +1,2 @@
+Suite,Tests,PITVersion,JUnitPlugin,Mutators,Threads,TotalMutants,Killed,Survived,NoCoverage,TimedOut,Other,MutationScore,StrengthDenominator,TestStrength,PopulationComparableToManual,SuiteModifiedAfterFreeze,MutationsXmlSHA256
+T_RND,11,1.25.8,1.2.3,DEFAULTS,1,12,0,4,8,0,0,0.0000,4,0.0000,YES_12_OF_12,NO,E6C0520ED4CDFDA4F74078E30EB9FCBF5D25321B6F82CE71AA31A6FFB81F4B38
