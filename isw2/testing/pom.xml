@@ -126,6 +126,7 @@
                     -->
                     <testExcludes>
                         <testExclude>**/uihelpers/es/**</testExclude>
+                        <testExclude>**/redisfilterbolt/es/**</testExclude>
                     </testExcludes>
                 </configuration>
             </plugin>
@@ -148,6 +149,7 @@
 
                         <!-- EvoSuite uses a dedicated Java 25 runner. -->
                         <exclude>**/UIHelpers_ESTest.java</exclude>
+                        <exclude>**/RedisFilterBolt_ESTest.java</exclude>
                     </excludes>
                 </configuration>
             </plugin>
