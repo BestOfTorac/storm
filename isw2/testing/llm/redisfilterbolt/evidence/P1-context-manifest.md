@@ -63,7 +63,7 @@ La risposta completa e l'evidence dell'invalidazione sono conservate nel reposit
 
 Stato:
 
-PREPARED - NOT YET SUBMITTED
+VALID - EXECUTION AND 5/5 REPEATABILITY PASSED - FROZEN
 
 Prompt:
 
@@ -92,3 +92,4 @@ Se Copilot dichiara che manca una classe o una firma production necessaria, tale
 ## Contesto sperimentale escluso dalla baseline
 
 Non viene fornito a Copilot materiale proveniente dalle suite sperimentali precedenti o dalle successive misure di adequacy.
+

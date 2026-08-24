@@ -1,0 +1,205 @@
+﻿Di seguito trovi prima l’analisi orientata al testing e poi la progettazione degli esatti 11 test richiesti. Ho utilizzato esclusivamente i tre file forniti nella conversazione, senza consultare il Web o altre fonti esterne.
+
+Prima fase: analisi di RedisFilterBolt
+1. Responsabilità principale
+
+RedisFilterBolt interroga Redis per determinare se una chiave, un campo o un valore esiste. Se l’elemento viene trovato, inoltra la tupla sullo stream predefinito; indipendentemente dall’esito positivo o negativo della ricerca, conferma la tupla con ack. Se si verifica un’eccezione, segnala l’errore e marca la tupla come fallita.
+
+Il comportamento concreto dipende dal tipo indicato da RedisFilterMapper.getDataTypeDescription():
+
+STRING: verifica exists(key);
+SET: verifica sismember(additionalKey, key);
+HASH: verifica hexists(additionalKey, key);
+SORTED_SET: considera presente il valore quando zrank(additionalKey, key) non restituisce null;
+HYPER_LOG_LOG: considera presente il valore quando pfcount(key) > 0;
+GEO: considera trovato il valore se geopos(additionalKey, key) restituisce una lista con almeno un elemento non nullo.
+2. Costruzione dell’oggetto
+
+La classe espone due costruttori:
+
+uno basato su JedisPoolConfig;
+uno basato su JedisClusterConfig.
+
+Entrambi acquisiscono dal mapper:
+
+il tipo Redis;
+l’eventuale additionalKey.
+
+Il costruttore con JedisPoolConfig presenta inoltre una validazione specifica: se il tipo è SET e additionalKey è null, viene sollevata un’IllegalArgumentException con messaggio "additionalKey should be defined". La stessa validazione non è presente nel costruttore cluster. Questo è un comportamento osservabile, anche se l’asimmetria potrebbe essere intenzionale oppure rappresentare una possibile incoerenza del codice di produzione.
+
+3. Metodi e comportamenti osservabili
+process(Tuple input)
+
+Gli effetti osservabili sono:
+
+invocazione di filterMapper.getKeyFromTuple(input);
+invocazione del comando Redis coerente con il tipo configurato;
+emissione della tupla originale e dei suoi valori quando l’elemento viene trovato;
+mancata emissione quando l’elemento non viene trovato;
+collector.ack(input) al termine dell’elaborazione ordinaria;
+collector.reportError(e) e collector.fail(input) in caso di eccezione;
+assenza di ack quando l’esecuzione entra nel blocco catch.
+declareOutputFields(OutputFieldsDeclarer declarer)
+
+Il metodo delega completamente al mapper chiamando:
+
+Java
+1
+filterMapper.declareOutputFields(declarer);
+Mostra più linee
+
+L’oracle naturale è quindi la verifica della delega con lo stesso oggetto OutputFieldsDeclarer.
+
+4. Input e condizioni significative
+
+Gli input e gli stati maggiormente rilevanti sono:
+
+tipo Redis configurato;
+chiave restituita dal mapper;
+presenza o assenza di additionalKey;
+risultato booleano di exists, sismember ed hexists;
+risultato nullo o non nullo di zrank;
+valore di pfcount, in particolare 0 rispetto a un valore positivo;
+risultato null, vuoto, composto solo da elementi nulli o contenente almeno una coordinata per geopos;
+eccezioni sollevate dal container Redis;
+valori contenuti nella tupla, che devono essere inoltrati senza trasformazione quando il filtro ha esito positivo.
+5. Oracle disponibili
+
+Gli oracle più solidi sono:
+
+Emissione
+ Se found == true, deve essere chiamato collector.emit(input, input.getValues()).
+
+Mancata emissione
+ Se found == false, emit non deve essere chiamato.
+
+Acknowledgement
+ In assenza di eccezioni deve essere chiamato collector.ack(input).
+
+Fallimento
+ In caso di eccezione devono essere chiamati reportError e fail, non ack.
+
+Comando Redis selezionato
+ Il container deve ricevere il comando corrispondente al tipo, con la chiave e l’additionalKey corretti.
+
+Delegazione degli output field
+ Il mapper deve ricevere il medesimo OutputFieldsDeclarer.
+
+6. Dipendenze da sostituire con mock
+
+I mock realmente utili sono:
+
+RedisFilterMapper, perché fornisce descrizione del tipo, chiave e dichiarazione dei campi;
+RedisDataTypeDescription, per controllare tipo e additionalKey;
+JedisCommandsContainer, per evitare un Redis reale e controllare i risultati delle query;
+OutputCollector, per osservare emit, ack, fail e reportError;
+Tuple, per controllare chiave derivata e valori inoltrati;
+OutputFieldsDeclarer, per verificare la delega.
+
+Il POM mette a disposizione Java 25, JUnit Jupiter e Mockito. Include inoltre gli artefatti Storm 3.0.0 necessari per compilare contro le API di produzione.
+
+7. Strategia per isolare process
+
+getInstance() è un metodo protected di AbstractRedisBolt, mentre collector è anch’esso protected. Questo permette di creare nel test una piccola sottoclasse di supporto che:
+
+restituisce un JedisCommandsContainer mock da getInstance();
+assegna il collector mock senza invocare prepare().
+
+Questa soluzione evita:
+
+connessioni Redis reali;
+mocking statico di JedisCommandsContainerBuilder;
+reflection sui campi privati;
+dipendenza dal funzionamento interno di prepare().
+
+La sottoclasse è solamente un test seam e non modifica il codice di produzione.
+
+8. Funzionalità difficili o poco adatte a un unit test
+prepare()
+
+prepare() costruisce concretamente il container mediante JedisCommandsContainerBuilder.build(...). Verificarlo come parte dei test di RedisFilterBolt richiederebbe coinvolgere la creazione dell’infrastruttura Redis o fare mocking statico del builder. Inoltre, è una funzionalità ereditata da AbstractRedisBolt, non una logica specifica del filtro.
+
+cleanup()
+
+cleanup() chiude il container creato da prepare(). Anche questo comportamento appartiene alla superclasse ed è più appropriato per test dedicati ad AbstractRedisBolt.
+
+Ramo default dello switch
+
+Il ramo default genera un’IllegalArgumentException, ma per raggiungerlo servirebbe un valore dell’enum diverso da tutti quelli dichiarati. Non è ragionevole fabbricare un valore enum inesistente mediante reflection o manipolazioni della JVM solo per coprire un ramo difensivo.
+
+Seconda fase: progettazione degli 11 test
+Elenco dei test
+
+poolConstructorRejectsSetWithoutAdditionalKey
+ Verifica la validazione del costruttore pool.
+ Scenario: tipo SET e additionalKey == null.
+ Risultato: viene sollevata IllegalArgumentException.
+
+stringExistingKeyEmitsAndAcknowledgesTuple
+ Verifica il caso positivo per STRING.
+ Scenario: exists(key) restituisce true.
+ Risultato: tupla emessa e confermata.
+
+stringMissingKeyOnlyAcknowledgesTuple
+ Verifica il caso negativo per STRING.
+ Scenario: exists(key) restituisce false.
+ Risultato: nessuna emissione, ma tupla confermata.
+
+setMemberEmitsUsingAdditionalKeyAsSetName
+ Verifica il tipo SET e l’uso corretto di additionalKey.
+ Scenario: sismember(additionalKey, key) restituisce true.
+ Risultato: tupla emessa e confermata.
+
+existingHashFieldEmitsTuple
+ Verifica il tipo HASH.
+ Scenario: hexists(additionalKey, key) restituisce true.
+ Risultato: tupla emessa e confermata.
+
+missingSortedSetMemberDoesNotEmit
+ Verifica il caso negativo per SORTED_SET.
+ Scenario: zrank(...) restituisce null.
+ Risultato: nessuna emissione, ma tupla confermata.
+
+nonEmptyHyperLogLogEmitsTuple
+ Verifica il caso positivo per HYPER_LOG_LOG.
+ Scenario: pfcount(key) restituisce 1.
+ Risultato: tupla emessa e confermata.
+
+geoNullResultDoesNotEmit
+ Verifica la gestione di un risultato GEO nullo.
+ Scenario: geopos(...) restituisce null.
+ Risultato: nessuna emissione, ma tupla confermata.
+
+geoResultContainingCoordinateEmitsTuple
+ Verifica la regola “almeno un elemento non nullo” per GEO.
+ Scenario: la lista contiene un elemento nullo e una coordinata.
+ Risultato: tupla emessa e confermata.
+
+redisExceptionIsReportedAndTupleIsFailed
+ Verifica la gestione delle eccezioni.
+ Scenario: il comando Redis solleva una RuntimeException.
+ Risultato: errore segnalato, tupla fallita, nessun ack e nessuna emissione.
+
+declareOutputFieldsDelegatesToMapper
+ Verifica la dichiarazione degli output field.
+ Scenario: viene passato un declarer al bolt.
+ Risultato: il mapper riceve lo stesso declarer.
+
+File Java completo
+
+Ho creato il file con il package richiesto e con esattamente 11 metodi annotati con@Test:
+
+Scarica `RedisFilterBoltLLMTest.java`.java
+
+Il codice utilizza:
+
+Java 25;
+JUnit Jupiter;
+Mockito;
+nessuna rete reale;
+nessun servizio Redis;
+nessuno sleep;
+nessuna modifica al codice di produzione.
+Nota sulle scelte di testing
+
+La suite privilegia gli effetti funzionali osservabili: emissione, acknowledgement, fallimento, segnalazione dell’errore, selezione del comando Redis e delegazione al mapper. La sola sottoclasse di supporto serve a inserire le dipendenze controllate dal test attraverso i punti protected già offerti dal codice di produzione, evitando reflection e configurazione Redis reale.
