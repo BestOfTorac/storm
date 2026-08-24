@@ -34,7 +34,7 @@ WEB
 
 Etichetta modello/modalita mostrata dall'interfaccia:
 
-
+M365 Copilot, basato sul modello di ragionamento GPT-5
 
 ## Attempt 01
 
@@ -79,11 +79,11 @@ AbstractRedisBolt.java viene aggiunto come production context controllato per ev
 
 Timestamp preparazione:
 
-2026-08-24T13:20:55+02:00
+2026-08-24T13:21:22+02:00
 
 Repository HEAD prima della preparazione:
 
-ac000df1ca451bced2fcbd88ed47791a376d19d5
+f7283ddb7d1638f77b5d6f962e8137bdc46976ed
 
 ## Regola per eventuale contesto aggiuntivo
 

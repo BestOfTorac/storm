@@ -2,7 +2,7 @@
 
 ## Data
 
-2026-08-24T13:20:55+02:00
+2026-08-24T13:21:22+02:00
 
 ## Stato
 
@@ -48,4 +48,4 @@ WEB
 
 Model/mode label:
 
-
+M365 Copilot, basato sul modello di ragionamento GPT-5
