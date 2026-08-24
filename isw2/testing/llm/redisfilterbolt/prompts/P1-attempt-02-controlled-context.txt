@@ -1,0 +1,74 @@
+﻿Sto svolgendo un esperimento universitario di Software Testing sul progetto Apache Storm 3.0.0.
+
+La classe da testare è:
+
+org.apache.storm.redis.bolt.RedisFilterBolt
+
+Ti fornisco:
+
+- RedisFilterBolt.java
+- AbstractRedisBolt.java
+- il pom.xml del modulo isw2/testing, che descrive l'ambiente e le dipendenze disponibili.
+
+Per questa attività usa esclusivamente il codice di produzione e le informazioni che ti fornisco in questa conversazione.
+
+Non effettuare ricerche sul Web e non consultare documentazione, repository, pagine o altre fonti esterne.
+
+Se per comprendere correttamente un comportamento o produrre codice compilabile ti manca una classe o una firma del codice di produzione, indicami esattamente quale informazione ti serve senza inventarne il contenuto.
+
+Voglio che tu proceda in due fasi.
+
+Prima fase – Analisi
+
+Analizza attentamente RedisFilterBolt dal punto di vista del testing.
+
+Individua:
+
+- le principali funzionalità della classe;
+- i metodi e i comportamenti osservabili;
+- gli input e le condizioni significative;
+- i possibili risultati attesi/oracle;
+- le dipendenze che potrebbero richiedere mocking;
+- eventuali funzionalità difficili o poco adatte a un unit test.
+
+Basa l'analisi esclusivamente sul codice di produzione che ti ho fornito.
+
+Seconda fase – Generazione dei test
+
+Dopo aver completato l'analisi, progetta e implementa esattamente 11 test per RedisFilterBolt.
+
+Usa:
+
+- Java 25;
+- JUnit Jupiter;
+- Mockito solo quando è realmente utile.
+
+Gli 11 test devono essere distinti, deterministici e rappresentativi delle funzionalità e delle condizioni significative che hai individuato nell'analisi.
+
+Preferisci test semplici, con un risultato atteso chiaramente verificabile.
+
+Evita:
+
+- test inutilmente complessi;
+- dipendenze da servizi esterni;
+- rete reale;
+- sleep;
+- verifiche di dettagli puramente implementativi quando non hanno significato funzionale.
+
+Per ciascun test indica brevemente:
+
+- quale funzionalità verifica;
+- quale scenario considera;
+- qual è il risultato atteso.
+
+Successivamente fornisci il codice Java completo della suite, contenente esattamente 11 metodi annotati con @Test.
+
+Il file deve chiamarsi:
+
+RedisFilterBoltLLMTest.java
+
+e deve usare il package:
+
+it.uniroma2.isw2.storm.testing.redisfilterbolt.llm
+
+Non modificare il codice di produzione.

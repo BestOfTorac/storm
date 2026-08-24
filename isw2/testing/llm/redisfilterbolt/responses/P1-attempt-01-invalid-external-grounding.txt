@@ -1,0 +1,859 @@
+﻿Di seguito trovi prima l’analisi test-oriented della classe, poi la progettazione di esattamente 11 test e infine una suite Java completa con esattamente 11 metodi annotati con@Test. La soluzione evita Redis reale, rete e attese, isolando il bolt tramite Mockito e una piccola sottoclasse di test.
+
+1. Analisi di RedisFilterBolt
+1.1 Scopo della classe
+
+RedisFilterBolt è un bolt Storm che:
+
+estrae una chiave dal Tuple tramite RedisFilterMapper;
+interroga Redis usando un comando dipendente dal tipo configurato;
+inoltra il tuple sullo stream predefinito quando l’elemento esiste;
+conferma sempre il tuple con ack quando l’elaborazione termina normalmente;
+in caso di eccezione, segnala l’errore e marca il tuple come fallito.
+
+La documentazione della classe dichiara il supporto per:
+
+STRING
+HASH
+SET
+SORTED_SET
+HYPER_LOG_LOG
+GEO
+
+Il pom.xml mette a disposizione Java 25, JUnit Jupiter, Mockito e gli artefatti Storm 3.0.0, incluso storm-redis. Non è quindi necessario aggiungere dipendenze per la suite proposta.
+
+1.2 Costruttori e configurazione interna
+
+La classe espone due costruttori:
+
+Java
+1
+RedisFilterBolt(JedisPoolConfig config, RedisFilterMapper filterMapper)
+2
+RedisFilterBolt(JedisClusterConfig config, RedisFilterMapper filterMapper)
+Mostra più linee
+
+Entrambi:
+
+memorizzano il mapper;
+chiamano filterMapper.getDataTypeDescription();
+estraggono dataType;
+estraggono additionalKey.
+Validazione significativa
+
+Il costruttore basato su JedisPoolConfig verifica che, per il tipo SET, additionalKey non sia null. In caso contrario genera:
+
+Java
+1
+new IllegalArgumentException("additionalKey should be defined")
+Mostra più linee
+
+Questa è una condizione facilmente testabile con un oracle preciso.
+
+La stessa validazione non compare nel costruttore basato su JedisClusterConfig. Questa asimmetria è osservabile, ma non viene usata come test principale perché potrebbe essere un’omissione accidentale e non una funzionalità intenzionale.
+
+Input significativi dei costruttori
+tipo Redis restituito dal mapper;
+additionalKey presente;
+additionalKey == null, in particolare con SET;
+mapper o descrizione null.
+
+Gli ultimi due casi genererebbero verosimilmente una NullPointerException, ma il codice non dichiara una politica esplicita per input null. Testarli avrebbe quindi un valore funzionale inferiore rispetto alla validazione esplicita per SET.
+
+1.3 Metodo process(Tuple input)
+
+È il metodo principale della classe.
+
+Fase 1: estrazione della chiave
+Java
+1
+String key = filterMapper.getKeyFromTuple(input);
+Mostra più linee
+
+Il valore restituito dal mapper viene poi passato al comando Redis appropriato. Il mapper è quindi una dipendenza da mockare, sia per evitare di dipendere dalla struttura concreta del tuple sia per controllare con precisione la chiave usata.
+
+Fase 2: acquisizione del client Redis
+Java
+1
+jedisCommand = getInstance();
+Mostra più linee
+
+getInstance() è fornito da AbstractRedisBolt. Il comportamento reale richiederebbe la preparazione del bolt e la creazione di un container Redis. Per un unit test è preferibile sovrascrivere questo metodo in una sottoclasse di test e restituire un mock di JedisCommandsContainer.
+
+Fase 3: controllo dipendente dal tipo
+Tipo	Comando	Condizione foundSTRING	exists(key)	risultato booleano del comando
+SET	sismember(additionalKey, key)	risultato booleano del comando
+HASH	hexists(additionalKey, key)	risultato booleano del comando
+SORTED_SET	zrank(additionalKey, key)	true se il rank non è null
+HYPER_LOG_LOG	pfcount(key)	true se il conteggio è maggiore di zero
+GEO	geopos(additionalKey, key)	true se la lista contiene almeno un elemento non null
+
+Queste corrispondenze derivano direttamente dallo switch del codice fornito.
+
+Casi limite significativi
+STRING: exists restituisce true o false.
+SET: appartenenza presente o assente.
+HASH: campo presente o assente.
+SORTED_SET: rank non null o null. Anche il rank 0L rappresenta un elemento trovato.
+HYPER_LOG_LOG: zero oppure valore positivo.
+GEO:
+lista null;
+lista vuota;
+lista con soli elementi null;
+lista con almeno un elemento non null.
+eccezione durante:
+estrazione della chiave;
+acquisizione del container;
+esecuzione del comando Redis;
+emissione;
+acknowledge.
+1.4 Comportamenti osservabili e oracle
+Quando found == true
+
+Il bolt esegue:
+
+Java
+1
+collector.emit(input, input.getValues());
+2
+collector.ack(input);
+Mostra più linee
+
+Gli oracle principali sono quindi:
+
+viene emesso il contenuto completo del tuple;
+il tuple originale viene usato come anchor;
+viene chiamato ack(input);
+non vengono chiamati fail(input) o reportError(...).
+Quando found == false
+
+Il bolt non emette nulla, ma esegue comunque:
+
+Java
+1
+collector.ack(input);
+2
+``
+Mostra più linee
+
+Gli oracle sono:
+
+nessuna emissione;
+un acknowledge;
+nessun fallimento.
+Quando si verifica un’eccezione
+
+Il blocco catch esegue:
+
+Java
+1
+collector.reportError(e);
+2
+collector.fail(input);
+Mostra più linee
+
+Non viene effettuato ack. L’eccezione non viene propagata al chiamante.
+
+1.5 Metodo declareOutputFields
+
+Il metodo delega direttamente al mapper:
+
+Java
+1
+filterMapper.declareOutputFields(declarer);
+Mostra più linee
+
+Il comportamento osservabile è quindi la chiamata al mapper con lo stesso OutputFieldsDeclarer ricevuto dal bolt.
+
+1.6 Dipendenze da mockare
+RedisFilterMapper
+
+È opportuno mockarlo perché controlla:
+
+il tipo Redis;
+l’eventuale additional key;
+la chiave estratta dal tuple;
+la dichiarazione dei campi di output.
+JedisCommandsContainer
+
+Deve essere mockato perché rappresenta l’accesso a Redis. Usare un server Redis reale trasformerebbe i test in integration test, introducendo stato esterno, configurazione, rete e potenziale non determinismo.
+
+OutputCollector
+
+Va mockato per osservare:
+
+emit;
+ack;
+fail;
+reportError.
+Tuple
+
+Va mockato perché nei test è sufficiente controllare:
+
+il riferimento passato al mapper;
+i valori restituiti da getValues().
+OutputFieldsDeclarer
+
+Va mockato per verificare la delega di declareOutputFields.
+
+1.7 Funzionalità difficili o meno adatte a uno unit test
+
+Non è opportuno verificare in questa suite:
+
+la connessione reale a Redis;
+il funzionamento interno di Jedis;
+pool, cluster, autenticazione, timeout o failover;
+la serializzazione Storm del bolt;
+l’esecuzione del bolt dentro una topologia reale;
+la semantica reale dei comandi Redis sui vari tipi di dato.
+
+Questi aspetti richiederebbero integration test separati.
+
+Inoltre, nel codice fornito non è presente l’implementazione di AbstractRedisBolt. La strategia di test assume, coerentemente con l’API Storm, che getInstance() sia protected e che collector sia accessibile alle sottoclassi. L’API documentata di AbstractRedisBolt espone precisamente questi elementi.
+
+Osservazione tecnica
+
+La variabile jedisCommand viene ottenuta tramite getInstance(), ma process non mostra una chiamata di restituzione o rilascio dell’istanza. Non è però corretto costruire un test che imponga un rilascio, perché tale comportamento non è presente nella classe fornita e non è possibile dedurre se JedisCommandsContainer lo richieda in questa versione.
+
+2. Progettazione degli 11 test
+Test 1: SET senza additional key
+Funzionalità: validazione del costruttore con pool.
+Scenario: tipo SET, additionalKey == null.
+Risultato atteso: IllegalArgumentException con messaggio "additionalKey should be defined".
+Test 2: STRING esistente
+Funzionalità: filtro di una chiave Redis.
+Scenario: exists(key) restituisce true.
+Risultato atteso: emissione dei valori del tuple e ack.
+Test 3: STRING inesistente
+Funzionalità: eliminazione di un tuple non corrispondente.
+Scenario: exists(key) restituisce false.
+Risultato atteso: nessuna emissione, ma ack.
+Test 4: SET contenente il valore
+Funzionalità: controllo di appartenenza a un set.
+Scenario: sismember(additionalKey, key) restituisce true.
+Risultato atteso: uso corretto di additional key e chiave, emissione e ack.
+Test 5: HASH contenente il campo
+Funzionalità: controllo dell’esistenza di un campo hash.
+Scenario: hexists(additionalKey, key) restituisce true.
+Risultato atteso: emissione e ack.
+Test 6: SORTED_SET con rank zero
+Funzionalità: controllo di appartenenza a un sorted set.
+Scenario: zrank restituisce 0L.
+Risultato atteso: il tuple viene considerato trovato, emesso e confermato.
+Test 7: HYPER_LOG_LOG con conteggio zero
+Funzionalità: controllo del conteggio HyperLogLog.
+Scenario: pfcount(key) restituisce 0L.
+Risultato atteso: nessuna emissione, ma ack.
+Test 8: GEO con lista vuota
+Funzionalità: gestione di un risultato geografico senza posizione.
+Scenario: geopos restituisce una lista vuota.
+Risultato atteso: nessuna emissione, ma ack.
+Test 9: GEO con almeno una coordinata non null
+Funzionalità: riconoscimento di una posizione geografica esistente.
+Scenario: la lista contiene un elemento null e una coordinata valida.
+Risultato atteso: emissione e ack.
+Test 10: eccezione del comando Redis
+Funzionalità: gestione degli errori.
+Scenario: il comando Redis genera una RuntimeException.
+Risultato atteso: reportError, fail, nessun ack e nessuna emissione.
+Test 11: dichiarazione dei campi
+Funzionalità: dichiarazione dello schema di output.
+Scenario: chiamata a declareOutputFields.
+Risultato atteso: delega al mapper con lo stesso declarer.
+3. Codice completo della suite
+
+Il file può essere collocato, per esempio, in:
+
+Plain Text
+1
+src/test/java/org/apache/storm/redis/bolt/RedisFilterBoltTest.java
+Mostra più linee
+Java
+1
+package org.apache.storm.redis.bolt;
+2
+ 
+3
+import static org.junit.jupiter.api.Assertions.assertEquals;
+4
+import static org.junit.jupiter.api.Assertions.assertThrows;
+5
+import static org.junit.jupiter.api.Assertions.assertTrue;
+6
+import static org.mockito.Mockito.doThrow;
+7
+import static org.mockito.Mockito.mock;
+8
+import static org.mockito.Mockito.never;
+9
+import static org.mockito.Mockito.verify;
+10
+import static org.mockito.Mockito.when;
+11
+ 
+12
+import java.util.Arrays;
+13
+import java.util.Collections;
+14
+import java.util.List;
+15
+ 
+16
+import org.apache.storm.redis.common.config.JedisPoolConfig;
+17
+import org.apache.storm.redis.common.container.JedisCommandsContainer;
+18
+import org.apache.storm.redis.common.mapper.RedisDataTypeDescription;
+19
+import org.apache.storm.redis.common.mapper.RedisFilterMapper;
+20
+import org.apache.storm.task.OutputCollector;
+21
+import org.apache.storm.topology.OutputFieldsDeclarer;
+22
+import org.apache.storm.tuple.Tuple;
+23
+import org.junit.jupiter.api.Test;
+24
+ 
+25
+import redis.clients.jedis.GeoCoordinate;
+26
+ 
+27
+class RedisFilterBoltTest {
+28
+ 
+29
+private static final String TUPLE_KEY = "member-1";
+30
+private static final String ADDITIONAL_KEY = "container-key";
+31
+ 
+32
+@Test
+33
+void constructorRejectsSetWithoutAdditionalKey() {
+34
+RedisFilterMapper mapper = mapperFor(
+35
+RedisDataTypeDescription.RedisDataType.SET,
+36
+null);
+37
+ 
+38
+IllegalArgumentException exception = assertThrows(
+39
+IllegalArgumentException.class,
+40
+() -> new RedisFilterBolt(mock(JedisPoolConfig.class), mapper));
+41
+ 
+42
+assertEquals("additionalKey should be defined", exception.getMessage());
+43
+}
+44
+ 
+45
+@Test
+46
+void processEmitsAndAcknowledgesExistingStringKey() {
+47
+TestContext context = contextFor(
+48
+RedisDataTypeDescription.RedisDataType.STRING,
+49
+null);
+50
+ 
+51
+when(context.jedis.exists(TUPLE_KEY)).thenReturn(true);
+52
+ 
+53
+context.bolt.process(context.input);
+54
+ 
+55
+verify(context.jedis).exists(TUPLE_KEY);
+56
+verify(context.collector).emit(context.input, context.values);
+57
+verify(context.collector).ack(context.input);
+58
+verify(context.collector, never()).fail(context.input);
+59
+}
+60
+ 
+61
+@Test
+62
+void processAcknowledgesButDoesNotEmitMissingStringKey() {
+63
+TestContext context = contextFor(
+64
+RedisDataTypeDescription.RedisDataType.STRING,
+65
+null);
+66
+ 
+67
+when(context.jedis.exists(TUPLE_KEY)).thenReturn(false);
+68
+ 
+69
+context.bolt.process(context.input);
+70
+ 
+71
+verify(context.jedis).exists(TUPLE_KEY);
+72
+verify(context.collector, never()).emit(context.input, context.values);
+73
+verify(context.collector).ack(context.input);
+74
+verify(context.collector, never()).fail(context.input);
+75
+}
+76
+ 
+77
+@Test
+78
+void processEmitsSetMemberUsingAdditionalKey() {
+79
+TestContext context = contextFor(
+80
+RedisDataTypeDescription.RedisDataType.SET,
+81
+ADDITIONAL_KEY);
+82
+ 
+83
+when(context.jedis.sismember(ADDITIONAL_KEY, TUPLE_KEY))
+84
+.thenReturn(true);
+85
+ 
+86
+context.bolt.process(context.input);
+87
+ 
+88
+verify(context.jedis).sismember(ADDITIONAL_KEY, TUPLE_KEY);
+89
+verify(context.collector).emit(context.input, context.values);
+90
+verify(context.collector).ack(context.input);
+91
+}
+92
+ 
+93
+@Test
+94
+void processEmitsExistingHashField() {
+95
+TestContext context = contextFor(
+96
+RedisDataTypeDescription.RedisDataType.HASH,
+97
+ADDITIONAL_KEY);
+98
+ 
+99
+when(context.jedis.hexists(ADDITIONAL_KEY, TUPLE_KEY))
+100
+.thenReturn(true);
+101
+ 
+102
+context.bolt.process(context.input);
+103
+ 
+104
+verify(context.jedis).hexists(ADDITIONAL_KEY, TUPLE_KEY);
+105
+verify(context.collector).emit(context.input, context.values);
+106
+verify(context.collector).ack(context.input);
+107
+}
+108
+ 
+109
+@Test
+110
+void processTreatsSortedSetRankZeroAsFound() {
+111
+TestContext context = contextFor(
+112
+RedisDataTypeDescription.RedisDataType.SORTED_SET,
+113
+ADDITIONAL_KEY);
+114
+ 
+115
+when(context.jedis.zrank(ADDITIONAL_KEY, TUPLE_KEY))
+116
+.thenReturn(0L);
+117
+ 
+118
+context.bolt.process(context.input);
+119
+ 
+120
+verify(context.jedis).zrank(ADDITIONAL_KEY, TUPLE_KEY);
+121
+verify(context.collector).emit(context.input, context.values);
+122
+verify(context.collector).ack(context.input);
+123
+}
+124
+ 
+125
+@Test
+126
+void processDoesNotEmitHyperLogLogWithZeroCount() {
+127
+TestContext context = contextFor(
+128
+RedisDataTypeDescription.RedisDataType.HYPER_LOG_LOG,
+129
+null);
+130
+ 
+131
+when(context.jedis.pfcount(TUPLE_KEY)).thenReturn(0L);
+132
+ 
+133
+context.bolt.process(context.input);
+134
+ 
+135
+verify(context.jedis).pfcount(TUPLE_KEY);
+136
+verify(context.collector, never()).emit(context.input, context.values);
+137
+verify(context.collector).ack(context.input);
+138
+}
+139
+ 
+140
+@Test
+141
+void processDoesNotEmitGeoEntryWhenPositionsAreEmpty() {
+142
+TestContext context = contextFor(
+143
+RedisDataTypeDescription.RedisDataType.GEO,
+144
+ADDITIONAL_KEY);
+145
+ 
+146
+when(context.jedis.geopos(ADDITIONAL_KEY, TUPLE_KEY))
+147
+.thenReturn(Collections.emptyList());
+148
+ 
+149
+context.bolt.process(context.input);
+150
+ 
+151
+verify(context.jedis).geopos(ADDITIONAL_KEY, TUPLE_KEY);
+152
+verify(context.collector, never()).emit(context.input, context.values);
+153
+verify(context.collector).ack(context.input);
+154
+}
+155
+ 
+156
+@Test
+157
+void processEmitsGeoEntryWhenAnyPositionIsNonNull() {
+158
+TestContext context = contextFor(
+159
+RedisDataTypeDescription.RedisDataType.GEO,
+160
+ADDITIONAL_KEY);
+161
+ 
+162
+GeoCoordinate coordinate = mock(GeoCoordinate.class);
+163
+List<GeoCoordinate> positions = Arrays.asList(null, coordinate);
+164
+ 
+165
+when(context.jedis.geopos(ADDITIONAL_KEY, TUPLE_KEY))
+166
+.thenReturn(positions);
+167
+ 
+168
+context.bolt.process(context.input);
+169
+ 
+170
+verify(context.jedis).geopos(ADDITIONAL_KEY, TUPLE_KEY);
+171
+verify(context.collector).emit(context.input, context.values);
+172
+verify(context.collector).ack(context.input);
+173
+}
+174
+ 
+175
+@Test
+176
+void processReportsAndFailsTupleWhenRedisCommandThrows() {
+177
+TestContext context = contextFor(
+178
+RedisDataTypeDescription.RedisDataType.STRING,
+179
+null);
+180
+ 
+181
+RuntimeException failure = new RuntimeException("Redis unavailable");
+182
+doThrow(failure).when(context.jedis).exists(TUPLE_KEY);
+183
+ 
+184
+context.bolt.process(context.input);
+185
+ 
+186
+verify(context.collector).reportError(failure);
+187
+verify(context.collector).fail(context.input);
+188
+verify(context.collector, never()).ack(context.input);
+189
+verify(context.collector, never()).emit(context.input, context.values);
+190
+}
+191
+ 
+192
+@Test
+193
+void declareOutputFieldsDelegatesToMapper() {
+194
+RedisFilterMapper mapper = mapperFor(
+195
+RedisDataTypeDescription.RedisDataType.STRING,
+196
+null);
+197
+OutputFieldsDeclarer declarer = mock(OutputFieldsDeclarer.class);
+198
+ 
+199
+RedisFilterBolt bolt = new RedisFilterBolt(
+200
+mock(JedisPoolConfig.class),
+201
+mapper);
+202
+ 
+203
+bolt.declareOutputFields(declarer);
+204
+ 
+205
+verify(mapper).declareOutputFields(declarer);
+206
+}
+207
+ 
+208
+private TestContext contextFor(
+209
+RedisDataTypeDescription.RedisDataType dataType,
+210
+String additionalKey) {
+211
+ 
+212
+RedisFilterMapper mapper = mapperFor(dataType, additionalKey);
+213
+JedisCommandsContainer jedis = mock(JedisCommandsContainer.class);
+214
+OutputCollector collector = mock(OutputCollector.class);
+215
+Tuple input = mock(Tuple.class);
+216
+ 
+217
+List<Object> values = List.of("value-1", 42);
+218
+ 
+219
+when(mapper.getKeyFromTuple(input)).thenReturn(TUPLE_KEY);
+220
+when(input.getValues()).thenReturn(values);
+221
+ 
+222
+TestableRedisFilterBolt bolt = new TestableRedisFilterBolt(
+223
+mock(JedisPoolConfig.class),
+224
+mapper,
+225
+jedis);
+226
+ 
+227
+bolt.setCollector(collector);
+228
+ 
+229
+return new TestContext(
+230
+bolt,
+231
+mapper,
+232
+jedis,
+233
+collector,
+234
+input,
+235
+values);
+236
+}
+237
+ 
+238
+private RedisFilterMapper mapperFor(
+239
+RedisDataTypeDescription.RedisDataType dataType,
+240
+String additionalKey) {
+241
+ 
+242
+RedisFilterMapper mapper = mock(RedisFilterMapper.class);
+243
+RedisDataTypeDescription description =
+244
+mock(RedisDataTypeDescription.class);
+245
+ 
+246
+when(mapper.getDataTypeDescription()).thenReturn(description);
+247
+when(description.getDataType()).thenReturn(dataType);
+248
+when(description.getAdditionalKey()).thenReturn(additionalKey);
+249
+ 
+250
+return mapper;
+251
+}
+252
+ 
+253
+private static final class TestableRedisFilterBolt
+254
+extends RedisFilterBolt {
+255
+ 
+256
+private final JedisCommandsContainer jedis;
+257
+ 
+258
+private TestableRedisFilterBolt(
+259
+JedisPoolConfig config,
+260
+RedisFilterMapper mapper,
+261
+JedisCommandsContainer jedis) {
+262
+ 
+263
+super(config, mapper);
+264
+this.jedis = jedis;
+265
+}
+266
+ 
+267
+@Override
+268
+protected JedisCommandsContainer getInstance() {
+269
+return jedis;
+270
+}
+271
+ 
+272
+private void setCollector(OutputCollector collector) {
+273
+this.collector = collector;
+274
+}
+275
+}
+276
+ 
+277
+private record TestContext(
+278
+TestableRedisFilterBolt bolt,
+279
+RedisFilterMapper mapper,
+280
+JedisCommandsContainer jedis,
+281
+OutputCollector collector,
+282
+Tuple input,
+283
+List<Object> values) {
+284
+}
+285
+}
+Mostra più linee
+Controllo finale della suite
+
+La suite contiene esattamente:
+
+11 metodi annotati con @Test;
+1 test di validazione del costruttore;
+test per tutti e 6 i tipi Redis supportati;
+rami sia positivi sia negativi;
+un test di gestione delle eccezioni;
+un test di delega per declareOutputFields;
+nessuna connessione a Redis;
+nessuno sleep;
+nessun accesso di rete;
+nessuna modifica al codice di produzione.
+Scelte di miglioramento
+
+La suite usa una sottoclasse esclusivamente per creare un seam controllabile attorno a getInstance() e al collector. In questo modo i test verificano i comportamenti funzionali del bolt, mentre Mockito viene limitato alle dipendenze esterne e agli oggetti Storm che non è utile costruire concretamente.
