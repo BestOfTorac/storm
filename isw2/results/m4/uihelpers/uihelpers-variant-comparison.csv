@@ -1,0 +1,6 @@
+﻿"Variant","GenerationTests","Compile","Nsmells","DeltaVsC0","T_BB","T_CF","T_MT","T_RND","T_ES","T_LLM"
+"C0","N/A","BASELINE","77","0","N/A","N/A","N/A","N/A","N/A","N/A"
+"C1","None","PASS","79","2","35/35 PASS","10/10 PASS","7/8 FAIL","35/35 PASS","37/37 PASS","35/35 PASS"
+"C2","T_BB","PASS","12","-65","35/35 PASS","10/10 PASS","7/8 FAIL","35/35 PASS","0/37 FAIL_BEFORE_EXECUTION","35/35 PASS"
+"C3","T_BB + T_CF","PASS","15","-62","35/35 PASS","10/10 PASS","8/8 PASS","35/35 PASS","37/37 PASS","35/35 PASS"
+"C4","T_BB + T_CF + T_MT","PASS","15","-62","35/35 PASS","10/10 PASS","7/8 FAIL","35/35 PASS","37/37 PASS","35/35 PASS"

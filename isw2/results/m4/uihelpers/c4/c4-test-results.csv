@@ -1,0 +1,7 @@
+﻿"Suite","ProvidedToCopilot","Executed","Passed","Failed","Outcome","Reason"
+"T_BB","Yes","35","35","0","PASS",""
+"T_CF","Yes","10","10","0","PASS",""
+"T_MT","Yes","8","7","1","FAIL","mt06CorsConfigurationParametersAreObservable: expected '*' but observed null."
+"T_RND","No","35","35","0","PASS",""
+"T_ES","No","37","37","0","PASS",""
+"T_LLM","No","35","35","0","PASS",""
