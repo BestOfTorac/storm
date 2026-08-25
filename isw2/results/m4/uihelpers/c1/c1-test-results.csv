@@ -1,0 +1,7 @@
+﻿"Suite","Executed","Passed","Failures","Errors","Skipped","Outcome","FailureTest","FailureReason"
+"T_BB","35","35","0","0","0","PASS","",""
+"T_CF","10","10","0","0","0","PASS","",""
+"T_MT","8","7","1","0","0","FAIL","UIHelpersMutationTest.mt06CorsConfigurationParametersAreObservable","Expected ""*"" but obtained null for the observable CORS configuration parameter"
+"T_RND","35","35","0","0","0","PASS","",""
+"T_ES","37","37","0","0","0","PASS","",""
+"T_LLM","35","35","0","0","0","PASS","",""

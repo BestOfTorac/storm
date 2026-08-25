@@ -1,0 +1,98 @@
+﻿C0 baseline Nsmells : 77
+C1 Sonar smells     : 79
+
+RULE COUNTS
+java:S107 = 3
+java:S1118 = 1
+java:S1125 = 1
+java:S1144 = 1
+java:S1153 = 1
+java:S1172 = 7
+java:S1192 = 38
+java:S1596 = 1
+java:S2864 = 1
+java:S5411 = 4
+java:S5738 = 5
+java:S6204 = 15
+java:S7158 = 1
+
+ISSUES
+01 | java:S107 | L267 | Method has 13 parameters, which is greater than 7 authorized.
+02 | java:S107 | L308 | Method has 12 parameters, which is greater than 7 authorized.
+03 | java:S107 | L333 | Method has 13 parameters, which is greater than 7 authorized.
+04 | java:S1118 | L117 | Add a private constructor to hide the implicit public one.
+05 | java:S1125 | L410 | Remove the unnecessary boolean literal.
+06 | java:S1144 | L1524 | Remove this unused private "getTopologyErrors" method.
+07 | java:S1153 | L2486 | Directly append the argument of String.valueOf().
+08 | java:S1172 | L898 | Remove this unused method parameter "port".
+09 | java:S1172 | L1099 | Remove this unused method parameter "securityContext".
+10 | java:S1172 | L1612 | Remove this unused method parameter "window".
+11 | java:S1172 | L1954 | Remove this unused method parameter "config".
+12 | java:S1172 | L2036 | Remove these unused method parameters "window", "sys".
+13 | java:S1172 | L2078 | Remove these unused method parameters "window", "sys".
+14 | java:S1172 | L2306 | Remove this unused method parameter "config".
+15 | java:S1192 | L224 | Define a constant instead of duplicating this literal "error" 3 times.
+16 | java:S1192 | L555 | Define a constant instead of duplicating this literal "version" 4 times.
+17 | java:S1192 | L595 | Define a constant instead of duplicating this literal "stormVersion" 3 times.
+18 | java:S1192 | L598 | Define a constant instead of duplicating this literal "supervisors" 3 times.
+19 | java:S1192 | L599 | Define a constant instead of duplicating this literal "topologies" 3 times.
+20 | java:S1192 | L616 | Define a constant instead of duplicating this literal "tasksTotal" 3 times.
+21 | java:S1192 | L621 | Define a constant instead of duplicating this literal "executorsTotal" 4 times.
+22 | java:S1192 | L649 | Define a constant instead of duplicating this literal "schedulerDisplayResource" 8 times.
+23 | java:S1192 | L717 | Define a constant instead of duplicating this literal "owner" 4 times.
+24 | java:S1192 | L776 | Define a constant instead of duplicating this literal "encodedId" 5 times.
+25 | java:S1192 | L779 | Define a constant instead of duplicating this literal "status" 12 times.
+26 | java:S1192 | L780 | Define a constant instead of duplicating this literal "uptime" 6 times.
+27 | java:S1192 | L781 | Define a constant instead of duplicating this literal "uptimeSeconds" 6 times.
+28 | java:S1192 | L787 | Define a constant instead of duplicating this literal "requestedMemOnHeap" 4 times.
+29 | java:S1192 | L788 | Define a constant instead of duplicating this literal "requestedMemOffHeap" 4 times.
+30 | java:S1192 | L792 | Define a constant instead of duplicating this literal "requestedCpu" 4 times.
+31 | java:S1192 | L793 | Define a constant instead of duplicating this literal "requestedGenericResources" 3 times.
+32 | java:S1192 | L794 | Define a constant instead of duplicating this literal "assignedMemOnHeap" 3 times.
+33 | java:S1192 | L795 | Define a constant instead of duplicating this literal "assignedMemOffHeap" 3 times.
+34 | java:S1192 | L799 | Define a constant instead of duplicating this literal "assignedCpu" 3 times.
+35 | java:S1192 | L1036 | Define a constant instead of duplicating this literal "topologyId" 3 times.
+36 | java:S1192 | L1045 | Define a constant instead of duplicating this literal "workerLogLink" 3 times.
+37 | java:S1192 | L1175 | Define a constant instead of duplicating this literal "window" 5 times.
+38 | java:S1192 | L1208 | Define a constant instead of duplicating this literal "emitted" 8 times.
+39 | java:S1192 | L1209 | Define a constant instead of duplicating this literal "transferred" 10 times.
+40 | java:S1192 | L1210 | Define a constant instead of duplicating this literal "acked" 8 times.
+41 | java:S1192 | L1211 | Define a constant instead of duplicating this literal "failed" 8 times.
+42 | java:S1192 | L1251 | Define a constant instead of duplicating this literal "windowPretty" 3 times.
+43 | java:S1192 | L1256 | Define a constant instead of duplicating this literal "completeLatency" 5 times.
+44 | java:S1192 | L1259 | Define a constant instead of duplicating this literal "lastError" 3 times.
+45 | java:S1192 | L1280 | Define a constant instead of duplicating this literal "executeLatency" 4 times.
+46 | java:S1192 | L1281 | Define a constant instead of duplicating this literal "executed" 4 times.
+47 | java:S1192 | L1282 | Define a constant instead of duplicating this literal "processLatency" 4 times.
+48 | java:S1192 | L1283 | Define a constant instead of duplicating this literal "capacity" 3 times.
+49 | java:S1192 | L1320 | Define a constant instead of duplicating this literal "stream" 6 times.
+50 | java:S1192 | L1807 | Define a constant instead of duplicating this literal ":transferred" 4 times.
+51 | java:S1192 | L2162 | Define a constant instead of duplicating this literal "timeout" 3 times.
+52 | java:S1192 | L2494 | Define a constant instead of duplicating this literal "Not applicable" 3 times.
+53 | java:S1596 | L1722 | Replace "Collections.EMPTY_MAP" by "Collections.emptyMap()".
+54 | java:S2864 | L1590 | Iterate over the "entrySet" instead of the "keySet".
+55 | java:S5411 | L410 | Use a primitive boolean expression here.
+56 | java:S5411 | L449 | Use a primitive boolean expression here.
+57 | java:S5411 | L1722 | Use a primitive boolean expression here.
+58 | java:S5411 | L1743 | Use a primitive boolean expression here.
+59 | java:S5738 | L318 | Remove this call to a deprecated class, it has been marked for removal.
+60 | java:S5738 | L319 | Remove this call to a deprecated class, it has been marked for removal.
+61 | java:S5738 | L321 | Remove this call to a deprecated class, it has been marked for removal.
+62 | java:S5738 | L324 | Remove this call to a deprecated class, it has been marked for removal.
+63 | java:S5738 | L356 | Remove this call to a deprecated class, it has been marked for removal.
+64 | java:S6204 | L1531 | Replace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()' and ensure that the list is unmodified.
+65 | java:S6204 | L1551 | Replace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()' and ensure that the list is unmodified.
+66 | java:S6204 | L1886 | Replace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()' and ensure that the list is unmodified.
+67 | java:S6204 | L1894 | Replace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()' and ensure that the list is unmodified.
+68 | java:S6204 | L1912 | Replace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()' and ensure that the list is unmodified.
+69 | java:S6204 | L1920 | Replace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()' and ensure that the list is unmodified.
+70 | java:S6204 | L1958 | Replace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()' and ensure that the list is unmodified.
+71 | java:S6204 | L1995 | Replace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()' and ensure that the list is unmodified.
+72 | java:S6204 | L2044 | Replace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()' and ensure that the list is unmodified.
+73 | java:S6204 | L2050 | Replace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()' and ensure that the list is unmodified.
+74 | java:S6204 | L2056 | Replace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()' and ensure that the list is unmodified.
+75 | java:S6204 | L2062 | Replace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()' and ensure that the list is unmodified.
+76 | java:S6204 | L2085 | Replace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()' and ensure that the list is unmodified.
+77 | java:S6204 | L2091 | Replace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()' and ensure that the list is unmodified.
+78 | java:S6204 | L2097 | Replace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()' and ensure that the list is unmodified.
+79 | java:S7158 | L1773 | Use "isEmpty()" to check whether a "String" is empty or not.

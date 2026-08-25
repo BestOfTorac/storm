@@ -1,0 +1,2 @@
+﻿"Class","Variant","TestsSuppliedToCopilot","SourceSHA256","Compiles","C0_NSmells","C1_NSmells","Delta_NSmells","SmellOutcome","BehavioralOutcome","Notes"
+"org.apache.storm.daemon.ui.UIHelpers","C1","NONE","19EBC88BD9ECF655F575793D11CD67067E0634BFA4C2F7395FE849E8A3649B80","PASS","77","79","2","WORSENED","PARTIAL","Only T_MT has one failing test; all other evaluated suites pass"
