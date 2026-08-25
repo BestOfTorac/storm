@@ -1,0 +1,7 @@
+Suite,Expected,Passed,Result,SuppliedToCopilot,Note
+T_BB,11,11,PASS,YES,Generation constraint and post-hoc validation
+T_CF,4,4,PASS,YES,Generation constraint and post-hoc validation
+T_MT,0,0,N/A,NO,No derived T_MT suite
+T_RND,11,11,PASS,NO,Post-hoc only
+T_ES,9,9,PASS,NO,Dedicated Java 25 compatibility launcher
+T_LLM,11,11,PASS,NO,Post-hoc only
