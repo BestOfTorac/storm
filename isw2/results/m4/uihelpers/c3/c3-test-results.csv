@@ -1,0 +1,7 @@
+﻿"Suite","ProvidedToCopilot","Target","Executed","Passed","Failures","Errors","Skipped","Outcome","Phase","Reason"
+"T_BB","YES","35","35","35","0","0","0","PASS","EXECUTION",""
+"T_CF","YES","10","10","10","0","0","0","PASS","EXECUTION",""
+"T_MT","NO","8","8","8","0","0","0","PASS","EXECUTION",""
+"T_RND","NO","35","35","35","0","0","0","PASS","EXECUTION",""
+"T_ES","NO","37","37","37","0","0","0","PASS","EXECUTION",""
+"T_LLM","NO","35","35","35","0","0","0","PASS","EXECUTION",""

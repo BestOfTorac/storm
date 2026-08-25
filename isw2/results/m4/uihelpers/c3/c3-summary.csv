@@ -1,0 +1,2 @@
+﻿"Class","Variant","SourceSHA256","Compile","C0_Nsmells","C3_Nsmells","Delta_C3_C0","SmellOutcome","TestsProvidedDuringGeneration"
+"org.apache.storm.daemon.ui.UIHelpers","C3","6EC2905E393E8C7D3058C5CB938DB926AB514D2D8CDC2C1C40D57103CD08A8CB","PASS","77","15","-62","IMPROVED","T_BB,T_CF"
