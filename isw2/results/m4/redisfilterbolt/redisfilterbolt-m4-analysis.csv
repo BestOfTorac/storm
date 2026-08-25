@@ -1,0 +1,6 @@
+"Variant","GenerationTests","EffectiveRefactoring","Compiles","NSMELLS","DeltaNSMELLS","LOC","DeltaLOC","PositiveHigher","PositiveEvidence","NegativeHigher","NegativeEvidence","PostHocTests","T_MT"
+"C0","N/A","BASELINE","BASELINE","0","0","82","0","N/A","Baseline","N/A","Baseline","N/A","NO_DERIVED_SUITE"
+"C1","NONE","NO_NOOP","PASS","0","0","82","0","NO","LOC 82=82; NSMELLS 0=0","NO","Historical/process features unchanged","46/46 PASS","NO_DERIVED_SUITE"
+"C2","T_BB(11)","YES","PASS","0","0","85","3","YES","LOC 85>82 (+3)","NO","Historical/process features unchanged","46/46 PASS","NO_DERIVED_SUITE"
+"C3","T_BB(11)+T_CF(4)","YES","PASS","0","0","91","9","YES","LOC 91>82 (+9)","NO","Historical/process features unchanged","46/46 PASS","NO_DERIVED_SUITE"
+"C4","T_BB(11)+T_CF(4)+T_MT_CONTEXT(0)","YES","PASS","0","0","94","12","YES","LOC 94>82 (+12)","NO","Historical/process features unchanged","46/46 PASS","NO_DERIVED_SUITE"
