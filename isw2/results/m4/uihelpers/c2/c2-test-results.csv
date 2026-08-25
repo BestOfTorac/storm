@@ -1,0 +1,7 @@
+﻿"Suite","ProvidedToCopilot","Target","Executed","Passed","Failures","Errors","Skipped","Outcome","Phase","Reason"
+"T_BB","YES","35","35","35","0","0","0","PASS","EXECUTION",""
+"T_CF","NO","10","10","10","0","0","0","PASS","EXECUTION",""
+"T_MT","NO","8","8","7","1","0","0","FAIL","EXECUTION","mt06CorsConfigurationParametersAreObservable expected * but observed null for the queried CORS configuration parameter."
+"T_RND","NO","35","35","35","0","0","0","PASS","EXECUTION",""
+"T_ES","NO","37","0","0","0","1","0","FAIL_BEFORE_EXECUTION","TEST_SUITE_COMPILATION","Frozen EvoSuite test28 invokes new UIHelpers(), but C2 makes UIHelpers() private."
+"T_LLM","NO","35","35","35","0","0","0","PASS","EXECUTION",""

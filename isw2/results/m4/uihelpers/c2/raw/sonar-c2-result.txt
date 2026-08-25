@@ -1,0 +1,25 @@
+﻿===== M4 UIHELPERS C2 SONARCLOUD FINAL RESULT =====
+
+CapturedAt=2026-08-25T19:49:29.9232413+02:00
+AnalysisId=25d75bdf-5fab-417e-b28b-cde4277711aa
+ProjectKey=BestOfTorac_storm_m4_uihelpers_c1
+ComponentKey=BestOfTorac_storm_m4_uihelpers_c1:sonar-input/storm-webapp/src/main/java/org/apache/storm/daemon/ui/UIHelpers.java
+
+C2_SHA256=CC70E7D66B23D0666A3CBC1BBD94D97C58689E695E84E9DDA387AB174E86F91B
+C0_NSMELLS=77
+C1_NSMELLS=79
+C2_NSMELLS=12
+DELTA_C2_C0=-65
+OUTCOME=IMPROVED
+
+NCLOC=1692
+COMPLEXITY=237
+
+===== CODE SMELL RULE COUNTS =====
+S1172=7
+S107=3
+S5411=2
+
+TOTAL=12
+
+NOTE=The earlier preliminary issue query returned zero; the final value is the official SonarCloud code_smells metric, independently confirmed by 12 CODE_SMELL issues.
