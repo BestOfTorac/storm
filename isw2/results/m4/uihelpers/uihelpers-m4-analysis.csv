@@ -1,0 +1,5 @@
+﻿"Variant","Compiles","Nsmells","DeltaNsmellsVsC0","SmellClassification","NewRuleTypes","RemovedRuleTypes","SmellDetail","LOC","DeltaLOCVsC0","PositiveFeatureHigherThanC0","PositiveFeatureDetail","NegativeFeatureHigherThanC0"
+"C1","YES","79","2","OLD_ONLY_WITH_INCREASED_INSTANCES","0","0","S5411 increased from 2 to 4; all other C0 rule counts unchanged","1686","28","YES","LOC and NSMELLS","NO"
+"C2","YES","12","-65","OLD_ONLY","0","10","10 C0 rule types removed; S1172, S107 and S5411 retained unchanged","1692","34","YES","LOC","NO"
+"C3","YES","15","-62","OLD_ONLY","0","7","7 C0 rule types removed; S1192 reduced from 38 to 1","1689","31","YES","LOC","NO"
+"C4","YES","15","-62","OLD_ONLY","0","7","7 C0 rule types removed; remaining 6 rule types retain C0 counts","1685","27","YES","LOC","NO"
