@@ -85,11 +85,7 @@ jobs:
             fi
           done
 
-          expected_classes="$(cat <<'EOF'
-org.apache.storm.daemon.ui.UIHelpers
-org.apache.storm.redis.bolt.RedisFilterBolt
-EOF
-)"
+          expected_classes=$'org.apache.storm.daemon.ui.UIHelpers\norg.apache.storm.redis.bolt.RedisFilterBolt'
 
           actual_classes="$(
             sed 's/\r$//' isw2/testing/classes.txt |
