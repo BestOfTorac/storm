@@ -1,13 +1,19 @@
-﻿name: ISW2 Testing
+name: ISW2 Project CI
 
 on:
   push:
     branches:
       - isw2-project
+    paths:
+      - "isw2/**"
+      - ".github/workflows/isw2-testing.yml"
 
   pull_request:
     branches:
       - isw2-project
+    paths:
+      - "isw2/**"
+      - ".github/workflows/isw2-testing.yml"
 
   workflow_dispatch:
 
@@ -15,29 +21,296 @@ permissions:
   contents: read
 
 concurrency:
-  group: isw2-testing-${{ github.ref }}
+  group: isw2-ci-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
+
+env:
+  JAVA_VERSION: "25"
 
 jobs:
 
-  uihelpers-testing:
+  # ==========================================================
+  # 1. WHOLE ISW2 REPOSITORY INTEGRITY
+  # ==========================================================
 
-    name: UIHelpers test suites
-
+  isw2-integrity:
+    name: "ISW2 / repository integrity"
     runs-on: ubuntu-latest
 
-    timeout-minutes: 20
-
     steps:
-
       - name: Checkout repository
         uses: actions/checkout@v7
 
-      - name: Set up Microsoft OpenJDK 25
-        uses: actions/setup-java@v5
+      - name: Inventory every tracked ISW2 artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          git ls-files isw2 | sort | tee isw2-files.txt
+
+          FILE_COUNT="$(wc -l < isw2-files.txt)"
+
+          echo "Tracked files under isw2/: ${FILE_COUNT}"
+
+          if [ "${FILE_COUNT}" -eq 0 ]; then
+            echo "::error::No tracked files found under isw2/"
+            exit 1
+          fi
+
+          git ls-files -z isw2 |
+            xargs -0 sha256sum > isw2-manifest.sha256
+
+      - name: Validate canonical ISW2 structure
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          required=(
+            "isw2/README.md"
+            "isw2/analyzer/pom.xml"
+            "isw2/config"
+            "isw2/datasets"
+            "isw2/docs"
+            "isw2/results"
+            "isw2/testing/pom.xml"
+            "isw2/testing/classes.txt"
+            "isw2/results/m4/uihelpers"
+            "isw2/results/m4/redisfilterbolt"
+          )
+
+          for path in "${required[@]}"; do
+            if [ ! -e "${path}" ]; then
+              echo "::error::Missing required ISW2 path: ${path}"
+              exit 1
+            fi
+          done
+
+          expected_classes="$(cat <<'EOF'
+org.apache.storm.daemon.ui.UIHelpers
+org.apache.storm.redis.bolt.RedisFilterBolt
+EOF
+)"
+
+          actual_classes="$(
+            sed 's/\r$//' isw2/testing/classes.txt |
+              sed '/^[[:space:]]*$/d' |
+              sed '/^[[:space:]]*#/d'
+          )"
+
+          if [ "${actual_classes}" != "${expected_classes}" ]; then
+            echo "::error::classes.txt is not canonical."
+            echo "Expected:"
+            printf '%s\n' "${expected_classes}"
+            echo "Actual:"
+            printf '%s\n' "${actual_classes}"
+            exit 1
+          fi
+
+          echo "classes.txt: PASS"
+
+      - name: Validate M4 C1-C4 source evidence
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          for variant in c1 c2 c3 c4; do
+
+            upper="$(
+              printf '%s' "${variant}" |
+                tr '[:lower:]' '[:upper:]'
+            )"
+
+            UI_SOURCE="isw2/results/m4/uihelpers/${variant}/UIHelpers-${upper}.java"
+            REDIS_SOURCE="isw2/results/m4/redisfilterbolt/${variant}/RedisFilterBolt-${upper}.java"
+
+            if [ ! -f "${UI_SOURCE}" ]; then
+              echo "::error::Missing UIHelpers ${upper}: ${UI_SOURCE}"
+              exit 1
+            fi
+
+            if [ ! -f "${REDIS_SOURCE}" ]; then
+              echo "::error::Missing RedisFilterBolt ${upper}: ${REDIS_SOURCE}"
+              exit 1
+            fi
+
+            echo "UIHelpers ${upper}: PASS"
+            echo "RedisFilterBolt ${upper}: PASS"
+          done
+
+      - name: Validate structured and documentation artifacts
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          python3 <<'PY'
+          import csv
+          import json
+          import sys
+          import xml.etree.ElementTree as ET
+          from pathlib import Path
+
+          root = Path("isw2")
+          errors = []
+
+          checked = {
+              "csv": 0,
+              "json": 0,
+              "xml": 0,
+              "md": 0,
+          }
+
+          for path in root.rglob("*"):
+              if not path.is_file():
+                  continue
+
+              suffix = path.suffix.lower()
+
+              try:
+                  if suffix == ".csv":
+                      with path.open(
+                          "r",
+                          encoding="utf-8-sig",
+                          newline=""
+                      ) as stream:
+                          reader = csv.reader(stream)
+
+                          if next(reader, None) is None:
+                              raise ValueError("empty CSV")
+
+                          for _ in reader:
+                              pass
+
+                      checked["csv"] += 1
+
+                  elif suffix == ".json":
+                      with path.open(
+                          "r",
+                          encoding="utf-8-sig"
+                      ) as stream:
+                          json.load(stream)
+
+                      checked["json"] += 1
+
+                  elif suffix == ".xml":
+                      ET.parse(path)
+                      checked["xml"] += 1
+
+                  elif suffix == ".md":
+                      if path.stat().st_size == 0:
+                          raise ValueError(
+                              "empty Markdown document"
+                          )
+
+                      checked["md"] += 1
+
+              except Exception as exc:
+                  errors.append(
+                      f"{path}: {exc}"
+                  )
+
+          print("Validated structured artifacts:")
+
+          for kind, count in checked.items():
+              print(f"  {kind.upper():5s}: {count}")
+
+          if errors:
+              print(
+                  "Structured artifact validation failures:",
+                  file=sys.stderr
+              )
+
+              for error in errors:
+                  print(
+                      f" - {error}",
+                      file=sys.stderr
+                  )
+
+              sys.exit(1)
+
+          print("Structured artifact validation: PASS")
+          PY
+
+
+  # ==========================================================
+  # 2. ISW2 ANALYZER BUILD
+  # ==========================================================
+
+  analyzer-build:
+    name: "ISW2 / analyzer build"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Set up Java 25
+        uses: actions/setup-java@v6
         with:
           distribution: microsoft
-          java-version: '25'
+          java-version: ${{ env.JAVA_VERSION }}
+          cache: maven
+          cache-dependency-path: isw2/analyzer/pom.xml
+
+      - name: Show Java and Maven versions
+        shell: bash
+        run: |
+          java -version
+          mvn -version
+
+      - name: Build analyzer
+        run: >
+          mvn
+          --batch-mode
+          --file isw2/analyzer/pom.xml
+          clean verify
+
+      - name: Verify analyzer artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          echo "Analyzer artifacts:"
+
+          find isw2/analyzer/target \
+            -maxdepth 1 \
+            -type f \
+            -name "*.jar" \
+            -print
+
+          JAR="$(
+            find isw2/analyzer/target \
+              -maxdepth 1 \
+              -type f \
+              -name "*.jar" \
+              -print \
+              -quit
+          )"
+
+          if [ -z "${JAR}" ]; then
+            echo "::error::Analyzer JAR not produced."
+            exit 1
+          fi
+
+          echo "Analyzer build: PASS"
+
+
+  # ==========================================================
+  # 3. COMPLETE MAVEN-MANAGED TESTING HARNESS
+  # ==========================================================
+
+  testing-harness:
+    name: "ISW2 / full Maven testing harness"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Set up Java 25
+        uses: actions/setup-java@v6
+        with:
+          distribution: microsoft
+          java-version: ${{ env.JAVA_VERSION }}
           cache: maven
           cache-dependency-path: isw2/testing/pom.xml
 
@@ -47,144 +320,173 @@ jobs:
           java -version
           mvn -version
 
-      - name: Compile ISW2 test harness
-        shell: bash
-        run: |
-          mvn \
-            --batch-mode \
-            --file isw2/testing/pom.xml \
-            test-compile \
-            -DskipTests
-
-      - name: Run UIHelpers manual suites
-        shell: bash
-        run: |
-          mvn \
-            --batch-mode \
-            --file isw2/testing/pom.xml \
-            test \
-            "-Dtest=UIHelpers*BBTest,UIHelpersControlFlowTest,UIHelpersMutationTest" \
-            -DfailIfNoTests=true
-
-      - name: Verify manual-suite result
-        shell: bash
-        run: |
-          python3 - <<'PY'
-          import glob
-          import xml.etree.ElementTree as ET
-
-          files = []
-
-          for path in glob.glob(
-              "isw2/testing/target/surefire-reports/TEST-*UIHelpers*.xml"
-          ):
-              if (
-                  "BBTest" in path
-                  or "UIHelpersControlFlowTest" in path
-                  or "UIHelpersMutationTest" in path
-              ):
-                  files.append(path)
-
-          tests = 0
-          failures = 0
-          errors = 0
-          skipped = 0
-
-          for path in files:
-              root = ET.parse(path).getroot()
-
-              tests += int(root.attrib.get("tests", 0))
-              failures += int(root.attrib.get("failures", 0))
-              errors += int(root.attrib.get("errors", 0))
-              skipped += int(root.attrib.get("skipped", 0))
-
-          print("Manual reports :", len(files))
-          print("Tests          :", tests)
-          print("Failures       :", failures)
-          print("Errors         :", errors)
-          print("Skipped        :", skipped)
-
-          assert len(files) == 12, (
-              f"Expected 12 manual UIHelpers reports, found {len(files)}"
-          )
-
-          assert tests == 53, (
-              f"Expected 53 manual UIHelpers tests, found {tests}"
-          )
-
-          assert failures == 0
-          assert errors == 0
-          assert skipped == 0
-
-          print("RESULT: UIHELPERS MANUAL SUITES 53/53 PASS")
-          PY
-
-      - name: Build T_RND runtime classpath
-        shell: bash
-        run: |
-          mvn \
-            --batch-mode \
-            --file isw2/testing/pom.xml \
-            dependency:build-classpath \
-            -Dmdep.outputFile=target/github-actions-rnd-classpath.txt
-
-      - name: Audit T_RND classpath
-        shell: bash
-        run: |
-          CP_FILE="isw2/testing/target/github-actions-rnd-classpath.txt"
-
-          test -f "$CP_FILE"
-
-          echo "Classpath file: $CP_FILE"
-
-          if tr ':' '\n' < "$CP_FILE" | grep -E -- '-tests\.jar$'; then
-            echo "ERROR: native Storm test JAR detected."
-            exit 1
-          fi
-
-          echo "Native Storm test JARs: NONE"
-
-      - name: Run frozen UIHelpers T_RND
-        shell: bash
-        run: |
-          CP_FILE="isw2/testing/target/github-actions-rnd-classpath.txt"
-
-          CP="isw2/testing/target/test-classes:$(cat "$CP_FILE")"
-
-          java \
-            -cp "$CP" \
-            org.junit.runner.JUnitCore \
-            it.uniroma2.isw2.storm.testing.uihelpers.rnd.generated.UIHelpersRandomRegressionTest \
-            | tee isw2/testing/target/github-actions-rnd-output.txt
-
-          grep -F "OK (35 tests)" \
-            isw2/testing/target/github-actions-rnd-output.txt
-
-          echo "RESULT: UIHELPERS T_RND 35/35 PASS"
-
-      - name: Prepare frozen UIHelpers T_ES
+      - name: Audit test dependency classpath
         shell: bash
         run: |
           set -euo pipefail
 
-          WORK="isw2/testing/target/github-actions-es"
-          TOOL_DIR="$WORK/tool"
-          CLASSES_DIR="$WORK/classes"
-          PROD_CP_FILE="isw2/testing/target/github-actions-es-classpath.txt"
-          RUNTIME_CP_FILE="$WORK/runtime-classpath.txt"
+          mvn \
+            --batch-mode \
+            --file isw2/testing/pom.xml \
+            dependency:build-classpath \
+            -DincludeScope=test \
+            -Dmdep.outputFile=target/ci-classpath.txt
 
-          ES_ROOT="isw2/testing/src/test/java/it/uniroma2/isw2/storm/testing/uihelpers/es"
-          ES_TEST="$ES_ROOT/generated/UIHelpers_ESTest.java"
-          ES_SCAFFOLD="$ES_ROOT/generated/UIHelpers_ESTest_scaffolding.java"
-          ES_LAUNCHER="$ES_ROOT/runtime/EvoSuiteJava25Launcher.java"
+          CP_FILE="isw2/testing/target/ci-classpath.txt"
 
-          mkdir -p "$TOOL_DIR" "$CLASSES_DIR"
+          if [ ! -s "${CP_FILE}" ]; then
+            echo "::error::Testing classpath was not generated."
+            exit 1
+          fi
+
+          if tr ':' '\n' < "${CP_FILE}" |
+             grep -E -- '(^|/)[^/]*-tests\.jar$'
+          then
+            echo "::error::Production/native tests.jar detected on classpath."
+            exit 1
+          fi
+
+          echo "Native production test JARs: NONE"
+
+      - name: Compile and execute all Maven-managed ISW2 tests
+        run: >
+          mvn
+          --batch-mode
+          --file isw2/testing/pom.xml
+          clean verify
+
+      - name: Summarize Surefire and Failsafe
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          python3 <<'PY'
+          import glob
+          import sys
+          import xml.etree.ElementTree as ET
+
+          reports = (
+              glob.glob(
+                  "isw2/testing/target/"
+                  "surefire-reports/TEST-*.xml"
+              )
+              +
+              glob.glob(
+                  "isw2/testing/target/"
+                  "failsafe-reports/TEST-*.xml"
+              )
+          )
+
+          if not reports:
+              print(
+                  "No Surefire/Failsafe XML reports found.",
+                  file=sys.stderr
+              )
+              sys.exit(1)
+
+          totals = {
+              "tests": 0,
+              "failures": 0,
+              "errors": 0,
+              "skipped": 0,
+          }
+
+          for report in reports:
+              root = ET.parse(report).getroot()
+
+              for key in totals:
+                  totals[key] += int(
+                      root.attrib.get(key, 0)
+                  )
+
+          print(f"Reports  : {len(reports)}")
+          print(f"Tests    : {totals['tests']}")
+          print(f"Failures : {totals['failures']}")
+          print(f"Errors   : {totals['errors']}")
+          print(f"Skipped  : {totals['skipped']}")
+
+          if totals["tests"] == 0:
+              print(
+                  "No tests executed.",
+                  file=sys.stderr
+              )
+              sys.exit(1)
+
+          if (
+              totals["failures"] != 0
+              or totals["errors"] != 0
+          ):
+              sys.exit(1)
+
+          print("Maven-managed ISW2 tests: PASS")
+          PY
+
+
+  # ==========================================================
+  # 4. FROZEN EVOSUITE SUITES
+  #    UIHelpers + RedisFilterBolt
+  # ==========================================================
+
+  evosuite-frozen:
+    name: "ISW2 / EvoSuite / ${{ matrix.target }}"
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+
+      matrix:
+        include:
+
+          - target: UIHelpers
+            generated_dir: isw2/testing/src/test/java/it/uniroma2/isw2/storm/testing/uihelpers/es/generated
+            test_file: UIHelpers_ESTest.java
+            scaffolding_file: UIHelpers_ESTest_scaffolding.java
+            launcher: isw2/testing/src/test/java/it/uniroma2/isw2/storm/testing/uihelpers/es/runtime/EvoSuiteJava25Launcher.java
+            launcher_class: isw2.evosuitecompat.EvoSuiteJava25Launcher
+            launcher_class_file: EvoSuiteJava25Launcher.class
+            expected_tests: 37
+
+          - target: RedisFilterBolt
+            generated_dir: isw2/testing/src/test/java/it/uniroma2/isw2/storm/testing/redisfilterbolt/es/generated
+            test_file: RedisFilterBolt_ESTest.java
+            scaffolding_file: RedisFilterBolt_ESTest_scaffolding.java
+            launcher: isw2/testing/src/test/java/it/uniroma2/isw2/storm/testing/redisfilterbolt/es/runtime/RedisFilterBoltJava25Launcher.java
+            launcher_class: isw2.evosuitecompat.RedisFilterBoltJava25Launcher
+            launcher_class_file: RedisFilterBoltJava25Launcher.class
+            expected_tests: 9
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Set up Java 25
+        uses: actions/setup-java@v6
+        with:
+          distribution: microsoft
+          java-version: ${{ env.JAVA_VERSION }}
+          cache: maven
+          cache-dependency-path: isw2/testing/pom.xml
+
+      - name: Prepare EvoSuite 1.2.0 runtime
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          BASE="isw2/testing/target/ci-evosuite"
+          TOOL_DIR="${BASE}/tool"
+          CLASSES="${BASE}/classes"
+          PROJECT_CP_FILE="${BASE}/project-cp.txt"
+          RUNTIME_CP_FILE="${BASE}/runtime-cp.txt"
+
+          mkdir -p "${TOOL_DIR}"
+          mkdir -p "${CLASSES}"
 
           mvn \
             --batch-mode \
             --file isw2/testing/pom.xml \
             dependency:build-classpath \
-            -Dmdep.outputFile=target/github-actions-es-classpath.txt
+            -DincludeScope=test \
+            -Dmdep.outputFile=target/ci-evosuite/project-cp.txt
 
           mvn \
             --batch-mode \
@@ -198,138 +500,299 @@ jobs:
             dependency:get \
             -Dartifact=org.clojure:clojure:1.10.3
 
-          EVOSUITE_JAR="$TOOL_DIR/evosuite-1.2.0.jar"
+          EVOSUITE_JAR="${TOOL_DIR}/evosuite-1.2.0.jar"
 
           curl \
             --fail \
             --location \
             --retry 3 \
-            --output "$EVOSUITE_JAR" \
+            --output "${EVOSUITE_JAR}" \
             "https://github.com/EvoSuite/evosuite/releases/download/v1.2.0/evosuite-1.2.0.jar"
 
-          echo "0BC0062FDEC70C35089AD736C9B88CCF87308C2F0AAAAFE43176F3C4A89DDEBA  $EVOSUITE_JAR" \
+          echo \
+            "0BC0062FDEC70C35089AD736C9B88CCF87308C2F0AAAAFE43176F3C4A89DDEBA  ${EVOSUITE_JAR}" \
             | sha256sum --check -
+
+          PROJECT_CP="$(
+            cat "${PROJECT_CP_FILE}"
+          )"
 
           JUNIT_JAR="$HOME/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar"
           HAMCREST_JAR="$HOME/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar"
           CLOJURE_JAR="$HOME/.m2/repository/org/clojure/clojure/1.10.3/clojure-1.10.3.jar"
 
           for file in \
-            "$PROD_CP_FILE" \
-            "$EVOSUITE_JAR" \
-            "$JUNIT_JAR" \
-            "$HAMCREST_JAR" \
-            "$CLOJURE_JAR" \
-            "$ES_TEST" \
-            "$ES_SCAFFOLD" \
-            "$ES_LAUNCHER"
+            "${PROJECT_CP_FILE}" \
+            "${EVOSUITE_JAR}" \
+            "${JUNIT_JAR}" \
+            "${HAMCREST_JAR}" \
+            "${CLOJURE_JAR}"
           do
-            test -f "$file"
+            if [ ! -f "${file}" ]; then
+              echo "::error::Missing EvoSuite runtime file: ${file}"
+              exit 1
+            fi
           done
 
-          PROD_CP="$(cat "$PROD_CP_FILE")"
-
-          WEBAPP_COUNT="$(
-            printf '%s' "$PROD_CP" \
-              | tr ':' '\n' \
-              | grep -E '/storm-webapp/3\.0\.0/storm-webapp-3\.0\.0\.jar$' \
-              | wc -l \
-              | tr -d ' '
-          )"
-
-          test "$WEBAPP_COUNT" = "1"
-
-          if printf '%s' "$PROD_CP" \
-            | tr ':' '\n' \
-            | grep -E -- '-tests\.jar$'
+          if printf '%s' "${PROJECT_CP}" |
+             tr ':' '\n' |
+             grep -E -- '(^|/)[^/]*-tests\.jar$'
           then
-            echo "ERROR: native Storm test JAR detected."
+            echo "::error::Native Storm test JAR detected."
             exit 1
           fi
 
-          COMPILE_CP="$PROD_CP:$JUNIT_JAR:$HAMCREST_JAR:$CLOJURE_JAR:$EVOSUITE_JAR"
-
-          javac \
-            -proc:none \
-            -encoding UTF-8 \
-            -cp "$COMPILE_CP" \
-            -d "$CLASSES_DIR" \
-            "$ES_TEST" \
-            "$ES_SCAFFOLD" \
-            "$ES_LAUNCHER"
-
-          test -f \
-            "$CLASSES_DIR/org/apache/storm/daemon/ui/UIHelpers_ESTest.class"
-
-          test -f \
-            "$CLASSES_DIR/org/apache/storm/daemon/ui/UIHelpers_ESTest_scaffolding.class"
-
-          test -f \
-            "$CLASSES_DIR/isw2/evosuitecompat/EvoSuiteJava25Launcher.class"
+          COMPILE_CP="${PROJECT_CP}:${JUNIT_JAR}:${HAMCREST_JAR}:${CLOJURE_JAR}:${EVOSUITE_JAR}"
 
           printf '%s' \
-            "$CLASSES_DIR:$COMPILE_CP" \
-            > "$RUNTIME_CP_FILE"
+            "${CLASSES}:${COMPILE_CP}" \
+            > "${RUNTIME_CP_FILE}"
 
-          echo "EvoSuite 1.2.0 SHA-256: 0BC0062FDEC70C35089AD736C9B88CCF87308C2F0AAAAFE43176F3C4A89DDEBA"
-          echo "T_ES dedicated compilation: PASS"
+          echo "EvoSuite 1.2.0 runtime prepared."
+          echo "SHA-256 verified."
 
-      - name: Run frozen UIHelpers T_ES
+      - name: Compile frozen EvoSuite suite
         shell: bash
         run: |
           set -euo pipefail
 
-          WORK="isw2/testing/target/github-actions-es"
-          RUNTIME_CP_FILE="$WORK/runtime-classpath.txt"
-          OUTPUT="$WORK/tes-output.txt"
+          BASE="isw2/testing/target/ci-evosuite"
+          TOOL_DIR="${BASE}/tool"
+          CLASSES="${BASE}/classes"
+          PROJECT_CP_FILE="${BASE}/project-cp.txt"
 
-          test -f "$RUNTIME_CP_FILE"
+          PROJECT_CP="$(
+            cat "${PROJECT_CP_FILE}"
+          )"
 
-          RUNTIME_CP="$(cat "$RUNTIME_CP_FILE")"
+          EVOSUITE_JAR="${TOOL_DIR}/evosuite-1.2.0.jar"
+          JUNIT_JAR="$HOME/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar"
+          HAMCREST_JAR="$HOME/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar"
+          CLOJURE_JAR="$HOME/.m2/repository/org/clojure/clojure/1.10.3/clojure-1.10.3.jar"
+
+          TEST="${{ matrix.generated_dir }}/${{ matrix.test_file }}"
+          SCAFFOLD="${{ matrix.generated_dir }}/${{ matrix.scaffolding_file }}"
+          LAUNCHER="${{ matrix.launcher }}"
+
+          test -f "${TEST}"
+          test -f "${SCAFFOLD}"
+          test -f "${LAUNCHER}"
+
+          COMPILE_CP="${PROJECT_CP}:${JUNIT_JAR}:${HAMCREST_JAR}:${CLOJURE_JAR}:${EVOSUITE_JAR}"
+
+          javac \
+            -proc:none \
+            -encoding UTF-8 \
+            --release 25 \
+            -cp "${COMPILE_CP}" \
+            -d "${CLASSES}" \
+            "${TEST}" \
+            "${SCAFFOLD}" \
+            "${LAUNCHER}"
+
+          test -f \
+            "${CLASSES}/isw2/evosuitecompat/${{ matrix.launcher_class_file }}"
+
+          echo "${{ matrix.target }} EvoSuite compilation: PASS"
+
+      - name: Execute frozen EvoSuite suite
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          BASE="isw2/testing/target/ci-evosuite"
+
+          RUNTIME_CP="$(
+            cat "${BASE}/runtime-cp.txt"
+          )"
 
           java \
             --add-opens=java.desktop/java.awt=ALL-UNNAMED \
             --add-opens=java.base/java.net=ALL-UNNAMED \
+            --add-opens=java.base/java.lang=ALL-UNNAMED \
+            --add-opens=java.base/java.util=ALL-UNNAMED \
+            --add-opens=java.base/java.lang.reflect=ALL-UNNAMED \
+            --add-opens=java.base/java.io=ALL-UNNAMED \
             -ea \
             -Djava.awt.headless=true \
             -Dfile.encoding=UTF-8 \
-            -cp "$RUNTIME_CP" \
-            isw2.evosuitecompat.EvoSuiteJava25Launcher \
-            2>&1 \
-            | tee "$OUTPUT"
+            -cp "${RUNTIME_CP}" \
+            "${{ matrix.launcher_class }}" \
+            2>&1 |
+            tee "${BASE}/result.txt"
 
-          grep -F \
-            "COMPAT_EFFECTIVE separateClassLoader=false" \
-            "$OUTPUT"
+          grep \
+            -F \
+            "COMPAT_RESULT tests=${{ matrix.expected_tests }} failures=0 ignored=0 successful=true" \
+            "${BASE}/result.txt"
 
-          grep -F \
-            "COMPAT_RESULT tests=37 failures=0 ignored=0 successful=true" \
-            "$OUTPUT"
+          echo \
+            "RESULT: ${{ matrix.target }} EvoSuite ${{ matrix.expected_tests }}/${{ matrix.expected_tests }} PASS"
 
-          WARNINGS="$(
-            grep -c \
-              "was not instrumented by EvoSuite" \
-              "$OUTPUT" \
-              || true
-          )"
 
-          echo "EvoSuite compatibility warnings: $WARNINGS"
-          echo "RESULT: UIHELPERS T_ES 37/37 PASS"
-      - name: CI summary
-        if: always()
+  # ==========================================================
+  # 5. M4 VARIANT COMPILATION
+  #    C1-C4 FOR BOTH TARGET CLASSES
+  # ==========================================================
+
+  m4-variant-compilation:
+    name: "ISW2 / M4 compile / ${{ matrix.target }}"
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+
+      matrix:
+        include:
+
+          - target: UIHelpers
+            family: uihelpers
+            source_prefix: UIHelpers
+            canonical_file: UIHelpers.java
+            class_file: org/apache/storm/daemon/ui/UIHelpers.class
+
+          - target: RedisFilterBolt
+            family: redisfilterbolt
+            source_prefix: RedisFilterBolt
+            canonical_file: RedisFilterBolt.java
+            class_file: org/apache/storm/redis/bolt/RedisFilterBolt.class
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Set up Java 25
+        uses: actions/setup-java@v6
+        with:
+          distribution: microsoft
+          java-version: ${{ env.JAVA_VERSION }}
+          cache: maven
+          cache-dependency-path: isw2/testing/pom.xml
+
+      - name: Build M4 compilation classpath
         shell: bash
         run: |
-          {
-            echo "## ISW2 Testing"
+          set -euo pipefail
+
+          mvn \
+            --batch-mode \
+            --file isw2/testing/pom.xml \
+            dependency:build-classpath \
+            -DincludeScope=test \
+            -Dmdep.outputFile=target/m4-ci-classpath.txt
+
+          test -s \
+            isw2/testing/target/m4-ci-classpath.txt
+
+      - name: Compile C1-C4 in isolation
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          CP="$(
+            cat isw2/testing/target/m4-ci-classpath.txt
+          )"
+
+          for variant in c1 c2 c3 c4; do
+
+            upper="$(
+              printf '%s' "${variant}" |
+                tr '[:lower:]' '[:upper:]'
+            )"
+
+            SOURCE="isw2/results/m4/${{ matrix.family }}/${variant}/${{ matrix.source_prefix }}-${upper}.java"
+
+            WORK="isw2/testing/target/m4-ci/${{ matrix.family }}/${variant}"
+
+            OUT="${WORK}/classes"
+
+            mkdir -p "${OUT}"
+
+            if [ ! -f "${SOURCE}" ]; then
+              echo "::error::Missing M4 source: ${SOURCE}"
+              exit 1
+            fi
+
+            cp \
+              "${SOURCE}" \
+              "${WORK}/${{ matrix.canonical_file }}"
+
             echo
-            echo "- Target class: \`org.apache.storm.daemon.ui.UIHelpers\`"
-            echo "- Java: Microsoft OpenJDK 25"
-            echo "- Manual test suites: T_BB + T_CF + T_MT"
-            echo "- Expected manual tests: 53"
-            echo "- Random suite: T_RND / Randoop"
-            echo "- Expected random tests: 35"
-            echo "- Coverage-guided suite: T_ES / EvoSuite 1.2.0"
-            echo "- Expected EvoSuite target tests: 37"
-            echo "- EvoSuite execution: dedicated Java 25 compatibility launcher"
-            echo "- Native Apache Storm tests: excluded"
-          } >> "$GITHUB_STEP_SUMMARY"
+            echo "========================================="
+            echo "Compiling ${{ matrix.target }} ${upper}"
+            echo "========================================="
+
+            javac \
+              --release 25 \
+              -cp "${CP}" \
+              -d "${OUT}" \
+              "${WORK}/${{ matrix.canonical_file }}"
+
+            CLASS_FILE="${OUT}/${{ matrix.class_file }}"
+
+            if [ ! -f "${CLASS_FILE}" ]; then
+              echo "::error::Compiled class not found: ${CLASS_FILE}"
+              exit 1
+            fi
+
+            echo "${{ matrix.target }} ${upper}: PASS"
+          done
+
+
+  # ==========================================================
+  # 6. FINAL PROJECT GATE
+  # ==========================================================
+
+  final-gate:
+    name: "ISW2 / final gate"
+    runs-on: ubuntu-latest
+
+    if: always()
+
+    needs:
+      - isw2-integrity
+      - analyzer-build
+      - testing-harness
+      - evosuite-frozen
+      - m4-variant-compilation
+
+    steps:
+      - name: Check every ISW2 gate
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          echo "========================================"
+          echo " ISW2 FINAL CI GATE"
+          echo "========================================"
+          echo
+          echo "Integrity       : ${{ needs.isw2-integrity.result }}"
+          echo "Analyzer        : ${{ needs.analyzer-build.result }}"
+          echo "Testing harness : ${{ needs.testing-harness.result }}"
+          echo "EvoSuite        : ${{ needs.evosuite-frozen.result }}"
+          echo "M4 variants     : ${{ needs.m4-variant-compilation.result }}"
+          echo
+
+          test \
+            "${{ needs.isw2-integrity.result }}" \
+            = "success"
+
+          test \
+            "${{ needs.analyzer-build.result }}" \
+            = "success"
+
+          test \
+            "${{ needs.testing-harness.result }}" \
+            = "success"
+
+          test \
+            "${{ needs.evosuite-frozen.result }}" \
+            = "success"
+
+          test \
+            "${{ needs.m4-variant-compilation.result }}" \
+            = "success"
+
+          echo "========================================"
+          echo " ISW2 FINAL GATE: PASS"
+          echo "========================================"
