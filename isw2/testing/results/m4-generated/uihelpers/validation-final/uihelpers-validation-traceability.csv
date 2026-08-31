@@ -1,0 +1,6 @@
+﻿"Evidence","Path","Interpretation"
+"RND generation and native run","isw2/testing/results/m4-generated/uihelpers/{c1,c2,c3,c4}/rnd","FINAL"
+"LLM native validation","isw2/testing/results/m4-generated/uihelpers/final-native-validation","FINAL FOR LLM"
+"EvoSuite native revalidation","isw2/testing/results/m4-generated/uihelpers/evosuite-native-revalidation","FINAL NATIVE PORTABILITY"
+"EvoSuite generation-environment validation","isw2/testing/results/m4-generated/uihelpers/evosuite-generation-env-validation","FINAL GENERATION-ENV EXECUTION"
+"Initial final native validation - ES missing Clojure","isw2/testing/results/m4-generated/uihelpers/final-native-validation","ES RESULT SUPERSEDED; RND/LLM RESULTS RETAINED"

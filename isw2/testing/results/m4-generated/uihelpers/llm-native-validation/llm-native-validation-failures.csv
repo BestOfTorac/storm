@@ -1,0 +1,6 @@
+﻿"Variant","Phase","Test","Category","Expected","Observed","Evidence"
+"C1","COMPILE","-","TYPE_MISMATCH","Map<String,Map<String,Long>> compatible assignment","Map<String,Map<String,Object>>","c1/llm/native-validation/test-compile.log"
+"C2","RUNTIME","T14_urlFormatPercentEncodesReservedCharacters","ORACLE_MISMATCH","/component/a%2Fb%20c","/component/a%2Fb+c","c2/llm/native-validation/junit-run.log"
+"C3","RUNTIME","t34SanitizeStreamNameReplacesInvalidCharactersAndPrefixesNonLetter","ORACLE_MISMATCH","orders.main-v2","orders.main-v_","c3/llm/native-validation/junit-run.log"
+"C3","RUNTIME","t12UrlFormatEncodesSpacesAndUnicodeUtf8","ORACLE_MISMATCH","/api/a%20b/caf%C3%A9","/api/a+b/caf%C3%A9","c3/llm/native-validation/junit-run.log"
+"C3","RUNTIME","t32LogviewerLinkUsesHttpAndEncodesFileName","ORACLE_MISMATCH","http://worker%20one:8000/api/v1/log?file=a%20b.log","http://worker+one:8000/api/v1/log?file=a+b.log","c3/llm/native-validation/junit-run.log"

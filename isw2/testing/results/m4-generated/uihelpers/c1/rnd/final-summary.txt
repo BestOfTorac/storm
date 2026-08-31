@@ -1,0 +1,27 @@
+﻿======================================================
+ UIHELPERS C1 - T_RND FINAL
+======================================================
+Status          : PASS
+Repository HEAD : 6fb84f954982999eb1f11393c58ef0a5028db284
+Local=Remote    : True
+Variant         : C1
+Target class    : org.apache.storm.daemon.ui.UIHelpers
+Generator       : Randoop 4.3.4
+Java            : 25
+Seed            : 20260820
+Target N        : 35
+Output limit    : 37
+Java files      : 2
+Generated tests : 35
+JUnit           : OK (35 tests)
+C1 bytecode     : major 69
+Bytecode check  : direct .class header
+Classpath mode  : java/javac @argfile
+Native tests    : NONE
+Coverage run    : NO
+PIT run         : NO
+Manual changes  : NO
+Frozen          : YES
+Generated dir   : C:\Users\torac\Desktop\ISW2-STORM\storm\isw2\testing\generated-tests\m4\uihelpers\c1\rnd
+Evidence dir    : C:\Users\torac\Desktop\ISW2-STORM\storm\isw2\testing\results\m4-generated\uihelpers\c1\rnd
+======================================================

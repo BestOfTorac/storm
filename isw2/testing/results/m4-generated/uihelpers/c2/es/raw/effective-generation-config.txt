@@ -1,0 +1,11 @@
+﻿class=org.apache.storm.daemon.ui.UIHelpers
+criterion=BRANCH
+seed=20260820
+search_budget=15
+new_statistics=false
+test_format=JUNIT4
+sandbox=false
+dependency_entries=159
+surrogate_major=55
+test_dir=C:\Users\torac\Desktop\ISW2-STORM\storm\isw2\testing\target\m4-generated\uihelpers\c2\es\final-generation\generated
+report_dir=C:\Users\torac\Desktop\ISW2-STORM\storm\isw2\testing\target\m4-generated\uihelpers\c2\es\final-generation\report

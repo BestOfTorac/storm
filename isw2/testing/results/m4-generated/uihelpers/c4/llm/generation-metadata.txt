@@ -1,0 +1,17 @@
+Class=org.apache.storm.daemon.ui.UIHelpers
+Variant=C4
+Technique=T_LLM
+Generator=Microsoft 365 Copilot Web
+TargetN=35
+RawTestMethods=35
+JUnit=Jupiter
+GenerationJavaTarget=25
+OtherTestSuitesProvided=No
+CoverageFeedbackUsed=No
+MutationFeedbackUsed=No
+ManualTestEditingUsed=No
+CompilationPerformed=No
+ExecutionPerformed=No
+RepositoryHEAD=6fb84f954982999eb1f11393c58ef0a5028db284
+RawSuiteSHA256=B5508114B7D13B20225C904963659824DFD05498CC6FEE1B81776DC9ADB4B96F
+Status=RAW_GENERATED_FROZEN

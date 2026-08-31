@@ -1,0 +1,14 @@
+Variant=C3
+RawSHA256=52482A01A9F0BECC77F4A374F1165301ADCE8259B14896FD2802A363A2C91D43
+RawTests=35
+ProductionCompile=PASS
+TestCompile=PASS
+JUnitExitCode=1
+TestsFound=35
+TestsStarted=35
+TestsSuccessful=32
+TestsFailed=3
+CoverageRun=No
+PITRun=No
+ManualEditing=No
+Status=FAIL

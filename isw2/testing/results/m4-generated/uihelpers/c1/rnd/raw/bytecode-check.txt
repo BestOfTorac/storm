@@ -1,0 +1,6 @@
+﻿File=C:\Users\torac\Desktop\ISW2-STORM\storm\isw2\testing\target\m4-generated\uihelpers\c1\rnd\variant-classes\org\apache\storm\daemon\ui\UIHelpers.class
+Magic=CAFEBABE
+MajorVersion=69
+ExpectedMajorVersion=69
+Status=PASS
+SHA256=A4FB0D1B271E257CA5FC8A20FD69C370E3E4BED46ABB042D9CBAF6F80FA2E162

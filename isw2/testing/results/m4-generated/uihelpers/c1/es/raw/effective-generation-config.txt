@@ -1,0 +1,10 @@
+﻿class=org.apache.storm.daemon.ui.UIHelpers
+criterion=BRANCH
+seed=20260820
+search_budget=15
+new_statistics=false
+test_format=JUNIT4
+sandbox=false
+CP_file_path=C:\Users\torac\Desktop\ISW2-STORM\storm\isw2\testing\target\m4-generated\uihelpers\c1\es\evosuite-java11-classpath.txt
+test_dir=C:\Users\torac\Desktop\ISW2-STORM\storm\isw2\testing\target\m4-generated\uihelpers\c1\es\final-generation\generated
+report_dir=C:\Users\torac\Desktop\ISW2-STORM\storm\isw2\testing\target\m4-generated\uihelpers\c1\es\final-generation\report

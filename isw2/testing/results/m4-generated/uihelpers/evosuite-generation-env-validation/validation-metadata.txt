@@ -1,0 +1,14 @@
+RepositoryHEAD=6fb84f954982999eb1f11393c58ef0a5028db284
+Technique=T_ES
+EvoSuiteVersion=1.2.0
+EvoSuiteSHA256=0BC0062FDEC70C35089AD736C9B88CCF87308C2F0AAAAFE43176F3C4A89DDEBA
+GenerationJava=11.0.32
+GenerationEnvironment=Storm 2.7.1 compatibility surrogate
+CompatibilityTransformations=5
+DependencyEntries=159
+Clojure=clojure-1.10.3.jar
+RawTestEditing=No
+Regeneration=No
+Coverage=No
+PIT=No
+NativePortabilityResult=FAIL_C1_C2_C3_C4_JETTY_API_MISMATCH

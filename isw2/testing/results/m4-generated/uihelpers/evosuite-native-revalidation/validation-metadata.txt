@@ -1,0 +1,13 @@
+RepositoryHEAD=6fb84f954982999eb1f11393c58ef0a5028db284
+Java=25.0.4
+EvoSuiteVersion=1.2.0
+EvoSuiteSHA256=0BC0062FDEC70C35089AD736C9B88CCF87308C2F0AAAAFE43176F3C4A89DDEBA
+ValidatedSafeClasspath=C:\Users\torac\Desktop\ISW2-STORM\storm\isw2\testing\target\m4-generated\uihelpers\c1\es\evosuite-java11-classpath.txt
+SafeDependencyEntries=159
+ClojureFallback=clojure-1.10.3.jar
+ProductionClasspathPriority=Storm3CurrentFirst
+SafeClasspathRole=FallbackOnly
+TestEditing=No
+Regeneration=No
+Coverage=No
+PIT=No

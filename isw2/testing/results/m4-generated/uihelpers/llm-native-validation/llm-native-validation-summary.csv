@@ -1,0 +1,4 @@
+﻿"Variant","RawTests","ProductionCompile","TestCompile","TestsStarted","TestsPassed","TestsFailed","Status","FailureCategory","ManualRepair"
+"C1","35","PASS","FAIL","0","0","0","FAIL","TEST_COMPILATION","NO"
+"C2","35","PASS","PASS","35","34","1","FAIL","ORACLE_MISMATCH","NO"
+"C3","35","PASS","PASS","35","32","3","FAIL","ORACLE_MISMATCH","NO"

@@ -1,0 +1,10 @@
+Variant=C1
+RawSHA256=910305A064ED2A48AE748D8DF0B73E8E4370C0E9AE9EDF56B3338DE127FA2842
+RawTests=35
+ProductionCompile=PASS
+TestCompile=FAIL
+JUnit=NOT_RUN
+FirstCompilerError=javac.exe : C:\Users\torac\Desktop\ISW2-STORM\storm\isw2\testing\generated-tests\m4\uihelpers\c1\llm\raw\UIHelpersLLMTest.java:225: error: incompatible types: Map<String,Map<String,Object>> cannot be converted to 
+CoverageRun=No
+PITRun=No
+ManualEditing=No

@@ -1,0 +1,5 @@
+﻿ClasspathEntries=159
+ReplacedMultiReleaseJars=3
+AuditedClassFiles=51598
+ClassFilesMajorAbove55=0
+Status=PASS
