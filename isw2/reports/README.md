@@ -1,20 +1,135 @@
 # Report finali
 
-Questa cartella è riservata ai documenti finali di consegna del progetto.
+La directory `isw2/reports/` è destinata alla documentazione accademica conclusiva del progetto.
 
-Sono previsti due report distinti.
+I report vengono mantenuti separati dalla documentazione metodologica presente in `docs/` perché hanno una funzione differente:
 
-## Report Falessi
+- `docs/` descrive in dettaglio come sono state realizzate le singole attività;
+- `reports/` sintetizza metodologia, risultati, interpretazione e conclusioni nella forma richiesta per la consegna.
 
-Il report Falessi sintetizza il percorso M1-M4:
+---
 
-1. costruzione del dataset;
-2. valutazione dei classificatori;
-3. analisi what-if;
-4. refactoring automatico e valutazione delle varianti.
+## 1. Report Falessi
 
-## Report De Angelis
+Il primo report documenta l'intero percorso M1-M4.
 
-Il report De Angelis documenta la sperimentazione di testing sulle due classi target, le suite manuali e automatiche, le varianti `C0`-`C4`, le misure di adeguatezza e qualità e le verifiche di preservazione del comportamento.
+La struttura di riferimento è:
 
-I report devono utilizzare come source of truth gli artefatti indicati in [`../ARTIFACTS.md`](../ARTIFACTS.md), evitando di ricavare valori da campagne intermedie o superate.
+1. Introduzione;
+2. Metodologia;
+3. Risultati;
+4. Threats to validity;
+5. Conclusioni.
+
+La metodologia e i risultati devono seguire le quattro milestone:
+
+### M1
+
+Costruzione del Dataset A.
+
+### M2
+
+Valutazione dei classificatori.
+
+### M3
+
+Analisi what-if sulla rimozione degli smell.
+
+### M4
+
+Valutazione delle varianti refactorizzate.
+
+Le conclusioni devono discutere sia l'impatto per il practitioner sia le implicazioni dal punto di vista della ricerca.
+
+---
+
+## 2. Report De Angelis
+
+Il secondo report riguarda la sperimentazione di testing.
+
+Deve descrivere:
+
+- classi target;
+- progettazione T_BB;
+- evoluzione T_CF;
+- mutation-guided testing;
+- Randoop;
+- EvoSuite;
+- generazione LLM;
+- coverage;
+- mutation testing;
+- reliability;
+- refactoring C0-C4;
+- qualità strutturale;
+- Sonar;
+- behavior preservation;
+- confronto finale tra le tecniche.
+
+Il corpo principale deve rimanere leggibile e interpretativo.
+
+Le tabelle possono raccogliere i dettagli quantitativi, ma nel testo devono essere richiamate esplicitamente e discusse.
+
+---
+
+## 3. Source of truth
+
+I report non devono essere compilati leggendo casualmente gli output presenti nel repository.
+
+Il riferimento principale è:
+
+[`../ARTIFACTS.md`](../ARTIFACTS.md)
+
+Questo permette di evitare errori dovuti a:
+
+- campagne intermedie;
+- risultati superati;
+- log diagnostici;
+- file storici.
+
+---
+
+## 4. Regole di interpretazione importanti
+
+Nella redazione devono essere preservate alcune distinzioni.
+
+### PIT
+
+Le unità `N/A` non devono essere trasformate in zero.
+
+### Reliability
+
+`R_hat = 1` nel profilo osservato non significa affidabilità assoluta in produzione.
+
+### Sonar
+
+Le misure Sonar del generated test code non devono essere confuse con quelle del production code.
+
+### RedisFilterBolt
+
+Non deve essere documentata una T_MT inesistente.
+
+### UIHelpers C1
+
+Il fallimento osservato nella verifica post-hoc deve rimanere visibile.
+
+### Refactoring
+
+Le varianti `C1-C4` non costituiscono necessariamente una progressione monotona di qualità.
+
+---
+
+## 5. Relazione con il repository
+
+Per approfondire un'affermazione presente nei report è possibile seguire la catena:
+
+`report` → `ARTIFACTS.md` → risultato canonico → evidence → metodologia
+
+Questa struttura permette di mantenere il documento finale sintetico senza perdere la possibilità di verificare ogni dato.
+
+---
+
+## 6. Stato della cartella
+
+Fino alla generazione dei documenti finali, questo README descrive il ruolo previsto della directory.
+
+I report definitivi verranno aggiunti qui soltanto dopo il completamento dell'audit incrociato dei valori utilizzati.
