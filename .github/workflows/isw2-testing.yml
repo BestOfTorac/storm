@@ -182,7 +182,14 @@ jobs:
                       ) as stream:
                           reader = csv.reader(stream)
 
-                          first_row = next(reader, None)                           if first_row is None:                               relative_path = path.as_posix()                               if relative_path not in intentional_empty_csv:                                   raise ValueError("empty CSV")                           else:                               for _ in reader:                                   pass
+                          first_row = next(reader, None)
+                          if first_row is None:
+                              relative_path = path.as_posix()
+                              if relative_path not in intentional_empty_csv:
+                                  raise ValueError("empty CSV")
+                          else:
+                              for _ in reader:
+                                  pass
 
                       checked["csv"] += 1
 
