@@ -155,6 +155,18 @@ jobs:
               "md": 0,
           }
 
+          # CSV vuoti intenzionali: rappresentano risultati negativi degli audit.
+          # Qualsiasi altro CSV vuoto continua a causare il fallimento della CI.
+          intentional_empty_csv = {
+              "isw2/testing/results/m4-generated/behavior-preservation/preflight/redis-mutation-source-candidates.csv",
+              "isw2/testing/results/m4-generated/coverage/uihelpers/es/classpath-recovery/classpath-duplicate-entries.csv",
+              "isw2/testing/results/m4-generated/coverage/uihelpers/es/classpath-recovery/classpath-set-differences.csv",
+              "isw2/testing/results/m4-generated/coverage/uihelpers/es/classpath-recovery/java11-safe-reference-inventory.csv",
+              "isw2/testing/results/m4-generated/coverage/uihelpers/es/classpath-recovery/missing-classpath-jars.csv",
+              "isw2/testing/results/m4-generated/mutation/path-resolution-audit/generated-java-candidates.csv",
+              "isw2/testing/results/m4-generated/sonar/identity-audit/sonar-tracked-reference-audit.csv",
+          }
+
           for path in root.rglob("*"):
               if not path.is_file():
                   continue
@@ -170,11 +182,7 @@ jobs:
                       ) as stream:
                           reader = csv.reader(stream)
 
-                          if next(reader, None) is None:
-                              raise ValueError("empty CSV")
-
-                          for _ in reader:
-                              pass
+                          first_row = next(reader, None)                           if first_row is None:                               relative_path = path.as_posix()                               if relative_path not in intentional_empty_csv:                                   raise ValueError("empty CSV")                           else:                               for _ in reader:                                   pass
 
                       checked["csv"] += 1
 
