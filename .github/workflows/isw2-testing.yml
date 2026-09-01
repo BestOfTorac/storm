@@ -179,12 +179,20 @@ jobs:
                       checked["csv"] += 1
 
                   elif suffix == ".json":
-                      with path.open(
-                          "r",
-                          encoding="utf-8-sig"
-                      ) as stream:
-                          json.load(stream)
-
+                      raw = path.read_bytes()
+                      if raw.startswith((
+                          b"\xff\xfe\x00\x00",
+                          b"\x00\x00\xfe\xff"
+                      )):
+                          text = raw.decode("utf-32")
+                      elif raw.startswith((
+                          b"\xff\xfe",
+                          b"\xfe\xff"
+                      )):
+                          text = raw.decode("utf-16")
+                      else:
+                          text = raw.decode("utf-8-sig")
+                      json.loads(text)
                       checked["json"] += 1
 
                   elif suffix == ".xml":
