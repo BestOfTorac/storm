@@ -1,0 +1,5 @@
+﻿"Variant","RawTests","Integrity","Production","Major","TestCompile","Runtime","TestsRun","Passed","Failures","InitFailure","Status","Reason"
+"C1","8","PASS","PASS","55","PASS","PASS (8/8)","8","8","0","NO","PASS",""
+"C2","9","PASS","PASS","55","PASS","FAIL (6/9 PASS; 3 failures)","9","6","3","NO","FAIL","Compatibility JUnit execution failed."
+"C3","8","PASS","PASS","55","PASS","PASS (8/8)","8","8","0","NO","PASS",""
+"C4","9","PASS","PASS","55","PASS","PASS (9/9)","9","9","0","NO","PASS",""

@@ -1,0 +1,17 @@
+ISW2 STORM GENERATED SUITE SOURCE RESOLVER V2
+
+RepositoryHEAD=611a496af8edc4a0d62191ff8a0f5ed70a789f9d
+ReadOnly=Yes
+Compilation=No
+TestExecution=No
+PIT=No
+
+ExpectedUnits=24
+ResolvedPASS=24
+Unresolved=0
+PhysicalCandidates=84
+UniqueSelectedSources=64
+TrackedSelected=12
+UntrackedSelected=52
+
+Roots=RESULTS_M4=0; TARGET_M4=44; GENERATED_TESTS=40; LLM=0; EVOSUITE=0; TEST_SRC=0

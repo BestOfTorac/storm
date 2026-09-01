@@ -1,0 +1,47 @@
+﻿======================================================
+ ISW2 STORM - FINAL DE ANGELIS CONSOLIDATION V2
+======================================================
+Status          : PASS
+Branch          : isw2-project
+HEAD            : 611a496af8edc4a0d62191ff8a0f5ed70a789f9d
+Remote          : 611a496af8edc4a0d62191ff8a0f5ed70a789f9d
+Local=Remote    : True
+
+--- PIT semantics ---
+MEASURED        : 20/20
+Measured MS     : 20/20
+Measured TS     : 20/20
+Complete MS+TS  : 20/20
+N/A units       : 10/10
+N/A score leak  : 0
+Suite blocker   : 8/8
+Compile blocker : 2/2
+Other blocker   : 0
+
+--- Derived matrices ---
+Integrated      : 30/30
+Report table    : 30/30
+Delta table     : 24/24
+Comparable PIT deltas: 15/24
+
+--- Sonar ---
+Component gates : 30/30
+Source hashes   : 30/30
+
+--- Source SHA256 ---
+Coverage        : D830A30C00928C10498B66BE129CF1A2C90D0B20747449DC38F214E295A20691
+Mutation        : 55F8D7829D32F8E3C426BD974557FBE83FC8B791FE247E8F446C60CE7B08BF1C
+Structural      : 62269CBF897EC839922F14FC54C72B622028317140ACA8603D07CA4EBF25DF1A
+Sonar           : 79341440A1CFCCFBF4DF21FEA2951F53D0664BA383F4422ED26FD6F462303AA8
+
+--- Output SHA256 ---
+Integrated      : B3E7C22D434ECC11C0A6C59FE0EDADC3EE819C5DF0F94C538CE8A33519D49EE5
+Report table    : 88A24AABA0EC153BC3D9878A458B4849AFA600F046FE1B5B346307208B16C525
+Delta matrix    : 1B55643313261568F3F55D9D4FD37B82E189560C9161FB2A2B67040E57C8987E
+
+No test execution.
+No PIT execution.
+No test edit.
+No regeneration.
+No repair.
+======================================================

@@ -1,0 +1,20 @@
+REDISFILTERBOLT T_LLM NATIVE VALIDATION RESOLUTION
+
+The first native-validation summary reported zero discovered/started tests for C1-C4.
+That result was a parser false negative, not a test-suite failure.
+
+A subsequent read-only diagnosis inspected the original JUnit Platform Console logs without re-executing any test.
+
+Canonical result:
+C1 = 11/11 PASS
+C2 = 11/11 PASS
+C3 = 11/11 PASS
+C4 = 11/11 PASS
+TOTAL = 44/44 PASS
+
+No generated test was edited.
+No suite was regenerated.
+No test was re-executed.
+The original incorrect summary is preserved for auditability.
+
+RepositoryHEAD=611a496af8edc4a0d62191ff8a0f5ed70a789f9d

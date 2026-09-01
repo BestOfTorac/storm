@@ -1,0 +1,70 @@
+ISW2 STORM FINAL PIT 20-UNIT CAMPAIGN V3
+
+RepositoryHEAD=611a496af8edc4a0d62191ff8a0f5ed70a789f9d
+PIT=1.25.8
+PITJUnit5Plugin=1.2.3
+JUnitConsole=6.1.1
+JavaNative=25.0.4
+JavaCompatibility=11.0.32
+
+ResolverUnitsSHA256=C118963594F259C7595833979C61A8EA6572B797132183B2C663BC8F208A8405
+ResolverSelectedSHA256=D4BE98FCBBB917AA5513C45A12FFBEA11EBA3AE30FDA06A37E23398B59B9993D
+
+Units=30
+Measured=20
+NotApplicable=10
+
+RNDMeasured=10
+LLMMeasured=6
+ESMeasured=4
+
+UIHelpersMeasured=6
+RedisFilterBoltMeasured=14
+
+BaselinePass=20/20
+PitExitZero=20/20
+Reports=20/20
+DirectPopulationPairs=6/6
+
+ValidDeltas=15/24
+NADeltas=9/24
+
+HistoricalReuse=No
+TestEdits=No
+Regeneration=No
+MutationGuidedRepair=No
+
+UIHelpers:
+C0-RND: total=338; killed=32; survived=39; noCov=267; timeout=0; MS=9,4675%; TS=45,0704%
+C0-LLM: total=338; killed=49; survived=1; noCov=288; timeout=0; MS=14,497%; TS=98%
+C0-ES: N/A; blocker=SUITE_NOT_FULLY_PASSING
+C1-RND: total=334; killed=32; survived=39; noCov=263; timeout=0; MS=9,5808%; TS=45,0704%
+C1-LLM: N/A; blocker=N/A_COMPILE_BLOCKER
+C1-ES: N/A; blocker=SUITE_NOT_FULLY_PASSING
+C2-RND: total=334; killed=28; survived=48; noCov=258; timeout=0; MS=8,3832%; TS=36,8421%
+C2-LLM: N/A; blocker=SUITE_NOT_FULLY_PASSING
+C2-ES: N/A; blocker=SUITE_NOT_FULLY_PASSING
+C3-RND: total=334; killed=32; survived=39; noCov=263; timeout=0; MS=9,5808%; TS=45,0704%
+C3-LLM: N/A; blocker=SUITE_NOT_FULLY_PASSING
+C3-ES: N/A; blocker=SUITE_NOT_FULLY_PASSING
+C4-RND: total=334; killed=32; survived=39; noCov=263; timeout=0; MS=9,5808%; TS=45,0704%
+C4-LLM: N/A; blocker=N/A_COMPILE_BLOCKER
+C4-ES: N/A; blocker=SUITE_NOT_FULLY_PASSING
+
+RedisFilterBolt:
+C0-RND: total=12; killed=0; survived=4; noCov=8; timeout=0; MS=0%; TS=0%
+C0-LLM: total=12; killed=9; survived=3; noCov=0; timeout=0; MS=75%; TS=75%
+C0-ES: total=12; killed=2; survived=1; noCov=9; timeout=0; MS=16,6667%; TS=66,6667%
+C1-RND: total=12; killed=0; survived=4; noCov=8; timeout=0; MS=0%; TS=0%
+C1-LLM: total=12; killed=9; survived=2; noCov=1; timeout=0; MS=75%; TS=81,8182%
+C1-ES: total=12; killed=0; survived=3; noCov=9; timeout=0; MS=0%; TS=0%
+C2-RND: total=23; killed=0; survived=4; noCov=19; timeout=0; MS=0%; TS=0%
+C2-LLM: total=23; killed=18; survived=5; noCov=0; timeout=0; MS=78,2609%; TS=78,2609%
+C2-ES: N/A; blocker=SUITE_NOT_FULLY_PASSING
+C3-RND: total=25; killed=0; survived=5; noCov=20; timeout=0; MS=0%; TS=0%
+C3-LLM: total=25; killed=18; survived=7; noCov=0; timeout=0; MS=72%; TS=72%
+C3-ES: total=25; killed=0; survived=4; noCov=21; timeout=0; MS=0%; TS=0%
+C4-RND: total=25; killed=0; survived=5; noCov=20; timeout=0; MS=0%; TS=0%
+C4-LLM: total=25; killed=23; survived=2; noCov=0; timeout=0; MS=92%; TS=92%
+C4-ES: total=25; killed=0; survived=4; noCov=21; timeout=0; MS=0%; TS=0%
+

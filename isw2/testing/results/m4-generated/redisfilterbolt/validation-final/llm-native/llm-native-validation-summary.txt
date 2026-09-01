@@ -1,0 +1,25 @@
+Class=org.apache.storm.redis.bolt.RedisFilterBolt
+Technique=T_LLM
+ValidationEnvironment=Storm 3.0.0 native
+Java=25.0.4
+JUnitPlatformConsoleVersion=6.1.1
+JUnitPlatformConsoleSHA256=7B16416E5727C645105C31B533440397F20DF68F6AE850C6BFD0CE1D88DB66C3
+RepositoryHEAD=611a496af8edc4a0d62191ff8a0f5ed70a789f9d
+Variants=4
+FrozenTests=44
+CompilePassSuites=4
+NativeValidSuites=0
+TestsFound=0
+TestsStarted=0
+TestsSuccessful=0
+TestsFailed=0
+TestsAborted=0
+GeneratedTestEdits=0
+Regeneration=No
+CoverageRun=No
+PITRun=No
+
+C1: raw=11; integrity=PASS; compile=PASS; runtime=FAIL (discovery/initialization); status=FAIL
+C2: raw=11; integrity=PASS; compile=PASS; runtime=FAIL (discovery/initialization); status=FAIL
+C3: raw=11; integrity=PASS; compile=PASS; runtime=FAIL (discovery/initialization); status=FAIL
+C4: raw=11; integrity=PASS; compile=PASS; runtime=FAIL (discovery/initialization); status=FAIL

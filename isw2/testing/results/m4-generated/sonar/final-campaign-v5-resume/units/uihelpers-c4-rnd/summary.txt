@@ -1,0 +1,31 @@
+ISW2 STORM SONARCLOUD FINAL UNIT V5
+
+Class=UIHelpers
+Variant=C4
+Technique=RND
+Unit=uihelpers-c4-rnd
+Environment=NATIVE_JAVA25
+CompileStatus=PASS
+
+CEStatus=SUCCESS
+AnalysisId=ea486f43-e4b6-4681-94ff-3ba94c87cc6d
+AnalyzedFiles=2/2
+ComponentGate=PASS
+SourceHashGate=2/2 PASS
+
+NCLOC=434
+CodeSmells=183
+DistinctRules=7
+TechnicalDebtMinutes=1432
+
+Consistent=4
+Intentional=144
+Adaptable=35
+Responsible=0
+SemanticWarnings=0
+
+IssueScope=CODE_SMELL_AND_RESOLVED_FALSE
+ConvergenceAttempts=1
+TestEdits=No
+Regeneration=No
+Repair=No

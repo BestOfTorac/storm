@@ -1,0 +1,26 @@
+Class=org.apache.storm.redis.bolt.RedisFilterBolt
+Technique=T_LLM
+ValidationEnvironment=Storm 3.0.0 native
+RepositoryHEAD=611a496af8edc4a0d62191ff8a0f5ed70a789f9d
+Variants=4
+FrozenTests=44
+NativeValidSuites=4
+TestsFound=44
+TestsStarted=44
+TestsSuccessful=44
+TestsFailed=0
+TestsAborted=0
+FinalNativeValidity=PASS
+OriginalSummaryResult=FALSE_NEGATIVE
+RootCause=Original summary parser did not match the actual JUnit Platform Console output format
+ResolutionMethod=Read-only parsing of original execution logs
+GeneratedTestEdits=0
+Regeneration=No
+ReExecution=No
+CoverageRun=No
+PITRun=No
+
+C1: frozen=11; compile=PASS; found=11; started=11; successful=11; failed=0; native=PASS
+C2: frozen=11; compile=PASS; found=11; started=11; successful=11; failed=0; native=PASS
+C3: frozen=11; compile=PASS; found=11; started=11; successful=11; failed=0; native=PASS
+C4: frozen=11; compile=PASS; found=11; started=11; successful=11; failed=0; native=PASS

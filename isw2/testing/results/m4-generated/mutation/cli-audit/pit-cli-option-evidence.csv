@@ -1,0 +1,5 @@
+﻿"RelativePath","LineNumber","Pattern","Text"
+"isw2\testing\results\redis-filter-bolt\tllm\mutation\pit-cli-invalid-minion-run.txt","38","(?i)MutationCoverageReport","at org.pitest.mutationtest.commandline.MutationCoverageReport.runReport(MutationCoverageReport.java:109)"
+"isw2\testing\results\redis-filter-bolt\tllm\mutation\pit-cli-invalid-minion-run.txt","39","(?i)MutationCoverageReport","at org.pitest.mutationtest.commandline.MutationCoverageReport.main(MutationCoverageReport.java:46)"
+"isw2\testing\results\redis-filter-bolt\trnd\mutation\mutation.md","122","(?i)--mutableCodePaths","- `--mutableCodePaths` explicitly identifies the directory containing the"
+"isw2\testing\results\redis-filter-bolt\trnd\mutation\mutation.md","124","(?i)--classPath","- PIT CLI `--classPath` receives individual classpath entries separated by"

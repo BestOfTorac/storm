@@ -1,0 +1,88 @@
+ISW2 STORM FINAL 30-UNIT COVERAGE CONSOLIDATION
+
+RepositoryHEAD=611a496af8edc4a0d62191ff8a0f5ed70a789f9d
+MeasurementContractSHA256=22CC8A4E723F5C0AAF1B9105FB6587C11712C9E26641D4E2AC4DF7DFCCB03210
+
+Classes=2
+Variants=C0-C4
+Techniques=RND/ES/LLM
+Units=30
+
+CoverageComplete=20
+CoveragePartial=8
+CoverageUnavailable=2
+
+NativeUnits=20
+CompatibilityUnits=10
+
+FrozenTests=723
+TestsExecuted=653
+TestsPassed=620
+TestsFailed=33
+TestsNotExecuted=70
+
+EvidenceIntegrity=30/30
+
+ValidCiMinusC0Deltas=15/24
+UnavailableCiMinusC0Deltas=9/24
+
+RND=10 COMPLETE / 0 PARTIAL / 0 UNAVAILABLE
+LLM=6 COMPLETE / 2 PARTIAL / 2 UNAVAILABLE
+ES=4 COMPLETE / 6 PARTIAL / 0 UNAVAILABLE
+
+UIHelpers:
+  RND=5 COMPLETE
+  LLM=1 COMPLETE / 2 PARTIAL / 2 UNAVAILABLE
+  ES=5 PARTIAL
+
+RedisFilterBolt:
+  RND=5 COMPLETE
+  LLM=5 COMPLETE
+  ES=4 COMPLETE / 1 PARTIAL
+
+ImportantComparabilityRule:
+  Native and compatibility measurements remain explicitly separated.
+  Covered/total counts are retained because refactoring changes denominators.
+  PARTIAL coverage is diagnostic evidence and is not equivalent to COMPLETE coverage.
+  UNAVAILABLE means no valid dynamic coverage value exists.
+  Ci-C0 deltas are retained only where the same-technique baseline and variant are valid and comparable.
+
+InputRedisSHA256=A6E40AA0A7331892C0321EF9D3E5B3C52C07A5C2F942F3A36BBD4998E539245F
+InputUIRndSHA256=C021773ADCACCB7DD9BA8D841AE1BC2BFA5C580124AACE32924CE365B8428A48
+InputUILlmSHA256=25816FA64C78BB5DFAD1A54E6A959E0AC3BC51A1665E457A553F0001FD7BF384
+InputUIEsSHA256=D518C2BC29C8EB702F0AC69EBDD61095760756F645B05C83C2B575915C440BF4
+
+
+UIHelpers MATRIX:
+C0-RND: env=NATIVE; coverage=COMPLETE; tests=35/35 executed; pass=35; fail=0; LINE=115/1122 (10,2496%); BRANCH=30/242 (12,3967%); METHOD=32/122 (26,2295%); d=0/0/0
+C0-LLM: env=NATIVE; coverage=COMPLETE; tests=35/35 executed; pass=35; fail=0; LINE=80/1122 (7,1301%); BRANCH=37/242 (15,2893%); METHOD=17/122 (13,9344%); d=0/0/0
+C0-ES: env=COMPATIBILITY; coverage=PARTIAL; tests=43/43 executed; pass=40; fail=3; LINE=256/1112 (23,0216%); BRANCH=52/232 (22,4138%); METHOD=56/121 (46,281%); d=N/A/N/A/N/A
+C1-RND: env=NATIVE; coverage=COMPLETE; tests=35/35 executed; pass=35; fail=0; LINE=115/1117 (10,2954%); BRANCH=30/242 (12,3967%); METHOD=32/120 (26,6667%); d=0,0458/0/0,4372
+C1-LLM: env=NATIVE; coverage=N/A_COMPILE_BLOCKER; tests=0/35 executed; pass=0; fail=0; LINE=N/A/N/A (N/A%); BRANCH=N/A/N/A (N/A%); METHOD=N/A/N/A (N/A%); d=N/A/N/A/N/A
+C1-ES: env=COMPATIBILITY; coverage=PARTIAL; tests=43/43 executed; pass=41; fail=2; LINE=197/1117 (17,6365%); BRANCH=50/242 (20,6612%); METHOD=51/120 (42,5%); d=N/A/N/A/N/A
+C2-RND: env=NATIVE; coverage=COMPLETE; tests=35/35 executed; pass=35; fail=0; LINE=129/1116 (11,5591%); BRANCH=29/242 (11,9835%); METHOD=33/119 (27,7311%); d=1,3095/-0,4132/1,5016
+C2-LLM: env=NATIVE; coverage=PARTIAL; tests=35/35 executed; pass=34; fail=1; LINE=79/1116 (7,0789%); BRANCH=33/242 (13,6364%); METHOD=17/119 (14,2857%); d=N/A/N/A/N/A
+C2-ES: env=COMPATIBILITY; coverage=PARTIAL; tests=41/41 executed; pass=35; fail=6; LINE=228/1116 (20,4301%); BRANCH=54/242 (22,314%); METHOD=51/119 (42,8571%); d=N/A/N/A/N/A
+C3-RND: env=NATIVE; coverage=COMPLETE; tests=35/35 executed; pass=35; fail=0; LINE=115/1116 (10,3047%); BRANCH=30/242 (12,3967%); METHOD=32/120 (26,6667%); d=0,0551/0/0,4372
+C3-LLM: env=NATIVE; coverage=PARTIAL; tests=35/35 executed; pass=32; fail=3; LINE=97/1116 (8,6918%); BRANCH=38/242 (15,7025%); METHOD=21/120 (17,5%); d=N/A/N/A/N/A
+C3-ES: env=COMPATIBILITY; coverage=PARTIAL; tests=48/48 executed; pass=40; fail=8; LINE=253/1116 (22,6703%); BRANCH=62/242 (25,6198%); METHOD=53/120 (44,1667%); d=N/A/N/A/N/A
+C4-RND: env=NATIVE; coverage=COMPLETE; tests=35/35 executed; pass=35; fail=0; LINE=115/1116 (10,3047%); BRANCH=30/242 (12,3967%); METHOD=32/120 (26,6667%); d=0,0551/0/0,4372
+C4-LLM: env=NATIVE; coverage=N/A_COMPILE_BLOCKER; tests=0/35 executed; pass=0; fail=0; LINE=N/A/N/A (N/A%); BRANCH=N/A/N/A (N/A%); METHOD=N/A/N/A (N/A%); d=N/A/N/A/N/A
+C4-ES: env=COMPATIBILITY; coverage=PARTIAL; tests=45/45 executed; pass=38; fail=7; LINE=282/1116 (25,2688%); BRANCH=61/242 (25,2066%); METHOD=53/120 (44,1667%); d=N/A/N/A/N/A
+
+RedisFilterBolt MATRIX:
+C0-RND: env=NATIVE; coverage=COMPLETE; tests=11/11 executed; pass=11; fail=0; LINE=22/45 (48,8889%); BRANCH=1/21 (4,7619%); METHOD=4/4 (100%); d=0/0/0
+C0-LLM: env=NATIVE; coverage=COMPLETE; tests=11/11 executed; pass=11; fail=0; LINE=38/45 (84,4444%); BRANCH=17/21 (80,9524%); METHOD=3/4 (75%); d=0/0/0
+C0-ES: env=COMPATIBILITY; coverage=COMPLETE; tests=9/9 executed; pass=9; fail=0; LINE=16/45 (35,5556%); BRANCH=4/21 (19,0476%); METHOD=3/4 (75%); d=0/0/0
+C1-RND: env=NATIVE; coverage=COMPLETE; tests=11/11 executed; pass=11; fail=0; LINE=22/45 (48,8889%); BRANCH=1/21 (4,7619%); METHOD=4/4 (100%); d=0/0/0
+C1-LLM: env=NATIVE; coverage=COMPLETE; tests=11/11 executed; pass=11; fail=0; LINE=36/45 (80%); BRANCH=18/21 (85,7143%); METHOD=2/4 (50%); d=-4,4444/4,7619/-25
+C1-ES: env=COMPATIBILITY; coverage=COMPLETE; tests=8/8 executed; pass=8; fail=0; LINE=15/45 (33,3333%); BRANCH=3/21 (14,2857%); METHOD=3/4 (75%); d=-2.2223/-4.7619/0
+C2-RND: env=NATIVE; coverage=COMPLETE; tests=11/11 executed; pass=11; fail=0; LINE=23/39 (58,9744%); BRANCH=1/21 (4,7619%); METHOD=4/6 (66,6667%); d=10,0855/0/-33,3333
+C2-LLM: env=NATIVE; coverage=COMPLETE; tests=11/11 executed; pass=11; fail=0; LINE=31/39 (79,4872%); BRANCH=17/21 (80,9524%); METHOD=5/6 (83,3333%); d=-4,9572/0/8,3333
+C2-ES: env=COMPATIBILITY; coverage=PARTIAL; tests=9/9 executed; pass=6; fail=3; LINE=18/39 (46,1538%); BRANCH=4/21 (19,0476%); METHOD=3/6 (50%); d=N/A/N/A/N/A
+C3-RND: env=NATIVE; coverage=COMPLETE; tests=11/11 executed; pass=11; fail=0; LINE=25/43 (58,1395%); BRANCH=1/23 (4,3478%); METHOD=5/7 (71,4286%); d=9,2506/-0,4141/-28,5714
+C3-LLM: env=NATIVE; coverage=COMPLETE; tests=11/11 executed; pass=11; fail=0; LINE=35/43 (81,3953%); BRANCH=17/23 (73,913%); METHOD=6/7 (85,7143%); d=-3,0491/-7,0394/10,7143
+C3-ES: env=COMPATIBILITY; coverage=COMPLETE; tests=8/8 executed; pass=8; fail=0; LINE=19/43 (44,186%); BRANCH=3/23 (13,0435%); METHOD=4/7 (57,1429%); d=8.6304/-6.0041/-17.8571
+C4-RND: env=NATIVE; coverage=COMPLETE; tests=11/11 executed; pass=11; fail=0; LINE=25/44 (56,8182%); BRANCH=1/23 (4,3478%); METHOD=5/7 (71,4286%); d=7,9293/-0,4141/-28,5714
+C4-LLM: env=NATIVE; coverage=COMPLETE; tests=11/11 executed; pass=11; fail=0; LINE=36/44 (81,8182%); BRANCH=20/23 (86,9565%); METHOD=6/7 (85,7143%); d=-2,6262/6,0041/10,7143
+C4-ES: env=COMPATIBILITY; coverage=COMPLETE; tests=9/9 executed; pass=9; fail=0; LINE=19/44 (43,1818%); BRANCH=3/23 (13,0435%); METHOD=4/7 (57,1429%); d=7.6262/-6.0041/-17.8571

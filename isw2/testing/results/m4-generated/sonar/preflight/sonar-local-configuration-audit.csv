@@ -1,0 +1,3 @@
+﻿"Type","Key","Value","Source"
+"AUTH","SONAR_TOKEN","ABSENT","ENVIRONMENT_ONLY_VALUE_NOT_PRINTED"
+"SCANNER","sonar-scanner","NOT_FOUND",""

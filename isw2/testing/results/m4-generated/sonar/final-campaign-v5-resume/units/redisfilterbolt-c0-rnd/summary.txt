@@ -1,0 +1,29 @@
+ISW2 STORM SONARCLOUD FINAL UNIT V2
+
+Class=RedisFilterBolt
+Variant=C0
+Technique=RND
+Unit=redisfilterbolt-c0-rnd
+Environment=NATIVE_JAVA25
+CompileStatus=PASS
+
+CEStatus=SUCCESS
+AnalysisId=f838dc87-02d2-4e96-a2fc-e02e692a3ed1
+AnalyzedFiles=4/4
+ComponentGate=PASS
+SourceHashGate=4/4 PASS
+
+NCLOC=262
+CodeSmells=70
+DistinctRules=9
+TechnicalDebtMinutes=806
+
+Consistent=0
+Intentional=58
+Adaptable=12
+Responsible=0
+SemanticWarnings=0
+
+TestEdits=No
+Regeneration=No
+Repair=No

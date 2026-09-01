@@ -1,0 +1,2 @@
+﻿"Class","Suite","Profile","Tests","ProbabilityPerTest","Passed","Failures","Errors","Skipped","ReliabilityEstimate","EstimatedFailureProbability","Commit"
+"org.apache.storm.redis.bolt.RedisFilterBolt","T_BB+T_CF","Uniform over final test set","15","0.066666666667","15","0","0","0","1.000000","0.000000","611a496af8edc4a0d62191ff8a0f5ed70a789f9d"

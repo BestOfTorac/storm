@@ -1,0 +1,5 @@
+﻿"Variant","RawTests","Integrity","Production","TestCompile","Runtime","TestsRun","Passed","Failures","Status","Reason"
+"C1","8","PASS","PASS","PASS","FAIL (0/1 PASS; 1 failures)","1","0","1","FAIL","Native JUnit execution failed."
+"C2","9","PASS","PASS","PASS","FAIL (0/1 PASS; 1 failures)","1","0","1","FAIL","Native JUnit execution failed."
+"C3","8","PASS","PASS","PASS","FAIL (0/1 PASS; 1 failures)","1","0","1","FAIL","Native JUnit execution failed."
+"C4","9","PASS","PASS","PASS","FAIL (0/1 PASS; 1 failures)","1","0","1","FAIL","Native JUnit execution failed."

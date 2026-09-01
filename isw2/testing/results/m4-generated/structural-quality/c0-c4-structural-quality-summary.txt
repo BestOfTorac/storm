@@ -1,0 +1,59 @@
+ISW2 STORM C0-C4 AUTOMATIC-SUITE STRUCTURAL QUALITY
+
+RepositoryHEAD=611a496af8edc4a0d62191ff8a0f5ed70a789f9d
+MeasurementContractSHA256=22CC8A4E723F5C0AAF1B9105FB6587C11712C9E26641D4E2AC4DF7DFCCB03210
+Units=30
+UnitPass=30
+HashGatePass=30
+Tests=723
+LogicLOC=7952
+SupportLOC=16292
+TotalLOC=24244
+AssertionLike=994
+DescriptiveNames=230
+OpaqueNames=493
+TestExecution=No
+CoverageRun=No
+PITRun=No
+SonarRun=No
+GeneratedTestEdits=0
+OverallStatus=PASS
+
+C0 STRUCTURAL SOURCE RULES:
+UIHelpers RND = original generated Randoop source
+UIHelpers ES = raw 43-test generator output
+UIHelpers LLM = P2 official cross-technique baseline
+RedisFilterBolt RND = generated regression source only; generation helper directory excluded
+RedisFilterBolt ES = raw 9-test generator output
+RedisFilterBolt LLM = frozen baseline LLM source
+
+RedisFilterBolt C0 ES: tests=9; logicLOC=179; supportLOC=378; totalLOC=557; assertions=8; assertions/test=0,8889; descriptive=0; opaque=9; hash=PASS; status=PASS
+RedisFilterBolt C1 ES: tests=8; logicLOC=158; supportLOC=362; totalLOC=520; assertions=7; assertions/test=0,875; descriptive=0; opaque=8; hash=PASS; status=PASS
+RedisFilterBolt C2 ES: tests=9; logicLOC=173; supportLOC=215; totalLOC=388; assertions=8; assertions/test=0,8889; descriptive=0; opaque=9; hash=PASS; status=PASS
+RedisFilterBolt C3 ES: tests=8; logicLOC=154; supportLOC=492; totalLOC=646; assertions=7; assertions/test=0,875; descriptive=0; opaque=8; hash=PASS; status=PASS
+RedisFilterBolt C4 ES: tests=9; logicLOC=168; supportLOC=354; totalLOC=522; assertions=7; assertions/test=0,7778; descriptive=0; opaque=9; hash=PASS; status=PASS
+RedisFilterBolt C0 LLM: tests=11; logicLOC=168; supportLOC=0; totalLOC=168; assertions=30; assertions/test=2,7273; descriptive=11; opaque=0; hash=PASS; status=PASS
+RedisFilterBolt C1 LLM: tests=11; logicLOC=168; supportLOC=0; totalLOC=168; assertions=34; assertions/test=3,0909; descriptive=11; opaque=0; hash=PASS; status=PASS
+RedisFilterBolt C2 LLM: tests=11; logicLOC=181; supportLOC=0; totalLOC=181; assertions=35; assertions/test=3,1818; descriptive=11; opaque=0; hash=PASS; status=PASS
+RedisFilterBolt C3 LLM: tests=11; logicLOC=174; supportLOC=0; totalLOC=174; assertions=34; assertions/test=3,0909; descriptive=11; opaque=0; hash=PASS; status=PASS
+RedisFilterBolt C4 LLM: tests=11; logicLOC=174; supportLOC=0; totalLOC=174; assertions=33; assertions/test=3; descriptive=11; opaque=0; hash=PASS; status=PASS
+RedisFilterBolt C0 RND: tests=11; logicLOC=165; supportLOC=7; totalLOC=172; assertions=13; assertions/test=1,1818; descriptive=0; opaque=11; hash=PASS; status=PASS
+RedisFilterBolt C1 RND: tests=11; logicLOC=144; supportLOC=7; totalLOC=151; assertions=11; assertions/test=1; descriptive=0; opaque=11; hash=PASS; status=PASS
+RedisFilterBolt C2 RND: tests=11; logicLOC=144; supportLOC=7; totalLOC=151; assertions=11; assertions/test=1; descriptive=0; opaque=11; hash=PASS; status=PASS
+RedisFilterBolt C3 RND: tests=11; logicLOC=144; supportLOC=7; totalLOC=151; assertions=11; assertions/test=1; descriptive=0; opaque=11; hash=PASS; status=PASS
+RedisFilterBolt C4 RND: tests=11; logicLOC=144; supportLOC=7; totalLOC=151; assertions=11; assertions/test=1; descriptive=0; opaque=11; hash=PASS; status=PASS
+UIHelpers C0 ES: tests=43; logicLOC=451; supportLOC=3057; totalLOC=3508; assertions=40; assertions/test=0,9302; descriptive=0; opaque=43; hash=PASS; status=PASS
+UIHelpers C1 ES: tests=43; logicLOC=446; supportLOC=2763; totalLOC=3209; assertions=42; assertions/test=0,9767; descriptive=0; opaque=43; hash=PASS; status=PASS
+UIHelpers C2 ES: tests=41; logicLOC=416; supportLOC=2879; totalLOC=3295; assertions=40; assertions/test=0,9756; descriptive=0; opaque=41; hash=PASS; status=PASS
+UIHelpers C3 ES: tests=48; logicLOC=466; supportLOC=2845; totalLOC=3311; assertions=47; assertions/test=0,9792; descriptive=0; opaque=48; hash=PASS; status=PASS
+UIHelpers C4 ES: tests=45; logicLOC=452; supportLOC=2877; totalLOC=3329; assertions=42; assertions/test=0,9333; descriptive=0; opaque=45; hash=PASS; status=PASS
+UIHelpers C0 LLM: tests=35; logicLOC=333; supportLOC=0; totalLOC=333; assertions=41; assertions/test=1,1714; descriptive=35; opaque=0; hash=PASS; status=PASS
+UIHelpers C1 LLM: tests=35; logicLOC=211; supportLOC=0; totalLOC=211; assertions=48; assertions/test=1,3714; descriptive=35; opaque=0; hash=PASS; status=PASS
+UIHelpers C2 LLM: tests=35; logicLOC=188; supportLOC=0; totalLOC=188; assertions=40; assertions/test=1,1429; descriptive=35; opaque=0; hash=PASS; status=PASS
+UIHelpers C3 LLM: tests=35; logicLOC=208; supportLOC=0; totalLOC=208; assertions=51; assertions/test=1,4571; descriptive=35; opaque=0; hash=PASS; status=PASS
+UIHelpers C4 LLM: tests=35; logicLOC=188; supportLOC=0; totalLOC=188; assertions=45; assertions/test=1,2857; descriptive=35; opaque=0; hash=PASS; status=PASS
+UIHelpers C0 RND: tests=35; logicLOC=427; supportLOC=7; totalLOC=434; assertions=56; assertions/test=1,6; descriptive=0; opaque=35; hash=PASS; status=PASS
+UIHelpers C1 RND: tests=35; logicLOC=427; supportLOC=7; totalLOC=434; assertions=56; assertions/test=1,6; descriptive=0; opaque=35; hash=PASS; status=PASS
+UIHelpers C2 RND: tests=35; logicLOC=447; supportLOC=7; totalLOC=454; assertions=74; assertions/test=2,1143; descriptive=0; opaque=35; hash=PASS; status=PASS
+UIHelpers C3 RND: tests=35; logicLOC=427; supportLOC=7; totalLOC=434; assertions=56; assertions/test=1,6; descriptive=0; opaque=35; hash=PASS; status=PASS
+UIHelpers C4 RND: tests=35; logicLOC=427; supportLOC=7; totalLOC=434; assertions=56; assertions/test=1,6; descriptive=0; opaque=35; hash=PASS; status=PASS

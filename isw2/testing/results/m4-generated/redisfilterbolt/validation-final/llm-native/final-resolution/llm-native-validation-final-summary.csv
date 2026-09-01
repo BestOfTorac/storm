@@ -1,0 +1,5 @@
+﻿"Variant","FrozenTests","Integrity","ProductionCompile","TestCompile","TestsFound","TestsStarted","TestsSuccessful","TestsFailed","TestsAborted","NativeValidity","FinalStatus","Resolution","TestEdits","Regeneration","ReExecution","CoverageRun","PITRun"
+"C1","11","PASS","PASS","PASS","11","11","11","0","0","PASS","PASS","ORIGINAL_SUMMARY_PARSER_FALSE_NEGATIVE","0","NO","NO","NO","NO"
+"C2","11","PASS","PASS","PASS","11","11","11","0","0","PASS","PASS","ORIGINAL_SUMMARY_PARSER_FALSE_NEGATIVE","0","NO","NO","NO","NO"
+"C3","11","PASS","PASS","PASS","11","11","11","0","0","PASS","PASS","ORIGINAL_SUMMARY_PARSER_FALSE_NEGATIVE","0","NO","NO","NO","NO"
+"C4","11","PASS","PASS","PASS","11","11","11","0","0","PASS","PASS","ORIGINAL_SUMMARY_PARSER_FALSE_NEGATIVE","0","NO","NO","NO","NO"

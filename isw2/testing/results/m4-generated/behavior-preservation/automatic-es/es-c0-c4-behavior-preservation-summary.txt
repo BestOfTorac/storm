@@ -1,0 +1,43 @@
+ISW2 STORM EVOSUITE BEHAVIOR PRESERVATION V1
+
+RepositoryHEAD=611a496af8edc4a0d62191ff8a0f5ed70a789f9d
+MeasurementContractSHA256=22CC8A4E723F5C0AAF1B9105FB6587C11712C9E26641D4E2AC4DF7DFCCB03210
+C0InventorySHA256=3655BEA72227380527311E5FFFD6A3F11277235A811B93A498431BEB1662128E
+NativeAutoBehaviorSHA256=2DFA8236686FA9F83B134A71B57AD55B8304BB1E68AC9D4F36721DBAA6F64130
+
+Environment=Java 11.0.32 / Storm 2.7.1 compatibility
+EvoSuite=1.2.0
+JUnit=4.13.2
+
+FrozenSuites=2
+MatrixRows=10
+
+UIHelpersC0=40/43 PARTIAL
+UIHelpersPreservationClaim=NOT_PERMITTED
+UIHelpersC1C4NotAssessable=4/4
+
+RedisFilterBoltC0=9/9 COMPLETE
+RedisC1C4Preserved=4/4
+RedisC1C4NotPreserved=0/4
+RedisC1C4NotAssessable=0/4
+
+TestEdits=No
+Regeneration=No
+CoverageRun=No
+PITRun=No
+SonarRun=No
+
+UIHelpers:
+C0: outcome=FAIL; tests=40/43 pass; fail=3; relation=PARTIAL_BASELINE; preservation=NOT_ASSESSABLE
+C1: outcome=FAIL; tests=39/43 pass; fail=4; relation=DIFFERS_FROM_PARTIAL_BASELINE; preservation=NOT_ASSESSABLE
+C2: outcome=FAIL; tests=38/43 pass; fail=5; relation=DIFFERS_FROM_PARTIAL_BASELINE; preservation=NOT_ASSESSABLE
+C3: outcome=FAIL; tests=39/43 pass; fail=4; relation=DIFFERS_FROM_PARTIAL_BASELINE; preservation=NOT_ASSESSABLE
+C4: outcome=FAIL; tests=39/43 pass; fail=4; relation=DIFFERS_FROM_PARTIAL_BASELINE; preservation=NOT_ASSESSABLE
+
+RedisFilterBolt:
+C0: outcome=PASS; tests=9/9 pass; fail=0; relation=BASELINE; preservation=BASELINE_PASS
+C1: outcome=PASS; tests=9/9 pass; fail=0; relation=DIRECT_VALID_COMPARISON; preservation=PRESERVED
+C2: outcome=PASS; tests=9/9 pass; fail=0; relation=DIRECT_VALID_COMPARISON; preservation=PRESERVED
+C3: outcome=PASS; tests=9/9 pass; fail=0; relation=DIRECT_VALID_COMPARISON; preservation=PRESERVED
+C4: outcome=PASS; tests=9/9 pass; fail=0; relation=DIRECT_VALID_COMPARISON; preservation=PRESERVED
+

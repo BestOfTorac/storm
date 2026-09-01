@@ -1,0 +1,8 @@
+TargetClass=org.apache.storm.redis.bolt.RedisFilterBolt
+SurrogateMajor=55
+ExpectedMajor=55
+GenerationJava=11.0.32
+SafeClasspathEntries=41
+OriginalMRProblemAlreadyAuditedOnC1=true
+JacksonJava11Safe=true
+BcprovJava11Safe=true

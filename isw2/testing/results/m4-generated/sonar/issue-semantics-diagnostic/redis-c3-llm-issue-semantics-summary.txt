@@ -1,0 +1,23 @@
+ISW2 STORM SONARCLOUD ISSUE SEMANTICS DIAGNOSTIC V1
+
+RepositoryHEAD=611a496af8edc4a0d62191ff8a0f5ed70a789f9d
+ProjectKey=BestOfTorac_storm_m4_generated_suites
+Unit=RedisFilterBolt C3-LLM
+AnalysisId=9c373e95-3931-4a30-b403-e3ce20198bee
+CurrentAnalysisGate=PASS
+
+MetricCodeSmells=13
+LegacyTypesCodeSmell=13
+MaintainabilityImpact=13
+
+Intersection=13
+LegacyOnly=0
+MaintainabilityOnly=0
+
+MetricLegacyGate=True
+MetricMaintainabilityGate=True
+Conclusion=BOTH_MATCH
+
+SonarScan=No
+Compilation=No
+SourceEdit=No

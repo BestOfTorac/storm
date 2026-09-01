@@ -1,0 +1,5 @@
+﻿"Variant","FrozenTests","Integrity","Production","TestCompile","Runtime","Found","Started","Successful","Failed","Aborted","Status","Reason"
+"C1","11","PASS","PASS","PASS","FAIL (discovery/initialization)","0","0","0","0","0","FAIL","JUnit Jupiter native execution did not fully pass."
+"C2","11","PASS","PASS","PASS","FAIL (discovery/initialization)","0","0","0","0","0","FAIL","JUnit Jupiter native execution did not fully pass."
+"C3","11","PASS","PASS","PASS","FAIL (discovery/initialization)","0","0","0","0","0","FAIL","JUnit Jupiter native execution did not fully pass."
+"C4","11","PASS","PASS","PASS","FAIL (discovery/initialization)","0","0","0","0","0","FAIL","JUnit Jupiter native execution did not fully pass."

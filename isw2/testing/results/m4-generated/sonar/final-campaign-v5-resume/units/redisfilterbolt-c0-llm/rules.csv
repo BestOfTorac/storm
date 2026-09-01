@@ -1,0 +1,4 @@
+﻿"Class","Variant","Technique","Unit","RuleKey","RuleName","Type","Severity","CleanCodeAttribute","CleanCodeCategory","SoftwareQualityImpacts","IssueCount"
+"RedisFilterBolt","C0","LLM","redisfilterbolt-c0-llm","java:S110","Inheritance tree of classes should not be too deep","CODE_SMELL","MAJOR","FOCUSED","ADAPTABLE","MAINTAINABILITY:MEDIUM","1"
+"RedisFilterBolt","C0","LLM","redisfilterbolt-c0-llm","java:S1128","Unnecessary imports should be removed","CODE_SMELL","MINOR","CLEAR","INTENTIONAL","MAINTAINABILITY:LOW","1"
+"RedisFilterBolt","C0","LLM","redisfilterbolt-c0-llm","java:S1948","Fields in a ""Serializable"" class should either be transient or serializable","CODE_SMELL","CRITICAL","LOGICAL","INTENTIONAL","MAINTAINABILITY:HIGH","1"

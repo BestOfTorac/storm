@@ -1,0 +1,4 @@
+﻿"FailureNumber","TestMethod","Category","PrimaryException","RelevantFrame"
+"1","test0","EVOSUITE_RUNTIME_SCAFFOLDING_FAILURE","org.junit.TestCouldNotBeSkippedException: Test could not be skipped due to other failures","at org.evosuite.runtime.vnet.NonFunctionalRequirementRule$1.evaluate(NonFunctionalRequirementRule.java:41)"
+"2","test0","INITIALIZATION_OR_SCAFFOLDING_FAILURE","java.lang.ExceptionInInitializerError","at org.evosuite.runtime.classhandling.ClassResetter.reset(ClassResetter.java:159)"
+"3","test1","TEST_RUNTIME_EXCEPTION","java.lang.IllegalStateException: Trying to set up the sandbox while executing a test case","at org.evosuite.runtime.sandbox.MSecurityManager.goingToExecuteTestCase(MSecurityManager.java:339)"

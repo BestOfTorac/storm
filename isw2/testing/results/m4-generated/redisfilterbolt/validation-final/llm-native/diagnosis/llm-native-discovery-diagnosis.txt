@@ -1,0 +1,23 @@
+Class=org.apache.storm.redis.bolt.RedisFilterBolt
+Technique=T_LLM
+ValidationEnvironment=Storm 3.0.0 native
+RepositoryHEAD=611a496af8edc4a0d62191ff8a0f5ed70a789f9d
+Variants=4
+CompiledTestClassesFound=4
+JupiterAnnotationsPresent=4
+SelectorFailures=0
+EngineFailures=0
+ActualTestsFound=44
+ActualTestsStarted=44
+ActualTestsSuccessful=44
+CommonCategory=ORIGINAL_SUMMARY_PARSER_FALSE_NEGATIVE
+GeneratedTestEdits=0
+Regeneration=No
+ReExecution=No
+CoverageRun=No
+PITRun=No
+
+C1: class=YES; annotation=YES; found=11; started=11; category=ORIGINAL_SUMMARY_PARSER_FALSE_NEGATIVE; error=-
+C2: class=YES; annotation=YES; found=11; started=11; category=ORIGINAL_SUMMARY_PARSER_FALSE_NEGATIVE; error=-
+C3: class=YES; annotation=YES; found=11; started=11; category=ORIGINAL_SUMMARY_PARSER_FALSE_NEGATIVE; error=-
+C4: class=YES; annotation=YES; found=11; started=11; category=ORIGINAL_SUMMARY_PARSER_FALSE_NEGATIVE; error=-

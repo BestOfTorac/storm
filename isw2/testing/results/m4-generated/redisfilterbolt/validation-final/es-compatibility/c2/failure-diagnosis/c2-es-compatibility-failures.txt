@@ -1,0 +1,23 @@
+Class=org.apache.storm.redis.bolt.RedisFilterBolt
+Variant=C2
+Technique=T_ES
+EnvironmentType=COMPATIBILITY
+Java=11.0.32
+Storm=2.7.1
+EvoSuite=1.2.0
+TestsRun=9
+TestsPassed=6
+Failures=3
+AssertionOracleFailures=0
+RuntimeTestFailures=1
+FrameworkOrScaffoldingFailures=2
+CommonCategory=MIXED
+GeneratedTestEdits=0
+Regeneration=No
+ReExecution=No
+CoverageRun=No
+PITRun=No
+
+Failure 1: test=test0; category=EVOSUITE_RUNTIME_SCAFFOLDING_FAILURE; exception=org.junit.TestCouldNotBeSkippedException: Test could not be skipped due to other failures; frame=at org.evosuite.runtime.vnet.NonFunctionalRequirementRule$1.evaluate(NonFunctionalRequirementRule.java:41)
+Failure 2: test=test0; category=INITIALIZATION_OR_SCAFFOLDING_FAILURE; exception=java.lang.ExceptionInInitializerError; frame=at org.evosuite.runtime.classhandling.ClassResetter.reset(ClassResetter.java:159)
+Failure 3: test=test1; category=TEST_RUNTIME_EXCEPTION; exception=java.lang.IllegalStateException: Trying to set up the sandbox while executing a test case; frame=at org.evosuite.runtime.sandbox.MSecurityManager.goingToExecuteTestCase(MSecurityManager.java:339)

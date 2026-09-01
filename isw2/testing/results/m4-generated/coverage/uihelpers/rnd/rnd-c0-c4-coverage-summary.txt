@@ -1,0 +1,26 @@
+UIHELPERS RND C0-C4 FINAL JACOCO COVERAGE
+
+RepositoryHEAD=611a496af8edc4a0d62191ff8a0f5ed70a789f9d
+Technique=RND
+Environment=Storm 3.0.0 / Java 25
+Java=25.0.4
+JaCoCo=0.8.15
+AgentSHA256=FB5B0036A0899EA97EDFA0FC2C7985B55F3F7C5695028163E5E60D4F3CF6075D
+CliSHA256=D2B74B20B415163C1F53261E7C5EF4445B788327094208FF821E0C2BAF9BC8F1
+Variants=5
+TestsPerVariant=35
+AllTestsPassed=175/175
+FrozenHashGates=5/5
+HistoricalC0Reproduction=PASS
+HistoricalC0Lines=115/1122
+HistoricalC0Branches=30/242
+HistoricalC0Methods=32/122
+GeneratedTestEdits=0
+PITRun=No
+SonarRun=No
+
+C0: line=115/1122 (10,2496%); branch=30/242 (12,3967%); method=32/122 (26,2295%); dLine=0pp; dBranch=0pp; dMethod=0pp
+C1: line=115/1117 (10,2954%); branch=30/242 (12,3967%); method=32/120 (26,6667%); dLine=0,0458pp; dBranch=0pp; dMethod=0,4372pp
+C2: line=129/1116 (11,5591%); branch=29/242 (11,9835%); method=33/119 (27,7311%); dLine=1,3095pp; dBranch=-0,4132pp; dMethod=1,5016pp
+C3: line=115/1116 (10,3047%); branch=30/242 (12,3967%); method=32/120 (26,6667%); dLine=0,0551pp; dBranch=0pp; dMethod=0,4372pp
+C4: line=115/1116 (10,3047%); branch=30/242 (12,3967%); method=32/120 (26,6667%); dLine=0,0551pp; dBranch=0pp; dMethod=0,4372pp

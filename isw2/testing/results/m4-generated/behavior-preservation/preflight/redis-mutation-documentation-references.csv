@@ -1,0 +1,4 @@
+﻿"File","RelativePath","LineNumber","Text"
+"mutation.md","isw2\testing\results\redis-filter-bolt\tes\mutation\mutation.md","1","# RedisFilterBolt - T_ES mutation testing"
+"mutation.md","isw2\testing\results\redis-filter-bolt\tllm\mutation\mutation.md","1","# RedisFilterBolt T_LLM - Mutation testing"
+"mutation.md","isw2\testing\results\redis-filter-bolt\trnd\mutation\mutation.md","1","# RedisFilterBolt T_RND — mutation testing"

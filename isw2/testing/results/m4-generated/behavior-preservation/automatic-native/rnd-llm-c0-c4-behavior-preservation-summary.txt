@@ -1,0 +1,54 @@
+ISW2 STORM AUTO BEHAVIOR PRESERVATION RND+LLM V2
+
+RepositoryHEAD=611a496af8edc4a0d62191ff8a0f5ed70a789f9d
+MeasurementContractSHA256=22CC8A4E723F5C0AAF1B9105FB6587C11712C9E26641D4E2AC4DF7DFCCB03210
+C0InventorySHA256=3655BEA72227380527311E5FFFD6A3F11277235A811B93A498431BEB1662128E
+CoverageMatrixSHA256=D830A30C00928C10498B66BE129CF1A2C90D0B20747449DC38F214E295A20691
+ManualBehaviorMatrixSHA256=8C7966951B915C6D3F57779009831FAA5A60E7002E61BFEEF190D8391726F619
+
+Environment=Storm 3.0.0 / Java 25.0.4
+RNDFramework=JUnit 4.13.2
+LLMFramework=JUnit Platform 6.1.1
+MockitoAgent=5.23.0
+
+HarnessFix1=Declared Java class used instead of physical filename
+HarnessFix2=Redis RND external test fixture support compiled
+RedisRNDSupportFiles=2
+
+MatrixRows=20
+C0Baselines=4/4 PASS
+C1C4Rows=16
+Preserved=16
+NotPreserved=0
+NotAssessable=0
+
+TestEdits=No
+Regeneration=No
+CoverageRun=No
+PITRun=No
+SonarRun=No
+
+UIHelpers:
+C0-RND: outcome=PASS; compile=PASS/PASS; found=35; started=35; pass=35/35; fail=0; preservation=BASELINE_PASS
+C0-LLM: outcome=PASS; compile=PASS/PASS; found=35; started=35; pass=35/35; fail=0; preservation=BASELINE_PASS
+C1-RND: outcome=PASS; compile=PASS/PASS; found=35; started=35; pass=35/35; fail=0; preservation=PRESERVED
+C1-LLM: outcome=PASS; compile=PASS/PASS; found=35; started=35; pass=35/35; fail=0; preservation=PRESERVED
+C2-RND: outcome=PASS; compile=PASS/PASS; found=35; started=35; pass=35/35; fail=0; preservation=PRESERVED
+C2-LLM: outcome=PASS; compile=PASS/PASS; found=35; started=35; pass=35/35; fail=0; preservation=PRESERVED
+C3-RND: outcome=PASS; compile=PASS/PASS; found=35; started=35; pass=35/35; fail=0; preservation=PRESERVED
+C3-LLM: outcome=PASS; compile=PASS/PASS; found=35; started=35; pass=35/35; fail=0; preservation=PRESERVED
+C4-RND: outcome=PASS; compile=PASS/PASS; found=35; started=35; pass=35/35; fail=0; preservation=PRESERVED
+C4-LLM: outcome=PASS; compile=PASS/PASS; found=35; started=35; pass=35/35; fail=0; preservation=PRESERVED
+
+RedisFilterBolt:
+C0-RND: outcome=PASS; compile=PASS/PASS; found=11; started=11; pass=11/11; fail=0; preservation=BASELINE_PASS
+C0-LLM: outcome=PASS; compile=PASS/PASS; found=11; started=11; pass=11/11; fail=0; preservation=BASELINE_PASS
+C1-RND: outcome=PASS; compile=PASS/PASS; found=11; started=11; pass=11/11; fail=0; preservation=PRESERVED
+C1-LLM: outcome=PASS; compile=PASS/PASS; found=11; started=11; pass=11/11; fail=0; preservation=PRESERVED
+C2-RND: outcome=PASS; compile=PASS/PASS; found=11; started=11; pass=11/11; fail=0; preservation=PRESERVED
+C2-LLM: outcome=PASS; compile=PASS/PASS; found=11; started=11; pass=11/11; fail=0; preservation=PRESERVED
+C3-RND: outcome=PASS; compile=PASS/PASS; found=11; started=11; pass=11/11; fail=0; preservation=PRESERVED
+C3-LLM: outcome=PASS; compile=PASS/PASS; found=11; started=11; pass=11/11; fail=0; preservation=PRESERVED
+C4-RND: outcome=PASS; compile=PASS/PASS; found=11; started=11; pass=11/11; fail=0; preservation=PRESERVED
+C4-LLM: outcome=PASS; compile=PASS/PASS; found=11; started=11; pass=11/11; fail=0; preservation=PRESERVED
+

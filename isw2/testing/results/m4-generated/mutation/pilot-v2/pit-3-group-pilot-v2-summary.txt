@@ -1,0 +1,24 @@
+ISW2 STORM FINAL PIT 3-GROUP PILOT V2
+
+RepositoryHEAD=611a496af8edc4a0d62191ff8a0f5ed70a789f9d
+PIT=1.25.8
+PITJUnit5Plugin=1.2.3
+JUnitConsole=6.1.1
+JUnitConsoleSHA256=7B16416E5727C645105C31B533440397F20DF68F6AE850C6BFD0CE1D88DB66C3
+Java25=25.0.4
+Java11=11.0.32
+
+PilotUnits=3
+BaselinePASS=3/3
+PitExitZero=3/3
+Reports=3/3
+ReachedPositive=3/3
+NativePopulationIdentity=PASS
+
+TestEdits=No
+Regeneration=No
+MutationGuidedRepair=No
+
+ES: env=JAVA11_STORM271_COMPAT; total=12; killed=2; survived=1; noCoverage=9; timedOut=0; other=0; reached=3; MS=16,6667%; TS=66,6667%; population=590BC642112AF4D4CD042926A687F5032FA13425891F926067FBB2533E1D3B32
+LLM: env=JAVA25_STORM300_NATIVE; total=12; killed=9; survived=3; noCoverage=0; timedOut=0; other=0; reached=12; MS=75%; TS=75%; population=590BC642112AF4D4CD042926A687F5032FA13425891F926067FBB2533E1D3B32
+RND: env=JAVA25_STORM300_NATIVE; total=12; killed=0; survived=4; noCoverage=8; timedOut=0; other=0; reached=4; MS=0%; TS=0%; population=590BC642112AF4D4CD042926A687F5032FA13425891F926067FBB2533E1D3B32

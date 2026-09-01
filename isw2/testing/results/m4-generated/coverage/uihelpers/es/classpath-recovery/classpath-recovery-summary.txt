@@ -1,0 +1,36 @@
+UIHELPERS ES ORIGINAL CLASSPATH RECOVERY V3
+
+RepositoryHEAD=611a496af8edc4a0d62191ff8a0f5ed70a789f9d
+MeasurementContractSHA256=22CC8A4E723F5C0AAF1B9105FB6587C11712C9E26641D4E2AC4DF7DFCCB03210
+TextFilesScanned=154
+ClasspathCandidates=24
+ExactHistoricalShapeCandidates=0
+DistinctJava11SafeJarNames=0
+MissingExactClasspathJars=0
+SelectedSurrogates=4/4
+TestExecution=No
+CoverageRun=No
+Compilation=No
+Regeneration=No
+FileReconstruction=No
+
+
+BEST_COMPATIBILITY_CANDIDATES:
+CANDIDATE: jars=159; existing=159; missing=0; safe=0; file=isw2\testing\target\m4-generated\uihelpers\c1\es\storm-271-classpath.txt; line=1
+CANDIDATE: jars=159; existing=159; missing=0; safe=0; file=isw2\testing\target\m4-generated\uihelpers\c4\es\evosuite-java11-classpath.txt; line=1
+CANDIDATE: jars=159; existing=159; missing=0; safe=0; file=isw2\testing\target\m4-generated\uihelpers\c3\es\evosuite-java11-classpath.txt; line=1
+CANDIDATE: jars=159; existing=159; missing=0; safe=0; file=isw2\testing\target\m4-generated\uihelpers\c2\es\evosuite-java11-classpath.txt; line=1
+CANDIDATE: jars=159; existing=159; missing=0; safe=0; file=isw2\testing\target\m4-generated\uihelpers\c1\es\evosuite-java11-classpath.txt; line=1
+CANDIDATE: jars=157; existing=157; missing=0; safe=0; file=isw2\testing\target\m4-generated\uihelpers\c1\es\storm-271-classpath-before-c0-alignment.txt; line=1
+CANDIDATE: jars=157; existing=157; missing=0; safe=0; file=isw2\testing\target\m4-generated\uihelpers\c1\es\evosuite-project-classpath.txt; line=1
+CANDIDATE: jars=1; existing=1; missing=0; safe=0; file=isw2\testing\results\m4-generated\uihelpers\c1\es\raw\evosuite-generation.log; line=7
+CANDIDATE: jars=1; existing=1; missing=0; safe=0; file=isw2\testing\results\m4-generated\uihelpers\c1\es\raw\evosuite-generation-final-v2.log; line=7
+CANDIDATE: jars=1; existing=1; missing=0; safe=0; file=isw2\testing\results\m4-generated\uihelpers\c4\es\raw\evosuite-generation.log; line=7
+
+JAVA11_SAFE_REFERENCES:
+
+SELECTED_SURROGATES:
+C1: SHA256=19E85EBCA40A2820602E361D7C9F2D7F52FF0D36E354069774004B13689685E5; path=isw2\testing\target\m4-generated\uihelpers\c1\es\surrogate-classes\org\apache\storm\daemon\ui\UIHelpers.class
+C2: SHA256=2EA313F2D0DE5521FA91C30C2F7E249B54AE6868699B5816C624F73F378C6E8F; path=isw2\testing\target\m4-generated\uihelpers\c2\es\surrogate-classes\org\apache\storm\daemon\ui\UIHelpers.class
+C3: SHA256=916FF84B9D48B1189D8D15382B6601B846E3ED2AC2B565AE03BD3B4E8BEC5413; path=isw2\testing\target\m4-generated\uihelpers\c3\es\surrogate-classes\org\apache\storm\daemon\ui\UIHelpers.class
+C4: SHA256=1826F30CC85BE331BC1CA563C939D48229ABD7446C4B0D48F2360EAA1BE2F5D8; path=isw2\testing\target\m4-generated\uihelpers\c4\es\surrogate-classes\org\apache\storm\daemon\ui\UIHelpers.class

@@ -1,0 +1,38 @@
+ISW2 STORM C1-C4 STRUCTURAL DELTAS VS C0
+
+RepositoryHEAD=611a496af8edc4a0d62191ff8a0f5ed70a789f9d
+MeasurementContractSHA256=22CC8A4E723F5C0AAF1B9105FB6587C11712C9E26641D4E2AC4DF7DFCCB03210
+InputStructuralDatasetSHA256=62269CBF897EC839922F14FC54C72B622028317140ACA8603D07CA4EBF25DF1A
+DeltaDefinition=Ci-C0
+DeltaRows=24
+Comparability=PASS
+TestExecution=No
+CoverageRun=No
+PITRun=No
+SonarRun=No
+GeneratedTestEdits=0
+
+RedisFilterBolt ES C1: dTests=-1; dLogicLOC=-21; dSupportLOC=-16; dTotalLOC=-37; dAssertions=-1; dAssertions/Test=-0,0139; dDescriptivePctPoints=0
+RedisFilterBolt ES C2: dTests=0; dLogicLOC=-6; dSupportLOC=-163; dTotalLOC=-169; dAssertions=0; dAssertions/Test=0; dDescriptivePctPoints=0
+RedisFilterBolt ES C3: dTests=-1; dLogicLOC=-25; dSupportLOC=114; dTotalLOC=89; dAssertions=-1; dAssertions/Test=-0,0139; dDescriptivePctPoints=0
+RedisFilterBolt ES C4: dTests=0; dLogicLOC=-11; dSupportLOC=-24; dTotalLOC=-35; dAssertions=-1; dAssertions/Test=-0,1111; dDescriptivePctPoints=0
+RedisFilterBolt LLM C1: dTests=0; dLogicLOC=0; dSupportLOC=0; dTotalLOC=0; dAssertions=4; dAssertions/Test=0,3636; dDescriptivePctPoints=0
+RedisFilterBolt LLM C2: dTests=0; dLogicLOC=13; dSupportLOC=0; dTotalLOC=13; dAssertions=5; dAssertions/Test=0,4545; dDescriptivePctPoints=0
+RedisFilterBolt LLM C3: dTests=0; dLogicLOC=6; dSupportLOC=0; dTotalLOC=6; dAssertions=4; dAssertions/Test=0,3636; dDescriptivePctPoints=0
+RedisFilterBolt LLM C4: dTests=0; dLogicLOC=6; dSupportLOC=0; dTotalLOC=6; dAssertions=3; dAssertions/Test=0,2727; dDescriptivePctPoints=0
+RedisFilterBolt RND C1: dTests=0; dLogicLOC=-21; dSupportLOC=0; dTotalLOC=-21; dAssertions=-2; dAssertions/Test=-0,1818; dDescriptivePctPoints=0
+RedisFilterBolt RND C2: dTests=0; dLogicLOC=-21; dSupportLOC=0; dTotalLOC=-21; dAssertions=-2; dAssertions/Test=-0,1818; dDescriptivePctPoints=0
+RedisFilterBolt RND C3: dTests=0; dLogicLOC=-21; dSupportLOC=0; dTotalLOC=-21; dAssertions=-2; dAssertions/Test=-0,1818; dDescriptivePctPoints=0
+RedisFilterBolt RND C4: dTests=0; dLogicLOC=-21; dSupportLOC=0; dTotalLOC=-21; dAssertions=-2; dAssertions/Test=-0,1818; dDescriptivePctPoints=0
+UIHelpers ES C1: dTests=0; dLogicLOC=-5; dSupportLOC=-294; dTotalLOC=-299; dAssertions=2; dAssertions/Test=0,0465; dDescriptivePctPoints=0
+UIHelpers ES C2: dTests=-2; dLogicLOC=-35; dSupportLOC=-178; dTotalLOC=-213; dAssertions=0; dAssertions/Test=0,0454; dDescriptivePctPoints=0
+UIHelpers ES C3: dTests=5; dLogicLOC=15; dSupportLOC=-212; dTotalLOC=-197; dAssertions=7; dAssertions/Test=0,049; dDescriptivePctPoints=0
+UIHelpers ES C4: dTests=2; dLogicLOC=1; dSupportLOC=-180; dTotalLOC=-179; dAssertions=2; dAssertions/Test=0,0031; dDescriptivePctPoints=0
+UIHelpers LLM C1: dTests=0; dLogicLOC=-122; dSupportLOC=0; dTotalLOC=-122; dAssertions=7; dAssertions/Test=0,2; dDescriptivePctPoints=0
+UIHelpers LLM C2: dTests=0; dLogicLOC=-145; dSupportLOC=0; dTotalLOC=-145; dAssertions=-1; dAssertions/Test=-0,0285; dDescriptivePctPoints=0
+UIHelpers LLM C3: dTests=0; dLogicLOC=-125; dSupportLOC=0; dTotalLOC=-125; dAssertions=10; dAssertions/Test=0,2857; dDescriptivePctPoints=0
+UIHelpers LLM C4: dTests=0; dLogicLOC=-145; dSupportLOC=0; dTotalLOC=-145; dAssertions=4; dAssertions/Test=0,1143; dDescriptivePctPoints=0
+UIHelpers RND C1: dTests=0; dLogicLOC=0; dSupportLOC=0; dTotalLOC=0; dAssertions=0; dAssertions/Test=0; dDescriptivePctPoints=0
+UIHelpers RND C2: dTests=0; dLogicLOC=20; dSupportLOC=0; dTotalLOC=20; dAssertions=18; dAssertions/Test=0,5143; dDescriptivePctPoints=0
+UIHelpers RND C3: dTests=0; dLogicLOC=0; dSupportLOC=0; dTotalLOC=0; dAssertions=0; dAssertions/Test=0; dDescriptivePctPoints=0
+UIHelpers RND C4: dTests=0; dLogicLOC=0; dSupportLOC=0; dTotalLOC=0; dAssertions=0; dAssertions/Test=0; dDescriptivePctPoints=0

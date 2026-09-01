@@ -1,0 +1,65 @@
+ISW2 STORM MANUAL BEHAVIOR PRESERVATION V2
+
+RepositoryHEAD=611a496af8edc4a0d62191ff8a0f5ed70a789f9d
+MeasurementContractSHA256=22CC8A4E723F5C0AAF1B9105FB6587C11712C9E26641D4E2AC4DF7DFCCB03210
+C0InventorySHA256=3655BEA72227380527311E5FFFD6A3F11277235A811B93A498431BEB1662128E
+C0SuiteSummarySHA256=8EF172A350F1CFB2AD94780BEDE793DEE9D5FCDCED82344D6FAFAF0B3CAF64B7
+
+Environment=Storm 3.0.0 / Java 25.0.4
+JUnitPlatformConsole=6.1.1
+
+LogicalRows=30
+ActualExecutions=25
+RedisMTAliasRows=5
+C0Baselines=6/6 PASS
+
+UIHelpersTBB=35
+UIHelpersTCF=45 cumulative
+UIHelpersTMT=53 cumulative
+RedisFilterBoltTBB=11
+RedisFilterBoltTCF=15 cumulative
+RedisFilterBoltTMT=15 logical alias of T_CF
+
+C1C4Preserved=21/24
+C1C4NotPreserved=3/24
+C1C4NotAssessable=0/24
+
+TestEdits=No
+CoverageRun=No
+PITRun=No
+SonarRun=No
+
+UIHelpers:
+C0-BB: outcome=PASS; found=35; started=35; pass=35/35; fail=0; aborted=0; preservation=BASELINE_PASS; alias=-
+C0-CF: outcome=PASS; found=45; started=45; pass=45/45; fail=0; aborted=0; preservation=BASELINE_PASS; alias=-
+C0-MT: outcome=PASS; found=53; started=53; pass=53/53; fail=0; aborted=0; preservation=BASELINE_PASS; alias=-
+C1-BB: outcome=PASS; found=35; started=35; pass=35/35; fail=0; aborted=0; preservation=PRESERVED; alias=-
+C1-CF: outcome=PASS; found=45; started=45; pass=45/45; fail=0; aborted=0; preservation=PRESERVED; alias=-
+C1-MT: outcome=FAIL; found=53; started=53; pass=52/53; fail=1; aborted=0; preservation=NOT_PRESERVED; alias=-
+C2-BB: outcome=PASS; found=35; started=35; pass=35/35; fail=0; aborted=0; preservation=PRESERVED; alias=-
+C2-CF: outcome=PASS; found=45; started=45; pass=45/45; fail=0; aborted=0; preservation=PRESERVED; alias=-
+C2-MT: outcome=FAIL; found=53; started=53; pass=52/53; fail=1; aborted=0; preservation=NOT_PRESERVED; alias=-
+C3-BB: outcome=PASS; found=35; started=35; pass=35/35; fail=0; aborted=0; preservation=PRESERVED; alias=-
+C3-CF: outcome=PASS; found=45; started=45; pass=45/45; fail=0; aborted=0; preservation=PRESERVED; alias=-
+C3-MT: outcome=PASS; found=53; started=53; pass=53/53; fail=0; aborted=0; preservation=PRESERVED; alias=-
+C4-BB: outcome=PASS; found=35; started=35; pass=35/35; fail=0; aborted=0; preservation=PRESERVED; alias=-
+C4-CF: outcome=PASS; found=45; started=45; pass=45/45; fail=0; aborted=0; preservation=PRESERVED; alias=-
+C4-MT: outcome=FAIL; found=53; started=53; pass=52/53; fail=1; aborted=0; preservation=NOT_PRESERVED; alias=-
+
+RedisFilterBolt:
+C0-BB: outcome=PASS; found=11; started=11; pass=11/11; fail=0; aborted=0; preservation=BASELINE_PASS; alias=-
+C0-CF: outcome=PASS; found=15; started=15; pass=15/15; fail=0; aborted=0; preservation=BASELINE_PASS; alias=-
+C0-MT: outcome=PASS; found=15; started=15; pass=15/15; fail=0; aborted=0; preservation=BASELINE_PASS; alias=CF
+C1-BB: outcome=PASS; found=11; started=11; pass=11/11; fail=0; aborted=0; preservation=PRESERVED; alias=-
+C1-CF: outcome=PASS; found=15; started=15; pass=15/15; fail=0; aborted=0; preservation=PRESERVED; alias=-
+C1-MT: outcome=PASS; found=15; started=15; pass=15/15; fail=0; aborted=0; preservation=PRESERVED; alias=CF
+C2-BB: outcome=PASS; found=11; started=11; pass=11/11; fail=0; aborted=0; preservation=PRESERVED; alias=-
+C2-CF: outcome=PASS; found=15; started=15; pass=15/15; fail=0; aborted=0; preservation=PRESERVED; alias=-
+C2-MT: outcome=PASS; found=15; started=15; pass=15/15; fail=0; aborted=0; preservation=PRESERVED; alias=CF
+C3-BB: outcome=PASS; found=11; started=11; pass=11/11; fail=0; aborted=0; preservation=PRESERVED; alias=-
+C3-CF: outcome=PASS; found=15; started=15; pass=15/15; fail=0; aborted=0; preservation=PRESERVED; alias=-
+C3-MT: outcome=PASS; found=15; started=15; pass=15/15; fail=0; aborted=0; preservation=PRESERVED; alias=CF
+C4-BB: outcome=PASS; found=11; started=11; pass=11/11; fail=0; aborted=0; preservation=PRESERVED; alias=-
+C4-CF: outcome=PASS; found=15; started=15; pass=15/15; fail=0; aborted=0; preservation=PRESERVED; alias=-
+C4-MT: outcome=PASS; found=15; started=15; pass=15/15; fail=0; aborted=0; preservation=PRESERVED; alias=CF
+

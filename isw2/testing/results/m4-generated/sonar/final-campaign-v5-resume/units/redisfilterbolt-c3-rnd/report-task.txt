@@ -1,0 +1,7 @@
+organization=sdrogo
+projectKey=BestOfTorac_storm_m4_generated_suites
+serverUrl=https://sonarcloud.io
+serverVersion=8.0.0.103376
+dashboardUrl=https://sonarcloud.io/dashboard?id=BestOfTorac_storm_m4_generated_suites
+ceTaskId=AaBc5QuRdF9zsU6OpXYk
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AaBc5QuRdF9zsU6OpXYk

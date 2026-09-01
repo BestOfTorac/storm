@@ -1,0 +1,12 @@
+RedisFilterBolt.java,org.apache.storm.redis.bolt.RedisFilterBolt,org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE,<init>,61,KILLED,org.apache.storm.redis.bolt.RedisFilterBolt_ESTest
+RedisFilterBolt.java,org.apache.storm.redis.bolt.RedisFilterBolt,org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE,<init>,61,KILLED,org.apache.storm.redis.bolt.RedisFilterBolt_ESTest
+RedisFilterBolt.java,org.apache.storm.redis.bolt.RedisFilterBolt,org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator,declareOutputFields,146,SURVIVED,none
+RedisFilterBolt.java,org.apache.storm.redis.bolt.RedisFilterBolt,org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator,process,112,NO_COVERAGE,none
+RedisFilterBolt.java,org.apache.storm.redis.bolt.RedisFilterBolt,org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE,process,108,NO_COVERAGE,none
+RedisFilterBolt.java,org.apache.storm.redis.bolt.RedisFilterBolt,org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE,process,117,NO_COVERAGE,none
+RedisFilterBolt.java,org.apache.storm.redis.bolt.RedisFilterBolt,org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE,process,117,NO_COVERAGE,none
+RedisFilterBolt.java,org.apache.storm.redis.bolt.RedisFilterBolt,org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE,process,130,NO_COVERAGE,none
+RedisFilterBolt.java,org.apache.storm.redis.bolt.RedisFilterBolt,org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_ELSE,process,112,NO_COVERAGE,none
+RedisFilterBolt.java,org.apache.storm.redis.bolt.RedisFilterBolt,org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator,process,134,NO_COVERAGE,none
+RedisFilterBolt.java,org.apache.storm.redis.bolt.RedisFilterBolt,org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator,process,136,NO_COVERAGE,none
+RedisFilterBolt.java,org.apache.storm.redis.bolt.RedisFilterBolt,org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator,process,137,NO_COVERAGE,none

@@ -1,0 +1,36 @@
+REDISFILTERBOLT ES C0-C4 JACOCO COMPATIBILITY COVERAGE
+
+RepositoryHEAD=611a496af8edc4a0d62191ff8a0f5ed70a789f9d
+Technique=ES
+Environment=COMPATIBILITY
+Java=11.0.32
+Storm=2.7.1
+EvoSuite=1.2.0
+JaCoCo=0.8.15
+JaCoCoMode=OFFLINE
+CompatibilityClasspathEntries=41
+CompatibilityClasspathSHA256=C99A99973EC78C6FF523FD31C007D11E5B00C34540F7844F869937619FE30ADF
+JaCoCoAgentSHA256=FB5B0036A0899EA97EDFA0FC2C7985B55F3F7C5695028163E5E60D4F3CF6075D
+JaCoCoCliSHA256=D2B74B20B415163C1F53261E7C5EF4445B788327094208FF821E0C2BAF9BC8F1
+Variants=5
+FrozenTests=43
+TestsExecuted=43
+TestsPassed=40
+TestsFailed=3
+CompleteCoverageSuites=4
+PartialCoverageSuites=1
+FrozenHashGates=5/5
+HistoricalNativeC0Reference=LINE 16/45; BRANCH 4/21; METHOD 3/4
+HistoricalNativeReferenceAgreement=MATCH
+NativeC1C4Execution=BLOCKED_BY_EVOSUITE_ASM_MAJOR_69
+C2DeltaVsC0=N/A_PARTIAL_RUNTIME
+GeneratedTestEdits=0
+Regeneration=No
+PITRun=No
+SonarRun=No
+
+C0: tests=9/9 pass; runtime=PASS; coverage=COMPLETE; LINE=16/45 (35,5556%); BRANCH=4/21 (19,0476%); METHOD=3/4 (75%); delta=0/0/0; comparable=BASELINE
+C1: tests=8/8 pass; runtime=PASS; coverage=COMPLETE; LINE=15/45 (33,3333%); BRANCH=3/21 (14,2857%); METHOD=3/4 (75%); delta=-2.2223/-4.7619/0; comparable=PASS
+C2: tests=6/9 pass; runtime=PARTIAL_FRAMEWORK; coverage=PARTIAL; LINE=18/39 (46,1538%); BRANCH=4/21 (19,0476%); METHOD=3/6 (50%); delta=N/A/N/A/N/A; comparable=N/A_PARTIAL_RUNTIME
+C3: tests=8/8 pass; runtime=PASS; coverage=COMPLETE; LINE=19/43 (44,186%); BRANCH=3/23 (13,0435%); METHOD=4/7 (57,1429%); delta=8.6304/-6.0041/-17.8571; comparable=PASS
+C4: tests=9/9 pass; runtime=PASS; coverage=COMPLETE; LINE=19/44 (43,1818%); BRANCH=3/23 (13,0435%); METHOD=4/7 (57,1429%); delta=7.6262/-6.0041/-17.8571; comparable=PASS

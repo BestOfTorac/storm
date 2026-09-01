@@ -1,0 +1,8 @@
+﻿"Organization","ProjectKey","ExactCandidate","Found","HttpStatus","Name","Qualifier","Visibility"
+"sdrogo","BestOfTorac_storm","YES","YES","200","Apache Storm ISW2","TRK","public"
+"sdrogo","BestOfTorac_storm_v3_0_0","YES","YES","200","Storm","TRK","public"
+"sdrogo","BestOfTorac_storm_m4_redisfilterbolt_c1","NO","YES","200","Storm M4 RedisFilterBolt C1","TRK","public"
+"sdrogo","BestOfTorac_storm_m4_redisfilterbolt_c2","NO","YES","200","Storm M4 RedisFilterBolt C2","TRK","public"
+"sdrogo","BestOfTorac_storm_m4_redisfilterbolt_c3","NO","YES","200","Storm M4 RedisFilterBolt C3","TRK","public"
+"sdrogo","BestOfTorac_storm_m4_redisfilterbolt_c4","NO","YES","200","Storm M4 RedisFilterBolt C4","TRK","public"
+"sdrogo","BestOfTorac_storm_m4_uihelpers_c1","NO","YES","200","Storm M4 UIHelpers C1","TRK","public"

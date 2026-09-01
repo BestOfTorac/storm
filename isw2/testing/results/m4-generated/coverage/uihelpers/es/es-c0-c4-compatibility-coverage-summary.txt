@@ -1,0 +1,42 @@
+UIHELPERS EVOSUITE C0-C4 FINAL JACOCO COMPATIBILITY V3
+
+RepositoryHEAD=611a496af8edc4a0d62191ff8a0f5ed70a789f9d
+MeasurementContractSHA256=22CC8A4E723F5C0AAF1B9105FB6587C11712C9E26641D4E2AC4DF7DFCCB03210
+Technique=ES
+Environment=COMPATIBILITY
+Java=11.0.32
+Storm=2.7.1
+EvoSuite=1.2.0
+JaCoCo=0.8.15
+JaCoCoMode=OFFLINE
+
+PersistedClasspathShape=160 entries
+DependencyJarsRetained=159
+PersistedNonJarRole=VARIANT_TARGET_PROVIDER
+MeasurementTargetProvider=CONTROLLED_REPLACEMENT
+C0Provider=storm-webapp-2.7.1 UIHelpers bytecode
+C1C4Provider=frozen byte-identical surrogate provider
+
+Variants=5
+FrozenTests=220
+TestsExecuted=220
+TestsPassed=194
+TestsFailed=26
+CompleteCoverageUnits=0
+PartialCoverageUnits=5
+UnavailableCoverageUnits=0
+DeltaVsC0=N/A
+ReasonForNoDelta=C0 raw EvoSuite baseline is PARTIAL
+
+IntegrityGates=5/5
+GeneratedTestEdits=0
+Regeneration=No
+SurrogateRebuild=No
+PITRun=No
+SonarRun=No
+
+C0: provider=STORM_2_7_1_ARTIFACT; tests=40/43 pass; fail=3; LINE=256/1112 (23,0216%); BRANCH=52/232 (22,4138%); METHOD=56/121 (46,281%); coverage=PARTIAL; delta=N/A
+C1: provider=FROZEN_SURROGATE_COPY; tests=41/43 pass; fail=2; LINE=197/1117 (17,6365%); BRANCH=50/242 (20,6612%); METHOD=51/120 (42,5%); coverage=PARTIAL; delta=N/A
+C2: provider=FROZEN_SURROGATE_COPY; tests=35/41 pass; fail=6; LINE=228/1116 (20,4301%); BRANCH=54/242 (22,314%); METHOD=51/119 (42,8571%); coverage=PARTIAL; delta=N/A
+C3: provider=FROZEN_SURROGATE_COPY; tests=40/48 pass; fail=8; LINE=253/1116 (22,6703%); BRANCH=62/242 (25,6198%); METHOD=53/120 (44,1667%); coverage=PARTIAL; delta=N/A
+C4: provider=FROZEN_SURROGATE_COPY; tests=38/45 pass; fail=7; LINE=282/1116 (25,2688%); BRANCH=61/242 (25,2066%); METHOD=53/120 (44,1667%); coverage=PARTIAL; delta=N/A

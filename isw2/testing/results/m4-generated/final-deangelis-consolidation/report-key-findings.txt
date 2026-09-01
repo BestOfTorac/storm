@@ -1,0 +1,43 @@
+﻿======================================================
+ ISW2 STORM - DE ANGELIS FINAL RESULT ANALYSIS
+======================================================
+HEAD            : 611a496af8edc4a0d62191ff8a0f5ed70a789f9d
+Local=Remote    : True
+
+--- Experimental completeness ---
+30 total class/variant/technique units consolidated.
+PIT MEASURED units : 20/30
+PIT N/A units      : 10/30
+Suite blockers     : 8
+Compile blockers   : 2
+Comparable PIT C1-C4 deltas: 15/24
+
+PIT averages must be interpreted only over MEASURED units; N/A units are not zeros.
+Cross-class raw averages are intentionally avoided because UIHelpers and RedisFilterBolt differ strongly in size and mutant population.
+
+--- UIHelpers: C0 technique comparison ---
+Highest line coverage       : ES (23.0216)
+Highest branch coverage     : ES (22.4138)
+Highest method coverage     : ES (46.281)
+Highest mutation score      : LLM (14.497)
+Highest test strength       : LLM (98)
+Highest descriptive-name %% : LLM (100)
+Lowest code smells          : LLM (0)
+Lowest technical debt       : LLM (0)
+
+--- RedisFilterBolt: C0 technique comparison ---
+Highest line coverage       : LLM (84.4444)
+Highest branch coverage     : LLM (80.9524)
+Highest method coverage     : RND (100)
+Highest mutation score      : LLM (75)
+Highest test strength       : LLM (75)
+Highest descriptive-name %% : LLM (100)
+Lowest code smells          : LLM (3)
+Lowest technical debt       : ES (247)
+
+--- Interpretation rules ---
+Coverage deltas are percentage-point differences relative to the same technique on C0.
+Mutation deltas are reported only when both C0 and the refactored variant were PIT MEASURED.
+Lower code-smell/debt values are favorable only as maintainability indicators; they do not replace adequacy measures.
+Assertions-per-test and LOC are descriptive structural measures and are not treated as monotonic quality scores.
+======================================================

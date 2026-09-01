@@ -1,0 +1,7 @@
+﻿"Class","Technique","TestsExecuted","LineCoveragePct","BranchCoveragePct","MethodCoveragePct","MutationStatus","MutationBlocker","MutationScorePct","TestStrengthPct","TotalLOC","AssertionsPerTest","DescriptiveNamePct","CodeSmells","DistinctRules","TechnicalDebtMinutes","Consistent","Intentional","Adaptable","Responsible"
+"RedisFilterBolt","ES","9","35.5556","19.0476","75","MEASURED","NONE","16.6667","66.6667","557","0.8889","0","28","9","247","11","15","2","0"
+"RedisFilterBolt","LLM","11","84.4444","80.9524","75","MEASURED","NONE","75","75","168","2.7273","100","3","3","301","0","2","1","0"
+"RedisFilterBolt","RND","11","48.8889","4.7619","100","MEASURED","NONE","0","0","172","1.1818","0","70","9","806","0","58","12","0"
+"UIHelpers","ES","43","23.0216","22.4138","46.281","N/A","SUITE_NOT_FULLY_PASSING","","","3508","0.9302","0","84","13","1023","11","72","1","0"
+"UIHelpers","LLM","35","7.1301","15.2893","13.9344","MEASURED","NONE","14.497","98","333","1.1714","100","0","0","0","0","0","0","0"
+"UIHelpers","RND","35","10.2496","12.3967","26.2295","MEASURED","NONE","9.4675","45.0704","434","1.6","0","183","7","1432","4","144","35","0"

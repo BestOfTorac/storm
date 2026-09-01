@@ -1,0 +1,34 @@
+UIHELPERS LLM C0-C4 VALIDITY-GATED JACOCO COVERAGE
+
+RepositoryHEAD=611a496af8edc4a0d62191ff8a0f5ed70a789f9d
+MeasurementContractSHA256=22CC8A4E723F5C0AAF1B9105FB6587C11712C9E26641D4E2AC4DF7DFCCB03210
+Technique=LLM
+Environment=Storm 3.0.0 / Java 25
+Java=25.0.4
+JaCoCo=0.8.15
+JUnitPlatformConsole=6.1.1
+Variants=5
+CompilePass=3
+CompileFail=2
+CompleteCoverageUnits=1
+PartialCoverageUnits=2
+UnavailableCoverageUnits=2
+ExecutedTests=105
+PassedTests=101
+FailedTests=4
+FrozenAndStagingHashGates=5/5
+C1Coverage=N/A_COMPILE_BLOCKER
+C2Coverage=PARTIAL
+C3Coverage=PARTIAL
+C4Coverage=N/A_COMPILE_BLOCKER
+PartialOrBlockedDeltaVsC0=N/A
+GeneratedTestEdits=0
+Regeneration=No
+PITRun=No
+SonarRun=No
+
+C0: compile=PASS; tests=35/35 pass; runtime=PASS; coverage=COMPLETE; LINE=80/1122 (7,1301%); BRANCH=37/242 (15,2893%); METHOD=17/122 (13,9344%); delta=0/0/0
+C1: compile=FAIL; runtime=NOT_RUN; coverage=N/A; delta=N/A; compiler=javac.exe : C:\Users\torac\Desktop\ISW2-STORM\storm\isw2\testing\target\m4-generated\coverage\uihelpers\llm\c1\test-src\org\apache\storm\daemon\ui\UIHelpersLLMTest.java:225: error: incompatible types:
+C2: compile=PASS; tests=34/35 pass; runtime=PARTIAL_TEST_FAILURE; coverage=PARTIAL; LINE=79/1116 (7,0789%); BRANCH=33/242 (13,6364%); METHOD=17/119 (14,2857%); delta=N/A/N/A/N/A
+C3: compile=PASS; tests=32/35 pass; runtime=PARTIAL_TEST_FAILURE; coverage=PARTIAL; LINE=97/1116 (8,6918%); BRANCH=38/242 (15,7025%); METHOD=21/120 (17,5%); delta=N/A/N/A/N/A
+C4: compile=FAIL; runtime=NOT_RUN; coverage=N/A; delta=N/A; compiler=javac.exe : C:\Users\torac\Desktop\ISW2-STORM\storm\isw2\testing\target\m4-generated\coverage\uihelpers\llm\c4\test-src\org\apache\storm\daemon\ui\UIHelpersLLMTest.java:187: error: incompatible types: Map<String,Object>

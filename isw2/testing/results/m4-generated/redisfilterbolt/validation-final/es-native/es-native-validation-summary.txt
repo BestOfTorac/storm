@@ -1,0 +1,21 @@
+Class=org.apache.storm.redis.bolt.RedisFilterBolt
+Technique=T_ES
+ValidationEnvironment=Storm 3.0.0 native
+Java=25.0.4
+RepositoryHEAD=611a496af8edc4a0d62191ff8a0f5ed70a789f9d
+Variants=4
+FrozenRawTests=34
+CompilePassSuites=4
+FullyNativeValidSuites=0
+TestsRun=4
+TestsPassed=0
+Failures=4
+GeneratedTestEdits=0
+Regeneration=No
+CoverageRun=No
+PITRun=No
+
+C1: raw=8; integrity=PASS; prod=PASS; compile=PASS; runtime=FAIL (0/1 PASS; 1 failures); status=FAIL
+C2: raw=9; integrity=PASS; prod=PASS; compile=PASS; runtime=FAIL (0/1 PASS; 1 failures); status=FAIL
+C3: raw=8; integrity=PASS; prod=PASS; compile=PASS; runtime=FAIL (0/1 PASS; 1 failures); status=FAIL
+C4: raw=9; integrity=PASS; prod=PASS; compile=PASS; runtime=FAIL (0/1 PASS; 1 failures); status=FAIL

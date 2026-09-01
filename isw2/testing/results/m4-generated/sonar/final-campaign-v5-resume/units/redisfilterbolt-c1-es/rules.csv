@@ -1,0 +1,7 @@
+﻿"Class","Variant","Technique","Unit","RuleKey","RuleName","Type","Severity","CleanCodeAttribute","CleanCodeCategory","SoftwareQualityImpacts","IssueCount"
+"RedisFilterBolt","C1","ES","redisfilterbolt-c1-es","java:S101","Class names should comply with a naming convention","CODE_SMELL","MINOR","IDENTIFIABLE","CONSISTENT","MAINTAINABILITY:LOW","2"
+"RedisFilterBolt","C1","ES","redisfilterbolt-c1-es","java:S108","Nested blocks of code should not be left empty","CODE_SMELL","MAJOR","CLEAR","INTENTIONAL","MAINTAINABILITY:MEDIUM","1"
+"RedisFilterBolt","C1","ES","redisfilterbolt-c1-es","java:S112","Generic exceptions should never be thrown","CODE_SMELL","MAJOR","COMPLETE","INTENTIONAL","MAINTAINABILITY:MEDIUM","8"
+"RedisFilterBolt","C1","ES","redisfilterbolt-c1-es","java:S1128","Unnecessary imports should be removed","CODE_SMELL","MINOR","CLEAR","INTENTIONAL","MAINTAINABILITY:LOW","3"
+"RedisFilterBolt","C1","ES","redisfilterbolt-c1-es","java:S117","Local variable and method parameter names should comply with a naming convention","CODE_SMELL","MINOR","IDENTIFIABLE","CONSISTENT","MAINTAINABILITY:LOW","8"
+"RedisFilterBolt","C1","ES","redisfilterbolt-c1-es","java:S1192","String literals should not be duplicated","CODE_SMELL","CRITICAL","DISTINCT","ADAPTABLE","MAINTAINABILITY:HIGH","2"

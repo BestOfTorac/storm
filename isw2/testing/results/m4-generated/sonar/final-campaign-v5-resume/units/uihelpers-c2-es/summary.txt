@@ -1,0 +1,31 @@
+ISW2 STORM SONARCLOUD FINAL UNIT V5
+
+Class=UIHelpers
+Variant=C2
+Technique=ES
+Unit=uihelpers-c2-es
+Environment=COMPATIBILITY_JAVA11
+CompileStatus=PASS
+
+CEStatus=SUCCESS
+AnalysisId=c521e337-0380-43f1-b3e3-49b9e1699bb3
+AnalyzedFiles=2/2
+ComponentGate=PASS
+SourceHashGate=2/2 PASS
+
+NCLOC=3295
+CodeSmells=67
+DistinctRules=11
+TechnicalDebtMinutes=913
+
+Consistent=10
+Intentional=56
+Adaptable=1
+Responsible=0
+SemanticWarnings=0
+
+IssueScope=CODE_SMELL_AND_RESOLVED_FALSE
+ConvergenceAttempts=1
+TestEdits=No
+Regeneration=No
+Repair=No

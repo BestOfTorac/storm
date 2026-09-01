@@ -1,0 +1,3 @@
+﻿"Class","Variant","Technique","Unit","RuleKey","RuleName","Type","Severity","CleanCodeAttribute","CleanCodeCategory","SoftwareQualityImpacts","IssueCount"
+"UIHelpers","C2","LLM","uihelpers-c2-llm","java:S100","Method names should comply with a naming convention","CODE_SMELL","MINOR","IDENTIFIABLE","CONSISTENT","MAINTAINABILITY:LOW","35"
+"UIHelpers","C2","LLM","uihelpers-c2-llm","java:S1128","Unnecessary imports should be removed","CODE_SMELL","MINOR","CLEAR","INTENTIONAL","MAINTAINABILITY:LOW","1"

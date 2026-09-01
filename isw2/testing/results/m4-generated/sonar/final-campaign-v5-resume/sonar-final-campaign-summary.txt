@@ -1,0 +1,43 @@
+ISW2 STORM FINAL SONARCLOUD RESUME 12-30 V5
+
+RepositoryHEAD=611a496af8edc4a0d62191ff8a0f5ed70a789f9d
+Organization=sdrogo
+ProjectKey=BestOfTorac_storm_m4_generated_suites
+Scanner=8.1.0.6389
+JavaNative=25.0.4
+JavaCompatibility=11.0.32
+
+CheckpointUnits1to10=10/10 PASS
+Unit11Recovery=PASS
+Unit11Metric=13
+Unit11CurrentIssues=13
+CurrentIssueFilter=types CODE_SMELL + resolved false
+NewRunRange=12-30
+
+Units=30/30
+Measured=30/30
+ComponentGate=30/30
+SourceHashGate=60/60
+ValidDeltas=24/24
+
+CompilePASS=28
+SourceOnlyFallback=2
+SemanticWarningUnits=0
+
+TotalCodeSmells=1779
+TotalIssueRows=1779
+TotalTechnicalDebtMinutes=18893
+
+CleanCode.CONSISTENT=208
+CleanCode.INTENTIONAL=1316
+CleanCode.ADAPTABLE=255
+CleanCode.RESPONSIBLE=0
+
+HistoricalResolvedIssuesExcluded=Yes
+HistoricalResultReuse=LocalSnapshotsOnly
+TestEdits=No
+Regeneration=No
+Repair=No
+PIT=No
+Coverage=No
+OtherStormProjectsOverwritten=No

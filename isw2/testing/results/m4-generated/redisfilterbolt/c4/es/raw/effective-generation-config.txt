@@ -1,0 +1,16 @@
+EvoSuiteVersion=1.2.0
+Criterion=BRANCH
+SeedOption=-seed
+Seed=20260820
+SeedConfirmedInLog=True
+SearchBudgetSeconds=15
+NewStatistics=false
+TestFormat=JUNIT4
+Sandbox=false
+StormCompatibilityVersion=2.7.1
+DependencyEntries=41
+SafeClasspathSource=RedisFilterBolt C1 audited harness
+SafeClasspathSHA256=C99A99973EC78C6FF523FD31C007D11E5B00C34540F7844F869937619FE30ADF
+JacksonJava11Safe=true
+BcprovJava11Safe=true
+CompatibilityTransformations=0

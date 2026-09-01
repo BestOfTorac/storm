@@ -1,0 +1,5 @@
+﻿"Class","Technique","Role","TestMethods","File","RelativePath","SHA256"
+"RedisFilterBolt","ES","LOGIC","9","RedisFilterBolt_ESTest.java","isw2\testing\evosuite\redisfilterbolt\raw\RedisFilterBolt_ESTest.java","B60503F59A7583C3AA88F1C068588B597E5D020982A986DBC9F224C8631841A8"
+"RedisFilterBolt","ES","SUPPORT","0","RedisFilterBolt_ESTest_scaffolding.java","isw2\testing\evosuite\redisfilterbolt\raw\RedisFilterBolt_ESTest_scaffolding.java","E49E0BCEE64589CBD4A28B843988FD2AE33C055B97446A66EDE3B68267D71B7B"
+"UIHelpers","ES","LOGIC","43","UIHelpers_ESTest.java","isw2\testing\evosuite\uihelpers\raw\UIHelpers_ESTest.java","67861A595589422E9DDC5B104E0386194F7F9AF674212CAB8AF53ADB27748235"
+"UIHelpers","ES","SUPPORT","0","UIHelpers_ESTest_scaffolding.java","isw2\testing\evosuite\uihelpers\raw\UIHelpers_ESTest_scaffolding.java","1E09A1DC121621D7A020573F90C0D0C0C4F515E2B2B691646BF3584C2B23B1F5"

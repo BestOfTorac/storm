@@ -1,0 +1,7 @@
+﻿"Class","Technique","Variants","AvgTestsExecuted","AvgLineCoveragePct","AvgBranchCoveragePct","AvgMethodCoveragePct","PITMeasuredVariants","AvgMutationScorePctMeasuredOnly","AvgTestStrengthPctMeasuredOnly","AvgTotalLOC","AvgAssertionsPerTest","AvgDescriptiveNamePct","AvgCodeSmells","AvgDistinctRules","AvgTechnicalDebtMinutes","MinCodeSmells","MaxCodeSmells"
+"UIHelpers","RND","5","35","10.5427","12.3141","26.7921","5","9.3186","43.4247","438","1.7029","0","182.8","7","1432.4","182","183"
+"UIHelpers","ES","5","44","21.8055","23.2431","43.9943","0","","","3330.4","0.959","0","74","12","993.2","67","84"
+"UIHelpers","LLM","5","21","7.6336","14.8761","15.24","1","14.497","98","225.6","1.2857","100","7.8","0.6","35.8","0","36"
+"RedisFilterBolt","RND","5","11","54.342","4.5963","81.9048","5","0","0","155.2","1.0364","0","54","9.8","745.2","50","70"
+"RedisFilterBolt","ES","5","8.6","40.4821","15.6936","62.8572","4","4.1667","16.6667","526.6","0.8611","0","25.8","7.4","227.4","23","28"
+"RedisFilterBolt","LLM","5","11","81.429","81.6977","75.9524","5","78.4522","79.8158","173","3.0182","100","11.4","3.2","344.6","3","15"

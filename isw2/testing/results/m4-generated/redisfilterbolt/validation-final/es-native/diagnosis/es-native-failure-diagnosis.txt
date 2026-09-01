@@ -1,0 +1,18 @@
+Class=org.apache.storm.redis.bolt.RedisFilterBolt
+Technique=T_ES
+ValidationEnvironment=Storm 3.0.0 native
+RepositoryHEAD=611a496af8edc4a0d62191ff8a0f5ed70a789f9d
+Variants=4
+InitializationErrors=4
+CommonCategory=EVOSUITE_ASM_UNSUPPORTED_BYTECODE
+UnsupportedMajor=69
+GeneratedTestEdits=0
+Regeneration=No
+ReExecution=No
+CoverageRun=No
+PITRun=No
+
+C1: init=YES; category=EVOSUITE_ASM_UNSUPPORTED_BYTECODE; exception=java.lang.ClassNotFoundException: Unsupported class file major version 69; header=1) initializationError(org.apache.storm.redis.bolt.RedisFilterBolt_ESTest)
+C2: init=YES; category=EVOSUITE_ASM_UNSUPPORTED_BYTECODE; exception=java.lang.ClassNotFoundException: Unsupported class file major version 69; header=1) initializationError(org.apache.storm.redis.bolt.RedisFilterBolt_ESTest)
+C3: init=YES; category=EVOSUITE_ASM_UNSUPPORTED_BYTECODE; exception=java.lang.ClassNotFoundException: Unsupported class file major version 69; header=1) initializationError(org.apache.storm.redis.bolt.RedisFilterBolt_ESTest)
+C4: init=YES; category=EVOSUITE_ASM_UNSUPPORTED_BYTECODE; exception=java.lang.ClassNotFoundException: Unsupported class file major version 69; header=1) initializationError(org.apache.storm.redis.bolt.RedisFilterBolt_ESTest)

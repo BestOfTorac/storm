@@ -1,0 +1,26 @@
+REDISFILTERBOLT RND C0-C4 FINAL JACOCO COVERAGE
+
+RepositoryHEAD=611a496af8edc4a0d62191ff8a0f5ed70a789f9d
+Technique=RND
+Environment=Storm 3.0.0 / Java 25
+Java=25.0.4
+JaCoCo=0.8.15
+AgentSHA256=FB5B0036A0899EA97EDFA0FC2C7985B55F3F7C5695028163E5E60D4F3CF6075D
+CliSHA256=D2B74B20B415163C1F53261E7C5EF4445B788327094208FF821E0C2BAF9BC8F1
+Variants=5
+TestsPerVariant=11
+AllTestsPassed=55/55
+FrozenHashGates=5/5
+HistoricalC0Reproduction=PASS
+HistoricalC0Lines=22/45
+HistoricalC0Branches=1/21
+HistoricalC0Methods=4/4
+GeneratedTestEdits=0
+PITRun=No
+SonarRun=No
+
+C0: line=22/45 (48,8889%); branch=1/21 (4,7619%); method=4/4 (100%); dLine=0pp; dBranch=0pp; dMethod=0pp
+C1: line=22/45 (48,8889%); branch=1/21 (4,7619%); method=4/4 (100%); dLine=0pp; dBranch=0pp; dMethod=0pp
+C2: line=23/39 (58,9744%); branch=1/21 (4,7619%); method=4/6 (66,6667%); dLine=10,0855pp; dBranch=0pp; dMethod=-33,3333pp
+C3: line=25/43 (58,1395%); branch=1/23 (4,3478%); method=5/7 (71,4286%); dLine=9,2506pp; dBranch=-0,4141pp; dMethod=-28,5714pp
+C4: line=25/44 (56,8182%); branch=1/23 (4,3478%); method=5/7 (71,4286%); dLine=7,9293pp; dBranch=-0,4141pp; dMethod=-28,5714pp

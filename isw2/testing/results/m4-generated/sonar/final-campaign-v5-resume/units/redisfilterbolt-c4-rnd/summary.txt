@@ -1,0 +1,31 @@
+ISW2 STORM SONARCLOUD FINAL UNIT V5
+
+Class=RedisFilterBolt
+Variant=C4
+Technique=RND
+Unit=redisfilterbolt-c4-rnd
+Environment=NATIVE_JAVA25
+CompileStatus=PASS
+
+CEStatus=SUCCESS
+AnalysisId=7f1b75ba-1499-4fcf-895a-eded1dde6206
+AnalyzedFiles=4/4
+ComponentGate=PASS
+SourceHashGate=4/4 PASS
+
+NCLOC=241
+CodeSmells=50
+DistinctRules=10
+TechnicalDebtMinutes=730
+
+Consistent=0
+Intentional=38
+Adaptable=12
+Responsible=0
+SemanticWarnings=0
+
+IssueScope=CODE_SMELL_AND_RESOLVED_FALSE
+ConvergenceAttempts=2
+TestEdits=No
+Regeneration=No
+Repair=No

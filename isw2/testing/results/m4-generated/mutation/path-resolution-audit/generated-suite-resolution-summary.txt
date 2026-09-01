@@ -1,0 +1,17 @@
+ISW2 STORM GENERATED SUITE PATH RESOLUTION AUDIT V1
+
+RepositoryHEAD=611a496af8edc4a0d62191ff8a0f5ed70a789f9d
+ReadOnly=Yes
+Compilation=No
+TestExecution=No
+PIT=No
+
+ExpectedUnits=24
+ResolvedPASS=0
+Failed=24
+CandidateFiles=0
+
+RedisC1ESStatus=NO_FILES
+RedisC1ESFiles=0
+RedisC1ESTests=0/8
+RedisC1ESPaths=

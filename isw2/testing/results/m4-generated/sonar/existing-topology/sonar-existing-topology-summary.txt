@@ -1,0 +1,16 @@
+ISW2 STORM EXISTING SONARCLOUD TOPOLOGY AUDIT V1
+
+RepositoryHEAD=611a496af8edc4a0d62191ff8a0f5ed70a789f9d
+Organization=sdrogo
+Authentication=VALID
+TokenStored=No
+SonarAnalysisRun=No
+
+StormProjects=7
+M1Main=1
+BaselineV300=1
+M4Dedicated=5
+M4ProductionVariants=5
+M4GeneratedTestProjects=0
+RedisM4Projects=4
+UIHelpersM4Projects=1

@@ -1,0 +1,16 @@
+ISW2 STORM AUTHENTICATED SONARCLOUD IDENTITY V5
+
+RepositoryHEAD=611a496af8edc4a0d62191ff8a0f5ed70a789f9d
+Organization=sdrogo
+Authentication=VALID
+TokenStoredInEvidence=No
+Scanner=C:\Users\torac\tools\sonar-scanner-8.1.0.6389-windows-x64\bin\sonar-scanner.bat
+
+AccessibleProjects=7
+StormProjects=7
+ExactHistoricalCandidatesFound=2
+
+SelectedProject=UNRESOLVED
+DecisionBasis=MULTIPLE_EXACT_PROJECTS
+
+SonarAnalysisRun=No

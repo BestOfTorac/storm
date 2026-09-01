@@ -1,0 +1,25 @@
+ISW2 STORM SONARCLOUD HISTORICAL IDENTITY AUDIT V3
+
+RepositoryHEAD=611a496af8edc4a0d62191ff8a0f5ed70a789f9d
+Organization=sdrogo
+ScannerPath=C:\Users\torac\tools\sonar-scanner-8.1.0.6389-windows-x64\bin\sonar-scanner.bat
+ScannerExists=True
+ScannerVersionStatus=PASS
+
+BestOfTorac_storm.HistoryOccurrences=11
+BestOfTorac_storm.StrongRuntimeEvidence=0
+BestOfTorac_storm.TrackedConfigRefs=0
+BestOfTorac_storm.ApiStatus=PASS_EMPTY
+BestOfTorac_storm.ApiFound=NO
+
+BestOfTorac_storm_v3_0_0.HistoryOccurrences=0
+BestOfTorac_storm_v3_0_0.StrongRuntimeEvidence=0
+BestOfTorac_storm_v3_0_0.TrackedConfigRefs=0
+BestOfTorac_storm_v3_0_0.ApiStatus=PASS_EMPTY
+BestOfTorac_storm_v3_0_0.ApiFound=NO
+
+SelectedProject=UNRESOLVED
+DecisionBasis=
+
+SonarRun=No
+TokenUsed=No

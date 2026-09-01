@@ -1,0 +1,8 @@
+﻿"Class","Variant","Technique","Unit","RuleKey","RuleName","Type","Severity","CleanCodeAttribute","CleanCodeCategory","SoftwareQualityImpacts","IssueCount"
+"UIHelpers","C4","RND","uihelpers-c4-rnd","java:S106","Standard outputs should not be used directly to log anything","CODE_SMELL","MAJOR","MODULAR","ADAPTABLE","MAINTAINABILITY:MEDIUM","35"
+"UIHelpers","C4","RND","uihelpers-c4-rnd","java:S112","Generic exceptions should never be thrown","CODE_SMELL","MAJOR","COMPLETE","INTENTIONAL","MAINTAINABILITY:MEDIUM","35"
+"UIHelpers","C4","RND","uihelpers-c4-rnd","java:S1125","Boolean literals should not be redundant","CODE_SMELL","MINOR","CONVENTIONAL","CONSISTENT","MAINTAINABILITY:LOW","4"
+"UIHelpers","C4","RND","uihelpers-c4-rnd","java:S1481","Unused local variables should be removed","CODE_SMELL","MINOR","CLEAR","INTENTIONAL","MAINTAINABILITY:LOW","24"
+"UIHelpers","C4","RND","uihelpers-c4-rnd","java:S1854","Unused assignments should be removed","CODE_SMELL","MAJOR","LOGICAL","INTENTIONAL","MAINTAINABILITY:MEDIUM","24"
+"UIHelpers","C4","RND","uihelpers-c4-rnd","java:S1905","Redundant casts should not be used","CODE_SMELL","MINOR","CLEAR","INTENTIONAL","MAINTAINABILITY:LOW","32"
+"UIHelpers","C4","RND","uihelpers-c4-rnd","java:S7467","Unused exception parameter should use the unnamed variable pattern","CODE_SMELL","MINOR","CLEAR","INTENTIONAL","MAINTAINABILITY:LOW","29"

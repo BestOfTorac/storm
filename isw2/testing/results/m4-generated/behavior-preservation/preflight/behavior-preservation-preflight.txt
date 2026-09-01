@@ -1,0 +1,30 @@
+ISW2 STORM BEHAVIOR PRESERVATION SUITE INVENTORY
+
+RepositoryHEAD=611a496af8edc4a0d62191ff8a0f5ed70a789f9d
+MeasurementContractSHA256=22CC8A4E723F5C0AAF1B9105FB6587C11712C9E26641D4E2AC4DF7DFCCB03210
+CoverageMatrixSHA256=D830A30C00928C10498B66BE129CF1A2C90D0B20747449DC38F214E295A20691
+
+TestExecution=No
+Compilation=No
+CoverageRun=No
+PITRun=No
+SonarRun=No
+
+InventorySHA256=3655BEA72227380527311E5FFFD6A3F11277235A811B93A498431BEB1662128E
+SuiteSummarySHA256=8EF172A350F1CFB2AD94780BEDE793DEE9D5FCDCED82344D6FAFAF0B3CAF64B7
+
+UIHelpers-BB: status=LOCATED; files=10; tests=35; junit=JUNIT5
+UIHelpers-CF: status=LOCATED; files=1; tests=10; junit=JUNIT5
+UIHelpers-MT: status=LOCATED; files=1; tests=8; junit=JUNIT5
+UIHelpers-RND: status=LOCATED; files=2; tests=35; junit=JUNIT4
+UIHelpers-ES: status=LOCATED; files=2; tests=43; junit=JUNIT4
+UIHelpers-LLM: status=LOCATED; files=1; tests=35; junit=JUNIT5
+RedisFilterBolt-BB: status=LOCATED; files=1; tests=11; junit=JUNIT5
+RedisFilterBolt-CF: status=LOCATED; files=1; tests=4; junit=JUNIT5
+RedisFilterBolt-MT: status=NOT_YET_LOCATED; files=0; tests=0; junit=
+RedisFilterBolt-RND: status=LOCATED; files=2; tests=11; junit=JUNIT4
+RedisFilterBolt-ES: status=LOCATED; files=2; tests=9; junit=JUNIT4
+RedisFilterBolt-LLM: status=LOCATED; files=1; tests=11; junit=JUNIT5
+
+RedisMutationJavaCandidates=0
+RedisMutationDocumentationReferences=3

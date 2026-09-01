@@ -1,0 +1,16 @@
+Class=org.apache.storm.redis.bolt.RedisFilterBolt
+Technique=T_RND
+Environment=Native Storm 3.0.0
+Java=25.0.4
+RepositoryHEAD=611a496af8edc4a0d62191ff8a0f5ed70a789f9d
+Variants=4
+ExpectedTestsPerVariant=11
+GeneratedTestEdits=0
+CoverageRun=No
+PITRun=No
+OverallStatus=PASS
+
+C1: tests=11; integrity=PASS; prod=PASS; support=PASS; compile=PASS; junit=OK (11 tests); status=PASS
+C2: tests=11; integrity=PASS; prod=PASS; support=PASS; compile=PASS; junit=OK (11 tests); status=PASS
+C3: tests=11; integrity=PASS; prod=PASS; support=PASS; compile=PASS; junit=OK (11 tests); status=PASS
+C4: tests=11; integrity=PASS; prod=PASS; support=PASS; compile=PASS; junit=OK (11 tests); status=PASS

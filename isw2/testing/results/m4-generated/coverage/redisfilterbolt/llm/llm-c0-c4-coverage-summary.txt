@@ -1,0 +1,28 @@
+REDISFILTERBOLT LLM C0-C4 FINAL JACOCO COVERAGE
+
+RepositoryHEAD=611a496af8edc4a0d62191ff8a0f5ed70a789f9d
+Technique=LLM
+Environment=Storm 3.0.0 / Java 25
+Java=25.0.4
+JaCoCo=0.8.15
+JUnitPlatformConsole=6.1.1
+JaCoCoAgentSHA256=FB5B0036A0899EA97EDFA0FC2C7985B55F3F7C5695028163E5E60D4F3CF6075D
+JaCoCoCliSHA256=D2B74B20B415163C1F53261E7C5EF4445B788327094208FF821E0C2BAF9BC8F1
+JUnitConsoleSHA256=7B16416E5727C645105C31B533440397F20DF68F6AE850C6BFD0CE1D88DB66C3
+Variants=5
+TestsPerVariant=11
+AllTestsPassed=55/55
+FrozenHashGates=5/5
+HistoricalC0Reproduction=PASS
+HistoricalC0Lines=38/45
+HistoricalC0Branches=17/21
+HistoricalC0Methods=3/4
+GeneratedTestEdits=0
+PITRun=No
+SonarRun=No
+
+C0: line=38/45 (84,4444%); branch=17/21 (80,9524%); method=3/4 (75%); dLine=0pp; dBranch=0pp; dMethod=0pp
+C1: line=36/45 (80%); branch=18/21 (85,7143%); method=2/4 (50%); dLine=-4,4444pp; dBranch=4,7619pp; dMethod=-25pp
+C2: line=31/39 (79,4872%); branch=17/21 (80,9524%); method=5/6 (83,3333%); dLine=-4,9572pp; dBranch=0pp; dMethod=8,3333pp
+C3: line=35/43 (81,3953%); branch=17/23 (73,913%); method=6/7 (85,7143%); dLine=-3,0491pp; dBranch=-7,0394pp; dMethod=10,7143pp
+C4: line=36/44 (81,8182%); branch=20/23 (86,9565%); method=6/7 (85,7143%); dLine=-2,6262pp; dBranch=6,0041pp; dMethod=10,7143pp

@@ -1,0 +1,12 @@
+Generator=EvoSuite 1.2.0
+Target=org.apache.storm.redis.bolt.RedisFilterBolt
+Java=11.0.32
+ProjectCP=SafeSurrogate + 41 Java11-safe dependency entries
+SeedOption=-seed
+Seed=20260820
+Criterion=BRANCH
+SearchBudgetSeconds=15
+NewStatistics=false
+TestFormat=JUNIT4
+Sandbox=false
+TestDir=C:\Users\torac\Desktop\ISW2-STORM\storm\isw2\testing\target\m4-generated\redisfilterbolt\c1\es\raw
