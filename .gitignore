@@ -77,3 +77,30 @@ install-shade.txt
 node_modules/
 storm-webapp/node/
 tmp
+# ============================================================
+# ISW2 - artefatti sperimentali locali non versionati
+#
+# Questi file sono output ricostruibili o campagne superate.
+# Le evidence canoniche CSV/XML/TXT restano invece versionate.
+# ============================================================
+
+# JaCoCo: execution data e sito HTML ricostruibile
+isw2/testing/results/m4-generated/coverage/**/*.exec
+isw2/testing/results/m4-generated/coverage/**/*.html
+isw2/testing/results/m4-generated/coverage/**/*.htm
+isw2/testing/results/m4-generated/coverage/**/*.css
+isw2/testing/results/m4-generated/coverage/**/*.js
+isw2/testing/results/m4-generated/coverage/**/*.gif
+isw2/testing/results/m4-generated/coverage/**/*.png
+isw2/testing/results/m4-generated/coverage/**/*.svg
+
+# PIT: sito HTML/CSS ricostruibile
+isw2/testing/results/m4-generated/mutation/**/*.html
+isw2/testing/results/m4-generated/mutation/**/*.htm
+isw2/testing/results/m4-generated/mutation/**/*.css
+
+# Sonar: campagne intermedie/superate
+isw2/testing/results/m4-generated/sonar/final-campaign-v2/
+isw2/testing/results/m4-generated/sonar/final-campaign-v3-resume/
+isw2/testing/results/m4-generated/sonar/final-campaign-v4-resume/
+isw2/testing/results/m4-generated/sonar/pilot-v1/
