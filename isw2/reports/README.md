@@ -130,6 +130,9 @@ Questa struttura permette di mantenere il documento finale sintetico senza perde
 
 ## 6. Stato della cartella
 
-Fino alla generazione dei documenti finali, questo README descrive il ruolo previsto della directory.
+L'audit incrociato finale è stato completato. I documenti definitivi versionati in questa directory sono:
 
-I report definitivi verranno aggiunti qui soltanto dopo il completamento dell'audit incrociato dei valori utilizzati.
+- [`Torac_Valerio_Apache_Storm_Falessi.pdf`](Torac_Valerio_Apache_Storm_Falessi.pdf) — report finale del percorso Falessi, Milestone M1-M4;
+- [`Torac_Valerio_Report_SoftwareTesting_STORM.pdf`](Torac_Valerio_Report_SoftwareTesting_STORM.pdf) — report finale del percorso Software Testing / De Angelis.
+
+I report fanno riferimento agli artefatti canonici indicati in [`../ARTIFACTS.md`](../ARTIFACTS.md) e al branch `isw2-project`.
